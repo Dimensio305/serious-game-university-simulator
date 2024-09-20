@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddrq4pbm6xai5"]
+
+[ext_resource type="Script" path="res://Menu/coce_i_menu.cs" id="1_w2ej2"]
+
+[node name="i_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w2ej2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 273.0
+offset_right = 703.0
+offset_bottom = 430.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="b_court" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Court"
+
+[node name="b_long" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Long"
+
+[node name="b_quittez" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quittez"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/b_court" to="." method="_on_b_court_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/b_long" to="." method="_on_b_long_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/b_quittez" to="." method="_on_b_quittez_pressed"]

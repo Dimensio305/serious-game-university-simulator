@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://beernvimp8h4f"]
+
+[node name="jeu_court" type="Node2D"]
