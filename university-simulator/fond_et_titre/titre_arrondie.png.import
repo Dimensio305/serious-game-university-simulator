@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtq7e74vrd5w6"
-path="res://.godot/imported/Designer (9).jpeg-21ef18e9e2e57706ebe8d7f7c5512d57.ctex"
+uid="uid://cyfw0qx1vf21n"
+path="res://.godot/imported/titre_arrondie.png-cb5f919caac66a9b092db8e7cf67158a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fond_et_titre/Designer (9).jpeg"
-dest_files=["res://.godot/imported/Designer (9).jpeg-21ef18e9e2e57706ebe8d7f7c5512d57.ctex"]
+source_file="res://fond_et_titre/titre_arrondie.png"
+dest_files=["res://.godot/imported/titre_arrondie.png-cb5f919caac66a9b092db8e7cf67158a.ctex"]
 
 [params]
 

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://7m1w7iufren7"]
+[gd_scene load_steps=6 format=3 uid="uid://b8b40fij0togx"]
 
 [ext_resource type="Texture2D" uid="uid://broomqjnpwirp" path="res://fond_et_titre/rsz_designer_8.jpg" id="1_5q37t"]
+[ext_resource type="Script" path="res://Menu/Chargement.cs" id="2_edy0i"]
+[ext_resource type="Texture2D" uid="uid://iucqa57hg7p4" path="res://fond_et_titre/titre_arrondi_vide.png" id="2_f0ahw"]
+[ext_resource type="FontFile" uid="uid://bqbvpxndw8l5h" path="res://police/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" id="4_iknn6"]
+
+[sub_resource type="Theme" id="Theme_bma6s"]
 
 [node name="i_progressbar" type="Control"]
 layout_mode = 3
@@ -10,6 +15,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="StartTimer" type="Timer" parent="."]
+
 [node name="fond" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1152.0
@@ -18,26 +25,38 @@ texture = ExtResource("1_5q37t")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 358.0
-offset_top = 155.0
-offset_right = 890.0
-offset_bottom = 274.0
+offset_left = 282.0
+offset_top = 46.0
+offset_right = 943.0
+offset_bottom = 423.0
+texture = ExtResource("2_f0ahw")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_bma6s")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_left = 287.0
-offset_top = 545.0
-offset_right = 963.0
-offset_bottom = 573.0
+offset_left = 252.0
+offset_top = 552.0
+offset_right = 928.0
+offset_bottom = 580.0
+script = ExtResource("2_edy0i")
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/ColorRect"]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 679.0
 offset_bottom = 31.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect/MarginContainer"]
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_iknn6")
+theme_override_font_sizes/font_size = 20
