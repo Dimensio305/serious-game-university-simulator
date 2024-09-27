@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhrunc8gvdfp"
-path="res://.godot/imported/Designer (11).jpeg-725006ada9031beb8e188be18cc30b37.ctex"
+uid="uid://ca1h7261t765d"
+path="res://.godot/imported/titre_ville.png-730ec5c72e2327a521552baaed1c9377.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fond_et_titre/Designer (11).jpeg"
-dest_files=["res://.godot/imported/Designer (11).jpeg-725006ada9031beb8e188be18cc30b37.ctex"]
+source_file="res://fond_et_titre/titre_ville.png"
+dest_files=["res://.godot/imported/titre_ville.png-730ec5c72e2327a521552baaed1c9377.ctex"]
 
 [params]
 
