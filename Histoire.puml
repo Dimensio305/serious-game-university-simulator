@@ -1,0 +1,58 @@
+@startuml
+
+package partie
+{
+    class PartieSemaine
+    {
+        - m_joueur : String
+    }
+    
+    class Jauge
+    {
+        - m_valeur : Integer
+    }
+    
+    package calendrier
+    {
+        class Semaine
+        {
+            - m_jActu : integer
+        }
+        
+        class Jour
+        {
+        
+        }
+    }
+    
+    package requetes
+    {
+        enum Categorie
+        {
+            FORMATION
+            PROFESSEUR
+            FONDS
+            COMPETENCES
+            DEMANDES_MARCHE
+            ETUDIANTS
+        }
+        
+        class Requete
+        
+        class RendezVous
+    }
+}
+
+PartieSemaine "1" *---> "1\n - m_argent" Jauge : Possede
+PartieSemaine "1" *---> "1\n - m_satisfaction" Jauge : Possede
+PartieSemaine "1" *---> "1\n - m_insertion" Jauge : Possede
+PartieSemaine "1" *---> "1\n - m_reussite" Jauge : Possede
+PartieSemaine "1" *---> "1\n - m_calendrier" Semaine : Se joue pendant
+Semaine "1" *---> "5\n - m_jours" Jour : contient
+Requete "1" *---> "1\n - m_categorie" Categorie : appartient à
+Jour "1" *---> "1-8\n - m_rendezvous" Requete : est composé de
+Jour "1" *---> "*\n - m_demandes" RendezVous : peut recevoir
+
+RendezVous ..> Jour : peut ajouter des requetes
+
+@enduml
