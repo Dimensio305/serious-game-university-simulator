@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddrq4pbm6xai5"]
+[gd_scene load_steps=32 format=3 uid="uid://ddrq4pbm6xai5"]
 
 [ext_resource type="Script" path="res://Menu/coce_i_menu.cs" id="1_w2ej2"]
 [ext_resource type="Texture2D" uid="uid://c615tmleap4vn" path="res://asset/brique/png/rectangle_glossy.png" id="2_7dxee"]
@@ -9,16 +9,45 @@
 [ext_resource type="Texture2D" uid="uid://56womlk0xct5" path="res://asset/pack1/PNG/Yellow/Double/button_square_border.png" id="3_fc8wv"]
 [ext_resource type="Texture2D" uid="uid://b5e1wadrhxcdb" path="res://asset/icons/PNG/White/1x/exitLeft.png" id="4_1q0mr"]
 [ext_resource type="Texture2D" uid="uid://cxsro11xbkyhr" path="res://asset/brique/png/element_yellow_rectangle_glossy_copy.png" id="5_rcign"]
+[ext_resource type="Texture2D" uid="uid://nq4a0mshlpke" path="res://asset/brique/png/element_green_rectangle.png" id="5_xwri1"]
+[ext_resource type="Texture2D" uid="uid://c2ihjnj8jexu" path="res://asset/pack1/PNG/Green/Default/button_square_flat.png" id="6_qwfjd"]
 [ext_resource type="Texture2D" uid="uid://der4d5gghx1i8" path="res://asset/brique/png/element_red_rectangle_glossy_copy.png" id="7_mvdar"]
+[ext_resource type="Texture2D" uid="uid://biy8bu2agfshj" path="res://asset/brique/png/element_yellow_rectangle.png" id="7_oi2mu"]
+[ext_resource type="Texture2D" uid="uid://dg44ogh5lb4xc" path="res://asset/pack1/PNG/Yellow/Double/button_square_gloss.png" id="7_u0hru"]
+[ext_resource type="Texture2D" uid="uid://djgevagysyrgl" path="res://asset/pack1/PNG/Yellow/Default/button_square_flat.png" id="9_8tpaq"]
 [ext_resource type="Texture2D" uid="uid://ca1h7261t765d" path="res://fond_et_titre/titre_ville.png" id="11_pqhyi"]
+[ext_resource type="Texture2D" uid="uid://c4fegywx2jk0s" path="res://asset/brique/png/element_red_rectangle.png" id="12_1lj83"]
 [ext_resource type="Texture2D" uid="uid://b4kigo7nf8pru" path="res://asset/cursor/PNG/element_yellow_square_glossy.png" id="12_ilq0u"]
 [ext_resource type="Texture2D" uid="uid://bll7078dexpeo" path="res://asset/icons/PNG/White/1x/musicOn.png" id="13_ac8it"]
+[ext_resource type="AudioStream" uid="uid://cy6pr4djr4h1p" path="res://musique/Musique_Gratuite_Libre_de_Droits_Calme_Entreprise_Corporate_Masteck_Media_-_Light_Corporate_[_YouConvert.net_].wav" id="14_m7qp3"]
+[ext_resource type="Texture2D" uid="uid://05ppgik7e67h" path="res://asset/pack1/PNG/Red/Default/button_square_flat.png" id="15_cxw44"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_252t8"]
+texture = ExtResource("5_xwri1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rja02"]
+texture = ExtResource("6_qwfjd")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lwtmi"]
 texture = ExtResource("2_7dxee")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t2y4m"]
+texture = ExtResource("9_8tpaq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hs8g"]
+texture = ExtResource("7_oi2mu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n81ic"]
+texture = ExtResource("7_u0hru")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0e81d"]
 texture = ExtResource("5_rcign")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6pda"]
+texture = ExtResource("12_1lj83")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1yqsk"]
+texture = ExtResource("15_cxw44")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h5o4e"]
 texture = ExtResource("7_mvdar")
@@ -61,6 +90,8 @@ layout_mode = 2
 theme_override_constants/h_separation = -36
 theme_override_fonts/font = ExtResource("2_h10kc")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxTexture_252t8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rja02")
 theme_override_styles/normal = SubResource("StyleBoxTexture_lwtmi")
 text = "Court        "
 icon = ExtResource("2_vs0rb")
@@ -69,6 +100,9 @@ icon = ExtResource("2_vs0rb")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_h10kc")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_t2y4m")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7hs8g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_n81ic")
 theme_override_styles/normal = SubResource("StyleBoxTexture_0e81d")
 text = "Long         "
 icon = ExtResource("3_e4psm")
@@ -77,6 +111,8 @@ icon = ExtResource("3_e4psm")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_h10kc")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/hover = SubResource("StyleBoxTexture_r6pda")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1yqsk")
 theme_override_styles/normal = SubResource("StyleBoxTexture_h5o4e")
 text = "Quittez        "
 icon = ExtResource("4_1q0mr")
@@ -100,6 +136,10 @@ texture = ExtResource("12_ilq0u")
 [node name="Music" type="Sprite2D" parent="b_son"]
 position = Vector2(26, 28)
 texture = ExtResource("13_ac8it")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_m7qp3")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/b_court" to="." method="_on_b_court_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/b_long" to="." method="_on_b_long_pressed"]
