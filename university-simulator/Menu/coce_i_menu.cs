@@ -31,30 +31,36 @@ public partial class coce_i_menu : Control
 		GetTree().Quit();
 	}
 	
-public void _on_b_son_pressed()
-{
-	GD.Print("Button pressed");  // Vérification que la fonction est appelée
-
-	if (etat_son)
+	
+		/// <summary>
+		/// cette fonction coupe/active le son du jeu.
+		/// En fonction de l'etat du son image change.
+		/// </summary>
+	public void _on_b_son_pressed()
 	{
-		etat_son = false;
-		GD.Print("Turning sound off");
+		GD.Print("Button pressed");  // Vérification que la fonction est appelée
+
+		if (etat_son)
+		{
+			etat_son = false;
+			GD.Print("Turning sound off");
 		
-		var newTexture = (Texture2D)GD.Load("res://asset/icons/PNG/White/1x/musicOff.png");
+			var newTexture = (Texture2D)GD.Load("res://asset/icons/PNG/White/1x/musicOff.png");
 
 			sprite.Texture = newTexture;
+			GetNode<AudioStreamPlayer>("AudioStreamPlayer").Stop();
 		
-	}
-	else
-	{
-		etat_son = true;
-		GD.Print("Turning sound on");
+		}
+		else{
+			etat_son = true;
+			GD.Print("Turning sound on");
 
-		var newTexture = (Texture2D)GD.Load("res://asset/icons/PNG/White/1x/musicOn.png");
+			var newTexture = (Texture2D)GD.Load("res://asset/icons/PNG/White/1x/musicOn.png");
 
-		sprite.Texture = newTexture;
-		
-		
+			sprite.Texture = newTexture;
+			AudioStreamPlayer soundPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+			soundPlayer.Play();
+			
 	}
 }
 	
