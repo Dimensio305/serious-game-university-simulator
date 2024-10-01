@@ -1,3 +1,41 @@
-[gd_scene format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=5 format=3 uid="uid://beernvimp8h4f"]
+
+[ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
+[ext_resource type="Texture2D" uid="uid://b5dpmgoms2ju" path="res://asset/icons/PNG/Black/2x/medal2.png" id="2_7cm1u"]
+[ext_resource type="Texture2D" uid="uid://behm0mom57pth" path="res://asset/pack1/PNG/Yellow/Default/button_rectangle_depth_flat.png" id="2_m6l7w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ldu4"]
+texture = ExtResource("2_m6l7w")
 
 [node name="jeu_court" type="Node2D"]
+script = ExtResource("1_4h6lk")
+
+[node name="JaugeValeur" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="JaugeTexture" type="TextureRect" parent="."]
+clip_children = 1
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("2_7cm1u")
+
+[node name="ConteneurJauge" type="BoxContainer" parent="JaugeTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="JaugeProg" type="ProgressBar" parent="JaugeTexture/ConteneurJauge"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
+value = 50.0
+fill_mode = 3
+show_percentage = false
