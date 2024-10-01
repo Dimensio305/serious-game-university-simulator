@@ -1,0 +1,76 @@
+@startuml umlV1.puml
+package questions {
+    abstract class Question {
+        #m_reponse1: Reponse
+        #m_reponse2: Reponse
+
+        +<<Create>>Question():
+        +{abstract} afficher(): void
+    }
+    
+    class QuestionRDV extends Question {
+
+        +<<Create>>QuestionRDV():
+        +afficher(): void
+    }
+
+    class QuestionFormation extends Question {
+
+        +<<Create>>QuestionCreateFormation():
+        +afficher(): void
+    }
+
+    class QuestionProf extends Question {
+
+        +<<Create>>QuestionProf():
+        +afficher(): void
+    }
+
+    class QuestionEtudiant extends Question {
+
+        +<<Create>>QuestionEtudiant():
+        +afficher(): void
+    }
+
+    class QuestionFond extends Question {
+
+        +<<Create>>QuestionFond():
+        +afficher(): void
+    }
+
+    class QuestionCompetence extends Question {
+
+        +<<Create>>QuestionCompetence():
+        +afficher(): void
+    }
+
+    class QuestionMarcheTravail extends Question {
+
+        +<<Create>>QuestionMarcheTravail():
+        +afficher(): void
+    }
+}
+package reponses
+{
+    class Reponse {
+        +m_texte: String
+        +m_jauge: Jauge
+
+        +<<Create>>Reponse():
+        +afficher(): void
+    }
+}
+package jauges {
+    class Jauge {
+        -m_max: Integer
+        -m_min: Integer
+
+        +augmenter(): void
+        +diminuer(): void
+    }
+
+}
+
+Question "1" *-->"m_reponse1\n1"Reponse : possede
+Question "1" *-->"m_reponse2\n1"Reponse : possede
+@enduml
