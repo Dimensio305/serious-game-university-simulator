@@ -69,8 +69,7 @@ package jauges {
         -m_max: Integer
         -m_min: Integer
 
-        +augmenter(): void
-        +diminuer(): void
+        +remplirVider(quantite: Integer): void
     }
 
     class JaugeSatisfProf <<static>> {
@@ -78,8 +77,7 @@ package jauges {
         -m_max: Integer
         -m_min: Integer
 
-        +augmenter(): void
-        +diminuer(): void
+        +remplirVider(quantite: Integer): void
     }
 
     class JaugeInserPro <<static>> {
@@ -87,8 +85,7 @@ package jauges {
         -m_max: Integer
         -m_min: Integer
 
-        +augmenter(): void
-        +diminuer(): void
+        +remplirVider(quantite: Integer): void
     }
 
     class JaugeReussiteEtu <<static>> {
@@ -96,12 +93,15 @@ package jauges {
         -m_max: Integer
         -m_min: Integer
 
-        +augmenter(): void
-        +diminuer(): void
+        +remplirVider(quantite: Integer): void
     }
 
 }
 
 Question "1" *-->"m_reponse1\n1"Reponse : possede
 Question "1" *-->"m_reponse2\n1"Reponse : possede
+Reponse .> JaugeArgent : <<uses>>
+Reponse .> JaugeSatisfProf : <<uses>>
+Reponse .> JaugeInserPro : <<uses>>
+Reponse .> JaugeReussiteEtu : <<uses>>
 @enduml
