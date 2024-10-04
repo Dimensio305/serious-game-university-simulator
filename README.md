@@ -20,3 +20,10 @@
 ## Partie 7 : Gestion du score
 - Affichage du game over
 - Affichage du score si semaine finie
+
+## notes :
+- contraintes : pas tout mettre dans l'emploi du temps 1-2 rdv max par jour (ou semaine)
+- attention à l'aléatoire : sinon le jeu perd tout son sens
+- les acteurs qui peuvent poser des questions : enseignant propose des formations, directeur d'iut moderniser equipement, le service comptable, le RH,  la région, l'entreprise du coin, le ministère et HCERS évalue à la fin de la semaine
+- comment voir la demande pour pour le taux d'insertion ?
+- Quadran : taux de reussites et d'insertion professionnel. Afficher ça à chaque question
