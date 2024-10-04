@@ -4,8 +4,7 @@ using System;
 public static class GestionDb : Node
 {
 	
-	// ce connecte a la base de donnee envoie un message si bien connecter ou pas 
-
+	// ce connecte a la base de donnee envoie un message si bien connecter ou pas s
 	public static void connection(){}
 	
 	// met la commande en parametre pour l'exe dans la db
