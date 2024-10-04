@@ -1,0 +1,41 @@
+PersonnagePrincipal :
+
+consulterPlanning(): le persop consulte sont planning
+ajouterJour(jour: Jour): Ajoute un jour au planning 
+
+
+
+Planning :
+
+
+ajouterJour(jour: Jour): Ajoute un jour au planning.
+obtenirJour(date: String): Retourne un jour spécifique dans le planning.
+
+
+Jour :
+
+ajouterAction(action: Action): Ajoute une action à un jour.
+obtenirRdv(): Retourne le rdv du jour.
+RendezVous :
+
+planifier(heure: String): Planifie un rdv
+annuler(): j'hesite
+
+
+Action :
+
+poserQuestion(): Retourne la question posée lors de l'action.
+repondre(reponse: int): Prend en compte la réponse donnée et met à jour les jauges/planning.
+
+Jauge :
+
+influencer(valeur: int): Modifie la valeur de la jauge.
+obtenirValeur(): Retourne la valeur de la jauge.
+
+
+InterfaceGraphique :
+
+majAffichage(): Maj affichage de l'interface en fonction des jauges et du personnage.
+afficherQuestion(action: Action): Affiche la question à l'écran.
+majJauges(jauge: Jauge): Met à jour l'affichage des jauges.
+changerAffichagePersonnage(personnage: Personnage): Change l'image de fond
