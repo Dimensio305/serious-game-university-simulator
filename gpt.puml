@@ -53,6 +53,7 @@ class RendezVous {
   + planifier(jour: Jour)
 }
 
+
 ' Relations
 Partie --> Semaine : contient
 Semaine --> Jour : contient
