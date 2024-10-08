@@ -7,21 +7,25 @@ public partial class JeuCourt : Node2D
 	public override void _Ready()
 	{
 	}
-	
-	int barre= 100;
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+		// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		var leLabel = GetNodeOrNull<Label>("JaugeValeur");
-		var Laboite = GetNodeOrNull<TextureRect>("JaugeTexture");
-		var BoiteBarre = Laboite.GetNodeOrNull<BoxContainer>("ConteneurJauge");
-		var Barre1 = BoiteBarre.GetNodeOrNull<ProgressBar>("JaugeProg");
-		leLabel.Text = Barre1.Value.ToString();
+		var Jauge1 = GetNodeOrNull<Jauge>("Jauge1");
+		var Jauge2 = GetNodeOrNull<Jauge>("Jauge2");
+
 	if (Input.IsActionPressed("AnswerRight"))
 	{
-		Barre1.Value++;
+		Random rng = new Random();
+		Jauge1.Modif(1);
 	}else if(Input.IsActionPressed("AnswerLeft")){
-		Barre1.Value--;
+		Jauge1.Modif(-1);
+	}
+	if (Input.IsActionPressed("AnswerA"))
+	{
+		Random rng = new Random();
+		Jauge2.Modif(1);
+	}else if(Input.IsActionPressed("AnswerB")){
+		Jauge2.Modif(-1);
 	}
 	}
 }
