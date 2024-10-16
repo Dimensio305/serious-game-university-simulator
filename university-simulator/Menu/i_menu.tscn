@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bnxkqb07w67im" path="res://Designer (1).jpeg" id="2_a1b6w"]
 [ext_resource type="FontFile" uid="uid://cns8jib4o8e2i" path="res://police/Kanit/Kanit-Bold.ttf" id="2_h10kc"]
 [ext_resource type="Texture2D" uid="uid://cuoagjuuuaqff" path="res://asset/icons/PNG/White/1x/forward.png" id="2_vs0rb"]
+[ext_resource type="Texture2D" uid="uid://cwaoob0wyc8w5" path="res://asset/button_square_border_orange.png" id="3_2qkek"]
 [ext_resource type="Texture2D" uid="uid://3g80sr2ge18u" path="res://asset/icons/PNG/White/1x/fastForward.png" id="3_e4psm"]
-[ext_resource type="Texture2D" uid="uid://56womlk0xct5" path="res://asset/pack1/PNG/Yellow/Double/button_square_border.png" id="3_fc8wv"]
 [ext_resource type="Texture2D" uid="uid://b5e1wadrhxcdb" path="res://asset/icons/PNG/White/1x/exitLeft.png" id="4_1q0mr"]
 [ext_resource type="Texture2D" uid="uid://cxsro11xbkyhr" path="res://asset/brique/png/element_yellow_rectangle_glossy_copy.png" id="5_rcign"]
 [ext_resource type="Texture2D" uid="uid://nq4a0mshlpke" path="res://asset/brique/png/element_green_rectangle.png" id="5_xwri1"]
@@ -15,12 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://biy8bu2agfshj" path="res://asset/brique/png/element_yellow_rectangle.png" id="7_oi2mu"]
 [ext_resource type="Texture2D" uid="uid://dg44ogh5lb4xc" path="res://asset/pack1/PNG/Yellow/Double/button_square_gloss.png" id="7_u0hru"]
 [ext_resource type="Texture2D" uid="uid://djgevagysyrgl" path="res://asset/pack1/PNG/Yellow/Default/button_square_flat.png" id="9_8tpaq"]
-[ext_resource type="Texture2D" uid="uid://ca1h7261t765d" path="res://fond_et_titre/titre_ville.png" id="11_pqhyi"]
 [ext_resource type="Texture2D" uid="uid://c4fegywx2jk0s" path="res://asset/brique/png/element_red_rectangle.png" id="12_1lj83"]
-[ext_resource type="Texture2D" uid="uid://b4kigo7nf8pru" path="res://asset/cursor/PNG/element_yellow_square_glossy.png" id="12_ilq0u"]
 [ext_resource type="Texture2D" uid="uid://bll7078dexpeo" path="res://asset/icons/PNG/White/1x/musicOn.png" id="13_ac8it"]
 [ext_resource type="AudioStream" uid="uid://cy6pr4djr4h1p" path="res://musique/Musique_Gratuite_Libre_de_Droits_Calme_Entreprise_Corporate_Masteck_Media_-_Light_Corporate_[_YouConvert.net_].wav" id="14_m7qp3"]
 [ext_resource type="Texture2D" uid="uid://05ppgik7e67h" path="res://asset/pack1/PNG/Red/Default/button_square_flat.png" id="15_cxw44"]
+[ext_resource type="Texture2D" uid="uid://e25geuymftiy" path="res://fond_et_titre/titre_ville_corrige.png" id="18_6neh3"]
+[ext_resource type="Texture2D" uid="uid://cw5t2qykpd5lt" path="res://asset/element_yellow_orange.png" id="19_6q71m"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_252t8"]
 texture = ExtResource("5_xwri1")
@@ -71,9 +71,9 @@ scale = Vector2(1.12109, 0.635742)
 texture = ExtResource("2_a1b6w")
 
 [node name="fond_menu" type="Sprite2D" parent="."]
-position = Vector2(600.5, 395.75)
-scale = Vector2(2.60156, 2.17578)
-texture = ExtResource("3_fc8wv")
+position = Vector2(599, 401)
+scale = Vector2(4.46875, 3.71875)
+texture = ExtResource("3_2qkek")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -119,7 +119,7 @@ icon = ExtResource("4_1q0mr")
 
 [node name="TitreVille" type="Sprite2D" parent="."]
 position = Vector2(612, 141)
-texture = ExtResource("11_pqhyi")
+texture = ExtResource("18_6neh3")
 
 [node name="b_son" type="Button" parent="."]
 layout_mode = 0
@@ -131,7 +131,7 @@ offset_bottom = 67.0
 [node name="fond_carre_jaune" type="Sprite2D" parent="b_son"]
 position = Vector2(27, 27)
 scale = Vector2(1.5625, 1.6875)
-texture = ExtResource("12_ilq0u")
+texture = ExtResource("19_6q71m")
 
 [node name="Music" type="Sprite2D" parent="b_son"]
 position = Vector2(26, 28)

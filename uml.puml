@@ -51,6 +51,7 @@ class Jauge {
 class ModificationJauge{
     +{static}modificationJauge(j : Jauge , val : integer)
     +{static}getValeur (j : jauge)
+    }
 
 class InterfaceGraphique {
     - jauges: List<Jauge}
@@ -61,14 +62,18 @@ class InterfaceGraphique {
     + changerAffichagePersonnage(personnage: Personnage)
 }
 
-class Gestiondb {
-    + {static}connecter()
-    + {staic}executerRequete(requete : string)
-    + {statis}viderBase()
-    + obtenirQuestions(): List<Question>
-    + obtenirReponses(question: Question): List<Reponse>
-    + obtenirCategories(): List<Categorie>
+class GestionDb {
+    - static GestionDb _instance
+    - SQLiteConnection _connection
+    - GestionDb()
+    + static GestionDb Instance { get }
+    - void Connect()
+    + void Supprimer()
+    + string ExecuteRequete(string query)
+    + void Contenue()
 }
+
+GestionDb --> SQLiteConnection
 
 class Question {
     - id: int
@@ -98,9 +103,9 @@ Action --> Jauge
 InterfaceGraphique --> Jauge
 InterfaceGraphique --> Personnage
 
-GestionBaseSQLite --> Question
-GestionBaseSQLite --> Reponse
-GestionBaseSQLite --> Categorie
+Gestiondb --> Question
+Gestiondb --> Reponse
+Gestiondb --> Categorie
 
 Question --> Categorie
 Reponse --> Question

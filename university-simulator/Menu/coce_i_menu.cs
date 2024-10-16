@@ -28,6 +28,7 @@ public partial class coce_i_menu : Control
 	}
 	
 	public void _on_b_quittez_pressed(){
+		GestionDb.Instance.Supprimer();
 		GetTree().Quit();
 	}
 	

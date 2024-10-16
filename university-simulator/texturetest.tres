@@ -1,6 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://uo4hh8jvnilg"]
 
-[ext_resource type="Texture2D" uid="uid://b7wx46hd3rlmo" path="res://asset/pack2/PNG/Yellow/Default/bar_round_gloss_large_m.png" id="1_qbvoq"]
+[ext_resource type="Texture2D" uid="uid://ee6hbla5cavi" path="res://asset/bar_orange.png" id="1_4h1l4"]
 
 [resource]
-texture = ExtResource("1_qbvoq")
+texture = ExtResource("1_4h1l4")
