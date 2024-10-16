@@ -3,17 +3,26 @@ using System;
 
 public partial class Chargement : ColorRect
 {
-	[Export] private float loadingSpeed = 30f; // Vitesse de chargement par seconde
+	
+	[Export] private float loadingSpeed = 2f; // Vitesse de chargement par seconde
 	private ProgressBar progressBar;
 	private Timer startTimer;
 	private bool isLoading = false; // Indique si le chargement a commencé
+	
+	
 
 	public override void _Ready()
 {
+	GD.Print("Avant l'appel de GestionDb.Connect()");
+	GestionDb.Connect();
+	GD.Print("Après l'appel de GestionDb.Connect()");
+	
+	
 	// Vérifie l'existence des nœuds
 	var marginContainerNode = GetNodeOrNull<MarginContainer>("MarginContainer");
 	var vBoxContainerNode = marginContainerNode.GetNodeOrNull<VBoxContainer>("VBoxContainer");
 	progressBar = vBoxContainerNode.GetNodeOrNull<ProgressBar>("ProgressBar");
+	
 	if (progressBar == null)
 	{
 		GD.PrintErr("Je trouve pas la progressbar!");
@@ -45,6 +54,7 @@ public partial class Chargement : ColorRect
 
 public override void _Process(double delta)
 {
+	
 	if (!isLoading)
 	{
 		return;
