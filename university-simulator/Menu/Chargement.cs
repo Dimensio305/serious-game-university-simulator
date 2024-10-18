@@ -1,19 +1,33 @@
 using Godot;
 using System;
-
+/// <summary>
+/// Cette classe est assoscié a la scene de chargement 
+/// </summary>
 public partial class Chargement : ColorRect
 {
-	[Export] private float loadingSpeed = 30f; // Vitesse de chargement par seconde
+	
+	[Export] private float loadingSpeed = 10f; // Vitesse de chargement par seconde
 	private ProgressBar progressBar;
 	private Timer startTimer;
 	private bool isLoading = false; // Indique si le chargement a commencé
-
+	
+	
+	/// <summary>
+	///  Dcette methode on charge la base de donnée des le lancement du jeu
+	/// </summary>
 	public override void _Ready()
-{
+	{
+	GestionDb.Instance.Contenue();
+	GestionDb.Instance.ExecuteRequete("select * from Catpersonne;");
+
+	
+	
+	
 	// Vérifie l'existence des nœuds
 	var marginContainerNode = GetNodeOrNull<MarginContainer>("MarginContainer");
 	var vBoxContainerNode = marginContainerNode.GetNodeOrNull<VBoxContainer>("VBoxContainer");
 	progressBar = vBoxContainerNode.GetNodeOrNull<ProgressBar>("ProgressBar");
+	
 	if (progressBar == null)
 	{
 		GD.PrintErr("Je trouve pas la progressbar!");
@@ -36,19 +50,26 @@ public partial class Chargement : ColorRect
 	GD.Print("Debut du timer");
 }
 
-
+	/// <summary>
+	/// cetet methode verifie si le timer c'est lancer 
+	/// </summary>
 	private void OnStartTimerTimeout()
-{
-	GD.Print("Timer fini debut chargement");
-	isLoading = true;
-}
-
-public override void _Process(double delta)
-{
-	if (!isLoading)
 	{
-		return;
+		GD.Print("Timer fini debut chargement");
+		isLoading = true;
 	}
+
+	/// <summary>
+	/// cette methode gere la vitessede chargement de la progressbar
+	/// </summary>
+	/// <param name="delta"></param>
+	public override void _Process(double delta)
+	{
+	
+		if (!isLoading)
+		{
+			return;
+		}
 
 
 	if (progressBar.Value < progressBar.MaxValue)
@@ -62,6 +83,9 @@ public override void _Process(double delta)
 	}
 }
 
+	/// <summary>
+	/// Cette methode change de scene
+	/// </summary>
 	private void GoToMenu()
 	{
 		GD.Print("On change de scene pour le menu");

@@ -1,0 +1,114 @@
+@startuml
+
+class PersonnagePrincipal {
+    - planning: Planning
+    + consulterPlanning()
+    + ajouterJour(jour: Jour)
+}
+
+class PersonnageStandard {
+    - nom: String
+    - type: String
+    - categorie: Categorie
+    + poserQuestion(): Action
+}
+
+class Planning {
+    - jours: List<Jour>
+    + ajouterJour(jour: Jour)
+    + obtenirJour(date: String): Jour
+}
+
+class Jour {
+    - rdv: RendezVous
+    - actions: List<Action> (max 8)
+    + ajouterAction(action: Action)
+    + obtenirRdv(): RendezVous
+}
+
+class RendezVous {
+    - heure: String
+    + planifier(heure: String)
+    + annuler()
+}
+
+class Action {
+    - question: String
+    - reponses: String[2]
+    - jaugesImpactees: List<Jauge>
+    - planningImpacte: Boolean
+    + poserQuestion(): String
+    + repondre(reponse: int)
+}
+
+class Jauge {
+    - nom: String
+    - valeur: int
+    + influencer(valeur: int)
+    + obtenirValeur(): int
+}
+
+class ModificationJauge{
+    +{static}modificationJauge(j : Jauge , val : integer)
+    +{static}getValeur (j : jauge)
+    }
+
+class InterfaceGraphique {
+    - jauges: List<Jauge}
+    - affichagePersonnage: Personnage
+    + majAffichage()
+    + afficherQuestion(action: Action)
+    + majJauges(jauge: Jauge)
+    + changerAffichagePersonnage(personnage: Personnage)
+}
+
+class GestionDb {
+    - static GestionDb _instance
+    - SQLiteConnection _connection
+    - GestionDb()
+    + static GestionDb Instance { get }
+    - void Connect()
+    + void Supprimer()
+    + string ExecuteRequete(string query)
+    + void Contenue()
+}
+
+GestionDb --> SQLiteConnection
+
+class Question {
+    - id: int
+    - texte: String
+    - categorie: Categorie
+}
+
+class Reponse {
+    - id: int
+    - texte: String
+    - question: Question
+    - impactJauge: List<Jauge>
+}
+
+class Categorie {
+    - id: int
+    - nom: String
+}
+
+PersonnagePrincipal --> Planning
+PersonnageStandard --> Action
+PersonnageStandard --> Categorie
+Planning --> Jour
+Jour --> Action
+Jour --> RendezVous
+Action --> Jauge
+InterfaceGraphique --> Jauge
+InterfaceGraphique --> Personnage
+
+Gestiondb --> Question
+Gestiondb --> Reponse
+Gestiondb --> Categorie
+
+Question --> Categorie
+Reponse --> Question
+Reponse --> Jauge
+
+@enduml

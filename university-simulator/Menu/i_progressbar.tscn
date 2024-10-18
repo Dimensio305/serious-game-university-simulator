@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://broomqjnpwirp" path="res://fond_et_titre/rsz_designer_8.jpg" id="1_5q37t"]
 [ext_resource type="Script" path="res://Menu/Chargement.cs" id="2_edy0i"]
-[ext_resource type="Texture2D" uid="uid://iucqa57hg7p4" path="res://fond_et_titre/titre_arrondi_vide.png" id="2_f0ahw"]
+[ext_resource type="Texture2D" uid="uid://beb0desn7dqlq" path="res://fond_et_titre/titre_arrondi_vide_corriger.png" id="2_qrgjg"]
 [ext_resource type="FontFile" uid="uid://bqbvpxndw8l5h" path="res://police/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" id="4_iknn6"]
 [ext_resource type="AudioStream" uid="uid://cy6pr4djr4h1p" path="res://musique/Musique_Gratuite_Libre_de_Droits_Calme_Entreprise_Corporate_Masteck_Media_-_Light_Corporate_[_YouConvert.net_].wav" id="5_8bhh4"]
 [ext_resource type="StyleBox" uid="uid://uo4hh8jvnilg" path="res://texturetest.tres" id="5_08ons"]
@@ -27,16 +27,18 @@ texture = ExtResource("1_5q37t")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 282.0
-offset_top = 57.0
-offset_right = 943.0
-offset_bottom = 434.0
-texture = ExtResource("2_f0ahw")
+offset_left = 232.0
+offset_top = 101.0
+offset_right = 893.0
+offset_bottom = 478.0
+texture = ExtResource("2_qrgjg")
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -9.0
+offset_top = -5.0
+offset_right = 31.0
+offset_bottom = 35.0
 theme = SubResource("Theme_bma6s")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
