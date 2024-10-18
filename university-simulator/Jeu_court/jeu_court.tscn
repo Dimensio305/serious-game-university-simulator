@@ -96,3 +96,81 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
 value = 50.0
 fill_mode = 3
 show_percentage = false
+
+[node name="Jauge3" type="TextureRect" parent="."]
+clip_children = 1
+offset_left = 692.0
+offset_top = 1.0
+offset_right = 792.0
+offset_bottom = 101.0
+texture = ExtResource("2_7cm1u")
+script = ExtResource("4_d56qo")
+
+[node name="JaugeValeur" type="Label" parent="Jauge3"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = -1.0
+offset_right = 71.0
+offset_bottom = 22.0
+
+[node name="ConteneurJauge" type="BoxContainer" parent="Jauge3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -31.0
+offset_right = 33.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JaugeProg" type="ProgressBar" parent="Jauge3/ConteneurJauge"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Jauge4" type="TextureRect" parent="."]
+clip_children = 1
+offset_left = 799.0
+offset_top = 1.0
+offset_right = 899.0
+offset_bottom = 101.0
+texture = ExtResource("2_7cm1u")
+script = ExtResource("4_d56qo")
+
+[node name="JaugeValeur" type="Label" parent="Jauge4"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = -1.0
+offset_right = 71.0
+offset_bottom = 22.0
+
+[node name="ConteneurJauge" type="BoxContainer" parent="Jauge4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -31.0
+offset_right = 33.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JaugeProg" type="ProgressBar" parent="Jauge4/ConteneurJauge"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
+value = 50.0
+fill_mode = 3
+show_percentage = false
