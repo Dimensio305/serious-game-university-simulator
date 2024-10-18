@@ -1,6 +1,8 @@
 using Godot;
 using System;
-
+/// <summary>
+/// Cette classe est assoscié a la scene de chargement 
+/// </summary>
 public partial class Chargement : ColorRect
 {
 	
@@ -10,10 +12,11 @@ public partial class Chargement : ColorRect
 	private bool isLoading = false; // Indique si le chargement a commencé
 	
 	
-
+	/// <summary>
+	///  Dcette methode on charge la base de donnée des le lancement du jeu
+	/// </summary>
 	public override void _Ready()
-{
-	
+	{
 	GestionDb.Instance.Contenue();
 	GestionDb.Instance.ExecuteRequete("select * from Catpersonne;");
 
@@ -47,20 +50,26 @@ public partial class Chargement : ColorRect
 	GD.Print("Debut du timer");
 }
 
-
+	/// <summary>
+	/// cetet methode verifie si le timer c'est lancer 
+	/// </summary>
 	private void OnStartTimerTimeout()
-{
-	GD.Print("Timer fini debut chargement");
-	isLoading = true;
-}
-
-public override void _Process(double delta)
-{
-	
-	if (!isLoading)
 	{
-		return;
+		GD.Print("Timer fini debut chargement");
+		isLoading = true;
 	}
+
+	/// <summary>
+	/// cette methode gere la vitessede chargement de la progressbar
+	/// </summary>
+	/// <param name="delta"></param>
+	public override void _Process(double delta)
+	{
+	
+		if (!isLoading)
+		{
+			return;
+		}
 
 
 	if (progressBar.Value < progressBar.MaxValue)
@@ -74,6 +83,9 @@ public override void _Process(double delta)
 	}
 }
 
+	/// <summary>
+	/// Cette methode change de scene
+	/// </summary>
 	private void GoToMenu()
 	{
 		GD.Print("On change de scene pour le menu");

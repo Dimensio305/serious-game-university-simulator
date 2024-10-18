@@ -1,6 +1,10 @@
 using Godot;
 using System;
 
+/// <summary>
+/// Cette class est liée a la scene i_menu
+/// Elle gere le changement des scenes
+/// </summary>
 public partial class coce_i_menu : Control
 {
 	// variable qui serve pour changer image music
@@ -8,7 +12,10 @@ public partial class coce_i_menu : Control
 	private Sprite2D sprite;
 	bool etat_son = true;
 	
-	
+
+	/// <summary>
+	/// 
+	/// </summary>
 	public override void _Ready()
 	{
 	
@@ -18,15 +25,23 @@ public partial class coce_i_menu : Control
 	}
 	
 	
+	/// <summary>
+	/// Change la scene pour la version courte du jeu
+	/// </summary>
 	public void _on_b_court_pressed(){
 		GetTree().ChangeSceneToFile("res://Jeu_court/jeu_court.tscn");
 	}
 
-	
+	/// <summary>
+	/// Change la scene pour la version longue du jeu
+	/// </summary>
 	public void _on_b_long_pressed(){
 		// pas encore coder
 	}
 	
+	/// <summary>
+	/// Bouton permettant de quitter le jeu 
+	/// </summary>
 	public void _on_b_quittez_pressed(){
 		GestionDb.Instance.Supprimer();
 		GetTree().Quit();
