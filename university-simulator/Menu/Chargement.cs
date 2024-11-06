@@ -6,7 +6,7 @@ using System;
 public partial class Chargement : ColorRect
 {
 	
-	[Export] private float loadingSpeed = 10f; // Vitesse de chargement par seconde
+	[Export] private float loadingSpeed = 50f; // Vitesse de chargement par seconde
 	private ProgressBar progressBar;
 	private Timer startTimer;
 	private bool isLoading = false; // Indique si le chargement a commencé
@@ -18,7 +18,6 @@ public partial class Chargement : ColorRect
 	public override void _Ready()
 	{
 	GestionDb.Instance.Contenue();
-	GestionDb.Instance.ExecuteRequete("select * from Catpersonne;");
 
 	
 	
