@@ -62,8 +62,9 @@ string[] descriptionsProjets = {
 
         for (int i = 0; i < nombreProjets; i++)
         {
-            string nom = nomsProjets[random.Next(nomsProjets.Length)];
-            string description = descriptionsProjets[random.Next(descriptionsProjets.Length)];
+            int p = random.Next(nomsProjets.Length);
+            string nom = nomsProjets[p];
+            string description = descriptionsProjets[p];
             projets.Add(new Projet(nom, description));
         }
 

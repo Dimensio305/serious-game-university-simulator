@@ -2,119 +2,147 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-// Pour quand il y aura la classe de lancement du jeu 
-/** Supposons que textEdit2 soit l'instance de TextEdit où vous affichez l'agenda
-JeuCourt jeuCourt = new JeuCourt();
-jeuCourt.AfficherAgendaInitial(textEdit2);**/
-
 public partial class JeuCourt : Node2D
 {
-	private TextEdit _textEdit;
-	bool inQuestion = false;
-
-	bool textvisible = false;
-
-	bool projetvisible = false; 
-
-	bool agendavisible = false; 
-
-	string stringQuestion;
-	int idQuestion;
-
+    private TextEdit _textEdit;
+    private bool inQuestion = false;
+    private bool projetvisible = false; 
+    private bool agendavisible = false; 
 
     private List<Projet> projets;
     private Agenda agenda;
 
     private TextEdit textEdit2; // Affichage de l'agenda
     private TextEdit textEdit3; // Affichage des projets
+    private TextEdit r1; 
+    private TextEdit r2; 
 
-	private Panel panel;
+    private Panel panel;
+    private Question q = new Question();
 
-	
+    public override void _Ready()
+    {    
+        _textEdit = GetNode<TextEdit>("TextEdit");
+        _textEdit.Visible = false; 
 
-
-	
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{	
-
-		_textEdit = GetNode<TextEdit>("TextEdit");
-		_textEdit.Visible=false; 
-
-		panel = GetNode<Panel>("panel");
-		textEdit2 = GetNode<TextEdit>("TextEdit2"); // Remplacez par le chemin correct
-        textEdit3 = GetNode<TextEdit>("panel/TextEdit3"); // Remplacez par le chemin correct
+        panel = GetNode<Panel>("panel");
+        textEdit2 = GetNode<TextEdit>("TextEdit2"); 
+        textEdit3 = GetNode<TextEdit>("panel/TextEdit3"); 
+        r1 = GetNode<TextEdit>("r1");
+        r2 = GetNode<TextEdit>("r2");
 
         // Générer des projets et rendez-vous aléatoires
         projets = Projet.GenererProjetsAleatoires();
         agenda = new Agenda();
-		 
-	}
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
+    }
 
-	
-	public override void _Process(double delta)
-	{
-		var Jauge1 = GetNodeOrNull<Jauge>("Jauge1");
-		var Jauge2 = GetNodeOrNull<Jauge>("Jauge2");
-		var Jauge3 = GetNodeOrNull<Jauge>("Jauge3");
-		var Jauge4 = GetNodeOrNull<Jauge>("Jauge4");
+    public override void _Process(double delta)
+    {
+        var Jauge1 = GetNodeOrNull<Jauge>("Jauge1");
+        var Jauge2 = GetNodeOrNull<Jauge>("Jauge2");
+        var Jauge3 = GetNodeOrNull<Jauge>("Jauge3");
+        var Jauge4 = GetNodeOrNull<Jauge>("Jauge4");
 
-
-		if(inQuestion) {
-			if (Input.IsActionPressed("Question")){
-				affichage.EcrireTexte(_textEdit,GestionDb.Instance.ExecuteRequete("select question from Question where id="+idQuestion+";"));
-				textvisible=true;
-			}
-			if (Input.IsActionPressed("AnswerRight")) {
-				Jauge1.Modif(Int32.Parse(GestionDb.Instance.ExecuteRequete("select j1 from Reponse where idquestion ="+idQuestion+" and idreponse=2;")));
-				Jauge2.Modif(Int32.Parse(GestionDb.Instance.ExecuteRequete("select j2 from Reponse where idquestion ="+idQuestion+" and idreponse=2;")));
-				Jauge3.Modif(Int32.Parse(GestionDb.Instance.ExecuteRequete("select j3 from Reponse where idquestion ="+idQuestion+" and idreponse=2;")));
-				Jauge4.Modif(Int32.Parse(GestionDb.Instance.ExecuteRequete("select j4 from Reponse where idquestion ="+idQuestion+" and idreponse=2;")));
-				inQuestion=false;
-		
-			} else if(Input.IsActionPressed("AnswerLeft")) {
-				Jauge1.Modif(Int32.Parse(GestionDb.Instance.ExecuteRequete("select j1 from Reponse where idquestion ="+idQuestion+" and idreponse=1;")));
-				Jauge2.Modif(Int32.Parse(GestionDb.Instance.ExecuteRequete("select j2 from Reponse where idquestion ="+idQuestion+" and idreponse=1;")));
-				Jauge3.Modif(Int32.Parse(GestionDb.Instance.ExecuteRequete("select j3 from Reponse where idquestion ="+idQuestion+" and idreponse=1;")));
-				Jauge4.Modif(Int32.Parse(GestionDb.Instance.ExecuteRequete("select j4 from Reponse where idquestion ="+idQuestion+" and idreponse=1;")));
-				inQuestion=false;
-			}
-		}
-		if (Input.IsActionPressed("temp")) {
-            if (!projetvisible && !agendavisible) {
-                inQuestion = true;
-                Random rdm = new Random();
-                idQuestion = rdm.Next(1, 2); // crée un nombre aléatoire entre x et y-1
-                stringQuestion = GestionDb.Instance.ExecuteRequete("select question from Question where id=" + idQuestion + ";");
-            }
+        if (Input.IsActionJustPressed("temp") && !projetvisible && !agendavisible) {
+            inQuestion = true;
         }
 
-        // Affichage de l'agenda
+        if (inQuestion) {
+            GérerQuestion(Jauge1, Jauge2, Jauge3, Jauge4);
+        }
+
         if (Input.IsActionJustPressed("agenda")) {
-            if (!textvisible && !projetvisible) {
-                CacherTousLesTextEdits(); // Cacher tous les TextEdit
-                affichage.AfficherAgenda(agenda.GetRendezVous(), textEdit2);
-                textEdit2.Visible = true; // Afficher l'agenda
-                agendavisible = true;
-            }
+            rendrevisibleagenda();
         }
 
-        // Affichage des projets
         if (Input.IsActionJustPressed("projet")) {
-            if (!textvisible && !agendavisible) {
-                CacherTousLesTextEdits(); // Cacher tous les TextEdit
-                affichage.AfficherProjets(projets, textEdit3,panel);
-				panel.Visible=true;
-                textEdit3.Visible = true; // Afficher les projets
-                projetvisible = true;
-            }
+            rendrevisibleprojet();
         }
 
         if (Input.IsActionPressed("fermer")) {
-            if (textvisible) {
+            verifieravantdefermer();
+        }
+    }
+
+    private void GérerQuestion(Jauge Jauge1, Jauge Jauge2, Jauge Jauge3, Jauge Jauge4)
+    {
+        if (Input.IsActionJustPressed("Question")) {
+            affichage.EcrireTexte(_textEdit, q.getquestion());
+            affichage.EcrireTexte(r1, q.reponse1());
+            affichage.EcrireTexte(r2, q.reponse2());
+        }
+
+        if (q.getnumquestion() % 5 == 0 && q.getnumquestion() != 0 && Input.IsActionJustPressed("Question")) {
+           
+            Rendezvous rdv = nouveaurdv();
+            affichage.EcrireTexte(_textEdit, rdv.ToString());
+            affichage.EcrireTexte(r1, "accepter le rdv");
+            affichage.EcrireTexte(r2, "refuser le rdv");
+
+            if (Input.IsActionJustPressed("AnswerRight")) {
+                // Logique pour accepter le rendez-vous
+            } 
+            else if (Input.IsActionJustPressed("AnswerLeft")) {
+               if(agenda.PeutAjouterRendezVous(rdv)){
+                agenda.ajtrdv(rdv);
+                GD.Print("Rendez-vous ajouté");
+               }
+               else{
+                GD.Print("rdv pas ajouter");
+               }
+            }
+        }
+        
+        if (Input.IsActionJustPressed("AnswerRight")) {
+            MettreÀJourJauges(Jauge1, Jauge2, Jauge3, Jauge4, q.getvaleur2);
+            inQuestion = false;
+            q.question_suivante();
+        } 
+        else if (Input.IsActionJustPressed("AnswerLeft")) {
+            MettreÀJourJauges(Jauge1, Jauge2, Jauge3, Jauge4, q.getvaleur1);
+            inQuestion = false;
+            q.question_suivante();
+        }
+    }
+
+    private void MettreÀJourJauges(Jauge Jauge1, Jauge Jauge2, Jauge Jauge3, Jauge Jauge4, Func<string, int> getValeur)
+    {
+        Jauge1.Modif(getValeur("j1"));
+        Jauge2.Modif(getValeur("j2"));
+        Jauge3.Modif(getValeur("j3"));
+        Jauge4.Modif(getValeur("j4"));
+    }
+
+
+    private Rendezvous nouveaurdv()
+    {
+        Random rand = new Random();
+        return Rendezvous.GenererRendezVousAleatoire(rand.Next(1, 6));
+    }
+
+
+
+
+
+    // Méthode pour cacher tous les TextEdit
+    private void CacherTousLesTextEdits() {
+        _textEdit.Visible = false;
+        textEdit2.Visible = false;
+        textEdit3.Visible = false;
+        r1.Visible = false;
+        r2.Visible=false;
+
+        projetvisible = false;
+        agendavisible = false;
+    }
+
+
+    private void verifieravantdefermer(){
+        if ( _textEdit.Visible) {
                 _textEdit.Visible = false;
-                textvisible = false;
+         
+                r1.Visible=false;
+                r2.Visible=false;
             }
             if (projetvisible) {
 				panel.Visible=false;
@@ -125,16 +153,24 @@ public partial class JeuCourt : Node2D
                 textEdit2.Visible = false;
                 agendavisible = false;
             }
-        }
     }
 
-    // Méthode pour cacher tous les TextEdit
-    private void CacherTousLesTextEdits() {
-        _textEdit.Visible = false;
-        textEdit2.Visible = false;
-        textEdit3.Visible = false;
-        textvisible = false;
-        projetvisible = false;
-        agendavisible = false;
+    private void rendrevisibleprojet(){
+        if (! _textEdit.Visible && !agendavisible) {
+                CacherTousLesTextEdits(); // Cacher tous les TextEdit
+                affichage.AfficherProjets(projets, textEdit3,panel);
+				panel.Visible=true;
+                textEdit3.Visible = true; // Afficher les projets
+                projetvisible = true;
+            }
+    }
+
+    private void rendrevisibleagenda(){
+         if (! _textEdit.Visible && !projetvisible) {
+                CacherTousLesTextEdits(); // Cacher tous les TextEdit
+                affichage.AfficherAgenda(agenda.GetRendezVous(), textEdit2);
+                textEdit2.Visible = true; // Afficher l'agenda
+                agendavisible = true;
+            }
     }
 }

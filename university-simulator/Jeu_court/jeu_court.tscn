@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=13 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
 [ext_resource type="Texture2D" uid="uid://bpinrfqnaihkd" path="res://fond_et_titre/fond_bureau.png" id="2_3xixw"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Jeu_court/Jauge.cs" id="4_d56qo"]
 [ext_resource type="Texture2D" uid="uid://bsixmhe06b8x0" path="res://asset/cahier-ouvert.png" id="6_q2npa"]
 [ext_resource type="FontFile" uid="uid://d1w7hcd0v35vp" path="res://police/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" id="7_whcn6"]
+[ext_resource type="Texture2D" uid="uid://be2oxjowsnumh" path="res://asset/horloge.png" id="8_31e8y"]
+[ext_resource type="FontFile" uid="uid://qv104t57hkkn" path="res://police/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" id="9_66sx3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ldu4"]
 texture = ExtResource("2_m6l7w")
@@ -189,20 +191,38 @@ show_percentage = false
 
 [node name="TextEdit" type="TextEdit" parent="."]
 visible = false
-offset_left = 824.0
-offset_top = 158.0
-offset_right = 1111.0
-offset_bottom = 276.0
+offset_left = 147.0
+offset_top = 16.0
+offset_right = 703.0
+offset_bottom = 221.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+editable = false
+wrap_mode = 1
+
+[node name="r1" type="TextEdit" parent="."]
+visible = false
+offset_left = 69.0
+offset_top = 226.0
+offset_right = 399.0
+offset_bottom = 317.0
+editable = false
+wrap_mode = 1
+
+[node name="r2" type="TextEdit" parent="."]
+visible = false
+offset_left = 448.0
+offset_top = 225.0
+offset_right = 818.0
+offset_bottom = 316.0
 editable = false
 wrap_mode = 1
 
 [node name="TextEdit2" type="TextEdit" parent="."]
 visible = false
-offset_left = 180.0
-offset_top = 384.0
-offset_right = 513.0
-offset_bottom = 492.0
+offset_left = 172.0
+offset_top = 372.0
+offset_right = 489.0
+offset_bottom = 486.0
 editable = false
 
 [node name="panel" type="Panel" parent="."]
@@ -221,6 +241,8 @@ offset_bottom = 621.0
 texture = ExtResource("6_q2npa")
 
 [node name="TextEdit3" type="TextEdit" parent="panel"]
+visible = false
+layout_mode = 0
 offset_left = 185.0
 offset_top = -25.0
 offset_right = 476.0
@@ -234,5 +256,29 @@ theme_override_fonts/font = ExtResource("7_whcn6")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_hbf0m")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_1eqhm")
+editable = false
+wrap_mode = 1
+
+[node name="Horloge" type="Sprite2D" parent="."]
+position = Vector2(1017, 91)
+scale = Vector2(0.413672, 0.426172)
+texture = ExtResource("8_31e8y")
+
+[node name="TextEdit4" type="TextEdit" parent="Horloge"]
+offset_left = -254.0
+offset_top = -80.0
+offset_right = 261.0
+offset_bottom = 77.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_66sx3")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbf0m")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_1eqhm")
+text = "   08:00
+"
 editable = false
 wrap_mode = 1

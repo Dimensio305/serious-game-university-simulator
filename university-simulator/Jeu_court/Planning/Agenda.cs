@@ -32,7 +32,7 @@ public class Agenda
     }
     }
 
-    private bool PeutAjouterRendezVous(Rendezvous nouveauRendezVous)
+    public bool PeutAjouterRendezVous(Rendezvous nouveauRendezVous)
     {
     foreach (var rdv in rendezVousList)
     {
@@ -46,5 +46,9 @@ public class Agenda
     }
     GD.Print("Aucun conflit pour : " + nouveauRendezVous);
     return true; // Pas de conflit
+    }
+
+    public void ajtrdv(Rendezvous rdv){
+        rendezVousList.Add(rdv);
     }
 }
