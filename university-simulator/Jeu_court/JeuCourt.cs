@@ -10,12 +10,13 @@ public partial class JeuCourt : Node2D
     private bool agendavisible = false; 
 
     private List<Projet> projets;
+    private List<Formation> forma;
     private Agenda agenda;
 
     private TextEdit textEdit2; // Affichage de l'agenda
-    private TextEdit textEdit3; // Affichage des projets
-    private TextEdit r1; 
+    private TextEdit textEdit3; // Affichage des     private TextEdit r1; 
     private TextEdit r2; 
+    private TextEdit r1; 
 
     private Panel panel;
     private Question q = new Question();
@@ -34,6 +35,9 @@ public partial class JeuCourt : Node2D
         // Générer des projets et rendez-vous aléatoires
         projets = Projet.GenererProjetsAleatoires();
         agenda = new Agenda();
+        forma = new List<Formation>();
+        GenererForma();
+        
     }
 
     public override void _Process(double delta)
@@ -80,7 +84,8 @@ public partial class JeuCourt : Node2D
             affichage.EcrireTexte(r2, "refuser le rdv");
 
             if (Input.IsActionJustPressed("AnswerRight")) {
-                // Logique pour accepter le rendez-vous
+                
+                // refuser le rdv 
             } 
             else if (Input.IsActionJustPressed("AnswerLeft")) {
                if(agenda.PeutAjouterRendezVous(rdv)){
@@ -158,7 +163,9 @@ public partial class JeuCourt : Node2D
     private void rendrevisibleprojet(){
         if (! _textEdit.Visible && !agendavisible) {
                 CacherTousLesTextEdits(); // Cacher tous les TextEdit
-                affichage.AfficherProjets(projets, textEdit3,panel);
+                //affichage.AfficherProjets(projets, textEdit3,panel);
+
+                affichage.AfficherFormations(forma,textEdit3,panel);
 				panel.Visible=true;
                 textEdit3.Visible = true; // Afficher les projets
                 projetvisible = true;
@@ -172,5 +179,11 @@ public partial class JeuCourt : Node2D
                 textEdit2.Visible = true; // Afficher l'agenda
                 agendavisible = true;
             }
+    }
+
+    private void GenererForma(){
+        for (int i =0 ; i < 5 ;i ++){
+            forma.Add(Formation.genereformation());
+        }
     }
 }
