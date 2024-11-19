@@ -282,3 +282,18 @@ text = "   08:00
 "
 editable = false
 wrap_mode = 1
+
+[node name="proj" type="TextEdit" parent="."]
+visible = false
+offset_left = 673.0
+offset_top = 152.0
+offset_right = 1010.0
+offset_bottom = 349.0
+editable = false
+wrap_mode = 1
+
+[node name="imageJour" type="TextureRect" parent="."]
+offset_right = 1156.0
+offset_bottom = 661.0
+
+[node name="Timer" type="Timer" parent="."]

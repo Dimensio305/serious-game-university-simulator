@@ -9,6 +9,7 @@ public class Formation
     public int Effectif { get; private set; }
     public int Eleve { get; private set; }
     public int Budget { get; private set; }
+    public static int index =1 ; 
     
     public Formation ( string nom , int effectif , int eleve , int budget , string option){
         Nom = nom ;
@@ -18,14 +19,22 @@ public class Formation
         Option = option ;
     }
 
+    private static int getindex(){
+        return index;
+    }
+
+    private static void setindex(int value){
+        index = value;
+    }
+
     static public Formation genereformation(){
-        int index = 1 ;
+        int index = getindex();
         string n = GestionDb.Instance.ExecuteRequete("select nom from Formation where idformation = " + index.ToString() +";" ) ;
         int e = Convert.ToInt32(GestionDb.Instance.ExecuteRequete("select effectif from Formation where idformation  = " + index.ToString() +";" )) ;
         int el =Convert.ToInt32(GestionDb.Instance.ExecuteRequete("select eleve from Formation where idformation  = " +  index.ToString() + ";" )) ;
         int b = Convert.ToInt32(GestionDb.Instance.ExecuteRequete("select budget from Formation where idformation = " + index.ToString() +";" )) ;
         string o = GestionDb.Instance.ExecuteRequete("select opt from Formation where idformation = " + index.ToString() +";" ) ;
-        index ++;
+        setindex(index+1);
         return new Formation (n , e , el , b , o ) ;
     }
 
