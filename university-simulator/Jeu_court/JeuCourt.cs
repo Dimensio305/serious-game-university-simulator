@@ -82,9 +82,13 @@ public partial class JeuCourt : Node2D
         }
     }
 
-    private Rendezvous GérerQuestion()
+    private (Rendezvous RDV, Formation FORMA , Projet PROJ) GérerQuestion()
     {
         Rendezvous rdv = nouveaurdv();
+        Formation forma = Formation.genereformation();
+        Projet proj = GenererunProjetAleatoire();
+        
+        
 
         if (Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible&&( q.getnumquestion() % 2 !=0   || q.getnumquestion() ==0))
         {
@@ -102,7 +106,14 @@ public partial class JeuCourt : Node2D
             
         }
 
-        return rdv;
+        if (q.getnumquestion()%3 ==0 && Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible){
+            affichage.EcrireTexte()
+        if (q.getnumquestion()%5 ==0 && Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible){
+            affichage
+        }
+
+
+        return(rdv,forma,proj) ;
 
     }
 
@@ -213,43 +224,6 @@ public partial class JeuCourt : Node2D
         }
     }
 
-    /*rivate void gerereponse(Jauge J1, Jauge J2 , Jauge J3 , Jauge J4,Rendezvous rdv ){
-        if (Input.IsActionJustPressed("AnswerLeft")&&!projetvisible &&!formationvisible &&!agendavisible){
-            GD.Print("Numéro de la question : ", q.getnumquestion());
-            if(q.getnumquestion() % 2 == 0 && q.getnumquestion() != 0){
-                 GD.Print("Condition remplie : Numéro de question pair et non nul");
-                if (agenda.PeutAjouterRendezVous(rdv))
-                {
-                    agenda.ajtrdv(rdv);
-                    GD.Print("Rendez-vous ajouté");
-                    inQuestion = false;
-                    q.question_suivante();
-                }
-                else{
-                    GD.Print("Rendez-vous non ajouté");
-                    inQuestion = false;
-                    q.question_suivante();
-                }
-            }
-            else{
-                MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1);
-                inQuestion = false;
-                q.question_suivante();
-            }
-        }
-        if (Input.IsActionJustPressed("AnswerRight")&&!projetvisible &&!formationvisible &&!agendavisible){
-            if(q.getnumquestion() % 2 == 0 && q.getnumquestion() != 0){
-                GD.Print("rendez vous refuser");
-                inQuestion = false;
-                q.question_suivante();
-            }
-            else{
-                MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2);
-                inQuestion = false;
-                q.question_suivante();
-            }
-        }
-    }*/
     public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4, Rendezvous rdv)
 {
     if (agenda == null)
