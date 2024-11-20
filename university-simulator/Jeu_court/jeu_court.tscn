@@ -220,10 +220,11 @@ wrap_mode = 1
 [node name="TextEdit2" type="TextEdit" parent="."]
 visible = false
 offset_left = 172.0
-offset_top = 372.0
-offset_right = 489.0
-offset_bottom = 486.0
+offset_top = 369.0
+offset_right = 494.0
+offset_bottom = 500.0
 editable = false
+wrap_mode = 1
 
 [node name="panel" type="Panel" parent="."]
 visible = false
@@ -291,9 +292,5 @@ offset_right = 1010.0
 offset_bottom = 349.0
 editable = false
 wrap_mode = 1
-
-[node name="imageJour" type="TextureRect" parent="."]
-offset_right = 1156.0
-offset_bottom = 661.0
 
 [node name="Timer" type="Timer" parent="."]

@@ -59,6 +59,18 @@ public class Rendezvous
         return $"{Date:HH:mm} - {HeureFin():HH:mm} : {Description}";
     }
 
+  /// <summary>
+/// Retourne une chaîne de caractères représentant le rendez-vous avec son jour, son horaire et sa description.
+/// </summary>
+/// <returns>Une chaîne formatée avec le jour, l'heure de début, l'heure de fin, et la description du rendez-vous.</returns>
+public string vquestion()
+{
+    // Conversion du jour en français
+    string jourSemaine = Date.ToString("dddd", new System.Globalization.CultureInfo("fr-FR"));
+
+    return $"{jourSemaine}, {Date:HH:mm} - {HeureFin():HH:mm} : {Description}";
+}
+
     /// <summary>
     /// Génère un rendez-vous aléatoire pour un jour de la semaine spécifié.
     /// </summary>
@@ -74,9 +86,9 @@ public class Rendezvous
         int daysUntilNextWeekday = ((jourSemaine + 1) % 7 - (int)date.DayOfWeek + 7) % 7;
         DateTime jour = date.AddDays(daysUntilNextWeekday);
 
-        // Heure de début entre 9h et 16h
-        jour = jour.AddHours(rand.Next(9, 17));
-        TimeSpan duree = TimeSpan.FromHours(rand.Next(1, 4)); // Durée de 1 à 3 heures
+        // Heure de début entre 8h et 16h
+        jour = jour.AddHours(rand.Next(8, 16));
+        TimeSpan duree = TimeSpan.FromHours(rand.Next(1, 3)); // Durée de 1 à 2 heures
         string description = descriptions[rand.Next(descriptions.Length)];
 
         return new Rendezvous(jour, duree, description);

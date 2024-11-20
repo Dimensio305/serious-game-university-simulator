@@ -32,7 +32,7 @@ public class Agenda
     }
     }
 
-    public bool PeutAjouterRendezVous(Rendezvous nouveauRendezVous)
+   /* public bool PeutAjouterRendezVous(Rendezvous nouveauRendezVous)
     {
     foreach (var rdv in rendezVousList)
     {
@@ -46,9 +46,57 @@ public class Agenda
     }
     GD.Print("Aucun conflit pour : " + nouveauRendezVous);
     return true; // Pas de conflit
+    }*/
+    /*public bool PeutAjouterRendezVous(Rendezvous nouveauRendezVous)
+{
+    foreach (var rdv in rendezVousList)
+    {
+        GD.Print("Comparaison : " + nouveauRendezVous.Date + " avec " + rdv.Date);
+        if (nouveauRendezVous.Date.Date == rdv.Date.Date &&
+            ((nouveauRendezVous.Date.TimeOfDay >= rdv.Date.TimeOfDay && nouveauRendezVous.Date.TimeOfDay < rdv.HeureFin().TimeOfDay) ||
+             (nouveauRendezVous.HeureFin().TimeOfDay > rdv.Date.TimeOfDay && nouveauRendezVous.HeureFin().TimeOfDay <= rdv.HeureFin().TimeOfDay)))
+        {
+            GD.Print("Conflit détecté pour : " + nouveauRendezVous);
+            return false; // Conflit détecté
+        }
+    }
+    GD.Print("Aucun conflit pour : " + nouveauRendezVous);
+    return true; // Pas de conflit
+}*/
+public bool PeutAjouterRendezVous(Rendezvous nouveauRendezVous)
+{
+    if (nouveauRendezVous == null)
+    {
+        GD.Print("Le rendez-vous est null !");
+        return false;
     }
 
+    foreach (var rdv in rendezVousList)
+    {
+        if (rdv == null)  // Vérifie si un rendez-vous dans la liste est nul
+        {
+            GD.Print("Un rendez-vous dans la liste est null !");
+            continue;
+        }
+
+        GD.Print("Comparaison : " + nouveauRendezVous.Date + " avec " + rdv.Date);
+        if (nouveauRendezVous.Date.Date == rdv.Date.Date &&
+            ((nouveauRendezVous.Date.TimeOfDay >= rdv.Date.TimeOfDay && nouveauRendezVous.Date.TimeOfDay < rdv.HeureFin().TimeOfDay) ||
+             (nouveauRendezVous.HeureFin().TimeOfDay > rdv.Date.TimeOfDay && nouveauRendezVous.HeureFin().TimeOfDay <= rdv.HeureFin().TimeOfDay)))
+        {
+            GD.Print("Conflit détecté pour : " + nouveauRendezVous);
+            return false; // Conflit détecté
+        }
+    }
+    GD.Print("Aucun conflit pour : " + nouveauRendezVous);
+    return true; // Pas de conflit
+}
+
+
+
+
     public void ajtrdv(Rendezvous rdv){
-        rendezVousList.Add(rdv);
+        this.rendezVousList.Add(rdv);
+        GD.Print("rdv ajouter ");
     }
 }

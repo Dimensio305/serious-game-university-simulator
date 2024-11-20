@@ -8,8 +8,10 @@ public class Question{
 
     int nb_question = 0;
 
+    
     public Question(){}
-
+ 
+ 
     public void setnbquestion(){
         nb_question+=1;
     }

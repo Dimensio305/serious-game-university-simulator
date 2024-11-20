@@ -21,58 +21,80 @@ public static class affichage
     }
 
 
+/// <summary>
+///  Methode statique permettant d'écrire dans une texteedit et de la rendre visible en meme
+/// </summary>
+/// <param name="rendezVousList"></param>
+/// <param name="textEdit"></param>
+public static void AfficherAgenda(List<Rendezvous> rendezVousList, TextEdit textEdit)
+{
+    textEdit.Text = ""; // Vider l'ancien texte
+    
 
-    /// <summary>
-    /// Méthode statique pour afficher l'agenda sous forme de semainier structuré dans un TextEdit
-    /// </summary>
-    /// <param name="rendezVousList"></param>
-    /// <param name="textEdit"></param>
-    public static void AfficherAgenda(List<Rendezvous> rendezVousList, TextEdit textEdit)
+    // Tableau des jours de la semaine en français
+    string[] joursFrancais = { "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi" };
+
+    // Dictionnaire pour regrouper les rendez-vous par jour
+    Dictionary<string, List<Rendezvous>> agendaParJour = new Dictionary<string, List<Rendezvous>>();
+
+    // Initialiser le dictionnaire pour chaque jour du lundi au samedi
+    foreach (var jour in joursFrancais)
     {
-        textEdit.Text = ""; // Vider l'ancien texte
-
-        // Dictionnaire pour regrouper les rendez-vous par jour
-        Dictionary<DayOfWeek, List<Rendezvous>> agendaParJour = new Dictionary<DayOfWeek, List<Rendezvous>>();
-
-        // Initialiser le dictionnaire avec chaque jour de la semaine
-        foreach (DayOfWeek jour in Enum.GetValues(typeof(DayOfWeek)))
-        {
-            agendaParJour[jour] = new List<Rendezvous>();
-        }
-
-        // Remplir le dictionnaire avec les rendez-vous
-        foreach (var rdv in rendezVousList)
-        {
-            agendaParJour[rdv.Date.DayOfWeek].Add(rdv);
-        }
-
-        // En-tête de l'agenda
-        textEdit.Text += "Agenda de la semaine\n";
-        textEdit.Text += "====================\n\n";
-
-        // Afficher les rendez-vous par jour
-        foreach (var jour in agendaParJour)
-        {
-            textEdit.Text += $"{jour.Key}:\n";
-            textEdit.Text += "--------------------\n";  // Ligne de séparation pour chaque jour
-
-            if (jour.Value.Count == 0)
-            {
-                textEdit.Text += "  Aucun rendez-vous\n";
-            }
-            else
-            {
-                foreach (var rdv in jour.Value)
-                {
-                    // Affichage formaté : heure et description
-                    textEdit.Text += $"  - {rdv.Date:HH:mm} : {rdv.Description}\n";
-                }
-            }
-            textEdit.Text += "\n";
-        }
-
-        textEdit.Visible = true;
+        agendaParJour[jour] = new List<Rendezvous>();
     }
+
+    // Remplir le dictionnaire avec les rendez-vous
+    foreach (var rdv in rendezVousList)
+    {
+        DayOfWeek jourRdv = rdv.Date.DayOfWeek;
+
+        // Mapper les jours en français en fonction des jours de la semaine en anglais
+        string jourFrancais = jourRdv switch
+        {
+            DayOfWeek.Monday => "Lundi",
+            DayOfWeek.Tuesday => "Mardi",
+            DayOfWeek.Wednesday => "Mercredi",
+            DayOfWeek.Thursday => "Jeudi",
+            DayOfWeek.Friday => "Vendredi",
+            DayOfWeek.Saturday => "Samedi",
+            _ => null // On ignore les rendez-vous du dimanche
+        };
+
+        if (jourFrancais != null && agendaParJour.ContainsKey(jourFrancais))
+        {
+            agendaParJour[jourFrancais].Add(rdv);
+        }
+    }
+
+    // En-tête de l'agenda
+    textEdit.Text += "Agenda de la semaine \n";
+    textEdit.Text += "=====================\n\n";
+
+    // Afficher les rendez-vous par jour
+    foreach (var jour in joursFrancais)
+    {
+        textEdit.Text += $"{jour}:\n";
+        textEdit.Text += "--------------------\n"; // Ligne de séparation pour chaque jour
+
+        if (agendaParJour[jour].Count == 0)
+        {
+            textEdit.Text += "  Aucun rendez-vous\n";
+        }
+        else
+        {
+            foreach (var rdv in agendaParJour[jour])
+            {
+                // Affichage formaté : heure et description
+                textEdit.Text += $"  - {rdv.Date:HH:mm} - {rdv.HeureFin():HH:mm}: {rdv.Description}\n";
+            }
+        }
+        textEdit.Text += "\n";
+    }
+
+    textEdit.Visible = true;
+}
+
+
 
 
     /// <summary>
@@ -120,7 +142,7 @@ public static class affichage
         textEditFormations.Visible = true;
     }
 
-    public static AfficherJour(TextEdit textEdit, Timer timer, string texte, float duree){
+    public static void AfficherJour(TextEdit textEdit, Timer timer, string texte, float duree){
         // Configure le TextEdit
         textEdit.Text = texte;
         textEdit.Visible = true;
