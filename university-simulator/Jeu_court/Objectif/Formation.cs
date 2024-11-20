@@ -33,7 +33,7 @@ public class Formation
         int e = Convert.ToInt32(GestionDb.Instance.ExecuteRequete("select effectif from Formation where idformation  = " + index.ToString() +";" )) ;
         int el =Convert.ToInt32(GestionDb.Instance.ExecuteRequete("select eleve from Formation where idformation  = " +  index.ToString() + ";" )) ;
         int b = Convert.ToInt32(GestionDb.Instance.ExecuteRequete("select budget from Formation where idformation = " + index.ToString() +";" )) ;
-        string o = GestionDb.Instance.ExecuteRequete("select opt from Formation where idformation = " + index.ToString() +";" ) ;
+        string o = GestionDb.Instance.ExecuteRequete("select Opt from Formation where idformation = " + index.ToString() +";" ) ;
         setindex(index+1);
         return new Formation (n , e , el , b , o ) ;
     }
