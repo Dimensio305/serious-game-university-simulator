@@ -29,11 +29,17 @@ public class Formation
 
     static public Formation genereformation(){
         int index = getindex();
+        GD.Print("entrer dans genere forma");
         string n = GestionDb.Instance.ExecuteRequete("select nom from Formation where idformation = " + index.ToString() +";" ) ;
+        GD.Print(n);
         int e = Convert.ToInt32(GestionDb.Instance.ExecuteRequete("select effectif from Formation where idformation  = " + index.ToString() +";" )) ;
+        GD.Print(e);
         int el =Convert.ToInt32(GestionDb.Instance.ExecuteRequete("select eleve from Formation where idformation  = " +  index.ToString() + ";" )) ;
+        GD.Print(el);
         int b = Convert.ToInt32(GestionDb.Instance.ExecuteRequete("select budget from Formation where idformation = " + index.ToString() +";" )) ;
+        GD.Print(b);
         string o = GestionDb.Instance.ExecuteRequete("select Opt from Formation where idformation = " + index.ToString() +";" ) ;
+        GD.Print(o);
         setindex(index+1);
         return new Formation (n , e , el , b , o ) ;
     }
