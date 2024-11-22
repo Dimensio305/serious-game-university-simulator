@@ -125,6 +125,7 @@ public class GestionDb
 					if (!reader.HasRows)
 					{
 						GD.Print("Aucune valeur trouvée.");
+						GD.Print(query);
 						return "";
 					}
 
