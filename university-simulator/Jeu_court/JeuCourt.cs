@@ -312,6 +312,6 @@ public partial class JeuCourt : Node2D
 	formaRepondu =false;
 }
 
-
+//Commentaire de mise a jour
 
 }
