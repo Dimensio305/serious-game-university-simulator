@@ -88,6 +88,6 @@ public partial class Chargement : ColorRect
 	private void GoToMenu()
 	{
 		GD.Print("On change de scene pour le menu");
-		GetTree().ChangeSceneToFile("res://Menu/i_menu.tscn"); // Assure-toi que ce chemin est correct
+		GetTree().ChangeSceneToFile("res://scenes/intermediaire.tscn"); 
 	}
 }

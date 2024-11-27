@@ -40,6 +40,7 @@ offset_left = 97.0
 offset_top = 62.0
 offset_right = 408.0
 offset_bottom = 220.0
+editable = false
 
 [node name="TextEdit2" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
@@ -47,6 +48,7 @@ offset_left = 99.0
 offset_top = 241.0
 offset_right = 410.0
 offset_bottom = 399.0
+editable = false
 
 [node name="TextEdit" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
@@ -54,6 +56,7 @@ offset_left = 99.0
 offset_top = 430.0
 offset_right = 410.0
 offset_bottom = 588.0
+editable = false
 
 [node name="case_droite" type="TextureRect" parent="."]
 offset_left = 628.0

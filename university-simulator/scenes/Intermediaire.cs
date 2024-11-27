@@ -17,7 +17,7 @@ public partial class Intermediaire : Node2D
 
         foreach (TextEdit textEdit in _target1.GetChildren())
         {
-            textEdit.Connect("gui_input", this, nameof(OnGuiInput()));
+            textEdit.Connect("gui_input", Callable.From<InputEvent>(OnGuiInput));
         }
     }
 
@@ -25,9 +25,17 @@ public partial class Intermediaire : Node2D
     {
         if (inputEvent is InputEventMouseButton mouseEvent)
         {
-            if (mouseEvent.Pressed && mouseEvent.ButtonIndex == (int)ButtonList.Left)
+            if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
             {
-                _draggedNode = (Control)GetTree().GetCurrentScene().GetNodeAtPosition(GetViewport().GetMousePosition());
+                foreach (Node child in GetTree().GetNodesInGroup("Draggable"))
+                {
+                    if (child is Control control && control.GetGlobalRect().HasPoint(GetViewport().GetMousePosition()))
+                    {
+                        _draggedNode = control;
+                        break;
+                    }
+                }
+
                 if (_draggedNode != null)
                 {
                     _offset = _draggedNode.GlobalPosition - GetGlobalMousePosition();
@@ -56,7 +64,7 @@ public partial class Intermediaire : Node2D
         }
     }
 
-    private void AnimateMove(Control node, TextureRect newParent)
+     private void AnimateMove(Control node, TextureRect newParent)
     {
         Node parentNode = newParent.GetParent();
         if (parentNode is Node2D node2DParent)
@@ -78,12 +86,9 @@ public partial class Intermediaire : Node2D
             _animationPlayer.Play(animationName);
 
             // Déclencher l'animation avec l'appel du signal "animation_finished"
-            _animationPlayer.Connect("animation_finished", this, nameof(OnAnimationFinished), new Godot.Collections.Array { node, newParent });
+           _animationPlayer.Connect("animation_finished", new Callable(this, nameof(OnAnimationFinished)));
         }
     }
-
-
-
 
 
     private void OnAnimationFinished(string animName, Godot.Collections.Array args)
@@ -103,7 +108,7 @@ public partial class Intermediaire : Node2D
         _animationPlayer.Disconnect("animation_finished", new Callable(this, nameof(OnAnimationFinished)));
     }
 
-    public void _Process(float delta)
+    public void Process(float delta)
     {
         if (_draggedNode != null)
         {
