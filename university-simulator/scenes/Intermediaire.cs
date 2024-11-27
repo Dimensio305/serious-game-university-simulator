@@ -3,116 +3,67 @@ using System;
 
 public partial class Intermediaire : Node2D
 {
-    private Control _draggedNode = null;
-    private Vector2 _offset;
     private TextureRect _target1;
     private TextureRect _target2;
-    private AnimationPlayer _animationPlayer;
 
     public override void _Ready()
     {
-        _target1 = GetNode<TextureRect>("case_gauhe");
+        _target1 = GetNode<TextureRect>("case_gauche");
         _target2 = GetNode<TextureRect>("case_droite");
-        _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
-        foreach (TextEdit textEdit in _target1.GetChildren())
-        {
-            textEdit.Connect("gui_input", Callable.From<InputEvent>(OnGuiInput));
-        }
+        // Connecter les événements `gui_input` pour chaque `TextEdit` dans `_target1` et `_target2`.
+        ConnectGuiInputToChildren(_target1);
+        ConnectGuiInputToChildren(_target2);
     }
 
-    private void OnGuiInput(InputEvent inputEvent)
+    private void ConnectGuiInputToChildren(TextureRect target)
     {
-        if (inputEvent is InputEventMouseButton mouseEvent)
+        foreach (Node child in target.GetChildren())
         {
-            if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
+            if (child is TextEdit textEdit)
             {
-                foreach (Node child in GetTree().GetNodesInGroup("Draggable"))
-                {
-                    if (child is Control control && control.GetGlobalRect().HasPoint(GetViewport().GetMousePosition()))
-                    {
-                        _draggedNode = control;
-                        break;
-                    }
-                }
-
-                if (_draggedNode != null)
-                {
-                    _offset = _draggedNode.GlobalPosition - GetGlobalMousePosition();
-                    _draggedNode.SetProcess(true);
-                }
-            }
-            else if (!mouseEvent.Pressed && _draggedNode != null)
-            {
-                _draggedNode.SetProcess(false);
-
-                if (_target2.GetGlobalRect().HasPoint(GetGlobalMousePosition()))
-                {
-                    AnimateMove(_draggedNode, _target2);
-                }
-                else if (_target1.GetGlobalRect().HasPoint(GetGlobalMousePosition()))
-                {
-                    AnimateMove(_draggedNode, _target1);
-                }
-                else
-                {
-                    AnimateMove(_draggedNode, (TextureRect)_draggedNode.GetParent());
-                }
-
-                _draggedNode = null;
+                // Passer la référence au nœud cliqué via un Callable personnalisé.
+                textEdit.Connect("gui_input", Callable.From((InputEvent inputEvent) => OnGuiInput(inputEvent, textEdit)));
             }
         }
     }
 
-     private void AnimateMove(Control node, TextureRect newParent)
+    private void OnGuiInput(InputEvent inputEvent, TextEdit clickedTextEdit)
     {
-        Node parentNode = newParent.GetParent();
-        if (parentNode is Node2D node2DParent)
+        if (inputEvent is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
         {
-            Vector2 finalPosition = node2DParent.ToLocal(GetGlobalMousePosition()) + newParent.GlobalPosition - _offset;
+            // Déterminer la destination (autre `TextureRect`).
+            TextureRect destination = clickedTextEdit.GetParent() == _target1 ? _target2 : _target1;
 
-            string animationName = "MoveTextEdit";
-
-            // Créer une nouvelle animation
-            Animation animation = new Animation();
-            
-            // Ajouter une piste à l'animation
-            int trackIndex = animation.AddTrack(Animation.TrackType.Value);
-            animation.TrackSetPath(trackIndex, $"{node.GetPath()}:global_position");
-            animation.TrackInsertKey(trackIndex, 0.0f, node.GlobalPosition);
-            animation.TrackInsertKey(trackIndex, 0.5f, finalPosition);
-
-            // Jouer l'animation avec le nom donné
-            _animationPlayer.Play(animationName);
-
-            // Déclencher l'animation avec l'appel du signal "animation_finished"
-           _animationPlayer.Connect("animation_finished", new Callable(this, nameof(OnAnimationFinished)));
+            // Déplacer la `TextEdit` vers la nouvelle `TextureRect`.
+            MoveTextEditToTarget(clickedTextEdit, destination);
         }
     }
 
-
-    private void OnAnimationFinished(string animName, Godot.Collections.Array args)
+    private void MoveTextEditToTarget(TextEdit textEdit, TextureRect target)
     {
-        Control node = (Control)args[0];
-        TextureRect newParent = (TextureRect)args[1];
+        // Retirer de l'ancien parent.
+        textEdit.GetParent().RemoveChild(textEdit);
 
-        // Vérifier si le parent de l'élément a changé
-        if (node.GetParent() != newParent)
-        {
-            node.GetParent().RemoveChild(node);
-            newParent.AddChild(node);
-            node.Position = node.GlobalPosition - newParent.GlobalPosition;
-        }
+        // Ajouter au nouveau parent.
+        target.AddChild(textEdit);
 
-        // Déconnecter le signal une fois l'animation terminée
-        _animationPlayer.Disconnect("animation_finished", new Callable(this, nameof(OnAnimationFinished)));
+        // Réorganiser les enfants pour les aligner en colonne.
+        ReorganizeChildrenInColumn(target);
     }
 
-    public void Process(float delta)
+    private void ReorganizeChildrenInColumn(TextureRect target)
     {
-        if (_draggedNode != null)
+        float yOffset = 10; // Espacement vertical entre les `TextEdit`.
+        float currentY = 0;
+
+        foreach (Node child in target.GetChildren())
         {
-            _draggedNode.GlobalPosition = GetGlobalMousePosition() + _offset;
+            if (child is Control control)
+            {
+                control.Position = new Vector2(0, currentY);
+                currentY += control.Size.Y + yOffset;
+            }
         }
     }
 }
