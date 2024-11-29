@@ -7,8 +7,9 @@ public class Jour
     private static Jour _instance;
 
     // Propriétés privées
-    private string nom;
-    private int nb = 1;
+  
+    private int nb = 0;
+    private string nom = "Lundi";
 
     // Constructeur privé pour empêcher la création d'instances externes
     private Jour() {}
@@ -26,24 +27,55 @@ public class Jour
         }
     }
 
-    // Méthodes pour accéder et modifier les propriétés
-    public void SetNom(string nom)
+    
+    private void setjour(int j)
     {
-        this.nom = nom;
-    }
-
-    public void SetJour(int j)
-    {
+         
+    
         this.nb = j;
+
+        
+        switch (j)
+        {
+            case 0:
+                nom = "Lundi";
+                break;
+            case 1:
+                nom = "Mardi";
+                break;
+            case 2:
+                nom = "Mercredi";
+                break;
+            case 3:
+                nom = "Jeudi";
+                break;
+            case 4:
+                nom = "Vendredi";
+                break;
+            default:
+                nom = "Invalide";
+                break;
+        }
     }
 
-    public string GetNom()
-    {
-        return this.nom;
+    public void Joursuivant(){
+        if (nb == 5){
+            setjour(0);
+        }
+        else{
+            setjour(nb + 1);
+        }
     }
+
+
+    
 
     public int GetJour()
     {
         return this.nb;
+    }
+
+    public string GetNom(){
+        return this.nom;
     }
 }

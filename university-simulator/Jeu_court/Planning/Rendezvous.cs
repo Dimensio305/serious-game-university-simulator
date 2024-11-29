@@ -108,10 +108,8 @@ public class Rendezvous
     /// Retourne une chaîne de caractères représentant le rendez-vous avec son horaire et sa description.
     /// </summary>
     /// <returns>Une chaîne formatée avec l'heure de début, l'heure de fin et la description du rendez-vous.</returns>
-    public override string ToString()
-    {
-        return $"{Date:HH:mm} - {HeureFin():HH:mm} : {Description}";
-    }
+   
+
 
  
     /// <summary>
@@ -136,5 +134,10 @@ public class Rendezvous
         string description = descriptions[rand.Next(descriptions.Length)];
 
         return new Rendezvous(jour, description , id);
+    }
+
+    public override string ToString()
+    {
+        return this.Description;
     }
 }

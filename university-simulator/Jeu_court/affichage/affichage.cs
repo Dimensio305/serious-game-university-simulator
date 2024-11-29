@@ -26,69 +26,46 @@ public static class affichage
 /// </summary>
 /// <param name="rendezVousList"></param>
 /// <param name="textEdit"></param>
-public static void AfficherAgenda(List<Rendezvous> rendezVousList, TextEdit textEdit)
+public static void AfficherAgenda(List<Rendezvous> rendezVousList, TextEdit textEdit )
 {
-    textEdit.Text = ""; // Vider l'ancien texte
-    
+   textEdit.Text = ""; // Vider l'ancien texte
 
-    // Tableau des jours de la semaine en français
-    string[] joursFrancais = { "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi" };
+    // Récupérer le nom du jour via l'instance unique
+    string nomJour = Jour.Instance.GetNom();
 
-    // Dictionnaire pour regrouper les rendez-vous par jour
-    Dictionary<string, List<Rendezvous>> agendaParJour = new Dictionary<string, List<Rendezvous>>();
-
-    // Initialiser le dictionnaire pour chaque jour du lundi au samedi
-    foreach (var jour in joursFrancais)
-    {
-        agendaParJour[jour] = new List<Rendezvous>();
-    }
-
-    // Remplir le dictionnaire avec les rendez-vous
-    foreach (var rdv in rendezVousList)
-    {
-        DayOfWeek jourRdv = rdv.Date.DayOfWeek;
-
-        // Mapper les jours en français en fonction des jours de la semaine en anglais
-        string jourFrancais = jourRdv switch
-        {
-            DayOfWeek.Monday => "Lundi",
-            DayOfWeek.Tuesday => "Mardi",
-            DayOfWeek.Wednesday => "Mercredi",
-            DayOfWeek.Thursday => "Jeudi",
-            DayOfWeek.Friday => "Vendredi",
-            DayOfWeek.Saturday => "Samedi",
-            _ => null // On ignore les rendez-vous du dimanche
-        };
-
-        if (jourFrancais != null && agendaParJour.ContainsKey(jourFrancais))
-        {
-            agendaParJour[jourFrancais].Add(rdv);
-        }
-    }
-
-    // En-tête de l'agenda
-    textEdit.Text += "Agenda de la semaine \n";
+    // En-tête de l'agenda pour le jour
+    textEdit.Text += $"Agenda de {nomJour}\n";
     textEdit.Text += "=====================\n\n";
 
-    // Afficher les rendez-vous par jour
-    foreach (var jour in joursFrancais)
-    {
-        textEdit.Text += $"{jour}:\n";
-        textEdit.Text += "--------------------\n"; // Ligne de séparation pour chaque jour
+    // Définir les créneaux horaires fixes
+    TimeSpan[] debutCreneaux = {
+        new TimeSpan(8, 0, 0),  // 8h à 10h
+        new TimeSpan(10, 0, 0), // 10h à 12h
+        new TimeSpan(14, 0, 0), // 14h à 16h
+        new TimeSpan(16, 0, 0)  // 16h à 18h
+    };
 
-        if (agendaParJour[jour].Count == 0)
+    TimeSpan dureeCreneau = new TimeSpan(2, 0, 0); // Chaque créneau dure 2 heures
+
+    // Afficher les rendez-vous pour chaque créneau
+    for (int i = 0; i < debutCreneaux.Length; i++)
+    {
+        if (i < rendezVousList.Count)
         {
-            textEdit.Text += "  Aucun rendez-vous\n";
+            Rendezvous rdv = rendezVousList[i];
+            TimeSpan debut = debutCreneaux[i];
+            TimeSpan fin = debut + dureeCreneau;
+
+            textEdit.Text += $"  - {debut:hh\\:mm} - {fin:hh\\:mm}: {rdv.Description}\n";
         }
         else
         {
-            foreach (var rdv in agendaParJour[jour])
-            {
-                // Affichage formaté : heure et description
-                textEdit.Text += $"  - {rdv.Date:HH:mm} - {rdv.HeureFin():HH:mm}: {rdv.Description}\n";
-            }
+            TimeSpan debut = debutCreneaux[i];
+            TimeSpan fin = debut + dureeCreneau;
+
+            // Aucun rendez-vous pour ce créneau
+            textEdit.Text += $"  - {debut:hh\\:mm} - {fin:hh\\:mm}: Aucun rendez-vous\n";
         }
-        textEdit.Text += "\n";
     }
 
     textEdit.Visible = true;
