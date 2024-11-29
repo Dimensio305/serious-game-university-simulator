@@ -26,38 +26,6 @@ libraries = {
 "": SubResource("AnimationLibrary_ot153")
 }
 
-[node name="case_gauche" type="TextureRect" parent="."]
-offset_left = 53.0
-offset_top = 14.0
-offset_right = 593.0
-offset_bottom = 663.0
-texture = ExtResource("2_dlcj2")
-expand_mode = 1
-
-[node name="TextEdit3" type="TextEdit" parent="case_gauche"]
-layout_mode = 0
-offset_left = 97.0
-offset_top = 62.0
-offset_right = 408.0
-offset_bottom = 220.0
-editable = false
-
-[node name="TextEdit2" type="TextEdit" parent="case_gauche"]
-layout_mode = 0
-offset_left = 99.0
-offset_top = 241.0
-offset_right = 410.0
-offset_bottom = 399.0
-editable = false
-
-[node name="TextEdit" type="TextEdit" parent="case_gauche"]
-layout_mode = 0
-offset_left = 99.0
-offset_top = 430.0
-offset_right = 410.0
-offset_bottom = 588.0
-editable = false
-
 [node name="case_droite" type="TextureRect" parent="."]
 offset_left = 628.0
 offset_top = 4.0
@@ -65,3 +33,59 @@ offset_right = 1140.0
 offset_bottom = 654.0
 texture = ExtResource("2_dlcj2")
 expand_mode = 1
+
+[node name="case_gauche" type="TextureRect" parent="."]
+offset_left = 52.0
+offset_top = 8.0
+offset_right = 582.0
+offset_bottom = 651.0
+texture = ExtResource("2_dlcj2")
+expand_mode = 1
+
+[node name="0" type="TextEdit" parent="case_gauche"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 54.0
+offset_right = 405.0
+offset_bottom = 137.0
+editable = false
+
+[node name="1" type="TextEdit" parent="case_gauche"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 149.0
+offset_right = 406.0
+offset_bottom = 229.0
+editable = false
+
+[node name="2" type="TextEdit" parent="case_gauche"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 242.0
+offset_right = 405.0
+offset_bottom = 318.0
+editable = false
+
+[node name="3" type="TextEdit" parent="case_gauche"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 327.0
+offset_right = 404.0
+offset_bottom = 410.0
+editable = false
+
+[node name="4" type="TextEdit" parent="case_gauche"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 420.0
+offset_right = 406.0
+offset_bottom = 503.0
+editable = false
+
+[node name="5" type="TextEdit" parent="case_gauche"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 513.0
+offset_right = 406.0
+offset_bottom = 596.0
+editable = false

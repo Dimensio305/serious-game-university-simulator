@@ -21,10 +21,8 @@ public class Rendezvous
     /// </summary>
     public string Description { get; set; }
 
-    /// <summary>
-    /// Obtient ou définit un indicateur indiquant si le rendez-vous est fixe.
-    /// </summary>
-    public bool EstFixe { get; set; }
+
+    public int id;
 
     /// <summary>
     /// Initialise une nouvelle instance de la classe <see cref="Rendezvous"/> avec la date, la durée, la description, et l'indicateur fixe spécifiés.
@@ -33,12 +31,25 @@ public class Rendezvous
     /// <param name="duree">La durée du rendez-vous.</param>
     /// <param name="description">La description du rendez-vous.</param>
     /// <param name="estFixe">Indique si le rendez-vous est fixe (facultatif, valeur par défaut est <c>false</c>).</param>
-    public Rendezvous(DateTime date, TimeSpan duree, string description, bool estFixe = false)
+    public Rendezvous(DateTime date, TimeSpan duree, string description , int id)
     {
+        this.id = id;
         Date = date;
         Duree = duree;
         Description = description;
-        EstFixe = estFixe;
+    }
+
+    public Rendezvous(DateTime date, string description, int id)
+    {
+        this.id = id;
+        Date = date;
+        Duree = new TimeSpan(1, 59, 0);
+        Description = description;
+        
+    }
+
+    public int getid(){
+        return this.id;
     }
 
     /// <summary>
@@ -76,21 +87,22 @@ public string vquestion()
     /// </summary>
     /// <param name="jourSemaine">Le jour de la semaine (0 pour lundi, 1 pour mardi, etc., jusqu'à 4 pour vendredi).</param>
     /// <returns>Un objet <see cref="Rendezvous"/> aléatoire pour le jour spécifié.</returns>
-    public static Rendezvous GenererRendezVousAleatoire(int jourSemaine)
+    public static Rendezvous GenererRendezVousAleatoire(int jourSemaine , int id)
     {
         Random rand = new Random();
-        string[] descriptions = { "Meeting", "Cours", "Conférence", "Présentation" };
+        string[] descriptions = { "Administration universitaire", "Conseil pédagogique", "Service financier", "Enseignants", "Service d orientation et d insertion professionnelle",
+         "Secrétariat pédagogique", "Partenaires professionnels", "Ministère","Cellule de qualité et d évaluation", "Ressources humaine" ,"Etudiant"};
 
         // Calcul du nombre de jours pour atteindre le jour de semaine souhaité (de lundi à vendredi).
         DateTime date = DateTime.Today;
         int daysUntilNextWeekday = ((jourSemaine + 1) % 7 - (int)date.DayOfWeek + 7) % 7;
         DateTime jour = date.AddDays(daysUntilNextWeekday);
 
-        // Heure de début entre 8h et 16h
+        /*// Heure de début entre 8h et 16h
         jour = jour.AddHours(rand.Next(8, 16));
-        TimeSpan duree = TimeSpan.FromHours(rand.Next(1, 3)); // Durée de 1 à 2 heures
+        TimeSpan duree = TimeSpan.FromHours(rand.Next(1, 3)); // Durée de 1 à 2 heures*/
         string description = descriptions[rand.Next(descriptions.Length)];
 
-        return new Rendezvous(jour, duree, description);
+        return new Rendezvous(jour, description , id);
     }
 }

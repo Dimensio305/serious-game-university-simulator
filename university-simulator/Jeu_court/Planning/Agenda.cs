@@ -24,7 +24,7 @@ public class Agenda
         Rendezvous nouveauRendezVous;
         do
         {
-            nouveauRendezVous = Rendezvous.GenererRendezVousAleatoire(jour);
+            nouveauRendezVous = Rendezvous.GenererRendezVousAleatoire(jour,i);
         } while (!PeutAjouterRendezVous(nouveauRendezVous));
 
         rendezVousList.Add(nouveauRendezVous);
@@ -32,37 +32,6 @@ public class Agenda
     }
     }
 
-   /* public bool PeutAjouterRendezVous(Rendezvous nouveauRendezVous)
-    {
-    foreach (var rdv in rendezVousList)
-    {
-        if (nouveauRendezVous.Date.Date == rdv.Date.Date &&
-            ((nouveauRendezVous.Date.TimeOfDay >= rdv.Date.TimeOfDay && nouveauRendezVous.Date.TimeOfDay < rdv.HeureFin().TimeOfDay) ||
-             (nouveauRendezVous.HeureFin().TimeOfDay > rdv.Date.TimeOfDay && nouveauRendezVous.HeureFin().TimeOfDay <= rdv.HeureFin().TimeOfDay)))
-        {
-            GD.Print("Conflit détecté pour : " + nouveauRendezVous);
-            return false; // Conflit détecté
-        }
-    }
-    GD.Print("Aucun conflit pour : " + nouveauRendezVous);
-    return true; // Pas de conflit
-    }*/
-    /*public bool PeutAjouterRendezVous(Rendezvous nouveauRendezVous)
-{
-    foreach (var rdv in rendezVousList)
-    {
-        GD.Print("Comparaison : " + nouveauRendezVous.Date + " avec " + rdv.Date);
-        if (nouveauRendezVous.Date.Date == rdv.Date.Date &&
-            ((nouveauRendezVous.Date.TimeOfDay >= rdv.Date.TimeOfDay && nouveauRendezVous.Date.TimeOfDay < rdv.HeureFin().TimeOfDay) ||
-             (nouveauRendezVous.HeureFin().TimeOfDay > rdv.Date.TimeOfDay && nouveauRendezVous.HeureFin().TimeOfDay <= rdv.HeureFin().TimeOfDay)))
-        {
-            GD.Print("Conflit détecté pour : " + nouveauRendezVous);
-            return false; // Conflit détecté
-        }
-    }
-    GD.Print("Aucun conflit pour : " + nouveauRendezVous);
-    return true; // Pas de conflit
-}*/
 public bool PeutAjouterRendezVous(Rendezvous nouveauRendezVous)
 {
     if (nouveauRendezVous == null)

@@ -36,7 +36,7 @@ public partial class coce_i_menu : Control
 	/// Change la scene pour la version longue du jeu
 	/// </summary>
 	public void _on_b_long_pressed(){
-		// pas encore coder
+		GetTree().ChangeSceneToFile("res://scenes/intermediaire.tscn");
 	}
 	
 	/// <summary>

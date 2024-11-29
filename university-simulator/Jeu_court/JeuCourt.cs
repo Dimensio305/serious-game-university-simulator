@@ -60,7 +60,8 @@ public partial class JeuCourt : Node2D
 		if (inQuestion)
 		{
 			var result = GérerQuestion();
-			gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 , result.RDV);
+			//gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 , result.RDV);
+			gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 );
 		}
 
 		if (Input.IsActionJustPressed("agenda"))
@@ -83,9 +84,9 @@ public partial class JeuCourt : Node2D
 		}
 	}
 
-	private (Rendezvous RDV, Formation FORMA , Projet PROJ) GérerQuestion()
+	private (Formation FORMA , Projet PROJ) GérerQuestion()
 	{
-		Rendezvous rdv = nouveaurdv();
+		//Rendezvous rdv = nouveaurdv();
 					Formation forma2;
 		if(formaRepondu){
  			forma2 = Formation.genereformation();
@@ -102,14 +103,14 @@ public partial class JeuCourt : Node2D
 			affichage.EcrireTexte(r2, q.reponse2());
 		}
 
-		if (q.getnumquestion() % 2 == 0 && q.getnumquestion() != 0 && Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible)
+		/*if (q.getnumquestion() % 2 == 0 && q.getnumquestion() != 0 && Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible)
 		{
 
 			affichage.EcrireTexte(_textEdit, rdv.vquestion());
 			affichage.EcrireTexte(r1, "accepter le rdv");
 			affichage.EcrireTexte(r2, "refuser le rdv");
 			
-		}
+		}*/
 
 		if (q.getnumquestion()%3 ==0 && q.getnumquestion() != 0 && Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible){
 			affichage.EcrireTexte(_textEdit,forma2.ToString());
@@ -124,7 +125,7 @@ public partial class JeuCourt : Node2D
 
 		}
 
-		return(rdv,forma2,projet) ;
+		return(forma2,projet) ;
 	
 
 	}
@@ -138,11 +139,11 @@ public partial class JeuCourt : Node2D
 	}
 
 
-	private Rendezvous nouveaurdv()
+	/*private Rendezvous nouveaurdv()
 	{
 		Random rand = new Random();
 		return Rendezvous.GenererRendezVousAleatoire(rand.Next(1, 6));
-	}
+	}*/
 
 
 
@@ -236,7 +237,7 @@ public partial class JeuCourt : Node2D
 		}
 	}
 
-	public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4, Rendezvous rdv)
+	public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4)
 {
 	if (agenda == null)
 	{
@@ -245,18 +246,18 @@ public partial class JeuCourt : Node2D
 	}
 
 	// Si la question est liée à un rendez-vous, on ne met pas à jour les jauges.
-	if (q.getnumquestion() % 200 == 0 && q.getnumquestion() != 0) {// question de rendez-vous
+	/*if (q.getnumquestion() % 200 == 0 && q.getnumquestion() != 0) {// question de rendez-vous
 
 		 if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !formationvisible && !agendavisible)
 		{
-			if (agenda.PeutAjouterRendezVous(rdv)) // Vérifier si le rendez-vous peut être ajouté
+			/*if (agenda.PeutAjouterRendezVous(rdv)) // Vérifier si le rendez-vous peut être ajouté
 			{
 				agenda.ajtrdv(rdv); // Ajouter le rendez-vous à l'agenda
 				GD.Print("Rendez-vous ajouté : " + rdv);
 				inQuestion = false;
 				q.question_suivante(); // Passer à la question suivante
-							}
-			else
+							}*/
+			/*else
 			{
 				GD.Print("Rendez-vous non ajouté en raison d'un conflit");
 				inQuestion = false;
@@ -269,8 +270,7 @@ public partial class JeuCourt : Node2D
 			inQuestion = false;
 			q.question_suivante(); // Passer à la question suivante
 		}
-	}
-
+}*/
 
 
 

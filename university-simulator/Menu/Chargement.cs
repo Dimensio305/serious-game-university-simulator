@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 /// <summary>
 /// Cette classe est assoscié a la scene de chargement 
 /// </summary>
@@ -10,6 +11,7 @@ public partial class Chargement : ColorRect
 	private ProgressBar progressBar;
 	private Timer startTimer;
 	private bool isLoading = false; // Indique si le chargement a commencé
+
 	
 	
 	/// <summary>
@@ -88,6 +90,6 @@ public partial class Chargement : ColorRect
 	private void GoToMenu()
 	{
 		GD.Print("On change de scene pour le menu");
-		GetTree().ChangeSceneToFile("res://scenes/intermediaire.tscn"); 
+		GetTree().ChangeSceneToFile("res://Menu/i_menu.tscn"); 
 	}
 }
