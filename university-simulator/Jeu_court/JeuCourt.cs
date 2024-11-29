@@ -239,11 +239,11 @@ public partial class JeuCourt : Node2D
 
 	public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4)
 {
-	if (agenda == null)
+	/*if (agenda == null)
 	{
 		GD.Print("Agenda est null !");
 		return;
-	}
+	}*/
 
 	// Si la question est liée à un rendez-vous, on ne met pas à jour les jauges.
 	/*if (q.getnumquestion() % 200 == 0 && q.getnumquestion() != 0) {// question de rendez-vous
@@ -275,7 +275,7 @@ public partial class JeuCourt : Node2D
 
 
 
-	else if (q.getnumquestion() % 2 == 0 && q.getnumquestion() != 0) 
+	if (q.getnumquestion() % 2 == 0 && q.getnumquestion() != 0) 
 	{// question de Formation
 		if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !formationvisible && !agendavisible)
 		{

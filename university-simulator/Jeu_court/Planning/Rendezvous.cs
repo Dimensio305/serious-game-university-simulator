@@ -1,4 +1,5 @@
 using System;
+using System.Data.Entity.Core.Objects.DataClasses;
 using Godot;
 
 /// <summary>
@@ -24,6 +25,8 @@ public class Rendezvous
 
     public int id;
 
+    public int composante; 
+
     /// <summary>
     /// Initialise une nouvelle instance de la classe <see cref="Rendezvous"/> avec la date, la durée, la description, et l'indicateur fixe spécifiés.
     /// </summary>
@@ -39,14 +42,54 @@ public class Rendezvous
         Description = description;
     }
 
-    public Rendezvous(DateTime date, string description, int id)
+   public Rendezvous(DateTime date, string description, int id)
     {
-        this.id = id;
-        Date = date;
-        Duree = new TimeSpan(1, 59, 0);
-        Description = description;
-        
+    this.id = id;
+    Date = date;
+    Duree = new TimeSpan(1, 59, 0);
+    Description = description;
+
+    // Utilisation d'un switch plus clair
+    switch (Description)
+    {
+        case "Administration universitaire":
+            this.composante = 1;
+            break;
+        case "Conseil pédagogique":
+            this.composante = 2;
+            break;
+        case "Service financier":
+            this.composante = 3;
+            break;
+        case "Enseignants":
+            this.composante = 4;
+            break;
+        case "Service d orientation et d insertion professionnelle":
+            this.composante = 5;
+            break;
+        case "Secrétariat pédagogique":
+            this.composante = 6;
+            break;
+        case "Partenaires professionnels":
+            this.composante = 7;
+            break;
+        case "Ministère":
+            this.composante = 8;
+            break;
+        case "Cellule de qualité et d évaluation":
+            this.composante = 9;
+            break;
+        case "Ressources humaine":
+            this.composante = 10;
+            break;
+        case "Etudiant":
+            this.composante = 11;
+            break;
+        default:
+            // Gestion des cas où la description ne correspond à aucune composante
+            throw new ArgumentException($"Description inconnue : {Description}");
     }
+}
 
     public int getid(){
         return this.id;
@@ -70,18 +113,7 @@ public class Rendezvous
         return $"{Date:HH:mm} - {HeureFin():HH:mm} : {Description}";
     }
 
-  /// <summary>
-/// Retourne une chaîne de caractères représentant le rendez-vous avec son jour, son horaire et sa description.
-/// </summary>
-/// <returns>Une chaîne formatée avec le jour, l'heure de début, l'heure de fin, et la description du rendez-vous.</returns>
-public string vquestion()
-{
-    // Conversion du jour en français
-    string jourSemaine = Date.ToString("dddd", new System.Globalization.CultureInfo("fr-FR"));
-
-    return $"{jourSemaine}, {Date:HH:mm} - {HeureFin():HH:mm} : {Description}";
-}
-
+ 
     /// <summary>
     /// Génère un rendez-vous aléatoire pour un jour de la semaine spécifié.
     /// </summary>

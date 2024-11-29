@@ -2,11 +2,13 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Runtime.ExceptionServices;
+using System.Threading.Tasks;
 
 public partial class Intermediaire : Node2D
 {
     private TextureRect _target1;
     private TextureRect _target2;
+     private TextEdit message; 
 
     List<Rendezvous> rdvdebut = new List<Rendezvous>() ;
     List<Rendezvous> rdvfin = new List<Rendezvous>();
@@ -14,6 +16,7 @@ public partial class Intermediaire : Node2D
     {
         _target1 = GetNode<TextureRect>("case_gauche");
         _target2 = GetNode<TextureRect>("case_droite");
+        message = GetNode<TextEdit>("message");
 
         // Connecter les événements `gui_input` pour chaque `TextEdit` dans `_target1` et `_target2`.
         ConnectGuiInputToChildren(_target1);
@@ -108,4 +111,38 @@ public partial class Intermediaire : Node2D
         }
     }
 
+   public async void _on_valider_pressed()
+    {
+        // Vérifie le nombre d'enfants de type TextEdit dans case_droite
+        int textEditCount = 0;
+        foreach (Node child in _target2.GetChildren())
+        {
+            if (child is TextEdit)
+            {
+                textEditCount++;
+            }
+        }
+
+        // Si le nombre est correct, afficher un message et attendre 3s avant de changer de scène
+        if (textEditCount == 4)
+        {
+            message.Text = "Les rendez-vous sont bien pris en compte.";
+            message.Visible=true;
+            
+            // Attendre 3 secondes
+            await Task.Delay(3000);
+
+            
+            GetTree().ChangeSceneToFile("res://Jeu_court/jeu_court.tscn");
+        }
+        else
+        {
+            // Afficher un message d'erreur
+            message.Visible=true;
+            message.Text = "Il faut choisir 4 rendez-vous.";
+            await Task.Delay(3000);
+            message.Visible = false;
+
+        }
+    }
 }

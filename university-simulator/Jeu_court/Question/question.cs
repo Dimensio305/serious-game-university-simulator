@@ -39,7 +39,8 @@ public class Question{
 	public Rendezvous nvrdv(){
 		Random rand = new Random();
 		int jour = rand.Next(0,5);
-		return Rendezvous.GenererRendezVousAleatoire(jour);
+		int id = 0;
+		return Rendezvous.GenererRendezVousAleatoire(jour,id);
 	}
 
 	public int getvaleur1(string j){

@@ -29,7 +29,7 @@ public partial class coce_i_menu : Control
 	/// Change la scene pour la version courte du jeu
 	/// </summary>
 	public void _on_b_court_pressed(){
-		GetTree().ChangeSceneToFile("res://Jeu_court/jeu_court.tscn");
+		GetTree().ChangeSceneToFile("res://scenes/intermediaire.tscn");
 	}
 
 	/// <summary>
