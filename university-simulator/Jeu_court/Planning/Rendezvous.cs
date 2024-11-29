@@ -119,7 +119,7 @@ public class Rendezvous
     /// </summary>
     /// <param name="jourSemaine">Le jour de la semaine (0 pour lundi, 1 pour mardi, etc., jusqu'à 4 pour vendredi).</param>
     /// <returns>Un objet <see cref="Rendezvous"/> aléatoire pour le jour spécifié.</returns>
-    public static Rendezvous GenererRendezVousAleatoire(int jourSemaine , int id)
+    public static Rendezvous GenererRendezVousAleatoire( int id)
     {
         Random rand = new Random();
         string[] descriptions = { "Administration universitaire", "Conseil pédagogique", "Service financier", "Enseignants", "Service d orientation et d insertion professionnelle",
@@ -127,7 +127,7 @@ public class Rendezvous
 
         // Calcul du nombre de jours pour atteindre le jour de semaine souhaité (de lundi à vendredi).
         DateTime date = DateTime.Today;
-        int daysUntilNextWeekday = ((jourSemaine + 1) % 7 - (int)date.DayOfWeek + 7) % 7;
+        int daysUntilNextWeekday = ((Jour.Instance.GetJour() + 1) % 7 - (int)date.DayOfWeek + 7) % 7;
         DateTime jour = date.AddDays(daysUntilNextWeekday);
 
         /*// Heure de début entre 8h et 16h

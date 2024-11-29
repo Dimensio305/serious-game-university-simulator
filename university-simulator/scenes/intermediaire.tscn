@@ -62,6 +62,7 @@ offset_top = 54.0
 offset_right = 405.0
 offset_bottom = 137.0
 editable = false
+wrap_mode = 1
 
 [node name="1" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
@@ -70,6 +71,7 @@ offset_top = 149.0
 offset_right = 406.0
 offset_bottom = 229.0
 editable = false
+wrap_mode = 1
 
 [node name="2" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
@@ -78,6 +80,7 @@ offset_top = 242.0
 offset_right = 405.0
 offset_bottom = 318.0
 editable = false
+wrap_mode = 1
 
 [node name="3" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
@@ -86,6 +89,7 @@ offset_top = 327.0
 offset_right = 404.0
 offset_bottom = 410.0
 editable = false
+wrap_mode = 1
 
 [node name="4" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
@@ -94,6 +98,7 @@ offset_top = 420.0
 offset_right = 406.0
 offset_bottom = 503.0
 editable = false
+wrap_mode = 1
 
 [node name="5" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
@@ -102,6 +107,7 @@ offset_top = 513.0
 offset_right = 406.0
 offset_bottom = 596.0
 editable = false
+wrap_mode = 1
 
 [node name="valider" type="Button" parent="."]
 offset_left = 946.0
@@ -129,5 +135,6 @@ offset_top = 232.0
 offset_right = 787.0
 offset_bottom = 388.0
 editable = false
+wrap_mode = 1
 
 [connection signal="pressed" from="valider" to="." method="_on_valider_pressed"]
