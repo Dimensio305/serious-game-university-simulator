@@ -2,18 +2,28 @@ using System;
 using Godot;
 using System.Collections.Generic;
 
+/// <summary>
+/// Classe représentant un agenda contenant une liste de rendez-vous.
+/// </summary>
 public class Agenda
 {
-	private List<Rendezvous> rendezVousList = new List<Rendezvous>();
+    /// <summary>
+    /// Liste des rendez-vous de l'agenda.
+    /// </summary>
+    private List<Rendezvous> rendezVousList = new List<Rendezvous>();
 
-	
-	public Agenda()
-	{
-		rendezVousList = Intermediaire.GetRdvFin();
-	}
+    /// <summary>
+    /// Constructeur de la classe Agenda.
+    /// Initialise la liste des rendez-vous en récupérant les données par classe intermédiaire.
+    /// </summary>
+    public Agenda()
+    {
+        rendezVousList = Intermediaire.GetRdvFin();
+    }
 
-	public List<Rendezvous> GetRendezVous() => rendezVousList;
-
-	
-
+    /// <summary>
+    /// Retourne la liste des rendez-vous de l'agenda.
+    /// </summary>
+    /// <returns>Liste des Rendezvous présents dans l'agenda.</returns>
+    public List<Rendezvous> GetRendezVous() => rendezVousList;
 }

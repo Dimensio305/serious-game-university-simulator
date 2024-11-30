@@ -51,10 +51,13 @@ public class GestionDb
 		{
 			// Obtenir le chemin du dossier "user://", spécifique à Godot
 			string userPath = OS.GetUserDataDir();
-			// Combiner le chemin avec le chemin relatif à la base de données
+
+			
 			string dbPath = Path.Combine(userPath, "basedonnee.db");
+
 			// Créer la chaîne de connexion avec le chemin complet
 			string connectionString = $"Data Source={dbPath};Version=3;";
+
 			_connection = new SQLiteConnection(connectionString);
 			_connection.Open();
 			GD.Print("Connexion réussie à la base de données.");
@@ -150,8 +153,8 @@ public class GestionDb
 			return $"Erreur : {e.Message}";
 		}
 
-		return result.ToString(); // Renvoie toutes les valeurs sous forme de string
-	} // Fin de la méthode ExecuteRequete
+		return result.ToString(); 
+	} 
 
 	/// <summary>
 	/// Methode qui crée les tables et les remplirs 
@@ -171,7 +174,7 @@ public class GestionDb
 			// Exécuter le script SQL pour charger le contenu
 			using (SQLiteCommand command = new SQLiteCommand(sqlScript1, _connection))
 			{
-				command.ExecuteNonQuery(); // Exécute le script
+				command.ExecuteNonQuery(); 
 				GD.Print("table crée dans la base de données.");
 			}
 		}
@@ -188,7 +191,7 @@ public class GestionDb
 		if (_connection != null && _connection.State == System.Data.ConnectionState.Open)
 		{
 			try
-		{
+			{
 			// Construire le chemin vers le fichier SQL
 			string sqlFilePath1 = Path.Combine(OS.GetUserDataDir(), "contenue.sql");
 			
@@ -201,8 +204,8 @@ public class GestionDb
 				command.ExecuteNonQuery(); // Exécute le script
 				GD.Print("table remplis dans la base de données.");
 			}
-		}
-			catch (Exception e)
+			}
+		catch (Exception e)
 			{
 				GD.Print($"Erreur lors du remplissage des tables : {e.Message}");
 			}
