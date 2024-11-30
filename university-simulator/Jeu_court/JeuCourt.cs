@@ -96,21 +96,13 @@ public partial class JeuCourt : Node2D
 		Projet projet = Projet.GenererUnProjet();
 		
 
-		if (Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible&&( q.getnumquestion() % 2 !=0   || q.getnumquestion() ==0))
+		if (Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible)
 		{
 			affichage.EcrireTexte(_textEdit, q.getquestion());
 			affichage.EcrireTexte(r1, q.reponse1());
 			affichage.EcrireTexte(r2, q.reponse2());
 		}
 
-		/*if (q.getnumquestion() % 2 == 0 && q.getnumquestion() != 0 && Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible)
-		{
-
-			affichage.EcrireTexte(_textEdit, rdv.vquestion());
-			affichage.EcrireTexte(r1, "accepter le rdv");
-			affichage.EcrireTexte(r2, "refuser le rdv");
-			
-		}*/
 
 		if (q.getnumquestion()%3 ==0 && q.getnumquestion() != 0 && Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible){
 			affichage.EcrireTexte(_textEdit,forma2.ToString());
@@ -137,13 +129,6 @@ public partial class JeuCourt : Node2D
 		Jauge3.Modif(getValeur("j3"));
 		Jauge4.Modif(getValeur("j4"));
 	}
-
-
-	/*private Rendezvous nouveaurdv()
-	{
-		Random rand = new Random();
-		return Rendezvous.GenererRendezVousAleatoire(rand.Next(1, 6));
-	}*/
 
 
 
@@ -239,42 +224,7 @@ public partial class JeuCourt : Node2D
 
 	public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4)
 {
-	/*if (agenda == null)
-	{
-		GD.Print("Agenda est null !");
-		return;
-	}*/
-
-	// Si la question est liée à un rendez-vous, on ne met pas à jour les jauges.
-	/*if (q.getnumquestion() % 200 == 0 && q.getnumquestion() != 0) {// question de rendez-vous
-
-		 if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !formationvisible && !agendavisible)
-		{
-			/*if (agenda.PeutAjouterRendezVous(rdv)) // Vérifier si le rendez-vous peut être ajouté
-			{
-				agenda.ajtrdv(rdv); // Ajouter le rendez-vous à l'agenda
-				GD.Print("Rendez-vous ajouté : " + rdv);
-				inQuestion = false;
-				q.question_suivante(); // Passer à la question suivante
-							}*/
-			/*else
-			{
-				GD.Print("Rendez-vous non ajouté en raison d'un conflit");
-				inQuestion = false;
-				q.question_suivante(); // Passer à la question suivante
-			}
-		}
-		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !formationvisible && !agendavisible)
-		{
-			GD.Print("Rendez-vous refusé");
-			inQuestion = false;
-			q.question_suivante(); // Passer à la question suivante
-		}
-}*/
-
-
-
-
+	
 	if (q.getnumquestion() % 2 == 0 && q.getnumquestion() != 0) 
 	{// question de Formation
 		if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !formationvisible && !agendavisible)
