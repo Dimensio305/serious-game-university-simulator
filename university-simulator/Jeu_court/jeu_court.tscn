@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=15 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
 [ext_resource type="Texture2D" uid="uid://bpinrfqnaihkd" path="res://fond_et_titre/fond_bureau.png" id="2_3xixw"]
@@ -9,6 +9,8 @@
 [ext_resource type="FontFile" uid="uid://d1w7hcd0v35vp" path="res://police/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" id="7_whcn6"]
 [ext_resource type="Texture2D" uid="uid://be2oxjowsnumh" path="res://asset/horloge.png" id="8_31e8y"]
 [ext_resource type="FontFile" uid="uid://qv104t57hkkn" path="res://police/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" id="9_66sx3"]
+[ext_resource type="PackedScene" uid="uid://botigec0dr6vx" path="res://player/player_anim.tscn" id="10_lxl12"]
+[ext_resource type="Script" path="res://player/PlayerAnim.cs" id="11_womy3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ldu4"]
 texture = ExtResource("2_m6l7w")
@@ -223,6 +225,7 @@ offset_left = 172.0
 offset_top = 369.0
 offset_right = 494.0
 offset_bottom = 500.0
+rotation = -0.0842835
 editable = false
 wrap_mode = 1
 
@@ -294,3 +297,10 @@ editable = false
 wrap_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("10_lxl12")]
+visible = false
+position = Vector2(573.405, 230.654)
+rotation = -0.00206639
+scale = Vector2(1.07777, 1.1731)
+script = ExtResource("11_womy3")

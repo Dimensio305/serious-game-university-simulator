@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public partial class JeuCourt : Node2D
 {
@@ -20,6 +21,7 @@ public partial class JeuCourt : Node2D
 	private TextEdit proj;
 	private TextEdit r2;
 	private TextEdit r1;
+	private AnimatedSprite2D anim;
 
 	private Panel panel;
 	private Question q = new Question();
@@ -36,6 +38,7 @@ public partial class JeuCourt : Node2D
 		proj = GetNode<TextEdit>("proj");
 		r1 = GetNode<TextEdit>("r1");
 		r2 = GetNode<TextEdit>("r2");
+		anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
 		// Générer des projets et rendez-vous aléatoires
 		projets = Projet.GenererProjetsAleatoires();
@@ -84,10 +87,10 @@ public partial class JeuCourt : Node2D
 		}
 	}
 
-	private (Formation FORMA , Projet PROJ) GérerQuestion()
+	private async Task<(Formation FORMA, Projet PROJ)> GérerQuestion()
 	{
-		//Rendezvous rdv = nouveaurdv();
-					Formation forma2;
+		
+		Formation forma2;
 		if(formaRepondu){
  			forma2 = Formation.genereformation();
 		}else{
@@ -98,6 +101,8 @@ public partial class JeuCourt : Node2D
 
 		if (Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible)
 		{
+			anim.Visible=true;
+            await ToSignal(GetTree().CreateTimer(2.0f), "timeout");
 			affichage.EcrireTexte(_textEdit, q.getquestion());
 			affichage.EcrireTexte(r1, q.reponse1());
 			affichage.EcrireTexte(r2, q.reponse2());

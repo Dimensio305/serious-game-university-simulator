@@ -40,7 +40,7 @@ public partial class Intermediaire : Node2D
         }
     }
 
-    // Rendre la méthode getlistrdv statique
+    
     public static List<Rendezvous> GetRdvFin()
     {
         return rdvfin;
