@@ -118,7 +118,7 @@ public partial class Intermediaire : Node2D
             message.Text = "Les rendez-vous sont bien pris en compte.";
             message.Visible = true;
 
-            await Task.Delay(3000);
+            await Task.Delay(1500);
 
             GetTree().ChangeSceneToFile("res://Jeu_court/jeu_court.tscn");
         }
@@ -126,7 +126,7 @@ public partial class Intermediaire : Node2D
         {
             message.Visible = true;
             message.Text = "Il faut choisir 4 rendez-vous.";
-            await Task.Delay(3000);
+            await Task.Delay(1500);
             message.Visible = false;
         }
     }

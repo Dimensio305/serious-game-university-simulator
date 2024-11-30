@@ -102,7 +102,7 @@ public partial class JeuCourt : Node2D
 		if (Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible)
 		{
 			anim.Visible=true;
-            await ToSignal(GetTree().CreateTimer(2.0f), "timeout");
+            await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
 			affichage.EcrireTexte(_textEdit, q.getquestion());
 			affichage.EcrireTexte(r1, q.reponse1());
 			affichage.EcrireTexte(r2, q.reponse2());
