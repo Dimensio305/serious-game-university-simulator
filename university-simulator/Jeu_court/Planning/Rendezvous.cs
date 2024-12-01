@@ -135,6 +135,9 @@ public class Rendezvous
 
         return new Rendezvous(jour, description , id);
     }
+    public int getcomposante(){
+        return this.composante;
+    }
 
     public override string ToString()
     {

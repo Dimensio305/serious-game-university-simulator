@@ -221,11 +221,11 @@ wrap_mode = 1
 
 [node name="TextEdit2" type="TextEdit" parent="."]
 visible = false
-offset_left = 172.0
-offset_top = 369.0
-offset_right = 494.0
-offset_bottom = 500.0
-rotation = -0.0842835
+offset_left = 170.0
+offset_top = 380.0
+offset_right = 492.0
+offset_bottom = 511.0
+rotation = -0.11776
 editable = false
 wrap_mode = 1
 

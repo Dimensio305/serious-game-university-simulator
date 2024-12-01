@@ -25,6 +25,10 @@ public partial class JeuCourt : Node2D
 
 	private Panel panel;
 	private Question q = new Question();
+	int nbrdv=0;
+	int nbquestion = 0;
+
+	int nombrequestion = 0;
 
 	public override void _Ready()
 	{
@@ -62,7 +66,7 @@ public partial class JeuCourt : Node2D
 
 		if (inQuestion)
 		{
-			var result = GérerQuestion();
+			var result = GérerQuestionAsync();
 			//gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 , result.RDV);
 			gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 );
 		}
@@ -87,7 +91,7 @@ public partial class JeuCourt : Node2D
 		}
 	}
 
-	private async Task<(Formation FORMA, Projet PROJ)> GérerQuestion()
+	private async Task<Formation> GérerQuestionAsync()
 	{
 		
 		Formation forma2;
@@ -96,33 +100,31 @@ public partial class JeuCourt : Node2D
 		}else{
 			forma2 = null;
 		}
-		Projet projet = Projet.GenererUnProjet();
+		
 		
 
-		if (Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible)
+		if (Input.IsActionJustPressed("Question") && !projetvisible && !formationvisible && !agendavisible)
 		{
-			anim.Visible=true;
-            await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
-			affichage.EcrireTexte(_textEdit, q.getquestion());
-			affichage.EcrireTexte(r1, q.reponse1());
-			affichage.EcrireTexte(r2, q.reponse2());
+			if (nombrequestion % 3 == 0 && nombrequestion != 0)
+			{
+				anim.Visible = true;
+				// Cas où le numéro de question est un multiple de 3 (et non zéro)
+				affichage.EcrireTexte(_textEdit, forma2.ToString());
+				affichage.EcrireTexte(r1, "accepter la formation");
+				affichage.EcrireTexte(r2, "refuser la formation");
+			}
+			else
+			{
+				// Cas par défaut
+				anim.Visible = true;
+				await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
+				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
+				affichage.EcrireTexte(r1, q.reponse1());
+				affichage.EcrireTexte(r2, q.reponse2());
+			}
 		}
 
-
-		if (q.getnumquestion()%3 ==0 && q.getnumquestion() != 0 && Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible){
-			affichage.EcrireTexte(_textEdit,forma2.ToString());
-			affichage.EcrireTexte(r1, "accepter la formation");
-			affichage.EcrireTexte(r2, "refuser la formation");
-		}
-
-		if (q.getnumquestion()%5 ==0 && q.getnumquestion() != 0 && Input.IsActionJustPressed("Question")&&!projetvisible &&!formationvisible &&!agendavisible){
-			affichage.EcrireTexte(_textEdit,projet.ToString());
-			affichage.EcrireTexte(r1, "accepter le projet");
-			affichage.EcrireTexte(r2, "refuser le projet");
-
-		}
-
-		return(forma2,projet) ;
+		return(forma2) ;
 	
 
 	}
@@ -153,6 +155,7 @@ public partial class JeuCourt : Node2D
 		formationvisible = false;
 		agendavisible = false;
 		projetvisible = false;
+		anim.Visible=false;
 	}
 
 
@@ -164,6 +167,7 @@ public partial class JeuCourt : Node2D
 
 			r1.Visible = false;
 			r2.Visible = false;
+			anim.Visible=false;
 		}
 		if (formationvisible)
 		{
@@ -230,20 +234,22 @@ public partial class JeuCourt : Node2D
 	public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4)
 {
 	
-	if (q.getnumquestion() % 2 == 0 && q.getnumquestion() != 0) 
+	if (q.getnumquestion() % 3 == 0 && q.getnumquestion() != 0) 
 	{// question de Formation
 		if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !formationvisible && !agendavisible)
 		{
 			formaRepondu =true;
 			inQuestion = false;
-			q.question_suivante(); // Passer à la question suivante
+			nombrequestion+=1;
+			
 			GD.Print("Action Formation droite");
 		}
 		else if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !formationvisible && !agendavisible)
 		{
 			formaRepondu =true;
 			inQuestion = false;
-			q.question_suivante(); // Passer à la question suivante
+			nombrequestion+=1;
+			
 			GD.Print("Action Formation gauche");
 		}
 	}
@@ -255,17 +261,37 @@ public partial class JeuCourt : Node2D
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges
 			inQuestion = false;
-			q.question_suivante(); // Passer à la question suivante
+			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
+			nombrequestion+=1;
+			suiv();
 		}
 		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !formationvisible && !agendavisible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges
 			inQuestion = false;
-			q.question_suivante(); // Passer à la question suivante
+			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
+			nombrequestion+=1;
+			suiv();
 		}
 	}
 	formaRepondu =false;
 }
+
+	private void suiv(){
+		if (nbquestion == 3){
+			nbquestion = 0;
+			if(nbrdv == 3){
+				nbrdv = 0;
+			}
+			else{
+				nbrdv++;
+			}
+		}
+		else{
+			nbquestion++;
+		}
+
+	}
 
 
 }
