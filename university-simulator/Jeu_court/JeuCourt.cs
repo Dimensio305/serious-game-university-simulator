@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Threading.Tasks;
 
 public partial class JeuCourt : Node2D
@@ -8,7 +9,6 @@ public partial class JeuCourt : Node2D
 	private TextEdit _textEdit;
 	private bool inQuestion = false;
 	private bool formationvisible = false;
-	private bool formaRepondu = true;
 	private bool agendavisible = false;
 	private bool projetvisible = false;
 
@@ -21,6 +21,7 @@ public partial class JeuCourt : Node2D
 	private TextEdit proj;
 	private TextEdit r2;
 	private TextEdit r1;
+	private TextEdit horloge ;
 	private AnimatedSprite2D anim;
 
 	private Panel panel;
@@ -29,6 +30,8 @@ public partial class JeuCourt : Node2D
 	int nbquestion = 0;
 
 	int nombrequestion = 0;
+	int heure = 08;
+	int minute = 00;
 
 	public override void _Ready()
 	{
@@ -43,12 +46,17 @@ public partial class JeuCourt : Node2D
 		r1 = GetNode<TextEdit>("r1");
 		r2 = GetNode<TextEdit>("r2");
 		anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		
 
 		// Générer des projets et rendez-vous aléatoires
 		projets = Projet.GenererProjetsAleatoires();
 		agenda = new Agenda();
 		forma = new List<Formation>();
 		GenererForma();
+
+		// Gestion de l'heure
+		horloge = GetNode<TextEdit>("Horloge/horloge");
+		
 
 	}
 
@@ -66,7 +74,7 @@ public partial class JeuCourt : Node2D
 
 		if (inQuestion)
 		{
-			var result = GérerQuestionAsync();
+			GérerQuestionAsync();
 			//gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 , result.RDV);
 			gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 );
 		}
@@ -91,40 +99,24 @@ public partial class JeuCourt : Node2D
 		}
 	}
 
-	private async Task<Formation> GérerQuestionAsync()
+	private async void GérerQuestionAsync()
 	{
 		
-		Formation forma2;
-		if(formaRepondu){
- 			forma2 = Formation.genereformation();
-		}else{
-			forma2 = null;
-		}
 		
 		
 
 		if (Input.IsActionJustPressed("Question") && !projetvisible && !formationvisible && !agendavisible)
 		{
-			if (nombrequestion % 3 == 0 && nombrequestion != 0)
-			{
-				anim.Visible = true;
-				// Cas où le numéro de question est un multiple de 3 (et non zéro)
-				affichage.EcrireTexte(_textEdit, forma2.ToString());
-				affichage.EcrireTexte(r1, "accepter la formation");
-				affichage.EcrireTexte(r2, "refuser la formation");
-			}
-			else
-			{
+			
 				// Cas par défaut
 				anim.Visible = true;
 				await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
 				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
 				affichage.EcrireTexte(r1, q.reponse1());
 				affichage.EcrireTexte(r2, q.reponse2());
-			}
+			
 		}
 
-		return(forma2) ;
 	
 
 	}
@@ -232,31 +224,9 @@ public partial class JeuCourt : Node2D
 	}
 
 	public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4)
-{
-	
-	if (q.getnumquestion() % 3 == 0 && q.getnumquestion() != 0) 
-	{// question de Formation
-		if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !formationvisible && !agendavisible)
-		{
-			formaRepondu =true;
-			inQuestion = false;
-			nombrequestion+=1;
-			
-			GD.Print("Action Formation droite");
-		}
-		else if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !formationvisible && !agendavisible)
-		{
-			formaRepondu =true;
-			inQuestion = false;
-			nombrequestion+=1;
-			
-			GD.Print("Action Formation gauche");
-		}
-	}
-
-
-	else // Pas une question de rendez-vous ou de Formation
 	{
+	
+	
 		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !formationvisible && !agendavisible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges
@@ -264,6 +234,7 @@ public partial class JeuCourt : Node2D
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
 			nombrequestion+=1;
 			suiv();
+			faireavancerletemps();
 		}
 		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !formationvisible && !agendavisible)
 		{
@@ -272,16 +243,17 @@ public partial class JeuCourt : Node2D
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
 			nombrequestion+=1;
 			suiv();
+			faireavancerletemps();
 		}
+	
 	}
-	formaRepondu =false;
-}
 
 	private void suiv(){
 		if (nbquestion == 3){
 			nbquestion = 0;
 			if(nbrdv == 3){
 				nbrdv = 0;
+				
 			}
 			else{
 				nbrdv++;
@@ -291,6 +263,15 @@ public partial class JeuCourt : Node2D
 			nbquestion++;
 		}
 
+	}
+
+	private void faireavancerletemps(){
+		minute += 40;
+		if (minute >= 60){
+			minute -= 60;
+			heure+=1;
+		}
+		affichage.EcrireTexte(horloge , "   "+heure.ToString("D2")+":"+minute.ToString("D2"));
 	}
 
 

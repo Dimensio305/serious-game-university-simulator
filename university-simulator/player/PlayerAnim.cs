@@ -27,7 +27,7 @@ public partial class PlayerAnim : AnimatedSprite2D
             distanceTraveled += (float)(speed * delta);
             
             // Calculer le facteur de croissance basé sur la distance parcourue
-            float growthFactor = 1 + (distanceTraveled / 400f);  // Ajustez 500f pour augmenter ou diminuer la vitesse de croissance
+            float growthFactor = 2 + (distanceTraveled / 400f);  // Ajustez 500f pour augmenter ou diminuer la vitesse de croissance
             Scale = originalScale * growthFactor;
 
             // Vérifier si le personnage est arrivé à la cible

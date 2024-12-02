@@ -268,7 +268,7 @@ position = Vector2(1017, 91)
 scale = Vector2(0.413672, 0.426172)
 texture = ExtResource("8_31e8y")
 
-[node name="TextEdit4" type="TextEdit" parent="Horloge"]
+[node name="horloge" type="TextEdit" parent="Horloge"]
 offset_left = -254.0
 offset_top = -80.0
 offset_right = 261.0
