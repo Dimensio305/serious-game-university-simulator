@@ -265,13 +265,25 @@ public partial class JeuCourt : Node2D
 
 	}
 
-	private void faireavancerletemps(){
+	private async void faireavancerletemps(){
 		minute += 40;
 		if (minute >= 60){
 			minute -= 60;
 			heure+=1;
 		}
 		affichage.EcrireTexte(horloge , "   "+heure.ToString("D2")+":"+minute.ToString("D2"));
+
+		if (heure == 12){
+			await ToSignal(GetTree().CreateTimer(1), "timeout"); // Pause d'une seconde
+        heure = 14;
+		affichage.EcrireTexte(horloge , "   "+heure.ToString("D2")+":"+minute.ToString("D2"));
+		}
+
+		if (heure >= 18 ){
+			await ToSignal(GetTree().CreateTimer(0.5), "timeout");
+			Jour.Instance.Joursuivant();
+			GetTree().ChangeSceneToFile("res://intermediaire/affichage_jour.tscn");
+		}
 	}
 
 
