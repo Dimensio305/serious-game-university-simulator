@@ -9,6 +9,7 @@ public partial class PlayerAnim : AnimatedSprite2D
     private Vector2 originalScale; // Échelle d'origine
     private float distanceTraveled = 0f; // Distance parcourue par le personnage
 
+    Random rand = new Random();
     public override void _Ready()
     {
         // Sauvegarder l'échelle initiale du personnage
@@ -58,6 +59,9 @@ public partial class PlayerAnim : AnimatedSprite2D
     {
         isMoving = true;
 
+        string nb= rand.Next().ToString();
+
+       
         // Lancer l'animation de marche
         if (SpriteFrames.HasAnimation("walk"))
         {
