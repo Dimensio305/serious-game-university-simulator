@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
 
@@ -26,7 +27,14 @@ public partial class Intermediaire : Node2D
 
         for (int nbrdv = 0; nbrdv < 6; nbrdv++)
         {
-            rdvdebut.Add(Rendezvous.GenererRendezVousAleatoire(nbrdv));
+            Rendezvous nouveauRdv = Rendezvous.GenererRendezVousAleatoire(nbrdv);
+
+            while (rdvdebut.Any(rdv => rdv.composante == nouveauRdv.composante))
+            {
+                nouveauRdv = Rendezvous.GenererRendezVousAleatoire(nbrdv);
+            }
+
+            rdvdebut.Add(nouveauRdv);
         }
 
         int i = 0;
@@ -128,6 +136,12 @@ public partial class Intermediaire : Node2D
             message.Text = "Il faut choisir 4 rendez-vous.";
             await Task.Delay(1500);
             message.Visible = false;
+        }
+    }
+
+    public void _on_reset_pressed(){
+        foreach (TextEdit textedit in _target2.GetChildren()){
+            MoveTextEditToTarget(textedit,_target1);
         }
     }
 }

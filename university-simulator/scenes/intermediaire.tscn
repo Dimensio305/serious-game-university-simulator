@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://chd2rym4fs88p"]
+[gd_scene load_steps=13 format=3 uid="uid://chd2rym4fs88p"]
 
 [ext_resource type="Texture2D" uid="uid://bpinrfqnaihkd" path="res://fond_et_titre/fond_bureau.png" id="1_dhybc"]
 [ext_resource type="Script" path="res://scenes/Intermediaire.cs" id="1_tedlk"]
 [ext_resource type="Texture2D" uid="uid://beixq2xha7sqs" path="res://asset/autre/blocnote4.png" id="2_dlcj2"]
 [ext_resource type="Texture2D" uid="uid://ni6yoaen61lx" path="res://asset/brique/png/element_green_rectangle_glossy.png" id="4_3v0m5"]
+[ext_resource type="Texture2D" uid="uid://cxsro11xbkyhr" path="res://asset/brique/png/element_yellow_rectangle_glossy_copy.png" id="5_ee253"]
 
 [sub_resource type="Animation" id="Animation_a8585"]
 resource_name = "MoveTextEdit"
@@ -24,6 +25,9 @@ texture = ExtResource("4_3v0m5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e86bs"]
 texture = ExtResource("4_3v0m5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvedq"]
+texture = ExtResource("5_ee253")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_tedlk")
@@ -110,10 +114,10 @@ editable = false
 wrap_mode = 1
 
 [node name="valider" type="Button" parent="."]
-offset_left = 946.0
-offset_top = 550.0
-offset_right = 1124.0
-offset_bottom = 606.0
+offset_left = 908.0
+offset_top = 549.0
+offset_right = 1086.0
+offset_bottom = 605.0
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -128,6 +132,25 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_75t0i")
 theme_override_styles/normal = SubResource("StyleBoxTexture_e86bs")
 text = "VALIDER"
 
+[node name="reset" type="Button" parent="."]
+offset_left = 694.0
+offset_top = 547.0
+offset_right = 872.0
+offset_bottom = 603.0
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxTexture_wvedq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_wvedq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_wvedq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wvedq")
+text = "RESET"
+
 [node name="message" type="TextEdit" parent="."]
 visible = false
 offset_left = 378.0
@@ -138,3 +161,4 @@ editable = false
 wrap_mode = 1
 
 [connection signal="pressed" from="valider" to="." method="_on_valider_pressed"]
+[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
