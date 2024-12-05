@@ -108,9 +108,9 @@ public partial class JeuCourt : Node2D
 		if (Input.IsActionJustPressed("Question") && !projetvisible && !formationvisible && !agendavisible)
 		{
 			
-				// Cas par défaut
+				
 				anim.Visible = true;
-				await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
+				await ToSignal(GetTree().CreateTimer(2.6f), "timeout");
 				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
 				affichage.EcrireTexte(r1, q.reponse1());
 				affichage.EcrireTexte(r2, q.reponse2());
@@ -160,6 +160,7 @@ public partial class JeuCourt : Node2D
 			r1.Visible = false;
 			r2.Visible = false;
 			anim.Visible=false;
+			((PlayerAnim)anim).ResetAnimation();
 		}
 		if (formationvisible)
 		{

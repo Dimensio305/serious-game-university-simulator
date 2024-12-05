@@ -300,7 +300,7 @@ wrap_mode = 1
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("10_lxl12")]
 visible = false
-position = Vector2(573.405, 230.654)
+position = Vector2(573, 221)
 rotation = -0.00206639
 scale = Vector2(1.07777, 1.1731)
 script = ExtResource("11_womy3")

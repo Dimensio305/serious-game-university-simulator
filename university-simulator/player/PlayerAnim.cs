@@ -28,7 +28,7 @@ public partial class PlayerAnim : AnimatedSprite2D
             distanceTraveled += (float)(speed * delta);
             
             // Calculer le facteur de croissance basé sur la distance parcourue
-            float growthFactor = 2 + (distanceTraveled / 400f);  // Ajustez 500f pour augmenter ou diminuer la vitesse de croissance
+            float growthFactor = 1 + (distanceTraveled / 400f);  // Ajustez 500f pour augmenter ou diminuer la vitesse de croissance
             Scale = originalScale * growthFactor;
 
             // Vérifier si le personnage est arrivé à la cible
@@ -78,5 +78,19 @@ public partial class PlayerAnim : AnimatedSprite2D
         isMoving = false;
         Stop();  // Arrêter l'animation
         GD.Print("Le personnage a atteint la position cible !");
+    }
+
+    public void ResetAnimation()
+    {
+    // Réinitialiser la position et la taille
+    Position = new Vector2(573, 221); 
+    Scale = originalScale; 
+    distanceTraveled = 0f; 
+
+    
+    Stop();
+    isMoving = false;
+
+    
     }
 }
