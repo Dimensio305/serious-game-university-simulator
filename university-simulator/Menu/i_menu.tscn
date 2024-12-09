@@ -141,6 +141,13 @@ texture = ExtResource("13_ac8it")
 stream = ExtResource("14_m7qp3")
 autoplay = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1155.0
+offset_bottom = 651.0
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/b_court" to="." method="_on_b_court_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/b_long" to="." method="_on_b_long_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/b_quittez" to="." method="_on_b_quittez_pressed"]

@@ -108,16 +108,16 @@ public partial class JeuCourt : Node2D
 		if (Input.IsActionJustPressed("Question") && !projetvisible && !formationvisible && !agendavisible)
 		{
 			
-				// Cas par défaut
+				
 				anim.Visible = true;
-				await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
+				await ToSignal(GetTree().CreateTimer(2.6f), "timeout");
 				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
 				affichage.EcrireTexte(r1, q.reponse1());
 				affichage.EcrireTexte(r2, q.reponse2());
 			
 		}
 
-	
+	// Sup fuckers <3
 
 	}
 
@@ -160,6 +160,7 @@ public partial class JeuCourt : Node2D
 			r1.Visible = false;
 			r2.Visible = false;
 			anim.Visible=false;
+			((PlayerAnim)anim).ResetAnimation();
 		}
 		if (formationvisible)
 		{
@@ -227,7 +228,7 @@ public partial class JeuCourt : Node2D
 	{
 	
 	
-		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !formationvisible && !agendavisible)
+		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !formationvisible && !agendavisible &&_textEdit.Visible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges
 			inQuestion = false;
@@ -236,7 +237,7 @@ public partial class JeuCourt : Node2D
 			suiv();
 			faireavancerletemps();
 		}
-		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !formationvisible && !agendavisible)
+		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !formationvisible && !agendavisible &&_textEdit.Visible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges
 			inQuestion = false;
