@@ -299,8 +299,7 @@ wrap_mode = 1
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("10_lxl12")]
-visible = false
-position = Vector2(573, 221)
+position = Vector2(579, 204)
 rotation = -0.00206639
-scale = Vector2(1.07777, 1.1731)
+scale = Vector2(1.44923, 1.37267)
 script = ExtResource("11_womy3")
