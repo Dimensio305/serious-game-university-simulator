@@ -22,7 +22,6 @@ public partial class JeuCourt : Node2D
 	private TextEdit r2;
 	private TextEdit r1;
 	private TextEdit horloge ;
-	private AnimatedSprite2D anim;
 
 	private Panel panel;
 	private Question q = new Question();
@@ -35,9 +34,9 @@ public partial class JeuCourt : Node2D
 
 
 	// personnage 3d
-	private Viewport viewport; // Le viewport pour rendre la scène 3D
-    private TextureRect textureRectpersonnage; // Le rectangle pour afficher la texture du Viewport
-    private Camera3D camera3D; // La caméra de la scène 3D
+	private SubViewport subViewport; // Le viewport pour rendre la scène 3D
+	private AnimationPlayer animationPlayer;
+   
 
 
 	public override void _Ready()
@@ -52,7 +51,6 @@ public partial class JeuCourt : Node2D
 		proj = GetNode<TextEdit>("proj");
 		r1 = GetNode<TextEdit>("r1");
 		r2 = GetNode<TextEdit>("r2");
-		anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		
 
 		// Générer des projets et rendez-vous aléatoires
@@ -68,19 +66,11 @@ public partial class JeuCourt : Node2D
 
 		// personnage 
 		// Récupérer les nœuds
-        viewport = GetNode<Viewport>("Viewport");
-        textureRectpersonnage = GetNode<TextureRect>("TextureRect");
+        subViewport = GetNode<SubViewport>("SubViewport");
+		Node scene3D = subViewport.GetChild(0);
 
-        // Créer un ViewportTexture et le lier au TextureRect
-        ViewportTexture viewportTexture = new ViewportTexture();
-        textureRectpersonnage.Texture = viewportTexture;
-
-        // Récupérer la caméra de la scène 3D
-        camera3D = GetNode<Camera3D>("Camera3D");
-
-        // Configurer le Viewport pour utiliser la caméra de la scène 3D
-        // Lier le viewport au monde 3D (cela nécessite un World3D)
-        viewport.World3D = camera3D.GetWorld3D();
+        // Trouver l'AnimationPlayer dans la scène 3D
+        animationPlayer = scene3D.GetNode<AnimationPlayer>("AnimationPlayer");;
         
 		
 
@@ -125,6 +115,10 @@ public partial class JeuCourt : Node2D
 		}
 	}
 
+
+	/// <summary>
+	/// 
+	/// </summary>
 	private async void GérerQuestionAsync()
 	{
 		
@@ -135,7 +129,7 @@ public partial class JeuCourt : Node2D
 		{
 			
 				
-				anim.Visible = true;
+				animationPlayer.Play("mixamo_com");
 				await ToSignal(GetTree().CreateTimer(2.6f), "timeout");
 				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
 				affichage.EcrireTexte(r1, q.reponse1());
@@ -173,7 +167,6 @@ public partial class JeuCourt : Node2D
 		formationvisible = false;
 		agendavisible = false;
 		projetvisible = false;
-		anim.Visible=false;
 	}
 
 
@@ -185,8 +178,7 @@ public partial class JeuCourt : Node2D
 
 			r1.Visible = false;
 			r2.Visible = false;
-			anim.Visible=false;
-			((PlayerAnim)anim).ResetAnimation();
+	
 		}
 		if (formationvisible)
 		{
