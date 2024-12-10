@@ -307,6 +307,7 @@ size = Vector2i(513, 512)
 [node name="Walking" parent="SubViewport" instance=ExtResource("12_f8jr6")]
 
 [node name="personnage" type="TextureRect" parent="."]
+visible = false
 offset_left = 839.0
 offset_top = -42.0
 offset_right = 1391.0

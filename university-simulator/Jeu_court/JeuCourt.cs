@@ -36,6 +36,7 @@ public partial class JeuCourt : Node2D
 	// personnage 3d
 	private SubViewport subViewport; // Le viewport pour rendre la scène 3D
     private AnimationPlayer animationPlayer;
+	private TextureRect textureRectpersonnage;
 
 
 
@@ -70,7 +71,8 @@ public partial class JeuCourt : Node2D
 		Node scene3D = subViewport.GetChild(0);
 
         // Trouver l'AnimationPlayer dans la scène 3D
-        animationPlayer = scene3D.GetNode<AnimationPlayer>("AnimationPlayer");;
+        animationPlayer = scene3D.GetNode<AnimationPlayer>("AnimationPlayer");
+		textureRectpersonnage = GetNode<TextureRect>("personnage");
         
 		
 
@@ -128,7 +130,7 @@ public partial class JeuCourt : Node2D
 		if (Input.IsActionJustPressed("Question") && !projetvisible && !formationvisible && !agendavisible)
 		{
 			
-			
+				textureRectpersonnage.Visible=true;
 				animationPlayer.Play("mixamo_com");
 				await ToSignal(GetTree().CreateTimer(2.6f), "timeout");
 				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
@@ -161,13 +163,14 @@ public partial class JeuCourt : Node2D
 		texteditforma.Visible = false;
 		r1.Visible = false;
 		r2.Visible = false;
+		textureRectpersonnage.Visible = false;
 		proj.Visible = false;
 		panel.Visible = false;
 
 		formationvisible = false;
 		agendavisible = false;
 		projetvisible = false;
-			}
+	}
 
 
 	private void verifieravantdefermer()
@@ -178,6 +181,7 @@ public partial class JeuCourt : Node2D
 
 			r1.Visible = false;
 			r2.Visible = false;
+			textureRectpersonnage.Visible = false;
 		
 						
 		}
