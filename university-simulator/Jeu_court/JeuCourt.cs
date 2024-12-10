@@ -22,7 +22,7 @@ public partial class JeuCourt : Node2D
 	private TextEdit r2;
 	private TextEdit r1;
 	private TextEdit horloge ;
-
+	
 	private Panel panel;
 	private Question q = new Question();
 	int nbrdv=0;
@@ -35,8 +35,8 @@ public partial class JeuCourt : Node2D
 
 	// personnage 3d
 	private SubViewport subViewport; // Le viewport pour rendre la scène 3D
-	private AnimationPlayer animationPlayer;
-   
+    private AnimationPlayer animationPlayer;
+
 
 
 	public override void _Ready()
@@ -51,7 +51,7 @@ public partial class JeuCourt : Node2D
 		proj = GetNode<TextEdit>("proj");
 		r1 = GetNode<TextEdit>("r1");
 		r2 = GetNode<TextEdit>("r2");
-		
+			
 
 		// Générer des projets et rendez-vous aléatoires
 		projets = Projet.GenererProjetsAleatoires();
@@ -128,7 +128,7 @@ public partial class JeuCourt : Node2D
 		if (Input.IsActionJustPressed("Question") && !projetvisible && !formationvisible && !agendavisible)
 		{
 			
-				
+			
 				animationPlayer.Play("mixamo_com");
 				await ToSignal(GetTree().CreateTimer(2.6f), "timeout");
 				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
@@ -167,7 +167,7 @@ public partial class JeuCourt : Node2D
 		formationvisible = false;
 		agendavisible = false;
 		projetvisible = false;
-	}
+			}
 
 
 	private void verifieravantdefermer()
@@ -178,7 +178,8 @@ public partial class JeuCourt : Node2D
 
 			r1.Visible = false;
 			r2.Visible = false;
-	
+		
+						
 		}
 		if (formationvisible)
 		{
