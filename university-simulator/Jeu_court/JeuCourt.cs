@@ -33,6 +33,13 @@ public partial class JeuCourt : Node2D
 	int heure = 08;
 	int minute = 00;
 
+
+	// personnage 3d
+	private Viewport viewport; // Le viewport pour rendre la scène 3D
+    private TextureRect textureRectpersonnage; // Le rectangle pour afficher la texture du Viewport
+    private Camera3D camera3D; // La caméra de la scène 3D
+
+
 	public override void _Ready()
 	{
 		_textEdit = GetNode<TextEdit>("TextEdit");
@@ -56,6 +63,25 @@ public partial class JeuCourt : Node2D
 
 		// Gestion de l'heure
 		horloge = GetNode<TextEdit>("Horloge/horloge");
+
+
+
+		// personnage 
+		// Récupérer les nœuds
+        viewport = GetNode<Viewport>("Viewport");
+        textureRectpersonnage = GetNode<TextureRect>("TextureRect");
+
+        // Créer un ViewportTexture et le lier au TextureRect
+        ViewportTexture viewportTexture = new ViewportTexture();
+        textureRectpersonnage.Texture = viewportTexture;
+
+        // Récupérer la caméra de la scène 3D
+        camera3D = GetNode<Camera3D>("Camera3D");
+
+        // Configurer le Viewport pour utiliser la caméra de la scène 3D
+        // Lier le viewport au monde 3D (cela nécessite un World3D)
+        viewport.World3D = camera3D.GetWorld3D();
+        
 		
 
 	}
