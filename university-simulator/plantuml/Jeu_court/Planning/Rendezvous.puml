@@ -1,0 +1,16 @@
+@startuml
+class Rendezvous {
+    + Description : string <<get>> <<set>>
+    + id : int
+    + composante : int
+    + Rendezvous(date:DateTime, duree:TimeSpan, description:string, id:int)
+    + Rendezvous(date:DateTime, description:string, id:int)
+    + getid() : int
+    + HeureFin() : DateTime
+    + {static} GenererRendezVousAleatoire(id:int) : Rendezvous
+    + getcomposante() : int
+    + <<override>> ToString() : string
+}
+Rendezvous --> "Date" DateTime
+Rendezvous --> "Duree" TimeSpan
+@enduml

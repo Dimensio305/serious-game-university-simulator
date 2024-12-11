@@ -1,0 +1,13 @@
+@startuml
+class Formation {
+    + Nom : string <<get>>
+    + Option : string <<get>>
+    + Effectif : int <<get>>
+    + Eleve : int <<get>>
+    + Budget : int <<get>>
+    + {static} index : int = 1
+    + Formation(nom:string, effectif:int, eleve:int, budget:int, option:string)
+    {static} + genereformation() : Formation
+    + <<override>> ToString() : string
+}
+@enduml

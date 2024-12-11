@@ -1,0 +1,10 @@
+@startuml
+class Projet {
+    + Nom : string <<get>>
+    + Description : string <<get>>
+    + Projet(nom:string, description:string)
+    + <<override>> ToString() : string
+    + {static} GenererUnProjet() : Projet
+    + {static} GenererProjetsAleatoires() : List<Projet>
+}
+@enduml

@@ -29,9 +29,9 @@ public partial class coce_i_menu : Control
 	/// Change la scene pour la version courte du jeu
 	/// </summary>
 	public void _on_b_court_pressed(){
+		
 		GetTree().ChangeSceneToFile("res://intermediaire/affichage_jour.tscn");
 	}
-
 	/// <summary>
 	/// Change la scene pour la version longue du jeu
 	/// </summary>

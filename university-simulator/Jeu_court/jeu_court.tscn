@@ -314,3 +314,10 @@ offset_right = 1391.0
 offset_bottom = 502.0
 rotation = 1.5834
 texture = SubResource("ViewportTexture_47tuc")
+
+[node name="temp" type="TextEdit" parent="."]
+offset_left = 891.0
+offset_top = 393.0
+offset_right = 1103.0
+offset_bottom = 507.0
+text = "false"

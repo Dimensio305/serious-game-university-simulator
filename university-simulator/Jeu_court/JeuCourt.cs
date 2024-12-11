@@ -6,37 +6,45 @@ using System.Threading.Tasks;
 
 public partial class JeuCourt : Node2D
 {
+
+	// gestion des questions 
 	private TextEdit _textEdit;
 	private bool inQuestion = false;
-	private bool formationvisible = false;
-	private bool agendavisible = false;
-	private bool projetvisible = false;
-
-	private List<Projet> projets;
-	private List<Formation> forma;
-	private Agenda agenda;
-
-	private TextEdit texteditagenda; // Affichage de l'agenda
-	private TextEdit texteditforma; // Affichage des FORMATION
-	private TextEdit proj;
 	private TextEdit r2;
 	private TextEdit r1;
-	private TextEdit horloge ;
-	
-	private Panel panel;
 	private Question q = new Question();
-	int nbrdv=0;
-	int nbquestion = 0;
 
-	int nombrequestion = 0;
+	//gestion des formation 
+	private List<Formation> forma;
+	private TextEdit texteditforma;
+
+	// gestion des agenda
+	private Agenda agenda;
+	private TextEdit texteditagenda;
+	int nbrdv=0;
+
+	//gestion des projets 
+	private bool projetvisible = false;
+	private List<Projet> projets;
+	private TextEdit proj;
+
+	//gestion de l'heure 
+
+	private TextEdit horloge ;
 	int heure = 08;
 	int minute = 00;
 
-
+	// a verifier 
+	private Panel panel;
+	int nbquestion = 0;
+	int nombrequestion = 0;
+	
 	// personnage 3d
 	private SubViewport subViewport; // Le viewport pour rendre la scène 3D
     private AnimationPlayer animationPlayer;
 	private TextureRect textureRectpersonnage;
+
+	private TextEdit temporaire;
 
 
 
@@ -73,7 +81,9 @@ public partial class JeuCourt : Node2D
         // Trouver l'AnimationPlayer dans la scène 3D
         animationPlayer = scene3D.GetNode<AnimationPlayer>("AnimationPlayer");
 		textureRectpersonnage = GetNode<TextureRect>("personnage");
-        
+
+		temporaire = GetNode<TextEdit>("temp");
+        generequestion2();
 		
 
 	}
@@ -85,10 +95,10 @@ public partial class JeuCourt : Node2D
 		var Jauge3 = GetNodeOrNull<Jauge>("Jauge3");
 		var Jauge4 = GetNodeOrNull<Jauge>("Jauge4");
 
-		if (Input.IsActionJustPressed("temp") && !formationvisible && !agendavisible && !projetvisible)
+		/*if (Input.IsActionJustPressed("temp") && !texteditforma.Visible && !texteditagenda.Visible && !projetvisible)
 		{
 			inQuestion = true;
-		}
+		}*/
 
 		if (inQuestion)
 		{
@@ -127,7 +137,7 @@ public partial class JeuCourt : Node2D
 		
 		
 
-		if (Input.IsActionJustPressed("Question") && !projetvisible && !formationvisible && !agendavisible)
+		if (Input.IsActionJustPressed("Question") && !projetvisible && !texteditforma.Visible && !texteditagenda.Visible)
 		{
 			
 				textureRectpersonnage.Visible=true;
@@ -166,9 +176,6 @@ public partial class JeuCourt : Node2D
 		textureRectpersonnage.Visible = false;
 		proj.Visible = false;
 		panel.Visible = false;
-
-		formationvisible = false;
-		agendavisible = false;
 		projetvisible = false;
 	}
 
@@ -185,16 +192,14 @@ public partial class JeuCourt : Node2D
 		
 						
 		}
-		if (formationvisible)
+		if (texteditforma.Visible )
 		{
 			panel.Visible = false;
 			texteditforma.Visible = false;
-			formationvisible = false;
 		}
-		if (agendavisible)
+		if (texteditagenda.Visible)
 		{
 			texteditagenda.Visible = false;
-			agendavisible = false;
 		}
 		if (projetvisible)
 		{
@@ -205,20 +210,19 @@ public partial class JeuCourt : Node2D
 
 	private void rendrevisibleformation()
 	{
-		if (!_textEdit.Visible && !agendavisible && !projetvisible)
+		if (!_textEdit.Visible && !texteditagenda.Visible && !projetvisible)
 		{
 		   
 
 			affichage.AfficherFormations(forma, texteditforma, panel);
 			panel.Visible = true;
 			texteditforma.Visible = true; // Afficher les projets
-			formationvisible = true;
 		}
 	}
 
 	private void rendrevisibleprojet()
 	{
-		if (!_textEdit.Visible && !agendavisible && !formationvisible)
+		if (!_textEdit.Visible && !texteditagenda.Visible && !texteditforma.Visible)
 		{
 			
 
@@ -230,12 +234,11 @@ public partial class JeuCourt : Node2D
 
 	private void rendrevisibleagenda()
 	{
-		if (!_textEdit.Visible && !formationvisible && !projetvisible)
+		if (!_textEdit.Visible && !texteditforma.Visible  && !projetvisible)
 		{
 			
 			affichage.AfficherAgenda(agenda.GetRendezVous(), texteditagenda);
 			texteditagenda.Visible = true; // Afficher l'agenda
-			agendavisible = true;
 		}
 	}
 
@@ -251,23 +254,27 @@ public partial class JeuCourt : Node2D
 	{
 	
 	
-		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !formationvisible && !agendavisible &&_textEdit.Visible)
+		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !texteditforma.Visible  && !texteditagenda.Visible &&_textEdit.Visible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges
 			inQuestion = false;
+			temporaire.Text="false";
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
 			nombrequestion+=1;
 			suiv();
 			faireavancerletemps();
+			generequestion2();
 		}
-		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !formationvisible && !agendavisible &&_textEdit.Visible)
+		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !texteditforma.Visible  && !texteditagenda.Visible &&_textEdit.Visible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges
 			inQuestion = false;
+			temporaire.Text="false";
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
 			nombrequestion+=1;
 			suiv();
 			faireavancerletemps();
+			generequestion2();
 		}
 	
 	}
@@ -310,5 +317,9 @@ public partial class JeuCourt : Node2D
 		}
 	}
 
-
+	private async void generequestion2(){
+		await ToSignal(GetTree().CreateTimer(2),"timeout");
+		inQuestion=true;
+		temporaire.Text="true";
+	}
 }

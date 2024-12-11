@@ -1,0 +1,9 @@
+@startuml
+class Intermediaire <<partial>> {
+    + <<override>> _Ready() : void
+    + {static} GetRdvFin() : List<Rendezvous>
+    + <<async>> _on_valider_pressed() : void
+    + _on_reset_pressed() : void
+}
+Node2D <|-- Intermediaire
+@enduml
