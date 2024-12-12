@@ -174,7 +174,6 @@ public partial class JeuCourt : Node2D
 		texteditforma.Visible = false;
 		r1.Visible = false;
 		r2.Visible = false;
-		textureRectpersonnage.Visible = false;
 		proj.Visible = false;
 		panel.Visible = false;
 		projetvisible = false;
@@ -189,8 +188,6 @@ public partial class JeuCourt : Node2D
 
 			r1.Visible = false;
 			r2.Visible = false;
-			textureRectpersonnage.Visible = false;
-		
 						
 		}
 		if (texteditforma.Visible )
@@ -262,7 +259,9 @@ public partial class JeuCourt : Node2D
 			temporaire.Text="false";
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
 			suiv();
+			attente();
 			faireavancerletemps();
+			
 		}
 		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !texteditforma.Visible  && !texteditagenda.Visible &&_textEdit.Visible)
 		{
@@ -271,12 +270,13 @@ public partial class JeuCourt : Node2D
 			temporaire.Text="false";
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
 			suiv();
+			attente();
 			faireavancerletemps();
 		}
 	
 	}
 
-	private void suiv(){
+	private async void suiv(){
 		if (nbquestion == 3){
 			nbquestion = 0;
 			if(nbrdv == 3){
@@ -285,6 +285,13 @@ public partial class JeuCourt : Node2D
 			}
 			else{
 				nbrdv++;
+				await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
+				affichage.EcrireTexte(_textEdit, "la biz");
+				r1.Visible=false;
+				r2.Visible=false;
+				await ToSignal(GetTree().CreateTimer(1f), "timeout");
+				textureRectpersonnage.Visible = false; 
+				CacherTousLesTextEdits();
 			}
 		}
 		else{
