@@ -50,6 +50,10 @@ public partial class JeuCourt : Node2D
 	private TextureRect textureRectpersonnage;
 
 	private TextEdit temporaire;
+	private Jauge Jauge1 ; 
+	private Jauge Jauge2 ;
+	private Jauge Jauge3 ;
+	private Jauge Jauge4 ;   
 
 
 
@@ -88,6 +92,13 @@ public partial class JeuCourt : Node2D
 		textureRectpersonnage = GetNode<TextureRect>("personnage");
 
 		temporaire = GetNode<TextEdit>("temp");
+
+		Jauge1 = GetNodeOrNull<Jauge>("Jauge1");
+		Jauge2 = GetNodeOrNull<Jauge>("Jauge2");
+		Jauge3 = GetNodeOrNull<Jauge>("Jauge3");
+		Jauge4 = GetNodeOrNull<Jauge>("Jauge4");
+
+
         attente();
 		
 
@@ -95,10 +106,7 @@ public partial class JeuCourt : Node2D
 
 	public override void _Process(double delta)
 	{
-		var Jauge1 = GetNodeOrNull<Jauge>("Jauge1");
-		var Jauge2 = GetNodeOrNull<Jauge>("Jauge2");
-		var Jauge3 = GetNodeOrNull<Jauge>("Jauge3");
-		var Jauge4 = GetNodeOrNull<Jauge>("Jauge4");
+		
 
 
 
@@ -259,8 +267,9 @@ public partial class JeuCourt : Node2D
 			temporaire.Text="false";
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
 			suiv();
-			attente();
 			faireavancerletemps();
+			attente();
+			
 			
 		}
 		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !texteditforma.Visible  && !texteditagenda.Visible &&_textEdit.Visible)
@@ -270,35 +279,61 @@ public partial class JeuCourt : Node2D
 			temporaire.Text="false";
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
 			suiv();
-			attente();
 			faireavancerletemps();
+			attente();
+			
 		}
 	
 	}
 
-	private async void suiv(){
-		if (nbquestion == 3){
-			nbquestion = 0;
-			if(nbrdv == 3){
-				nbrdv = 0;
-				
-			}
-			else{
-				nbrdv++;
-				await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
-				affichage.EcrireTexte(_textEdit, "la biz");
-				r1.Visible=false;
-				r2.Visible=false;
-				await ToSignal(GetTree().CreateTimer(1f), "timeout");
-				textureRectpersonnage.Visible = false; 
-				CacherTousLesTextEdits();
-			}
-		}
-		else{
-			nbquestion++;
-		}
+	private async void suiv()
+{
+    if (nbquestion == 2) // Fin des questions du rendez-vous
+    {
+        nbquestion = 0;
+        if (nbrdv == 3) // Tous les rendez-vous terminés
+        {
+            nbrdv = 0;
+        }
+        else
+        {
+            nbrdv++;
+            await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
+            affichage.EcrireTexte(_textEdit, "La biz. Rendez-vous terminé.");
+            r1.Visible = false;
+            r2.Visible = false;
+            textureRectpersonnage.Visible = false; // Fin de l'animation uniquement ici
+            await ToSignal(GetTree().CreateTimer(1f), "timeout");
+            CacherTousLesTextEdits();
+        }
+    }
+    else
+    {
+        nbquestion++;
+        await AfficherMessageIntermediaire(); // Affiche le message intermédiaire
+        AfficherQuestionSuivante();
+    }
+}
 
-	}
+private async void AfficherQuestionSuivante()
+{
+    await ToSignal(GetTree().CreateTimer(2f), "timeout"); // Délai avant la prochaine question
+    affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
+	affichage.EcrireTexte(r1, q.reponse1());
+	affichage.EcrireTexte(r2, q.reponse2());
+	gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 );
+    r1.Visible = true;
+    r2.Visible = true;
+}
+
+private async Task AfficherMessageIntermediaire()
+{
+    affichage.EcrireTexte(_textEdit, "Hummm... et je voulais aussi vous demander...");
+    r1.Visible = false;
+    r2.Visible = false;
+    await ToSignal(GetTree().CreateTimer(1.5f), "timeout"); // Pause avant la question suivante
+}
+
 
 	private async void faireavancerletemps(){
 		minute += 40;
