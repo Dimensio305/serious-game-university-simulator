@@ -23,6 +23,11 @@ public partial class JeuCourt : Node2D
 	private TextEdit texteditagenda;
 	int nbrdv=0;
 
+	// gestion de srdv physique 
+
+	private bool inrdv = false; 
+	private int aquellequestion = 0;
+
 	//gestion des projets 
 	private bool projetvisible = false;
 	private List<Projet> projets;
@@ -37,7 +42,7 @@ public partial class JeuCourt : Node2D
 	// a verifier 
 	private Panel panel;
 	int nbquestion = 0;
-	int nombrequestion = 0;
+	
 	
 	// personnage 3d
 	private SubViewport subViewport; // Le viewport pour rendre la scène 3D
@@ -83,7 +88,7 @@ public partial class JeuCourt : Node2D
 		textureRectpersonnage = GetNode<TextureRect>("personnage");
 
 		temporaire = GetNode<TextEdit>("temp");
-        generequestion2();
+        attente();
 		
 
 	}
@@ -95,15 +100,11 @@ public partial class JeuCourt : Node2D
 		var Jauge3 = GetNodeOrNull<Jauge>("Jauge3");
 		var Jauge4 = GetNodeOrNull<Jauge>("Jauge4");
 
-		/*if (Input.IsActionJustPressed("temp") && !texteditforma.Visible && !texteditagenda.Visible && !projetvisible)
-		{
-			inQuestion = true;
-		}*/
+
 
 		if (inQuestion)
 		{
 			GérerQuestionAsync();
-			//gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 , result.RDV);
 			gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 );
 		}
 
@@ -260,10 +261,8 @@ public partial class JeuCourt : Node2D
 			inQuestion = false;
 			temporaire.Text="false";
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
-			nombrequestion+=1;
 			suiv();
 			faireavancerletemps();
-			generequestion2();
 		}
 		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !texteditforma.Visible  && !texteditagenda.Visible &&_textEdit.Visible)
 		{
@@ -271,10 +270,8 @@ public partial class JeuCourt : Node2D
 			inQuestion = false;
 			temporaire.Text="false";
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
-			nombrequestion+=1;
 			suiv();
 			faireavancerletemps();
-			generequestion2();
 		}
 	
 	}
@@ -317,9 +314,11 @@ public partial class JeuCourt : Node2D
 		}
 	}
 
-	private async void generequestion2(){
+	private async void attente(){
 		await ToSignal(GetTree().CreateTimer(2),"timeout");
 		inQuestion=true;
 		temporaire.Text="true";
 	}
+	
+
 }
