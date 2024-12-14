@@ -2,11 +2,19 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Classe gérant la transition entre les scènes en fonction du jour actuel.
+/// </summary>
 public partial class transition : Node2D
 {
+    /// <summary>
+    /// Méthode appelée lorsque le nœud est prêt. 
+    /// Gère le chargement des textures et la transition vers une nouvelle scène.
+    /// </summary>
     public override async void _Ready()
     {
-        // Liste des chemins de textures
+        
+        // Liste des chemins des textures pour chaque jour.
         List<string> j = new List<string>
         {
             "res://asset/jour/1.png",
@@ -16,7 +24,8 @@ public partial class transition : Node2D
             "res://asset/jour/5.png"
         };
 
-        // Récupérer le jour actuel
+    
+        // Vérifie si le jour est dans les limites de la liste des textures.
         int jourActuel = Jour.Instance.GetJour();
         if (jourActuel < 0 || jourActuel > j.Count)
         {
@@ -24,14 +33,18 @@ public partial class transition : Node2D
             return;
         }
 
-        // Charger et appliquer la texture
+        
+        // Charge la texture correspondante au jour actuel et l'applique au nœud TextureRect.
         TextureRect fond = GetNode<TextureRect>("TextureRect");
         fond.Texture = GD.Load<Texture2D>(j[jourActuel]);
 
-        // Attendre 1 seconde
+       
+        // Attend 1 seconde avant de passer à la prochaine scène.
         await ToSignal(GetTree().CreateTimer(1), "timeout");
 
-        // Vérifier et changer la scène
+   
+        // Définit le chemin de la prochaine scène et vérifie son existence.
+        // Si la scène existe, la transition est effectuée.
         string nextScene = "res://scenes/intermediaire.tscn";
         if (ResourceLoader.Exists(nextScene))
         {

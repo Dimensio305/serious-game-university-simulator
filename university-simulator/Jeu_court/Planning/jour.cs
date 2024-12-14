@@ -2,7 +2,7 @@ using System;
 using Godot;
 
 /// <summary>
-/// Classe représentant un jour. Implémente le design pattern Singleton pour garantir une instance unique.
+/// Classe représentant un jour. Instance unique .
 /// </summary>
 public class Jour
 {

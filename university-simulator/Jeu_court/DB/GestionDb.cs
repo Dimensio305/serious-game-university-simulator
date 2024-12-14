@@ -12,7 +12,7 @@ using System.IO;
 /// </summary>
 public class GestionDb
 {
-	// Instance unique (Singleton)
+	// Instance unique
 	private static GestionDb _instance;
 
 	// Connexion à la base de données
@@ -157,7 +157,7 @@ public class GestionDb
 	} 
 
 	/// <summary>
-	/// Methode qui crée les tables et les remplirs 
+	/// Methode qui crée les tables et les remplits 
 	/// </summary>
 	public void Contenue()
 	{

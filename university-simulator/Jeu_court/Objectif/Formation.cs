@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using Godot;
 
+/// <summary>
+/// classe gerant ce qui se passe autour des formation (creation, etc ...)
+/// </summary>
 public class Formation
 {
 	/// <summary>

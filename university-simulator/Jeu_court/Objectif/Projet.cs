@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using Godot;
 
+/// <summary>
+/// Représente un projet avec un nom et une description.
+/// </summary>
 public class Projet
 {
     /// <summary>

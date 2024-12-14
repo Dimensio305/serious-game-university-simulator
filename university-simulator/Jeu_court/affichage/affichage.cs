@@ -2,6 +2,9 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Classe gerant l'affichage du contenue du jeu
+/// </summary>
 public static class affichage
 {
     /// <summary>
@@ -21,56 +24,56 @@ public static class affichage
     }
 
 
-/// <summary>
-///  Methode statique permettant d'écrire dans une texteedit et de la rendre visible en meme temps sous forme
-/// d'agenda journalier
-/// </summary>
-/// <param name="rendezVousList"></param>
-/// <param name="textEdit"></param>
-public static void AfficherAgenda(List<Rendezvous> rendezVousList, TextEdit textEdit )
-{
-   textEdit.Text = ""; 
-
-    
-    string nomJour = Jour.Instance.GetNom();
-
-    
-    textEdit.Text += $"Agenda de {nomJour}\n";
-    textEdit.Text += "=====================\n\n";
-
-    
-    TimeSpan[] debutCreneaux = {
-        new TimeSpan(8, 0, 0),  // 8h à 10h
-        new TimeSpan(10, 0, 0), // 10h à 12h
-        new TimeSpan(14, 0, 0), // 14h à 16h
-        new TimeSpan(16, 0, 0)  // 16h à 18h
-    };
-
-    TimeSpan dureeCreneau = new TimeSpan(2, 0, 0); // Chaque créneau dure 2 heures
-
-    // Afficher les rendez-vous pour chaque créneau
-    for (int i = 0; i < debutCreneaux.Length; i++)
+    /// <summary>
+    ///  Methode statique permettant d'écrire dans une texteedit et de la rendre visible en meme temps sous forme
+    /// d'agenda journalier
+    /// </summary>
+    /// <param name="rendezVousList"></param>
+    /// <param name="textEdit"></param>
+    public static void AfficherAgenda(List<Rendezvous> rendezVousList, TextEdit textEdit )
     {
-        if (i < rendezVousList.Count)
-        {
-            Rendezvous rdv = rendezVousList[i];
-            TimeSpan debut = debutCreneaux[i];
-            TimeSpan fin = debut + dureeCreneau;
+    textEdit.Text = ""; 
 
-            textEdit.Text += $"  - {debut:hh\\:mm} - {fin:hh\\:mm}: {rdv.Description}\n";
-        }
-        else // s'il n'y a pas de rdv
-        {
-            TimeSpan debut = debutCreneaux[i];
-            TimeSpan fin = debut + dureeCreneau;
+        
+        string nomJour = Jour.Instance.GetNom();
 
-            
-            textEdit.Text += $"  - {debut:hh\\:mm} - {fin:hh\\:mm}: Aucun rendez-vous\n";
+        
+        textEdit.Text += $"Agenda de {nomJour}\n";
+        textEdit.Text += "=====================\n\n";
+
+        
+        TimeSpan[] debutCreneaux = {
+            new TimeSpan(8, 0, 0),  // 8h à 10h
+            new TimeSpan(10, 0, 0), // 10h à 12h
+            new TimeSpan(14, 0, 0), // 14h à 16h
+            new TimeSpan(16, 0, 0)  // 16h à 18h
+        };
+
+        TimeSpan dureeCreneau = new TimeSpan(2, 0, 0); // Chaque créneau dure 2 heures
+
+        // Afficher les rendez-vous pour chaque créneau
+        for (int i = 0; i < debutCreneaux.Length; i++)
+        {
+            if (i < rendezVousList.Count)
+            {
+                Rendezvous rdv = rendezVousList[i];
+                TimeSpan debut = debutCreneaux[i];
+                TimeSpan fin = debut + dureeCreneau;
+
+                textEdit.Text += $"  - {debut:hh\\:mm} - {fin:hh\\:mm}: {rdv.Description}\n";
+            }
+            else // s'il n'y a pas de rdv
+            {
+                TimeSpan debut = debutCreneaux[i];
+                TimeSpan fin = debut + dureeCreneau;
+
+                
+                textEdit.Text += $"  - {debut:hh\\:mm} - {fin:hh\\:mm}: Aucun rendez-vous\n";
+            }
         }
+
+        textEdit.Visible = true;
     }
-
-    textEdit.Visible = true;
-}
 
 
 
@@ -94,13 +97,14 @@ public static void AfficherAgenda(List<Rendezvous> rendezVousList, TextEdit text
         textEditProjets.Visible = true;
     }
 
-/// <summary>
-///  Méthode statique pour afficher les rendez-vous dans un TextEdit
-/// </summary>
-/// <param name="formations"></param>
-/// <param name="textEditFormations"></param>
-/// <param name="pan"></param> <summary>
-
+    /// <summary>
+    ///  Méthode statique pour afficher les rendez-vous dans un TextEdit
+    /// </summary>
+    /// <param name="formations"></param>
+    /// <param name="textEditFormations"></param>
+    /// <param name="pan"></param> <summary>
+    /// </summary>
+    
     public static void AfficherFormations(List<Formation> formations, TextEdit textEditFormations, Panel pan)
     {
       

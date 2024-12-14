@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Threading.Tasks;
 
+/// <summary>
+/// 
+/// </summary>
 public partial class JeuCourt : Node2D
 {
 
@@ -57,6 +60,9 @@ public partial class JeuCourt : Node2D
 
 
 
+/// <summary>
+/// 
+/// </summary>
 	public override void _Ready()
 	{
 		_textEdit = GetNode<TextEdit>("TextEdit");
@@ -104,6 +110,10 @@ public partial class JeuCourt : Node2D
 
 	}
 
+/// <summary>
+/// 
+/// </summary>
+/// <param name="delta"></param>
 	public override void _Process(double delta)
 	{
 		
@@ -256,6 +266,15 @@ public partial class JeuCourt : Node2D
 		}
 	}
 
+/// <summary>
+/// 
+/// </summary>
+/// <param name="J1"></param>
+/// <param name="J2"></param>
+/// <param name="J3"></param>
+/// <param name="J4"></param> <summary>
+/// 
+/// </summary>
 	public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4)
 	{
 	
