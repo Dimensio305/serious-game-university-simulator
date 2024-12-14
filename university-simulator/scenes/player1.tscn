@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1atoq1bv5q6f"]
-
-[ext_resource type="PackedScene" uid="uid://botigec0dr6vx" path="res://player/player_anim.tscn" id="1_d7fov"]
-
-[node name="CharacterBody2D" type="CharacterBody2D"]
-
-[node name="AnimatedSprite2D" parent="." instance=ExtResource("1_d7fov")]

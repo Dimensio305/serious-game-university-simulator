@@ -1,0 +1,966 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>university-simulator</name>
+    </assembly>
+    <members>
+        <member name="T:transition.MethodName">
+            <summary>
+            Cached StringNames for the methods contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:transition.MethodName._Ready">
+            <summary>
+            Cached name for the '_Ready' method.
+            </summary>
+        </member>
+        <member name="M:transition.GetGodotMethodList">
+            <summary>
+            Get the method information for all the methods declared in this class.
+            This method is used by Godot to register the available methods in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:transition.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:transition.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:transition.PropertyName">
+            <summary>
+            Cached StringNames for the properties and fields contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="M:transition.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:transition.RestoreGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:transition.SignalName">
+            <summary>
+            Cached StringNames for the signals contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="M:affichage.EcrireTexte(Godot.TextEdit,System.String)">
+            <summary>
+            Methode statique permettant d'écrire dans une texteedit et de la rendre visible en meme tempd
+            </summary>
+            <param name="textEdit"></param>
+            <param name="texte"></param>
+        </member>
+        <member name="M:affichage.AfficherAgenda(System.Collections.Generic.List{Rendezvous},Godot.TextEdit)">
+            <summary>
+             Methode statique permettant d'écrire dans une texteedit et de la rendre visible en meme temps sous forme
+            d'agenda journalier
+            </summary>
+            <param name="rendezVousList"></param>
+            <param name="textEdit"></param>
+        </member>
+        <member name="M:affichage.AfficherProjets(System.Collections.Generic.List{Projet},Godot.TextEdit)">
+            <summary>
+            Méthode statique pour afficher les projets dans un TextEdit
+            </summary>
+            <param name="projets"></param>
+            <param name="textEditProjets"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:affichage.AfficherFormations(System.Collections.Generic.List{Formation},Godot.TextEdit,Godot.Panel)" -->
+        <member name="T:GestionDb">
+            <summary>
+             Cette class est utiliser pour cree une base de donnée , ajouter/ accéder/ supprimer le contenue de la base 
+             de donnée 
+            </summary>
+        </member>
+        <member name="M:GestionDb.#ctor">
+            <summary>
+            Constructeur  privé pour empêcher la création d'instances directes
+            </summary>
+        </member>
+        <member name="P:GestionDb.Instance">
+            <summary>
+            Methode statique pour obteneir l'instance unique
+            </summary>
+        </member>
+        <member name="M:GestionDb.Connect">
+            <summary>
+            Methode pour ouvrir la connection a la base de données
+            </summary>
+        </member>
+        <member name="M:GestionDb.Supprimer">
+            <summary>
+            Methode pour supprimer et vider les tables
+            </summary>
+        </member>
+        <member name="M:GestionDb.ExecuteRequete(System.String)">
+            <summary>
+            Méthode pour exécuter une requête et retourner le résultat
+            </summary>
+            <param name="query"></param>
+            <returns> le resultat de la requete sous forme de string</returns>
+        </member>
+        <member name="M:GestionDb.Contenue">
+            <summary>
+            Methode qui crée les tables et les remplirs 
+            </summary>
+        </member>
+        <member name="T:Jauge">
+            <summary>
+            Classe représentant une jauge de progression dans l'interface utilisateur.
+            </summary>
+        </member>
+        <member name="M:Jauge.Modif(System.Int32)">
+            <summary>
+            Modifie la valeur de la jauge en fonction du changement spécifié.
+            </summary>
+            <param name="Changement">La valeur à ajouter à la jauge. Peut être positive ou négative.</param>
+        </member>
+        <member name="T:Jauge.MethodName">
+            <summary>
+            Cached StringNames for the methods contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:Jauge.MethodName.Modif">
+            <summary>
+            Cached name for the 'Modif' method.
+            </summary>
+        </member>
+        <member name="M:Jauge.GetGodotMethodList">
+            <summary>
+            Get the method information for all the methods declared in this class.
+            This method is used by Godot to register the available methods in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:Jauge.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Jauge.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Jauge.PropertyName">
+            <summary>
+            Cached StringNames for the properties and fields contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="M:Jauge.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Jauge.RestoreGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Jauge.SignalName">
+            <summary>
+            Cached StringNames for the signals contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="M:JeuCourt.GérerQuestionAsync">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:JeuCourt.MethodName">
+            <summary>
+            Cached StringNames for the methods contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName._Ready">
+            <summary>
+            Cached name for the '_Ready' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName._Process">
+            <summary>
+            Cached name for the '_Process' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.GérerQuestionAsync">
+            <summary>
+            Cached name for the 'GérerQuestionAsync' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.CacherTousLesTextEdits">
+            <summary>
+            Cached name for the 'CacherTousLesTextEdits' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.verifieravantdefermer">
+            <summary>
+            Cached name for the 'verifieravantdefermer' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.rendrevisibleformation">
+            <summary>
+            Cached name for the 'rendrevisibleformation' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.rendrevisibleprojet">
+            <summary>
+            Cached name for the 'rendrevisibleprojet' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.rendrevisibleagenda">
+            <summary>
+            Cached name for the 'rendrevisibleagenda' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.GenererForma">
+            <summary>
+            Cached name for the 'GenererForma' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.gerereponse">
+            <summary>
+            Cached name for the 'gerereponse' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.suiv">
+            <summary>
+            Cached name for the 'suiv' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.AfficherQuestionSuivante">
+            <summary>
+            Cached name for the 'AfficherQuestionSuivante' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.faireavancerletemps">
+            <summary>
+            Cached name for the 'faireavancerletemps' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.attente">
+            <summary>
+            Cached name for the 'attente' method.
+            </summary>
+        </member>
+        <member name="M:JeuCourt.GetGodotMethodList">
+            <summary>
+            Get the method information for all the methods declared in this class.
+            This method is used by Godot to register the available methods in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:JeuCourt.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:JeuCourt.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:JeuCourt.PropertyName">
+            <summary>
+            Cached StringNames for the properties and fields contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName._textEdit">
+            <summary>
+            Cached name for the '_textEdit' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.inQuestion">
+            <summary>
+            Cached name for the 'inQuestion' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.r2">
+            <summary>
+            Cached name for the 'r2' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.r1">
+            <summary>
+            Cached name for the 'r1' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.texteditforma">
+            <summary>
+            Cached name for the 'texteditforma' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.texteditagenda">
+            <summary>
+            Cached name for the 'texteditagenda' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.nbrdv">
+            <summary>
+            Cached name for the 'nbrdv' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.inrdv">
+            <summary>
+            Cached name for the 'inrdv' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.aquellequestion">
+            <summary>
+            Cached name for the 'aquellequestion' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.projetvisible">
+            <summary>
+            Cached name for the 'projetvisible' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.proj">
+            <summary>
+            Cached name for the 'proj' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.horloge">
+            <summary>
+            Cached name for the 'horloge' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.heure">
+            <summary>
+            Cached name for the 'heure' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.minute">
+            <summary>
+            Cached name for the 'minute' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.panel">
+            <summary>
+            Cached name for the 'panel' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.nbquestion">
+            <summary>
+            Cached name for the 'nbquestion' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.subViewport">
+            <summary>
+            Cached name for the 'subViewport' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.animationPlayer">
+            <summary>
+            Cached name for the 'animationPlayer' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.textureRectpersonnage">
+            <summary>
+            Cached name for the 'textureRectpersonnage' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.temporaire">
+            <summary>
+            Cached name for the 'temporaire' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.Jauge1">
+            <summary>
+            Cached name for the 'Jauge1' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.Jauge2">
+            <summary>
+            Cached name for the 'Jauge2' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.Jauge3">
+            <summary>
+            Cached name for the 'Jauge3' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.Jauge4">
+            <summary>
+            Cached name for the 'Jauge4' field.
+            </summary>
+        </member>
+        <member name="M:JeuCourt.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:JeuCourt.GetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:JeuCourt.GetGodotPropertyList">
+            <summary>
+            Get the property information for all the properties declared in this class.
+            This method is used by Godot to register the available properties in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:JeuCourt.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:JeuCourt.RestoreGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:JeuCourt.SignalName">
+            <summary>
+            Cached StringNames for the signals contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="P:Formation.Nom">
+            <summary>
+            Nom de la formation.
+            </summary>
+            <value>Le nom de la formation.</value>
+        </member>
+        <member name="P:Formation.Option">
+            <summary>
+            Option associée à la formation.
+            </summary>
+            <value>Le nom de l'option.</value>
+        </member>
+        <member name="P:Formation.Effectif">
+            <summary>
+            Effectif total de la formation.
+            </summary>
+            <value>Le nombre d'étudiants dans la formation.</value>
+        </member>
+        <member name="P:Formation.Eleve">
+            <summary>
+            Nombre d'élèves réellement inscrits dans la formation.
+            </summary>
+            <value>Le nombre d'élèves inscrits.</value>
+        </member>
+        <member name="P:Formation.Budget">
+            <summary>
+            Budget alloué à la formation.
+            </summary>
+            <value>Le montant du budget en unités monétaires.</value>
+        </member>
+        <member name="F:Formation.index">
+            <summary>
+            Indice statique utilisé pour générer les formations séquentiellement.
+            </summary>
+        </member>
+        <member name="M:Formation.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Constructeur de la classe Formation.
+            </summary>
+            <param name="nom">Nom de la formation.</param>
+            <param name="effectif">Effectif total de la formation.</param>
+            <param name="eleve">Nombre d'élèves inscrits dans la formation.</param>
+            <param name="budget">Budget alloué à la formation.</param>
+            <param name="option">Option associée à la formation.</param>
+        </member>
+        <member name="M:Formation.getindex">
+            <summary>
+            Obtient l'indice actuel utilisé pour générer les formations.
+            </summary>
+            <returns>L'indice actuel.</returns>
+        </member>
+        <member name="M:Formation.setindex(System.Int32)">
+            <summary>
+            Définit une nouvelle valeur pour l'indice utilisé dans la génération des formations.
+            </summary>
+            <param name="value">La nouvelle valeur de l'indice.</param>
+        </member>
+        <member name="M:Formation.genereformation">
+            <summary>
+            Génère une nouvelle instance de la classe Formation à partir de la base de données.
+            </summary>
+            <returns>Une instance de la classe Formation remplie avec les données de la base de données.</returns>
+        </member>
+        <member name="M:Formation.ToString">
+            <summary>
+            Renvoie une chaîne représentant les informations de la formation.
+            </summary>
+            <returns>Les détails de la formation sous forme de chaîne.</returns>
+        </member>
+        <member name="P:Projet.Nom">
+            <summary>
+            Nom du projet.
+            </summary>
+            <value>String représentant le nom du projet.</value>
+        </member>
+        <member name="P:Projet.Description">
+            <summary>
+            Description du projet.
+            </summary>
+            <value>String contenant les détails sur le projet.</value>
+        </member>
+        <member name="M:Projet.#ctor(System.String,System.String)">
+            <summary>
+            Constructeur de la classe Projet.
+            Initialise un projet avec un nom et une description.
+            </summary>
+            <param name="nom">Nom du projet.</param>
+            <param name="description">Description du projet.</param>
+        </member>
+        <member name="M:Projet.ToString">
+            <summary>
+            Retourne un String représentant le projet.
+            </summary>
+            <returns>String contenant le nom et la description du projet.</returns>
+        </member>
+        <member name="M:Projet.GenererUnProjet">
+            <summary>
+            Génère un projet aléatoire à partir de listes prédéfinies.
+            </summary>
+            <returns>Un Projet contenant un nom et une description aléatoires.</returns>
+        </member>
+        <member name="M:Projet.GenererProjetsAleatoires">
+            <summary>
+            Génère une liste de projets aléatoires uniques.
+            </summary>
+            <returns>Liste de Projet avec des noms et descriptions uniques.</returns>
+        </member>
+        <member name="T:Agenda">
+            <summary>
+            Classe représentant un agenda contenant une liste de rendez-vous.
+            </summary>
+        </member>
+        <member name="F:Agenda.rendezVousList">
+            <summary>
+            Liste des rendez-vous de l'agenda.
+            </summary>
+        </member>
+        <member name="M:Agenda.#ctor">
+            <summary>
+            Constructeur de la classe Agenda.
+            Initialise la liste des rendez-vous en récupérant les données par classe intermédiaire.
+            </summary>
+        </member>
+        <member name="M:Agenda.GetRendezVous">
+            <summary>
+            Retourne la liste des rendez-vous de l'agenda.
+            </summary>
+            <returns>Liste des Rendezvous présents dans l'agenda.</returns>
+        </member>
+        <member name="T:Jour">
+            <summary>
+            Classe représentant un jour. Implémente le design pattern Singleton pour garantir une instance unique.
+            </summary>
+        </member>
+        <member name="F:Jour._instance">
+            <summary>
+            Champ privé statique pour stocker l'instance unique de la classe Jour.
+            </summary>
+        </member>
+        <member name="F:Jour.nb">
+            <summary>
+            Numéro du jour, initialisé à 0 (Lundi).
+            </summary>
+        </member>
+        <member name="F:Jour.nom">
+            <summary>
+            Nom du jour correspondant, initialisé à "Lundi".
+            </summary>
+        </member>
+        <member name="M:Jour.#ctor">
+            <summary>
+            Constructeur privé pour empêcher la création d'instances externes.
+            </summary>
+        </member>
+        <member name="P:Jour.Instance">
+            <summary>
+            Propriété statique permettant d'accéder à l'instance unique de la classe Jour.
+            Si l'instance n'existe pas encore, elle est créée.
+            </summary>
+        </member>
+        <member name="M:Jour.setjour(System.Int32)">
+            <summary>
+            Définit le jour actuel en fonction de son numéro et met à jour le nom du jour.
+            </summary>
+            <param name="j">Numéro du jour (0 pour Lundi, 1 pour Mardi, etc.).</param>
+        </member>
+        <member name="M:Jour.Joursuivant">
+            <summary>
+            Passe au jour suivant. Si le jour actuel est Vendredi (5), retourne à Lundi (0).
+            </summary>
+        </member>
+        <member name="M:Jour.GetJour">
+            <summary>
+            Retourne le numéro du jour actuel.
+            </summary>
+            <returns>Numéro du jour actuel.</returns>
+        </member>
+        <member name="M:Jour.GetNom">
+            <summary>
+            Retourne le nom du jour actuel.
+            </summary>
+            <returns>Nom du jour actuel.</returns>
+        </member>
+        <member name="T:Rendezvous">
+            <summary>
+            Représente un rendez-vous avec une date, une durée, une description, et un indicateur de caractère fixe.
+            </summary>
+        </member>
+        <member name="P:Rendezvous.Date">
+            <summary>
+            Obtient ou définit la date et l'heure de début du rendez-vous.
+            </summary>
+        </member>
+        <member name="P:Rendezvous.Duree">
+            <summary>
+            Obtient ou définit la durée du rendez-vous.
+            </summary>
+        </member>
+        <member name="P:Rendezvous.Description">
+            <summary>
+            Obtient ou définit la description du rendez-vous.
+            </summary>
+        </member>
+        <member name="M:Rendezvous.#ctor(System.DateTime,System.TimeSpan,System.String,System.Int32)">
+            <summary>
+            Initialise une nouvelle instance de la classe <see cref="T:Rendezvous"/> avec la date, la durée, la description, et l'indicateur fixe spécifiés.
+            </summary>
+            <param name="date">La date et heure de début du rendez-vous.</param>
+            <param name="duree">La durée du rendez-vous.</param>
+            <param name="description">La description du rendez-vous.</param>
+            <param name="estFixe">Indique si le rendez-vous est fixe (facultatif, valeur par défaut est <c>false</c>).</param>
+        </member>
+        <member name="M:Rendezvous.HeureFin">
+            <summary>
+            Calcule l'heure de fin du rendez-vous en fonction de sa durée.
+            </summary>
+            <returns>Un <see cref="T:System.DateTime"/> représentant l'heure de fin du rendez-vous.</returns>
+        </member>
+        <member name="M:Rendezvous.GenererRendezVousAleatoire(System.Int32)">
+            <summary>
+            Retourne une chaîne de caractères représentant le rendez-vous avec son horaire et sa description.
+            </summary>
+            <returns>Une chaîne formatée avec l'heure de début, l'heure de fin et la description du rendez-vous.</returns>
+            <summary>
+            Génère un rendez-vous aléatoire pour un jour de la semaine spécifié.
+            </summary>
+            <param name="jourSemaine">Le jour de la semaine (0 pour lundi, 1 pour mardi, etc., jusqu'à 4 pour vendredi).</param>
+            <returns>Un objet <see cref="T:Rendezvous"/> aléatoire pour le jour spécifié.</returns>
+        </member>
+        <member name="T:Chargement">
+            <summary>
+            Cette classe est assoscié a la scene de chargement 
+            </summary>
+        </member>
+        <member name="M:Chargement._Ready">
+            <summary>
+             Dcette methode on charge la base de donnée des le lancement du jeu
+            </summary>
+        </member>
+        <member name="M:Chargement.OnStartTimerTimeout">
+            <summary>
+            cetet methode verifie si le timer c'est lancer 
+            </summary>
+        </member>
+        <member name="M:Chargement._Process(System.Double)">
+            <summary>
+            cette methode gere la vitessede chargement de la progressbar
+            </summary>
+            <param name="delta"></param>
+        </member>
+        <member name="M:Chargement.GoToMenu">
+            <summary>
+            Cette methode change de scene
+            </summary>
+        </member>
+        <member name="T:Chargement.MethodName">
+            <summary>
+            Cached StringNames for the methods contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:Chargement.MethodName._Ready">
+            <summary>
+            Cached name for the '_Ready' method.
+            </summary>
+        </member>
+        <member name="F:Chargement.MethodName.OnStartTimerTimeout">
+            <summary>
+            Cached name for the 'OnStartTimerTimeout' method.
+            </summary>
+        </member>
+        <member name="F:Chargement.MethodName._Process">
+            <summary>
+            Cached name for the '_Process' method.
+            </summary>
+        </member>
+        <member name="F:Chargement.MethodName.GoToMenu">
+            <summary>
+            Cached name for the 'GoToMenu' method.
+            </summary>
+        </member>
+        <member name="M:Chargement.GetGodotMethodList">
+            <summary>
+            Get the method information for all the methods declared in this class.
+            This method is used by Godot to register the available methods in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:Chargement.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Chargement.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Chargement.PropertyName">
+            <summary>
+            Cached StringNames for the properties and fields contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:Chargement.PropertyName.loadingSpeed">
+            <summary>
+            Cached name for the 'loadingSpeed' field.
+            </summary>
+        </member>
+        <member name="F:Chargement.PropertyName.progressBar">
+            <summary>
+            Cached name for the 'progressBar' field.
+            </summary>
+        </member>
+        <member name="F:Chargement.PropertyName.startTimer">
+            <summary>
+            Cached name for the 'startTimer' field.
+            </summary>
+        </member>
+        <member name="F:Chargement.PropertyName.isLoading">
+            <summary>
+            Cached name for the 'isLoading' field.
+            </summary>
+        </member>
+        <member name="M:Chargement.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Chargement.GetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Chargement.GetGodotPropertyList">
+            <summary>
+            Get the property information for all the properties declared in this class.
+            This method is used by Godot to register the available properties in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:Chargement.GetGodotPropertyDefaultValues">
+            <summary>
+            Get the default values for all properties declared in this class.
+            This method is used by Godot to determine the value that will be
+            used by the inspector when resetting properties.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:Chargement.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Chargement.RestoreGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Chargement.SignalName">
+            <summary>
+            Cached StringNames for the signals contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="T:coce_i_menu">
+            <summary>
+            Cette class est liée a la scene i_menu
+            Elle gere le changement des scenes
+            </summary>
+        </member>
+        <member name="M:coce_i_menu._Ready">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:coce_i_menu._on_b_court_pressed">
+            <summary>
+            Change la scene pour la version courte du jeu
+            </summary>
+        </member>
+        <member name="M:coce_i_menu._on_b_long_pressed">
+            <summary>
+            Change la scene pour la version longue du jeu
+            </summary>
+        </member>
+        <member name="M:coce_i_menu._on_b_quittez_pressed">
+            <summary>
+            Bouton permettant de quitter le jeu 
+            </summary>
+        </member>
+        <member name="M:coce_i_menu._on_b_son_pressed">
+            <summary>
+            cette fonction coupe/active le son du jeu.
+            En fonction de l'etat du son image change.
+            </summary>
+        </member>
+        <member name="T:coce_i_menu.MethodName">
+            <summary>
+            Cached StringNames for the methods contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:coce_i_menu.MethodName._Ready">
+            <summary>
+            Cached name for the '_Ready' method.
+            </summary>
+        </member>
+        <member name="F:coce_i_menu.MethodName._on_b_court_pressed">
+            <summary>
+            Cached name for the '_on_b_court_pressed' method.
+            </summary>
+        </member>
+        <member name="F:coce_i_menu.MethodName._on_b_long_pressed">
+            <summary>
+            Cached name for the '_on_b_long_pressed' method.
+            </summary>
+        </member>
+        <member name="F:coce_i_menu.MethodName._on_b_quittez_pressed">
+            <summary>
+            Cached name for the '_on_b_quittez_pressed' method.
+            </summary>
+        </member>
+        <member name="F:coce_i_menu.MethodName._on_b_son_pressed">
+            <summary>
+            Cached name for the '_on_b_son_pressed' method.
+            </summary>
+        </member>
+        <member name="M:coce_i_menu.GetGodotMethodList">
+            <summary>
+            Get the method information for all the methods declared in this class.
+            This method is used by Godot to register the available methods in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:coce_i_menu.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:coce_i_menu.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:coce_i_menu.PropertyName">
+            <summary>
+            Cached StringNames for the properties and fields contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:coce_i_menu.PropertyName.button">
+            <summary>
+            Cached name for the 'button' field.
+            </summary>
+        </member>
+        <member name="F:coce_i_menu.PropertyName.sprite">
+            <summary>
+            Cached name for the 'sprite' field.
+            </summary>
+        </member>
+        <member name="F:coce_i_menu.PropertyName.etat_son">
+            <summary>
+            Cached name for the 'etat_son' field.
+            </summary>
+        </member>
+        <member name="M:coce_i_menu.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:coce_i_menu.GetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:coce_i_menu.GetGodotPropertyList">
+            <summary>
+            Get the property information for all the properties declared in this class.
+            This method is used by Godot to register the available properties in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:coce_i_menu.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:coce_i_menu.RestoreGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:coce_i_menu.SignalName">
+            <summary>
+            Cached StringNames for the signals contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="T:Intermediaire.MethodName">
+            <summary>
+            Cached StringNames for the methods contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:Intermediaire.MethodName._Ready">
+            <summary>
+            Cached name for the '_Ready' method.
+            </summary>
+        </member>
+        <member name="F:Intermediaire.MethodName.ConnectGuiInputToChildren">
+            <summary>
+            Cached name for the 'ConnectGuiInputToChildren' method.
+            </summary>
+        </member>
+        <member name="F:Intermediaire.MethodName.OnGuiInput">
+            <summary>
+            Cached name for the 'OnGuiInput' method.
+            </summary>
+        </member>
+        <member name="F:Intermediaire.MethodName.MoveTextEditToTarget">
+            <summary>
+            Cached name for the 'MoveTextEditToTarget' method.
+            </summary>
+        </member>
+        <member name="F:Intermediaire.MethodName.ReorganizeChildrenInColumn">
+            <summary>
+            Cached name for the 'ReorganizeChildrenInColumn' method.
+            </summary>
+        </member>
+        <member name="F:Intermediaire.MethodName._on_valider_pressed">
+            <summary>
+            Cached name for the '_on_valider_pressed' method.
+            </summary>
+        </member>
+        <member name="F:Intermediaire.MethodName._on_reset_pressed">
+            <summary>
+            Cached name for the '_on_reset_pressed' method.
+            </summary>
+        </member>
+        <member name="M:Intermediaire.GetGodotMethodList">
+            <summary>
+            Get the method information for all the methods declared in this class.
+            This method is used by Godot to register the available methods in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:Intermediaire.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Intermediaire.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Intermediaire.PropertyName">
+            <summary>
+            Cached StringNames for the properties and fields contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:Intermediaire.PropertyName._target1">
+            <summary>
+            Cached name for the '_target1' field.
+            </summary>
+        </member>
+        <member name="F:Intermediaire.PropertyName._target2">
+            <summary>
+            Cached name for the '_target2' field.
+            </summary>
+        </member>
+        <member name="F:Intermediaire.PropertyName.message">
+            <summary>
+            Cached name for the 'message' field.
+            </summary>
+        </member>
+        <member name="M:Intermediaire.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Intermediaire.GetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Intermediaire.GetGodotPropertyList">
+            <summary>
+            Get the property information for all the properties declared in this class.
+            This method is used by Godot to register the available properties in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:Intermediaire.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Intermediaire.RestoreGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Intermediaire.SignalName">
+            <summary>
+            Cached StringNames for the signals contained in this class, for fast lookup.
+            </summary>
+        </member>
+    </members>
+</doc>

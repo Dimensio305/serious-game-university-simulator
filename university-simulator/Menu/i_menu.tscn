@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://cns8jib4o8e2i" path="res://police/Kanit/Kanit-Bold.ttf" id="2_h10kc"]
 [ext_resource type="Texture2D" uid="uid://cuoagjuuuaqff" path="res://asset/icons/PNG/White/1x/forward.png" id="2_vs0rb"]
 [ext_resource type="Texture2D" uid="uid://cwaoob0wyc8w5" path="res://asset/button_square_border_orange.png" id="3_2qkek"]
-[ext_resource type="Texture2D" uid="uid://3g80sr2ge18u" path="res://asset/icons/PNG/White/1x/fastForward.png" id="3_e4psm"]
 [ext_resource type="Texture2D" uid="uid://b5e1wadrhxcdb" path="res://asset/icons/PNG/White/1x/exitLeft.png" id="4_1q0mr"]
 [ext_resource type="Texture2D" uid="uid://cxsro11xbkyhr" path="res://asset/brique/png/element_yellow_rectangle_glossy_copy.png" id="5_rcign"]
 [ext_resource type="Texture2D" uid="uid://nq4a0mshlpke" path="res://asset/brique/png/element_green_rectangle.png" id="5_xwri1"]
@@ -17,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://djgevagysyrgl" path="res://asset/pack1/PNG/Yellow/Default/button_square_flat.png" id="9_8tpaq"]
 [ext_resource type="Texture2D" uid="uid://c4fegywx2jk0s" path="res://asset/brique/png/element_red_rectangle.png" id="12_1lj83"]
 [ext_resource type="Texture2D" uid="uid://bll7078dexpeo" path="res://asset/icons/PNG/White/1x/musicOn.png" id="13_ac8it"]
+[ext_resource type="Texture2D" uid="uid://rw8yujsfrxey" path="res://asset/icons/PNG/White/1x/gear.png" id="13_phial"]
 [ext_resource type="Texture2D" uid="uid://05ppgik7e67h" path="res://asset/pack1/PNG/Red/Default/button_square_flat.png" id="15_cxw44"]
 [ext_resource type="Texture2D" uid="uid://e25geuymftiy" path="res://fond_et_titre/titre_ville_corrige.png" id="18_6neh3"]
 [ext_resource type="Texture2D" uid="uid://cw5t2qykpd5lt" path="res://asset/element_yellow_orange.png" id="19_6q71m"]
@@ -103,8 +103,8 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_t2y4m")
 theme_override_styles/hover = SubResource("StyleBoxTexture_7hs8g")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_n81ic")
 theme_override_styles/normal = SubResource("StyleBoxTexture_0e81d")
-text = "Long         "
-icon = ExtResource("3_e4psm")
+text = "Réglage      "
+icon = ExtResource("13_phial")
 
 [node name="b_quittez" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
