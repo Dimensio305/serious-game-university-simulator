@@ -67,6 +67,9 @@ public class Jour
             case 4:
                 nom = "Vendredi";
                 break;
+            case 5:
+                nom = "Samedi";
+                break;
             default:
                 nom = "Invalide"; // Gestion des valeurs hors plage.
                 break;

@@ -152,6 +152,9 @@ public partial class JeuCourt : Node2D
 		{
 			verifieravantdefermer();
 		}
+
+		affichage.FinDuJeu(Jauge1,Jauge2,Jauge3,Jauge4,Jour.Instance.GetJour(),this);
+
 	}
 
 

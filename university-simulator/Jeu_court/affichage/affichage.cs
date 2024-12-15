@@ -1,4 +1,5 @@
 using Godot;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 
@@ -129,6 +130,13 @@ public static class affichage
         
         pan.Visible = true;
         textEditFormations.Visible = true;
+    }
+
+    public static void FinDuJeu(Jauge j1 , Jauge j2 , Jauge j3 , Jauge j4 , int jour ,Node context){
+        if (j1.GetValeur() >=100 || j2.GetValeur() >= 100 || j3.GetValeur() >= 100 || j4.GetValeur() >= 100 
+            ||j1.GetValeur() <=0 || j2.GetValeur() <=0 || j3.GetValeur() <=0 || j4.GetValeur() <=0 || jour ==5){
+            context.GetTree().ChangeSceneToFile("res://Jeu_court/finduJeu.tscn");
+        }
     }
 
 }
