@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/css" href="style.css"?>
 <doc>
     <assembly>
         <name>university-simulator</name>
@@ -322,6 +321,11 @@
         <member name="F:JeuCourt.PropertyName.r1">
             <summary>
             Cached name for the 'r1' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.FondQuestion">
+            <summary>
+            Cached name for the 'FondQuestion' field.
             </summary>
         </member>
         <member name="F:JeuCourt.PropertyName.texteditforma">

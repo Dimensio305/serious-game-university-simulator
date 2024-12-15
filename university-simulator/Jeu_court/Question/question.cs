@@ -24,16 +24,16 @@ public class Question
     {
         // Ajout des questions associées aux composantes dans le dictionnaire
         question.Add(1, 1);
-        question.Add(2, 11);
-        question.Add(3, 21);
-        question.Add(4, 31);
-        question.Add(5, 41);
-        question.Add(6, 51);
-        question.Add(7, 61);
-        question.Add(8, 71);
-        question.Add(9, 81);
-        question.Add(10, 91);
-        question.Add(11, 101);
+        question.Add(2, 16);
+        question.Add(3, 31);
+        question.Add(4, 46);
+        question.Add(5, 61);
+        question.Add(6, 76);
+        question.Add(7, 91);
+        question.Add(8, 106);
+        question.Add(9, 121);
+        question.Add(10, 136);
+        question.Add(11, 151);
     }
 
     /// <summary>

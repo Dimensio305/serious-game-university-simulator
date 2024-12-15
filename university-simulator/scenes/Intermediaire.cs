@@ -21,12 +21,16 @@ public partial class Intermediaire : Node2D
     // Liste pour stocker les rendez-vous de début
     private List<Rendezvous> rdvdebut = new List<Rendezvous>();
 
+    private List<Rendezvous> vide = new List<Rendezvous>();
+        
     /// <summary>
     /// Méthode appelée lors de l'initialisation du nœud. 
     /// Elle configure les cibles et les messages et génère les rendez-vous aléatoires.
     /// </summary>
     public override void _Ready()
     {
+        rdvfin = vide;
+        // Récupération des cibles
         _target1 = GetNode<TextureRect>("case_gauche");
         _target2 = GetNode<TextureRect>("case_droite");
         message = GetNode<TextEdit>("message");
