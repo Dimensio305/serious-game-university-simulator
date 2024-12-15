@@ -1,6 +1,0 @@
-@startuml
-class transition <<partial>> {
-    + <<override>> <<async>> _Ready() : void
-}
-Node2D <|-- transition
-@enduml

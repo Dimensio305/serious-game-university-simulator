@@ -20,4 +20,21 @@ public partial class Jauge : TextureRect
 		// Modifie la valeur de la barre de progression
 		Barre.Value = Barre.Value + Changement;
 	}
+
+	public void SetValeur(int val)
+	{
+		// Récupère le conteneur de la jauge
+		var BoiteBarre = GetNodeOrNull<BoxContainer>("ConteneurJauge");
+		// Récupère la barre de progression dans le conteneur
+		var Barre = BoiteBarre.GetNodeOrNull<ProgressBar>("JaugeProg");
+		Barre.Value = val;
+	}
+
+	public double GetValeur(){
+		// Récupère le conteneur de la jauge
+		var BoiteBarre = GetNodeOrNull<BoxContainer>("ConteneurJauge");
+		// Récupère la barre de progression dans le conteneur
+		var Barre = BoiteBarre.GetNodeOrNull<ProgressBar>("JaugeProg");
+		return Barre.Value;
+	}
 }

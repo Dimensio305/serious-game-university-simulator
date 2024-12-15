@@ -1,6 +1,0 @@
-@startuml
-class Jauge <<partial>> {
-    + Modif(Changement:int) : void
-}
-TextureRect <|-- Jauge
-@enduml

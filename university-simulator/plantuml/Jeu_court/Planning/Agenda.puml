@@ -1,6 +1,0 @@
-@startuml
-class Agenda {
-    + Agenda()
-    + GetRendezVous() : List<Rendezvous>
-}
-@enduml

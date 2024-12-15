@@ -1,8 +1,0 @@
-@startuml
-class Jour {
-    + Joursuivant() : void
-    + GetJour() : int
-    + GetNom() : string
-}
-Jour --> "Instance" Jour
-@enduml

@@ -1,7 +1,0 @@
-@startuml
-class Chargement <<partial>> {
-    + <<override>> _Ready() : void
-    + <<override>> _Process(delta:double) : void
-}
-ColorRect <|-- Chargement
-@enduml

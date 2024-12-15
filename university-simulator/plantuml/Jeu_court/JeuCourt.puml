@@ -1,8 +1,0 @@
-@startuml
-class JeuCourt <<partial>> {
-    + <<override>> _Ready() : void
-    + <<override>> _Process(delta:double) : void
-    + gerereponse(J1:Jauge, J2:Jauge, J3:Jauge, J4:Jauge) : void
-}
-Node2D <|-- JeuCourt
-@enduml

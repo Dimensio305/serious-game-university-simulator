@@ -103,6 +103,14 @@ public partial class JeuCourt : Node2D
 		Jauge2 = GetNodeOrNull<Jauge>("Jauge2");
 		Jauge3 = GetNodeOrNull<Jauge>("Jauge3");
 		Jauge4 = GetNodeOrNull<Jauge>("Jauge4");
+		int _Jauge1 = JaugeManager.GetJaugeValue("Jauge1");
+		int  _Jauge2 = JaugeManager.GetJaugeValue("Jauge2");
+		int _Jauge3 = JaugeManager.GetJaugeValue("Jauge3");
+		int _Jauge4 = JaugeManager.GetJaugeValue("Jauge4");
+		Jauge1.SetValeur(_Jauge1);
+		Jauge2.SetValeur(_Jauge2);
+		Jauge3.SetValeur(_Jauge3);
+		Jauge4.SetValeur(_Jauge4);
 
 
         attente();
@@ -175,9 +183,15 @@ public partial class JeuCourt : Node2D
 	private void MettreÀJourJauges(Jauge Jauge1, Jauge Jauge2, Jauge Jauge3, Jauge Jauge4, Func<string, int> getValeur)
 	{
 		Jauge1.Modif(getValeur("j1"));
+		JaugeManager.SetJaugeValue("Jauge1",(int)Jauge1.GetValeur());
 		Jauge2.Modif(getValeur("j2"));
+		JaugeManager.SetJaugeValue("Jauge2",(int)Jauge2.GetValeur());
 		Jauge3.Modif(getValeur("j3"));
+		JaugeManager.SetJaugeValue("Jauge3",(int)Jauge3.GetValeur());
 		Jauge4.Modif(getValeur("j4"));
+		JaugeManager.SetJaugeValue("Jauge4",(int)Jauge4.GetValeur());
+
+
 	}
 
 

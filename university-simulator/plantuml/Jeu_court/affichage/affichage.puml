@@ -1,8 +1,0 @@
-@startuml affichage
-class affichage <<static>> {
-    + {static} EcrireTexte(textEdit:TextEdit, texte:string) : void
-    + {static} AfficherAgenda(rendezVousList:List<Rendezvous>, textEdit:TextEdit) : void
-    + {static} AfficherProjets(projets:List<Projet>, textEditProjets:TextEdit) : void
-    + {static} AfficherFormations(formations:List<Formation>, textEditFormations:TextEdit, pan:Panel) : void
-}
-@enduml

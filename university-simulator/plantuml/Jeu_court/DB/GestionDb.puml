@@ -1,8 +1,0 @@
-@startuml
-class GestionDb {
-    + Supprimer() : void
-    + ExecuteRequete(query:string) : string
-    + Contenue() : void
-}
-GestionDb --> "Instance" GestionDb
-@enduml

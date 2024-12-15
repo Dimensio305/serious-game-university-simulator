@@ -149,6 +149,16 @@
             Cached name for the 'Modif' method.
             </summary>
         </member>
+        <member name="F:Jauge.MethodName.SetValeur">
+            <summary>
+            Cached name for the 'SetValeur' method.
+            </summary>
+        </member>
+        <member name="F:Jauge.MethodName.GetValeur">
+            <summary>
+            Cached name for the 'GetValeur' method.
+            </summary>
+        </member>
         <member name="M:Jauge.GetGodotMethodList">
             <summary>
             Get the method information for all the methods declared in this class.
@@ -321,11 +331,6 @@
         <member name="F:JeuCourt.PropertyName.r1">
             <summary>
             Cached name for the 'r1' field.
-            </summary>
-        </member>
-        <member name="F:JeuCourt.PropertyName.FondQuestion">
-            <summary>
-            Cached name for the 'FondQuestion' field.
             </summary>
         </member>
         <member name="F:JeuCourt.PropertyName.texteditforma">
