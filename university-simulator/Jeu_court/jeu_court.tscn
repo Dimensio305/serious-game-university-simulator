@@ -195,33 +195,36 @@ show_percentage = false
 
 [node name="TextEdit" type="TextEdit" parent="."]
 visible = false
-offset_left = 147.0
-offset_top = 16.0
-offset_right = 703.0
-offset_bottom = 221.0
+offset_left = 162.0
+offset_top = 45.0
+offset_right = 625.0
+offset_bottom = 206.0
+rotation = 0.00936676
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 editable = false
 wrap_mode = 1
 
 [node name="r1" type="TextEdit" parent="."]
 visible = false
-offset_left = 69.0
-offset_top = 226.0
-offset_right = 399.0
-offset_bottom = 317.0
+offset_left = 79.0
+offset_top = 185.0
+offset_right = 409.0
+offset_bottom = 276.0
+rotation = 0.0178934
 editable = false
 wrap_mode = 1
 
 [node name="r2" type="TextEdit" parent="."]
 visible = false
-offset_left = 448.0
-offset_top = 225.0
-offset_right = 818.0
-offset_bottom = 316.0
+offset_left = 435.0
+offset_top = 191.0
+offset_right = 787.0
+offset_bottom = 282.0
 editable = false
 wrap_mode = 1
 
 [node name="TextEdit2" type="TextEdit" parent="."]
+visible = false
 offset_left = 171.0
 offset_top = 389.0
 offset_right = 493.0
