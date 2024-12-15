@@ -11,8 +11,8 @@ public static class affichage
     /// <summary>
     /// Methode EcrireTexte : statique elle permet d'écrire dans un texteedit et de la rendre visible en meme tempd
     /// </summary>
-    /// <param name="textEdit"> La textedit visé</param>
-    /// <param name="texte"> Le message a ecrire</param>
+    /// <param name="textEdit"> parametre 1 :La textedit visé</param>
+    /// <param name="texte"> Prametre 2 : Le message a ecrire</param>
     public static void EcrireTexte(TextEdit textEdit, string texte)
     {
 
@@ -28,8 +28,8 @@ public static class affichage
     /// <summary>
     ///  Methode AfficherAgenda : statique elle permet d'afficher les rdv 
     /// de la journée dans un texedit de maniere jolie </summary>
-    /// <param name="rendezVousList"> La liste des rendez vous</param>
-    /// <param name="textEdit"> La textedit visé</param>
+    /// <param name="rendezVousList"> Parametre 1 : La liste des rendez vous</param>
+    /// <param name="textEdit"> Parametre 2 : La textedit visé</param>
     public static void AfficherAgenda(List<Rendezvous> rendezVousList, TextEdit textEdit )
     {
     textEdit.Text = ""; 
@@ -81,8 +81,8 @@ public static class affichage
     /// <summary>
     /// Méthode AfficherProjets : statique elle permet d'afficher les projets dans un TextEdit
     /// </summary>
-    /// <param name="projets"> Liste de projets</param>
-    /// <param name="textEditProjets"> TextEdit dans lequel afficher les projets</param>
+    /// <param name="projets"> Parametre 1: Liste de projets</param>
+    /// <param name="textEditProjets"> Parametre 2 :TextEdit dans lequel afficher les projets</param>
     public static void AfficherProjets(List<Projet> projets, TextEdit textEditProjets)
     {
         textEditProjets.Clear();
@@ -100,9 +100,9 @@ public static class affichage
     /// <summary>
     ///  Méthode AfficherFormations : statique elle affiche les rendez-vous dans un TextEdit
     /// </summary>
-    /// <param name="formations"> Liste de formations</param>
-    /// <param name="textEditFormations"> TextEdit dans lequel afficher les formations</param>
-    /// <param name="pan"></param> panel contenant le textedit <summary>
+    /// <param name="formations"> Parametre 1 : Liste de formations</param>
+    /// <param name="textEditFormations"> Parametre 2 : TextEdit dans lequel afficher les formations</param>
+    /// <param name="pan"></param> Parametre 3 : panel contenant le textedit <summary>
     /// </summary>
     
     public static void AfficherFormations(List<Formation> formations, TextEdit textEditFormations, Panel pan)
@@ -135,12 +135,12 @@ public static class affichage
     /// Methode FinDuJeu : statique elle permet de changer vers la scene fin
     /// quand une condition de fin de jeu est atteinte
     /// </summary>
-    /// <param name="j1"> Jauge1 </param>
-    /// <param name="j2"> Jauge2 </param>
-    /// <param name="j3"> Jauge3 </param>
-    /// <param name="j4"> Jauge4 </param>
-    /// <param name="jour"> Jour actuelle </param>
-    /// <param name="context">noed qui qui appel la fonction </param>
+    /// <param name="j1"> Parametre 1 : Jauge1 </param>
+    /// <param name="j2">Parametre 2 : Jauge2 </param>
+    /// <param name="j3">Parametre 3 :Jauge3 </param>
+    /// <param name="j4">Parametre 4 : Jauge4 </param>
+    /// <param name="jour"> Parametre 5 :Jour actuelle </param>
+    /// <param name="context">Parametre 6 :noed qui qui appel la fonction </param>
     public static void FinDuJeu(Jauge j1 , Jauge j2 , Jauge j3 , Jauge j4 , int jour ,Node context){
         if (j1.GetValeur() >=100 || j2.GetValeur() >= 100 || j3.GetValeur() >= 100 || j4.GetValeur() >= 100 
             ||j1.GetValeur() <=0 || j2.GetValeur() <=0 || j3.GetValeur() <=0 || j4.GetValeur() <=0 || jour ==5){

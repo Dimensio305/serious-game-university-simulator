@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="style.css"?>
 <doc>
     <assembly>
         <name>university-simulator</name>
@@ -56,39 +57,50 @@
         </member>
         <member name="T:affichage">
             <summary>
-            Classe gerant l'affichage du contenue du jeu
+            Classe Affichage : elle gere l'affichage dans different element du jeu
             </summary>
         </member>
         <member name="M:affichage.EcrireTexte(Godot.TextEdit,System.String)">
             <summary>
-            Methode statique permettant d'écrire dans une texteedit et de la rendre visible en meme tempd
+            Methode EcrireTexte : statique elle permet d'écrire dans un texteedit et de la rendre visible en meme tempd
             </summary>
-            <param name="textEdit"></param>
-            <param name="texte"></param>
+            <param name="textEdit"> parametre 1 :La textedit visé</param>
+            <param name="texte"> Prametre 2 : Le message a ecrire</param>
         </member>
         <member name="M:affichage.AfficherAgenda(System.Collections.Generic.List{Rendezvous},Godot.TextEdit)">
             <summary>
-             Methode statique permettant d'écrire dans une texteedit et de la rendre visible en meme temps sous forme
-            d'agenda journalier
-            </summary>
-            <param name="rendezVousList"></param>
-            <param name="textEdit"></param>
+             Methode AfficherAgenda : statique elle permet d'afficher les rdv 
+            de la journée dans un texedit de maniere jolie </summary>
+            <param name="rendezVousList"> Parametre 1 : La liste des rendez vous</param>
+            <param name="textEdit"> Parametre 2 : La textedit visé</param>
         </member>
         <member name="M:affichage.AfficherProjets(System.Collections.Generic.List{Projet},Godot.TextEdit)">
             <summary>
-            Méthode statique pour afficher les projets dans un TextEdit
+            Méthode AfficherProjets : statique elle permet d'afficher les projets dans un TextEdit
             </summary>
-            <param name="projets"></param>
-            <param name="textEditProjets"></param>
+            <param name="projets"> Parametre 1: Liste de projets</param>
+            <param name="textEditProjets"> Parametre 2 :TextEdit dans lequel afficher les projets</param>
         </member>
         <member name="M:affichage.AfficherFormations(System.Collections.Generic.List{Formation},Godot.TextEdit,Godot.Panel)">
             <summary>
-             Méthode statique pour afficher les rendez-vous dans un TextEdit
+             Méthode AfficherFormations : statique elle affiche les rendez-vous dans un TextEdit
             </summary>
-            <param name="formations"></param>
-            <param name="textEditFormations"></param>
-            <param name="pan"></param> <summary>
+            <param name="formations"> Parametre 1 : Liste de formations</param>
+            <param name="textEditFormations"> Parametre 2 : TextEdit dans lequel afficher les formations</param>
+            <param name="pan"></param> Parametre 3 : panel contenant le textedit <summary>
             </summary>
+        </member>
+        <member name="M:affichage.FinDuJeu(Jauge,Jauge,Jauge,Jauge,System.Int32,Godot.Node)">
+            <summary>
+            Methode FinDuJeu : statique elle permet de changer vers la scene fin
+            quand une condition de fin de jeu est atteinte
+            </summary>
+            <param name="j1"> Parametre 1 : Jauge1 </param>
+            <param name="j2">Parametre 2 : Jauge2 </param>
+            <param name="j3">Parametre 3 :Jauge3 </param>
+            <param name="j4">Parametre 4 : Jauge4 </param>
+            <param name="jour"> Parametre 5 :Jour actuelle </param>
+            <param name="context">Parametre 6 :noed qui qui appel la fonction </param>
         </member>
         <member name="T:GestionDb">
             <summary>
