@@ -4,15 +4,15 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// Classe gerant l'affichage du contenue du jeu
+/// Classe Affichage : elle gere l'affichage dans different element du jeu
 /// </summary>
 public static class affichage
 {
     /// <summary>
-    /// Methode statique permettant d'écrire dans une texteedit et de la rendre visible en meme tempd
+    /// Methode EcrireTexte : statique elle permet d'écrire dans un texteedit et de la rendre visible en meme tempd
     /// </summary>
-    /// <param name="textEdit"></param>
-    /// <param name="texte"></param>
+    /// <param name="textEdit"> La textedit visé</param>
+    /// <param name="texte"> Le message a ecrire</param>
     public static void EcrireTexte(TextEdit textEdit, string texte)
     {
 
@@ -26,11 +26,10 @@ public static class affichage
 
 
     /// <summary>
-    ///  Methode statique permettant d'écrire dans une texteedit et de la rendre visible en meme temps sous forme
-    /// d'agenda journalier
-    /// </summary>
-    /// <param name="rendezVousList"></param>
-    /// <param name="textEdit"></param>
+    ///  Methode AfficherAgenda : statique elle permet d'afficher les rdv 
+    /// de la journée dans un texedit de maniere jolie </summary>
+    /// <param name="rendezVousList"> La liste des rendez vous</param>
+    /// <param name="textEdit"> La textedit visé</param>
     public static void AfficherAgenda(List<Rendezvous> rendezVousList, TextEdit textEdit )
     {
     textEdit.Text = ""; 
@@ -80,10 +79,10 @@ public static class affichage
 
 
     /// <summary>
-    /// Méthode statique pour afficher les projets dans un TextEdit
+    /// Méthode AfficherProjets : statique elle permet d'afficher les projets dans un TextEdit
     /// </summary>
-    /// <param name="projets"></param>
-    /// <param name="textEditProjets"></param>
+    /// <param name="projets"> Liste de projets</param>
+    /// <param name="textEditProjets"> TextEdit dans lequel afficher les projets</param>
     public static void AfficherProjets(List<Projet> projets, TextEdit textEditProjets)
     {
         textEditProjets.Clear();
@@ -132,6 +131,16 @@ public static class affichage
         textEditFormations.Visible = true;
     }
 
+    /// <summary>
+    /// Methode FinDuJeu : statique elle permet de changer vers la scene fin
+    /// quand une condition de fin de jeu est atteinte
+    /// </summary>
+    /// <param name="j1"> Jauge1 </param>
+    /// <param name="j2"> Jauge2 </param>
+    /// <param name="j3"> Jauge3 </param>
+    /// <param name="j4"> Jauge4 </param>
+    /// <param name="jour"> Jour actuelle </param>
+    /// <param name="context">noed qui qui appel la fonction </param>
     public static void FinDuJeu(Jauge j1 , Jauge j2 , Jauge j3 , Jauge j4 , int jour ,Node context){
         if (j1.GetValeur() >=100 || j2.GetValeur() >= 100 || j3.GetValeur() >= 100 || j4.GetValeur() >= 100 
             ||j1.GetValeur() <=0 || j2.GetValeur() <=0 || j3.GetValeur() <=0 || j4.GetValeur() <=0 || jour ==5){
