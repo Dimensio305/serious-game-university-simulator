@@ -1,0 +1,163 @@
+@startuml jeuCourt
+package affichage {
+    class Affichage {
+        + {static} EcrireTexte(textEdit: TextEdit, texte: String):
+        + {static} AfficherAgenda(rendezVousList: RendezVous[], textEdit: TextEdit):
+        + {static} AfficherProjets(projets: Projet[], textEdit: TextEditProjets):
+        + {static} AfficherFormations(formations: Formation[], textEdit: TextEditFormations, pan: Panel):
+
+    }
+}
+package DB {
+    class GestionDb {
+        - GestionDb()
+        + {static} Instance: GestionDb
+        - Connect():
+        + Supprimer():
+        + ExecuteRequete(query: String): String
+        + Contenue():
+    }
+}
+package Objectif {
+    class Formation {
+        + Nom: String
+        + Option: String
+        + Effectif: Integer
+        + Eleve: Integer
+        + Budget: Integer
+        + {static} index: Integer
+        + <<create>> Formation(nom: String, effectif: Integer, eleve: Integer, budget: Integer, option: String)
+        - {static} getIndex(): Integer
+        - {static} setindex(value: Integer):
+        + {static} generefomation(): Formation
+        + ToString(): String
+    }
+    class Projet {
+        + Nom: String
+        + Description: String
+        + <<create>> Projet(nom: String, description: String)
+        + ToString(): String
+        + {static} GenererUnProjet(): Projet
+        + {static} GenererProjetsAleatoires(): Projet[]
+    }
+}
+package Planning {
+    class Agenda {
+        - rendezVousList: RendezVous[]
+        + <<create>> Agenda()
+        + GetRendezVous(): RendezVous[]
+    }
+    class Jour {
+        - {static} _instance: Jour
+        - nb: Integer
+        - nom: String
+        - <<create>> Jour()
+        + {static} Instance: Jour
+        - setjour(j: Integer):
+        + Joursuivant():
+        + GetJour(): Integer
+        + GetNom(): String
+    }
+    class RendezVous {
+        + Date: DateTime
+        + Duree: TimeSpan
+        + Description: String
+        + id: Integer
+        + composante: Integer
+        + <<create>> RendezVous(date: DateTime, duree: TimeSpan, description: String, id: Integer)
+        + <<create>> RendezVous(date: DateTime, description: String, id: Integer)
+        + getId(): Integer
+        + HeureFin(): DateTime
+        + ToString(): String
+        + {static} GenererRendezVousAleatoire(id: Integer): RendezVous
+        + getcomposante(): Integer
+    }
+}
+package Question {
+    class Question {
+        - question: Integer[]
+        - idquestion: Integer
+        - nbquestion: Integer
+        + <<create>> Question()
+        + getquestion(composante: Integer): String
+        + getnbquestion(): Integer
+        + question_suivante(composante: Integer):
+        + getnumquestion(): Integer
+        + getvaleur1(j: String): Integer
+        + getvaleur2(j: String): Integer
+        + reponse1(): String
+        + reponse2(): String
+    }
+}
+class Jauge {
+    + Modif(Changement: Integer):
+}
+class JeuCourt {
+    - _textEdit: TextEdit
+    - inQuestion: Boolean
+    - r2: TextEdit
+    - r1: TextEdit
+    - q: Question
+    - forma: Formation[]
+    - texteditforma: TextEdit
+    - agenda: Agenda
+    - texteditagenda: TextEdit
+    - nbrdv: Integer
+    - inrdv: Boolean
+    - aquellequestion: Integer
+    - projetbisible: Boolean
+    - projets: Projet[]
+    - proj: TextEdit
+    - horloges: TextEdit
+    - heure: Integer
+    - minute: Integer
+    - panel: Panel
+    - nbquestion: Integer
+    - subViewport: SubViewport
+    - animationPlayer: AnimationPlayer
+    - textureRectpersonnage: TextureRect
+    - temporaire: TextEdit
+    - Jauge1: Jauge
+    - Jauge2: Jauge
+    - Jauge3: Jauge
+    - Jauge4: Jauge
+    + _Ready():
+    + _Process(delta: double):
+    - GérerQuestionAsync():
+    - MettreAJourJauges(Jauge1: Jauge, Jauge2: Jauge, Jauge3: Jauge, Jauge4: Jauge, getValeur: Integer):
+    - CahcerTousLesTextEdits():
+    - verifieravantdefermer():
+    - rendrevisibleformation():
+    - rendrevisibleprojet():
+    - rendrevisibleagenda():
+    - GenererForma():
+    + generereponse(J1: Jauge, J2: Jauge, J3: Jauge, J4: Jauge):
+    - suiv():
+    - AfficherQuestionSuivante():
+    - AfficherMessageIntermediaire(): Task
+    - faireavancerletemps():
+    - attente():
+}
+
+Affichage ..> RendezVous: <<uses>>
+Affichage ..> Projet: <<uses>>
+Affichage ..> Formation: <<uses>>
+
+GestionDb o--> GestionDb
+
+Formation ..> Formation: <<uses>>
+Projet ..> Projet: <<uses>>
+
+Agenda *-->"-n\nrendezVousList"RendezVous
+
+Jour o-->"-1\n_instance"Jour
+
+RendezVous ..> RendezVous: <<uses>>
+
+JeuCourt o-->"-1\nq" Question.Question
+JeuCourt o-->"-n\nforma" Formation
+JeuCourt o-->"-1\nagenda" Agenda
+JeuCourt o-->"-n\nprojets" Projet
+JeuCourt o-->"-4\nJauges" Jauge
+
+@enduml
