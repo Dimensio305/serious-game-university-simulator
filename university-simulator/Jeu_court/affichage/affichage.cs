@@ -99,11 +99,11 @@ public static class affichage
     }
 
     /// <summary>
-    ///  Méthode statique pour afficher les rendez-vous dans un TextEdit
+    ///  Méthode AfficherFormations : statique elle affiche les rendez-vous dans un TextEdit
     /// </summary>
-    /// <param name="formations"></param>
-    /// <param name="textEditFormations"></param>
-    /// <param name="pan"></param> <summary>
+    /// <param name="formations"> Liste de formations</param>
+    /// <param name="textEditFormations"> TextEdit dans lequel afficher les formations</param>
+    /// <param name="pan"></param> panel contenant le textedit <summary>
     /// </summary>
     
     public static void AfficherFormations(List<Formation> formations, TextEdit textEditFormations, Panel pan)
