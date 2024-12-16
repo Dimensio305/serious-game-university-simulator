@@ -6,35 +6,41 @@ using System;
 /// </summary>
 public partial class Jauge : TextureRect 
 {
+
+    private BoxContainer BoiteBarre;
+    private ProgressBar Barre;
+
+    public override void _Ready()
+    {
+        // Récupère le conteneur de la jauge
+        BoiteBarre = GetNodeOrNull<BoxContainer>("ConteneurJauge");
+        // Récupère la barre de progression dans le conteneur
+        Barre = BoiteBarre.GetNodeOrNull<ProgressBar>("JaugeProg");
+        // Connecter le signal 'value_changed' pour détecter les changements
+        Barre.Connect("value_changed", Callable.From<float>(OnValueChanged));
+        // Initialiser la couleur en fonction de la valeur actuelle
+        
+    }
+
+
+
+
 	/// <summary>
 	/// Modifie la valeur de la jauge en fonction du changement spécifié.
 	/// </summary>
 	/// <param name="Changement">La valeur à ajouter à la jauge. Peut être positive ou négative.</param>
 	public void Modif(int Changement)
 	{
-		// Récupère le conteneur de la jauge
-		var BoiteBarre = GetNodeOrNull<BoxContainer>("ConteneurJauge");
-		// Récupère la barre de progression dans le conteneur
-		var Barre = BoiteBarre.GetNodeOrNull<ProgressBar>("JaugeProg");
-
 		// Modifie la valeur de la barre de progression
 		Barre.Value = Barre.Value + Changement;
 	}
 
 	public void SetValeur(int val)
 	{
-		// Récupère le conteneur de la jauge
-		var BoiteBarre = GetNodeOrNull<BoxContainer>("ConteneurJauge");
-		// Récupère la barre de progression dans le conteneur
-		var Barre = BoiteBarre.GetNodeOrNull<ProgressBar>("JaugeProg");
 		Barre.Value = val;
 	}
 
 	public double GetValeur(){
-		// Récupère le conteneur de la jauge
-		var BoiteBarre = GetNodeOrNull<BoxContainer>("ConteneurJauge");
-		// Récupère la barre de progression dans le conteneur
-		var Barre = BoiteBarre.GetNodeOrNull<ProgressBar>("JaugeProg");
 		return Barre.Value;
 	}
 }
