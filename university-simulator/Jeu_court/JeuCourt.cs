@@ -176,6 +176,12 @@ public partial class JeuCourt : Node2D
 		Jauge4.Modif(getValeur("j4"));
 		JaugeManager.SetJaugeValue("Jauge4",(int)Jauge4.GetValeur());
 
+		// Vérification de la couleur pour chaque jauge
+    	Jauge1.FillColor = (j1Valeur < 20 || j1Valeur > 80) ? new Color(1, 0, 0) : new Color(0, 1, 0); // Rouge si <20 ou >80, vert sinon
+    	Jauge2.FillColor = (j2Valeur < 20 || j2Valeur > 80) ? new Color(1, 0, 0) : new Color(0, 1, 0);
+   		Jauge3.FillColor = (j3Valeur < 20 || j3Valeur > 80) ? new Color(1, 0, 0) : new Color(0, 1, 0);
+    	Jauge4.FillColor = (j4Valeur < 20 || j4Valeur > 80) ? new Color(1, 0, 0) : new Color(0, 1, 0);
+
 
 	}
 

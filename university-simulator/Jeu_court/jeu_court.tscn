@@ -1,18 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=13 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
 [ext_resource type="Texture2D" uid="uid://bpinrfqnaihkd" path="res://fond_et_titre/fond_bureau.png" id="2_3xixw"]
 [ext_resource type="Texture2D" uid="uid://b5dpmgoms2ju" path="res://asset/icons/PNG/Black/2x/medal2.png" id="2_7cm1u"]
-[ext_resource type="Texture2D" uid="uid://behm0mom57pth" path="res://asset/pack1/PNG/Yellow/Default/button_rectangle_depth_flat.png" id="2_m6l7w"]
 [ext_resource type="Script" path="res://Jeu_court/Jauge.cs" id="4_d56qo"]
+[ext_resource type="StyleBox" uid="uid://cqjo4tjxm1ace" path="res://texture_jauge.tres" id="5_qqfan"]
 [ext_resource type="Texture2D" uid="uid://bsixmhe06b8x0" path="res://asset/cahier-ouvert.png" id="6_q2npa"]
 [ext_resource type="FontFile" uid="uid://d1w7hcd0v35vp" path="res://police/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" id="7_whcn6"]
 [ext_resource type="Texture2D" uid="uid://be2oxjowsnumh" path="res://asset/horloge.png" id="8_31e8y"]
 [ext_resource type="FontFile" uid="uid://qv104t57hkkn" path="res://police/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" id="9_66sx3"]
 [ext_resource type="Texture2D" uid="uid://ee6hbla5cavi" path="res://asset/bar_orange.png" id="10_uw1m8"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ldu4"]
-texture = ExtResource("2_m6l7w")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbf0m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -36,10 +33,10 @@ metadata/_edit_lock_ = true
 
 [node name="Jauge1" type="TextureRect" parent="."]
 clip_children = 1
-offset_left = 19.0
-offset_top = 539.0
-offset_right = 119.0
-offset_bottom = 639.0
+offset_left = 12.0
+offset_top = 514.0
+offset_right = 112.0
+offset_bottom = 614.0
 texture = ExtResource("2_7cm1u")
 script = ExtResource("4_d56qo")
 
@@ -68,7 +65,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
+theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
 show_percentage = false
@@ -107,7 +104,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
+theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
 show_percentage = false
@@ -146,7 +143,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
+theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
 show_percentage = false
@@ -185,6 +182,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
 show_percentage = false

@@ -175,6 +175,11 @@
             Cached name for the 'GetValeur' method.
             </summary>
         </member>
+        <member name="F:Jauge.MethodName.UpdateJaugeColor">
+            <summary>
+            Cached name for the 'UpdateJaugeColor' method.
+            </summary>
+        </member>
         <member name="M:Jauge.GetGodotMethodList">
             <summary>
             Get the method information for all the methods declared in this class.
