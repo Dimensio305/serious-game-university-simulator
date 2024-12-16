@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=14 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
 [ext_resource type="Texture2D" uid="uid://bpinrfqnaihkd" path="res://fond_et_titre/fond_bureau.png" id="2_3xixw"]
@@ -9,7 +9,6 @@
 [ext_resource type="FontFile" uid="uid://d1w7hcd0v35vp" path="res://police/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" id="7_whcn6"]
 [ext_resource type="Texture2D" uid="uid://be2oxjowsnumh" path="res://asset/horloge.png" id="8_31e8y"]
 [ext_resource type="FontFile" uid="uid://qv104t57hkkn" path="res://police/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" id="9_66sx3"]
-[ext_resource type="PackedScene" uid="uid://db3dt2t5gge08" path="res://player/Walking_1.tscn" id="12_f8jr6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ldu4"]
 texture = ExtResource("2_m6l7w")
@@ -22,8 +21,7 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_47tuc"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="ImageTexture" id="ImageTexture_46lx8"]
 
 [node name="jeu_court" type="Node2D"]
 script = ExtResource("1_4h6lk")
@@ -302,20 +300,13 @@ wrap_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="SubViewport" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(513, 512)
-
-[node name="Walking" parent="SubViewport" instance=ExtResource("12_f8jr6")]
-
 [node name="personnage" type="TextureRect" parent="."]
-visible = false
 offset_left = 839.0
 offset_top = -42.0
 offset_right = 1391.0
 offset_bottom = 502.0
 rotation = 1.5834
-texture = SubResource("ViewportTexture_47tuc")
+texture = SubResource("ImageTexture_46lx8")
 
 [node name="temp" type="TextEdit" parent="."]
 offset_left = 891.0
