@@ -14,6 +14,7 @@ public static class JaugeManager
     // Méthode pour récupérer la valeur d'une jauge
     public static int GetJaugeValue(string jaugeName)
     {
+        
         return jauges.ContainsKey(jaugeName) ? jauges[jaugeName] : 0;
     }
 
