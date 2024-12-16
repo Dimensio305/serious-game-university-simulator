@@ -112,4 +112,56 @@ public class Question
     {
         return GestionDb.Instance.ExecuteRequete("select reponse from Reponse where idquestion =" + idquestion.ToString() + " and idreponse = 2 ;");
     }
+
+    public string GetRandomPhrase()
+    {
+        string[] phrases = new string[]
+        {
+            "Hummm... et je voulais aussi vous dire...",
+            "Je pense que vous avez raison sur ce point.",
+            "Cela me rappelle quelque chose que j'ai vu récemment.",
+            "Je devrais peut-être réfléchir à cette idée un peu plus.",
+            "C'est une bonne idée, je vais y penser.",
+            "J'avais une pensée à ce sujet.",
+            "C'est une perspective intéressante, je vais l'explorer.",
+            "Je me souviens d'une situation similaire.",
+            "Il y a un élément que j'aimerais clarifier.",
+            "Je suis sûr que cela pourrait fonctionner.",
+            "J'ai trouvé une autre façon de voir les choses.",
+            "Je vais probablement aborder cela sous un autre angle.",
+            "Il y a quelque chose à ajouter à cette conversation.",
+            "Cela me donne une idée sur la suite.",
+            "Ce que vous avez dit m'a fait réfléchir."
+        };
+
+        Random random = new Random();
+        int index = random.Next(phrases.Length);
+        return phrases[index];
+    }
+
+    public string GetRandomEndPhrase()
+    {
+        string[] endPhrases = new string[]
+        {
+            "Merci pour cette discussion, à bientôt.",
+            "C'était un plaisir de parler avec vous.",
+            "Je vous remercie pour votre temps.",
+            "Je vais y réfléchir, merci pour la conversation.",
+            "Je vous souhaite une bonne continuation.",
+            "C'était agréable d'échanger avec vous.",
+            "À la prochaine, prenez soin de vous.",
+            "Je vous remercie pour cet échange.",
+            "Bonne journée et à bientôt.",
+            "J'ai apprécié cette conversation, merci.",
+            "Merci encore pour votre point de vue.",
+            "Ce fut un échange enrichissant, merci.",
+            "À bientôt, merci pour cette discussion.",
+            "Je vous souhaite une excellente fin de journée.",
+            "Au plaisir de discuter à nouveau."
+        };
+
+        Random random = new Random();
+        int index = random.Next(endPhrases.Length);
+        return endPhrases[index];
+    }
 }

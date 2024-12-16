@@ -323,7 +323,7 @@ public partial class JeuCourt : Node2D
             nbrdv++;
 
             await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
-            affichage.EcrireTexte(_textEdit, "La biz. Rendez-vous terminé.");
+            affichage.EcrireTexte(_textEdit, q.GetRandomEndPhrase());
             r1.Visible = false;
             r2.Visible = false;
             textureRectpersonnage.Visible = false; // Fin de l'animation uniquement ici
@@ -342,7 +342,7 @@ public partial class JeuCourt : Node2D
 
 private async void AfficherQuestionSuivante()
 {
-    await ToSignal(GetTree().CreateTimer(2f), "timeout"); // Délai avant la prochaine question
+    await ToSignal(GetTree().CreateTimer(1f), "timeout"); // Délai avant la prochaine question
     affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
 	affichage.EcrireTexte(r1, q.reponse1());
 	affichage.EcrireTexte(r2, q.reponse2());
@@ -353,7 +353,7 @@ private async void AfficherQuestionSuivante()
 
 private async Task AfficherMessageIntermediaire()
 {
-    affichage.EcrireTexte(_textEdit, "Hummm... et je voulais aussi vous demander...");
+    affichage.EcrireTexte(_textEdit, q.GetRandomPhrase());
     r1.Visible = false;
     r2.Visible = false;
     await ToSignal(GetTree().CreateTimer(1.5f), "timeout"); // Pause avant la question suivante
