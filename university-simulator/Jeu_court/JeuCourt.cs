@@ -321,12 +321,13 @@ public partial class JeuCourt : Node2D
         else
         {
             nbrdv++;
-			affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getcomposante()+".png",textureRectpersonnage);
+
             await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
             affichage.EcrireTexte(_textEdit, "La biz. Rendez-vous terminé.");
             r1.Visible = false;
             r2.Visible = false;
             textureRectpersonnage.Visible = false; // Fin de l'animation uniquement ici
+			affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getcomposante()+".png",textureRectpersonnage);
             await ToSignal(GetTree().CreateTimer(1f), "timeout");
             CacherTousLesTextEdits();
         }

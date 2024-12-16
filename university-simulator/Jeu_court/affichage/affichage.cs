@@ -165,4 +165,70 @@ public static class affichage
         }
     }
 
+    public static string creationlien(int composante ){
+        int val=0;
+        string message ; 
+
+        switch (composante)
+        {
+                case 1:
+                    val = JaugeManager.GetJaugeValue("Jauge1")+JaugeManager.GetJaugeValue("Jauge2")+JaugeManager.GetJaugeValue("Jauge3");
+                    val /= 3;
+                    break;
+                case 2:
+                    val = JaugeManager.GetJaugeValue("Jauge2")+JaugeManager.GetJaugeValue("Jauge4");
+                    val /= 2;
+                    break;
+                case 3:
+                    val = JaugeManager.GetJaugeValue("Jauge1");
+                    break;
+                case 4:
+                    val = JaugeManager.GetJaugeValue("Jauge2")+JaugeManager.GetJaugeValue("Jauge4");
+                    val /= 2;
+                    break;
+                case 5:
+                    val = JaugeManager.GetJaugeValue("Jauge2")+JaugeManager.GetJaugeValue("Jauge3");
+                    val /= 2;
+                    break;
+                case 6:
+                    val = JaugeManager.GetJaugeValue("Jauge2")+JaugeManager.GetJaugeValue("Jauge4");
+                    val /= 2;
+                    break;
+                case 7:
+                    val = JaugeManager.GetJaugeValue("Jauge1")+JaugeManager.GetJaugeValue("Jauge3");
+                    val /= 2;
+                    break;
+                case 8:
+                    val = JaugeManager.GetJaugeValue("Jauge1")+JaugeManager.GetJaugeValue("Jauge4");
+                    val /= 2;
+                    break;
+                case 9:
+                    val = JaugeManager.GetJaugeValue("Jauge2")+JaugeManager.GetJaugeValue("Jauge4");
+                    val /= 2;
+                    break;
+                case 10:
+                     val = JaugeManager.GetJaugeValue("Jauge2")+JaugeManager.GetJaugeValue("Jauge4")+JaugeManager.GetJaugeValue("Jauge3");
+                    val /= 3;
+                    break;
+                case 11:
+                    val = JaugeManager.GetJaugeValue("Jauge2")+JaugeManager.GetJaugeValue("Jauge4");
+                    val /= 2;
+                    break;
+        }
+
+        if( val >=80){
+            message = "Vous etes un peu trop proche";
+        }
+        else if (val <= 30){
+            message = "Vous devriez reprendre contact";
+        }
+        else{
+            message = "bonne relation";
+        }
+
+        return message;
+
+
+    }
+
 }

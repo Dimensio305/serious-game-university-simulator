@@ -60,6 +60,7 @@ public partial class Intermediaire : Node2D
             if (child is TextEdit textEdit)
             {
                 textEdit.Text = rdvdebut[i].ToString();
+                textEdit.Text +="\n" + affichage.creationlien(rdvdebut[i].getcomposante());
                 i++;
             }
         }
