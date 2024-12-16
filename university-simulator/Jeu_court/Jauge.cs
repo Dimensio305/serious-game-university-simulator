@@ -16,9 +16,7 @@ public partial class Jauge : TextureRect
         BoiteBarre = GetNodeOrNull<BoxContainer>("ConteneurJauge");
         // Récupère la barre de progression dans le conteneur
         Barre = BoiteBarre.GetNodeOrNull<ProgressBar>("JaugeProg");
-        // Connecter le signal 'value_changed' pour détecter les changements
-        Barre.Connect("value_changed", Callable.From<float>(OnValueChanged));
-        // Initialiser la couleur en fonction de la valeur actuelle
+        
         
     }
 

@@ -175,16 +175,6 @@
             Cached name for the 'GetValeur' method.
             </summary>
         </member>
-        <member name="F:Jauge.MethodName.OnValueChanged">
-            <summary>
-            Cached name for the 'OnValueChanged' method.
-            </summary>
-        </member>
-        <member name="F:Jauge.MethodName.UpdateJaugeColor">
-            <summary>
-            Cached name for the 'UpdateJaugeColor' method.
-            </summary>
-        </member>
         <member name="M:Jauge.GetGodotMethodList">
             <summary>
             Get the method information for all the methods declared in this class.
@@ -201,16 +191,6 @@
         <member name="T:Jauge.PropertyName">
             <summary>
             Cached StringNames for the properties and fields contained in this class, for fast lookup.
-            </summary>
-        </member>
-        <member name="F:Jauge.PropertyName.couleurCritique">
-            <summary>
-            Cached name for the 'couleurCritique' field.
-            </summary>
-        </member>
-        <member name="F:Jauge.PropertyName.couleurMoyenne">
-            <summary>
-            Cached name for the 'couleurMoyenne' field.
             </summary>
         </member>
         <member name="F:Jauge.PropertyName.BoiteBarre">
