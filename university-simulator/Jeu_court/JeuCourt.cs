@@ -56,6 +56,8 @@ public partial class JeuCourt : Node2D
 	private Jauge Jauge3 ;
 	private Jauge Jauge4 ;   
 
+	private Image img;
+	
 
 
 /// <summary>
@@ -98,7 +100,11 @@ public partial class JeuCourt : Node2D
 		Jauge2.SetValeur(_Jauge2);
 		Jauge3.SetValeur(_Jauge3);
 		Jauge4.SetValeur(_Jauge4);
+	
+		affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getcomposante()+".png",textureRectpersonnage);
+ 
 
+		
 
         attente();
 		
@@ -175,13 +181,6 @@ public partial class JeuCourt : Node2D
 		JaugeManager.SetJaugeValue("Jauge3",(int)Jauge3.GetValeur());
 		Jauge4.Modif(getValeur("j4"));
 		JaugeManager.SetJaugeValue("Jauge4",(int)Jauge4.GetValeur());
-
-		// Vérification de la couleur pour chaque jauge
-    	Jauge1.FillColor = (j1Valeur < 20 || j1Valeur > 80) ? new Color(1, 0, 0) : new Color(0, 1, 0); // Rouge si <20 ou >80, vert sinon
-    	Jauge2.FillColor = (j2Valeur < 20 || j2Valeur > 80) ? new Color(1, 0, 0) : new Color(0, 1, 0);
-   		Jauge3.FillColor = (j3Valeur < 20 || j3Valeur > 80) ? new Color(1, 0, 0) : new Color(0, 1, 0);
-    	Jauge4.FillColor = (j4Valeur < 20 || j4Valeur > 80) ? new Color(1, 0, 0) : new Color(0, 1, 0);
-
 
 	}
 
@@ -322,6 +321,7 @@ public partial class JeuCourt : Node2D
         else
         {
             nbrdv++;
+			affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getcomposante()+".png",textureRectpersonnage);
             await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
             affichage.EcrireTexte(_textEdit, "La biz. Rendez-vous terminé.");
             r1.Visible = false;
@@ -385,6 +385,7 @@ private async Task AfficherMessageIntermediaire()
 		inQuestion=true;
 		temporaire.Text="true";
 	}
+
 	
 
 }

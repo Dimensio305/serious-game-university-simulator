@@ -467,6 +467,11 @@
             Cached name for the 'Jauge4' field.
             </summary>
         </member>
+        <member name="F:JeuCourt.PropertyName.img">
+            <summary>
+            Cached name for the 'img' field.
+            </summary>
+        </member>
         <member name="M:JeuCourt.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
             <inheritdoc/>
         </member>

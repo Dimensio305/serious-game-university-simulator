@@ -148,4 +148,21 @@ public static class affichage
         }
     }
 
+    public static void ChangeImage(string imagePath , TextureRect textureRect)
+    {
+        if (textureRect != null)
+        {
+            // Charge la nouvelle texture à partir du fichier
+            var newTexture = (Texture)ResourceLoader.Load(imagePath);
+            if (newTexture != null)
+            {
+                textureRect.Texture = (Texture2D)newTexture;
+            }
+            else
+            {
+                GD.PrintErr($"Failed to load texture from path: {imagePath}");
+            }
+        }
+    }
+
 }
