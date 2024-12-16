@@ -404,16 +404,6 @@
             Cached name for the 'nbquestion' field.
             </summary>
         </member>
-        <member name="F:JeuCourt.PropertyName.subViewport">
-            <summary>
-            Cached name for the 'subViewport' field.
-            </summary>
-        </member>
-        <member name="F:JeuCourt.PropertyName.animationPlayer">
-            <summary>
-            Cached name for the 'animationPlayer' field.
-            </summary>
-        </member>
         <member name="F:JeuCourt.PropertyName.textureRectpersonnage">
             <summary>
             Cached name for the 'textureRectpersonnage' field.

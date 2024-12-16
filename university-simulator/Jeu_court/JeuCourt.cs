@@ -48,8 +48,6 @@ public partial class JeuCourt : Node2D
 	
 	
 	// personnage 3d
-	private SubViewport subViewport; // Le viewport pour rendre la scène 3D
-    private AnimationPlayer animationPlayer;
 	private TextureRect textureRectpersonnage;
 
 	private TextEdit temporaire;
@@ -76,7 +74,7 @@ public partial class JeuCourt : Node2D
 		r1 = GetNode<TextEdit>("r1");
 		r2 = GetNode<TextEdit>("r2");
 			
-
+		textureRectpersonnage = GetNode<TextureRect>("personnage");
 		// Générer des projets et rendez-vous aléatoires
 		projets = Projet.GenererProjetsAleatoires();
 		agenda = new Agenda();
@@ -85,17 +83,6 @@ public partial class JeuCourt : Node2D
 
 		// Gestion de l'heure
 		horloge = GetNode<TextEdit>("Horloge/horloge");
-
-
-
-		// personnage 
-		// Récupérer les nœuds
-        subViewport = GetNode<SubViewport>("SubViewport");
-		Node scene3D = subViewport.GetChild(0);
-
-        // Trouver l'AnimationPlayer dans la scène 3D
-        animationPlayer = scene3D.GetNode<AnimationPlayer>("AnimationPlayer");
-		textureRectpersonnage = GetNode<TextureRect>("personnage");
 
 		temporaire = GetNode<TextEdit>("temp");
 
@@ -124,10 +111,6 @@ public partial class JeuCourt : Node2D
 /// <param name="delta"></param>
 	public override void _Process(double delta)
 	{
-		
-
-
-
 		if (inQuestion)
 		{
 			GérerQuestionAsync();
@@ -153,7 +136,7 @@ public partial class JeuCourt : Node2D
 			verifieravantdefermer();
 		}
 
-		affichage.FinDuJeu(Jauge1,Jauge2,Jauge3,Jauge4,Jour.Instance.GetJour(),this);
+		affichage.FinDuJeu(Jauge1, Jauge2, Jauge3, Jauge4, Jour.Instance.GetJour(), this);
 
 	}
 
@@ -171,12 +154,11 @@ public partial class JeuCourt : Node2D
 		{
 			
 				textureRectpersonnage.Visible=true;
-				animationPlayer.Play("mixamo_com");
 				await ToSignal(GetTree().CreateTimer(2.6f), "timeout");
 				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
 				affichage.EcrireTexte(r1, q.reponse1());
 				affichage.EcrireTexte(r2, q.reponse2());
-			
+				textureRectpersonnage.Visible=true;
 		}
 
 	// Sup fuckers <3
