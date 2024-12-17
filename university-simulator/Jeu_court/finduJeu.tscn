@@ -1,6 +1,14 @@
-[gd_scene format=3 uid="uid://cd8ktlh5gmqlt"]
+[gd_scene load_steps=2 format=3 uid="uid://cd8ktlh5gmqlt"]
+
+[ext_resource type="Texture2D" path="res://asset/autre/Designer (1).jpeg-1c2bf61f40165200b67b3b2431f1a3cd.ctex" id="1_3ci0i"]
 
 [node name="FinduJeu" type="Node2D"]
+
+[node name="Fond" type="TextureRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 654.0
+texture = ExtResource("1_3ci0i")
+expand_mode = 1
 
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_left = 352.0

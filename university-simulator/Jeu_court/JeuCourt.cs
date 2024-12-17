@@ -16,6 +16,7 @@ public partial class JeuCourt : Node2D
 	private TextEdit r2;
 	private TextEdit r1;
 	private Question q = new Question();
+	private TextureRect recQuestion;
 
 	//gestion des formation 
 	private List<Formation> forma;
@@ -58,14 +59,13 @@ public partial class JeuCourt : Node2D
 
 	private Image img;
 	
-
-
+res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 /// <summary>
 /// 
 /// </summary>
 	public override void _Ready()
 	{
-		_textEdit = GetNode<TextEdit>("TextEdit");
+		_textEdit = GetNode<TextEdit>("rectquestion/MarginContainer/TextEdit");
 		_textEdit.Visible = false;
 
 		panel = GetNode<Panel>("panel");
@@ -87,6 +87,8 @@ public partial class JeuCourt : Node2D
 		horloge = GetNode<TextEdit>("Horloge/horloge");
 
 		temporaire = GetNode<TextEdit>("temp");
+
+		recQuestion=GetNodeOrNull<TextureRect>("rectquestion");
 
 		Jauge1 = GetNodeOrNull<Jauge>("Jauge1");
 		Jauge2 = GetNodeOrNull<Jauge>("Jauge2");
@@ -117,6 +119,7 @@ public partial class JeuCourt : Node2D
 /// <param name="delta"></param>
 	public override void _Process(double delta)
 	{
+		recQuestion.Visible=_textEdit.Visible;
 		if (inQuestion)
 		{
 			GérerQuestionAsync();
@@ -141,7 +144,7 @@ public partial class JeuCourt : Node2D
 		{
 			verifieravantdefermer();
 		}
-
+		
 		affichage.FinDuJeu(Jauge1, Jauge2, Jauge3, Jauge4, Jour.Instance.GetJour(), this);
 
 	}

@@ -1,15 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=16 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
 [ext_resource type="Texture2D" uid="uid://bpinrfqnaihkd" path="res://fond_et_titre/fond_bureau.png" id="2_3xixw"]
 [ext_resource type="Texture2D" uid="uid://b5dpmgoms2ju" path="res://asset/icons/PNG/Black/2x/medal2.png" id="2_7cm1u"]
+[ext_resource type="Texture2D" uid="uid://c6oqx07mcr8wj" path="res://asset/icons/PNG/Black/1x/sous2-removebg-preview.png" id="3_xuay6"]
 [ext_resource type="Script" path="res://Jeu_court/Jauge.cs" id="4_d56qo"]
 [ext_resource type="StyleBox" uid="uid://cqjo4tjxm1ace" path="res://texture_jauge.tres" id="5_qqfan"]
 [ext_resource type="Texture2D" uid="uid://bsixmhe06b8x0" path="res://asset/cahier-ouvert.png" id="6_q2npa"]
+[ext_resource type="Texture2D" uid="uid://ofyc31kipc0q" path="res://asset/autre/bulle_question.png" id="7_wgo1c"]
 [ext_resource type="FontFile" uid="uid://d1w7hcd0v35vp" path="res://police/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" id="7_whcn6"]
 [ext_resource type="Texture2D" uid="uid://be2oxjowsnumh" path="res://asset/horloge.png" id="8_31e8y"]
 [ext_resource type="FontFile" uid="uid://qv104t57hkkn" path="res://police/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" id="9_66sx3"]
 [ext_resource type="Texture2D" uid="uid://fd612r2sdb6y" path="res://asset/acteurs/t3_character1.png" id="10_71yln"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5fxm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbf0m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -33,19 +38,20 @@ metadata/_edit_lock_ = true
 
 [node name="Jauge1" type="TextureRect" parent="."]
 clip_children = 1
-offset_left = 19.0
-offset_top = 538.0
-offset_right = 119.0
+offset_left = 26.0
+offset_top = 517.0
+offset_right = 139.0
 offset_bottom = 638.0
-texture = ExtResource("2_7cm1u")
+texture = ExtResource("3_xuay6")
+expand_mode = 1
 script = ExtResource("4_d56qo")
 
 [node name="JaugeValeur" type="Label" parent="Jauge1"]
 layout_mode = 0
-offset_left = 18.0
+offset_left = 1.0
 offset_top = -1.0
-offset_right = 86.0
-offset_bottom = 103.0
+offset_right = 111.0
+offset_bottom = 114.0
 
 [node name="ConteneurJauge" type="BoxContainer" parent="Jauge1"]
 layout_mode = 1
@@ -54,10 +60,10 @@ anchor_left = 0.5
 anchor_top = 0.54
 anchor_right = 0.5
 anchor_bottom = 0.54
-offset_left = -30.0
-offset_top = -35.0
-offset_right = 30.0
-offset_bottom = 35.0
+offset_left = -65.0
+offset_top = -57.72
+offset_right = 58.0
+offset_bottom = 51.28
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -72,10 +78,10 @@ show_percentage = false
 
 [node name="Jauge2" type="TextureRect" parent="."]
 clip_children = 1
-offset_left = 105.0
-offset_top = 538.0
-offset_right = 205.0
-offset_bottom = 638.0
+offset_left = 171.0
+offset_top = 546.0
+offset_right = 271.0
+offset_bottom = 646.0
 texture = ExtResource("2_7cm1u")
 script = ExtResource("4_d56qo")
 
@@ -187,14 +193,28 @@ value = 50.0
 fill_mode = 3
 show_percentage = false
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="rectquestion" type="TextureRect" parent="."]
 visible = false
-offset_left = 162.0
-offset_top = 45.0
-offset_right = 625.0
-offset_bottom = 206.0
-rotation = 0.00936676
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+offset_left = 148.0
+offset_top = -3.0
+offset_right = 845.0
+offset_bottom = 309.0
+rotation = -0.0151239
+texture = ExtResource("7_wgo1c")
+
+[node name="TextEdit" type="TextEdit" parent="rectquestion"]
+visible = false
+layout_mode = 2
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 3.0
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_k5fxm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k5fxm")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_k5fxm")
 editable = false
 selecting_enabled = false
 drag_and_drop_selection_enabled = false
@@ -202,10 +222,10 @@ wrap_mode = 1
 
 [node name="r1" type="TextEdit" parent="."]
 visible = false
-offset_left = 79.0
-offset_top = 185.0
-offset_right = 409.0
-offset_bottom = 276.0
+offset_left = 86.0
+offset_top = 230.0
+offset_right = 416.0
+offset_bottom = 321.0
 rotation = 0.0178934
 editable = false
 selecting_enabled = false
@@ -214,10 +234,10 @@ wrap_mode = 1
 
 [node name="r2" type="TextEdit" parent="."]
 visible = false
-offset_left = 435.0
-offset_top = 191.0
-offset_right = 787.0
-offset_bottom = 282.0
+offset_left = 438.0
+offset_top = 228.0
+offset_right = 790.0
+offset_bottom = 319.0
 editable = false
 selecting_enabled = false
 drag_and_drop_selection_enabled = false
@@ -305,7 +325,6 @@ wrap_mode = 1
 [node name="Timer" type="Timer" parent="."]
 
 [node name="personnage" type="TextureRect" parent="."]
-visible = false
 offset_left = 646.0
 offset_top = 179.0
 offset_right = 885.0

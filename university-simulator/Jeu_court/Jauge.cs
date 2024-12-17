@@ -48,13 +48,17 @@ public partial class Jauge : TextureRect
     {
 
         // Si la valeur est inférieure à 20 ou supérieure à 80, on la met en rouge
-        if (Barre.Value < 20 || Barre.Value > 80)
+        if (Barre.Value < 40 || Barre.Value > 60)
         {
-           Barre.Modulate = new Color(1, 0, 0);
+           Barre.Modulate = new Color(1, 1, 0);
+        }
+
+        else if (Barre.Value < 20 || Barre.Value > 80){
+            Barre.Modulate = new Color(1, 0, 0);
         }
         else
         {
-            Barre.Modulate = new Color(1, 1, 0);
+            Barre.Modulate = new Color(0, 1, 0);
         }
 
     }
