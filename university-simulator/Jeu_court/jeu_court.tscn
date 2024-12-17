@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
-[ext_resource type="Texture2D" uid="uid://bpinrfqnaihkd" path="res://fond_et_titre/fond_bureau.png" id="2_3xixw"]
 [ext_resource type="Texture2D" uid="uid://b5dpmgoms2ju" path="res://asset/icons/PNG/Black/2x/medal2.png" id="2_7cm1u"]
+[ext_resource type="Texture2D" uid="uid://w53gy0k3hv5i" path="res://fond_et_titre/fond_bureau2.png" id="2_f3j7f"]
 [ext_resource type="Texture2D" uid="uid://c6oqx07mcr8wj" path="res://asset/icons/PNG/Black/1x/sous2-removebg-preview.png" id="3_xuay6"]
 [ext_resource type="Script" path="res://Jeu_court/Jauge.cs" id="4_d56qo"]
 [ext_resource type="StyleBox" uid="uid://cqjo4tjxm1ace" path="res://texture_jauge.tres" id="5_qqfan"]
@@ -32,7 +32,7 @@ offset_top = 3.0
 offset_right = 1152.0
 offset_bottom = 651.0
 rotation = -6.28319
-texture = ExtResource("2_3xixw")
+texture = ExtResource("2_f3j7f")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
@@ -245,10 +245,10 @@ wrap_mode = 1
 
 [node name="TextEdit2" type="TextEdit" parent="."]
 visible = false
-offset_left = 171.0
-offset_top = 389.0
-offset_right = 493.0
-offset_bottom = 511.0
+offset_left = 141.0
+offset_top = 380.0
+offset_right = 492.0
+offset_bottom = 522.0
 rotation = -0.11776
 editable = false
 selecting_enabled = false
@@ -325,11 +325,11 @@ wrap_mode = 1
 [node name="Timer" type="Timer" parent="."]
 
 [node name="personnage" type="TextureRect" parent="."]
-offset_left = 646.0
-offset_top = 179.0
-offset_right = 885.0
-offset_bottom = 512.0
-rotation = 0.00383942
+offset_left = 624.0
+offset_top = 182.0
+offset_right = 863.0
+offset_bottom = 515.0
+rotation = -0.000956774
 texture = ExtResource("10_71yln")
 expand_mode = 1
 
