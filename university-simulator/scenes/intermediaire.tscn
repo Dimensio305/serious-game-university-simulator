@@ -61,56 +61,86 @@ expand_mode = 1
 
 [node name="0" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
-offset_left = 94.0
+offset_left = 52.0
 offset_top = 54.0
-offset_right = 405.0
+offset_right = 473.0
 offset_bottom = 137.0
 editable = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 wrap_mode = 1
 
 [node name="1" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
-offset_left = 95.0
+offset_left = 53.0
 offset_top = 149.0
-offset_right = 406.0
+offset_right = 474.0
 offset_bottom = 229.0
 editable = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 wrap_mode = 1
 
 [node name="2" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
-offset_left = 94.0
+offset_left = 52.0
 offset_top = 242.0
-offset_right = 405.0
+offset_right = 475.0
 offset_bottom = 318.0
 editable = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 wrap_mode = 1
 
 [node name="3" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
-offset_left = 93.0
+offset_left = 49.0
 offset_top = 327.0
-offset_right = 404.0
+offset_right = 474.0
 offset_bottom = 410.0
 editable = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 wrap_mode = 1
 
 [node name="4" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
-offset_left = 95.0
+offset_left = 49.0
 offset_top = 420.0
-offset_right = 406.0
+offset_right = 478.0
 offset_bottom = 503.0
 editable = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 wrap_mode = 1
 
 [node name="5" type="TextEdit" parent="case_gauche"]
 layout_mode = 0
-offset_left = 95.0
+offset_left = 47.0
 offset_top = 513.0
-offset_right = 406.0
+offset_right = 478.0
 offset_bottom = 596.0
 editable = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 wrap_mode = 1
 
 [node name="valider" type="Button" parent="."]

@@ -195,26 +195,27 @@ show_percentage = false
 
 [node name="rectquestion" type="TextureRect" parent="."]
 visible = false
-offset_left = 148.0
-offset_top = -3.0
-offset_right = 845.0
-offset_bottom = 309.0
+offset_left = 93.0
+offset_top = -18.0
+offset_right = 790.0
+offset_bottom = 251.0
 rotation = -0.0151239
 texture = ExtResource("7_wgo1c")
 
 [node name="TextEdit" type="TextEdit" parent="rectquestion"]
 visible = false
-layout_mode = 2
-offset_left = 10.0
-offset_top = 3.0
-offset_right = 10.0
-offset_bottom = 3.0
+offset_left = 138.0
+offset_top = 46.0
+offset_right = 512.0
+offset_bottom = 194.0
 theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_k5fxm")
 theme_override_styles/focus = SubResource("StyleBoxFlat_k5fxm")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_k5fxm")
+text = "
+"
 editable = false
 selecting_enabled = false
 drag_and_drop_selection_enabled = false
@@ -222,11 +223,11 @@ wrap_mode = 1
 
 [node name="r1" type="TextEdit" parent="."]
 visible = false
-offset_left = 86.0
-offset_top = 230.0
-offset_right = 416.0
-offset_bottom = 321.0
-rotation = 0.0178934
+offset_left = 19.0
+offset_top = 192.0
+offset_right = 296.0
+offset_bottom = 316.0
+rotation = -0.00339314
 editable = false
 selecting_enabled = false
 drag_and_drop_selection_enabled = false
@@ -234,26 +235,20 @@ wrap_mode = 1
 
 [node name="r2" type="TextEdit" parent="."]
 visible = false
-offset_left = 438.0
-offset_top = 228.0
-offset_right = 790.0
-offset_bottom = 319.0
+offset_left = 303.0
+offset_top = 192.0
+offset_right = 594.0
+offset_bottom = 315.0
 editable = false
 selecting_enabled = false
 drag_and_drop_selection_enabled = false
 wrap_mode = 1
 
-[node name="TextEdit2" type="TextEdit" parent="."]
-visible = false
-offset_left = 141.0
-offset_top = 380.0
-offset_right = 492.0
-offset_bottom = 522.0
-rotation = -0.11776
-editable = false
-selecting_enabled = false
-drag_and_drop_selection_enabled = false
-wrap_mode = 1
+[node name="TextLabelordi" type="RichTextLabel" parent="."]
+offset_left = 122.0
+offset_top = 358.0
+offset_right = 470.0
+offset_bottom = 493.0
 
 [node name="panel" type="Panel" parent="."]
 visible = false
@@ -325,6 +320,7 @@ wrap_mode = 1
 [node name="Timer" type="Timer" parent="."]
 
 [node name="personnage" type="TextureRect" parent="."]
+visible = false
 offset_left = 624.0
 offset_top = 182.0
 offset_right = 863.0

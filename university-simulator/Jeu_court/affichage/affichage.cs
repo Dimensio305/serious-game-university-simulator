@@ -2,6 +2,7 @@ using Godot;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 
 /// <summary>
 /// Classe Affichage : elle gere l'affichage dans different element du jeu
@@ -18,7 +19,7 @@ public static class affichage
 
         if (textEdit != null)
         {
-        
+            textEdit.Clear();
             textEdit.Text = texte;
             textEdit.Visible = true;
         }
@@ -30,7 +31,7 @@ public static class affichage
     /// de la journée dans un texedit de maniere jolie </summary>
     /// <param name="rendezVousList"> Parametre 1 : La liste des rendez vous</param>
     /// <param name="textEdit"> Parametre 2 : La textedit visé</param>
-    public static void AfficherAgenda(List<Rendezvous> rendezVousList, TextEdit textEdit )
+    public static void AfficherAgenda(List<Rendezvous> rendezVousList, RichTextLabel textEdit )
     {
     textEdit.Text = ""; 
 
@@ -230,5 +231,82 @@ public static class affichage
 
 
     }
+
+    public static void AffichageEtat(RichTextLabel richTextLabel)
+{
+    richTextLabel.Clear(); // Nettoie le contenu actuel
+    richTextLabel.BbcodeEnabled = true; // Active le mode BBCode
+
+    string message = "[center][b]État de la trésorerie de votre université[/b][/center]\n\n";
+
+    // Trésorerie
+    int jauge1 = JaugeManager.GetJaugeValue("Jauge1");
+    message += "[b]Trésorerie :[/b] ";
+    if (jauge1 <= 80 && jauge1 >= 30)
+    {
+        message += "[color=green]correcte[/color]. Elle est actuellement à " + jauge1 + "%.\n";
+    }
+    else if (jauge1 < 30)
+    {
+        message += "[color=red]mauvaise[/color]. Bientôt vous ne pourrez plus entretenir vos formations. Elle est actuellement à " + jauge1 + "%.\n";
+    }
+    else
+    {
+        message += "[color=blue]trop bonne[/color]. Vous devriez investir dans vos formations. Elle est actuellement à " + jauge1 + "%.\n";
+    }
+
+    // Satisfaction des professeurs
+    int jauge2 = JaugeManager.GetJaugeValue("Jauge2");
+    message += "\n[b]Satisfaction des professeurs :[/b] ";
+    if (jauge2 <= 80 && jauge2 >= 30)
+    {
+        message += "[color=green]correcte[/color]. Elle est actuellement à " + jauge2 + "%.\n";
+    }
+    else if (jauge2 < 30)
+    {
+        message += "[color=red]mauvaise[/color]. Bientôt ils décideront de faire grève. Elle est actuellement à " + jauge2 + "%.\n";
+    }
+    else
+    {
+        message += "[color=blue]trop bonne[/color]. Ils seront trop heureux de venir travailler. Elle est actuellement à " + jauge2 + "%.\n";
+    }
+
+    // Taux d'insertion professionnelle
+    int jauge3 = JaugeManager.GetJaugeValue("Jauge3");
+    message += "\n[b]Taux d'insertion professionnelle :[/b] ";
+    if (jauge3 <= 80 && jauge3 >= 30)
+    {
+        message += "[color=green]correcte[/color]. Il est actuellement à " + jauge3 + "%.\n";
+    }
+    else if (jauge3 < 30)
+    {
+        message += "[color=red]mauvais[/color]. Ils finiront tous au chômage. Il est actuellement à " + jauge3 + "%.\n";
+    }
+    else
+    {
+        message += "[color=blue]excellent[/color]. Il n'y aura plus de chômeurs. Il est actuellement à " + jauge3 + "%.\n";
+    }
+
+    // Taux de réussite
+    int jauge4 = JaugeManager.GetJaugeValue("Jauge4");
+    message += "\n[b]Taux de réussite :[/b] ";
+    if (jauge4 <= 80 && jauge4 >= 30)
+    {
+        message += "[color=green]correcte[/color]. Il est actuellement à " + jauge4 + "%.\n";
+    }
+    else if (jauge4 < 30)
+    {
+        message += "[color=red]mauvais[/color]. Ils vont tous redoubler, ce qui coûtera cher. Il est actuellement à " + jauge4 + "%.\n";
+    }
+    else
+    {
+        message += "[color=blue]trop bon[/color]. Il faudrait quand même des élèves moyens. Il est actuellement à " + jauge4 + "%.\n";
+    }
+
+    richTextLabel.Text = message; // Attribue le texte formaté
+    richTextLabel.Visible = true;
+}
+
+        
 
 }

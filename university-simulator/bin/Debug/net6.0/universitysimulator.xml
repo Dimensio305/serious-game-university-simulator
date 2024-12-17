@@ -66,7 +66,7 @@
             <param name="textEdit"> parametre 1 :La textedit visé</param>
             <param name="texte"> Prametre 2 : Le message a ecrire</param>
         </member>
-        <member name="M:affichage.AfficherAgenda(System.Collections.Generic.List{Rendezvous},Godot.TextEdit)">
+        <member name="M:affichage.AfficherAgenda(System.Collections.Generic.List{Rendezvous},Godot.RichTextLabel)">
             <summary>
              Methode AfficherAgenda : statique elle permet d'afficher les rdv 
             de la journée dans un texedit de maniere jolie </summary>
@@ -309,6 +309,11 @@
             Cached name for the 'rendrevisibleagenda' method.
             </summary>
         </member>
+        <member name="F:JeuCourt.MethodName.rendrevisibleetat">
+            <summary>
+            Cached name for the 'rendrevisibleetat' method.
+            </summary>
+        </member>
         <member name="F:JeuCourt.MethodName.GenererForma">
             <summary>
             Cached name for the 'GenererForma' method.
@@ -387,9 +392,9 @@
             Cached name for the 'texteditforma' field.
             </summary>
         </member>
-        <member name="F:JeuCourt.PropertyName.texteditagenda">
+        <member name="F:JeuCourt.PropertyName.TextLabelordi">
             <summary>
-            Cached name for the 'texteditagenda' field.
+            Cached name for the 'TextLabelordi' field.
             </summary>
         </member>
         <member name="F:JeuCourt.PropertyName.nbrdv">

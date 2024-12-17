@@ -24,7 +24,9 @@ public partial class JeuCourt : Node2D
 
 	// gestion des agenda
 	private Agenda agenda;
-	private TextEdit texteditagenda;
+	//private TextEdit texteditagenda;
+
+	private RichTextLabel TextLabelordi;
 	int nbrdv=0;
 
 	// gestion de srdv physique 
@@ -59,17 +61,16 @@ public partial class JeuCourt : Node2D
 
 	private Image img;
 	
-res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 /// <summary>
 /// 
 /// </summary>
 	public override void _Ready()
 	{
-		_textEdit = GetNode<TextEdit>("rectquestion/MarginContainer/TextEdit");
+		_textEdit = GetNode<TextEdit>("rectquestion/TextEdit");
 		_textEdit.Visible = false;
 
 		panel = GetNode<Panel>("panel");
-		texteditagenda = GetNode<TextEdit>("TextEdit2");
+		//texteditagenda = GetNode<TextEdit>("TextEdit2");
 
 		texteditforma = GetNode<TextEdit>("panel/TextEdit3");
 		proj = GetNode<TextEdit>("proj");
@@ -89,6 +90,7 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 		temporaire = GetNode<TextEdit>("temp");
 
 		recQuestion=GetNodeOrNull<TextureRect>("rectquestion");
+		TextLabelordi = GetNode<RichTextLabel>("TextLabelordi");
 
 		Jauge1 = GetNodeOrNull<Jauge>("Jauge1");
 		Jauge2 = GetNodeOrNull<Jauge>("Jauge2");
@@ -119,6 +121,7 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 /// <param name="delta"></param>
 	public override void _Process(double delta)
 	{
+		
 		recQuestion.Visible=_textEdit.Visible;
 		if (inQuestion)
 		{
@@ -135,9 +138,13 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 		{
 			rendrevisibleformation();
 		}
-		if (Input.IsActionJustPressed("projet"))
+		//if (Input.IsActionJustPressed("projet"))
+		//{
+		//	rendrevisibleprojet();
+		//}
+		if (Input.IsActionJustPressed("Etat"))
 		{
-			rendrevisibleprojet();
+			rendrevisibleetat();
 		}
 
 		if (Input.IsActionPressed("fermer"))
@@ -159,7 +166,7 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 		
 		
 
-		if (Input.IsActionJustPressed("Question") && !projetvisible && !texteditforma.Visible && !texteditagenda.Visible)
+		if (Input.IsActionJustPressed("Question") && !projetvisible && !texteditforma.Visible && !TextLabelordi.Visible)
 		{
 			
 				textureRectpersonnage.Visible=true;
@@ -195,7 +202,7 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 	private void CacherTousLesTextEdits()
 	{
 		_textEdit.Visible = false;
-		texteditagenda.Visible = false;
+		TextLabelordi.Visible = false;
 		texteditforma.Visible = false;
 		r1.Visible = false;
 		r2.Visible = false;
@@ -220,9 +227,9 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 			panel.Visible = false;
 			texteditforma.Visible = false;
 		}
-		if (texteditagenda.Visible)
+		if (TextLabelordi.Visible)
 		{
-			texteditagenda.Visible = false;
+			TextLabelordi.Visible = false;
 		}
 		if (projetvisible)
 		{
@@ -233,7 +240,7 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 
 	private void rendrevisibleformation()
 	{
-		if (!_textEdit.Visible && !texteditagenda.Visible && !projetvisible)
+		if (!_textEdit.Visible && !TextLabelordi.Visible && !projetvisible)
 		{
 		   
 
@@ -245,7 +252,7 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 
 	private void rendrevisibleprojet()
 	{
-		if (!_textEdit.Visible && !texteditagenda.Visible && !texteditforma.Visible)
+		if (!_textEdit.Visible && !TextLabelordi.Visible && !texteditforma.Visible)
 		{
 			
 
@@ -260,8 +267,18 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 		if (!_textEdit.Visible && !texteditforma.Visible  && !projetvisible)
 		{
 			
-			affichage.AfficherAgenda(agenda.GetRendezVous(), texteditagenda);
-			texteditagenda.Visible = true; // Afficher l'agenda
+			affichage.AfficherAgenda(agenda.GetRendezVous(), TextLabelordi);
+			TextLabelordi.Visible = true; // Afficher l'agenda
+		}
+	}
+
+	private void rendrevisibleetat()
+	{
+		if (!_textEdit.Visible && !texteditforma.Visible  && !projetvisible)
+		{
+			
+			affichage.AffichageEtat(TextLabelordi);
+			TextLabelordi.Visible = true; // Afficher l'agenda
 		}
 	}
 
@@ -286,7 +303,7 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 	{
 	
 	
-		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !texteditforma.Visible  && !texteditagenda.Visible &&_textEdit.Visible)
+		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !texteditforma.Visible  && !TextLabelordi.Visible &&_textEdit.Visible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges
 			inQuestion = false;
@@ -298,7 +315,7 @@ res://.godot/imported/Designer (1).jpeg-1c2bf61f40165200b6
 			
 			
 		}
-		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !texteditforma.Visible  && !texteditagenda.Visible &&_textEdit.Visible)
+		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !texteditforma.Visible  && !TextLabelordi.Visible &&_textEdit.Visible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges
 			inQuestion = false;
