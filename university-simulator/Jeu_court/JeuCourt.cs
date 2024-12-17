@@ -160,7 +160,7 @@ public partial class JeuCourt : Node2D
 		{
 			
 				textureRectpersonnage.Visible=true;
-				await ToSignal(GetTree().CreateTimer(2.6f), "timeout");
+				await ToSignal(GetTree().CreateTimer(1f), "timeout");
 				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
 				affichage.EcrireTexte(r1, q.reponse1());
 				affichage.EcrireTexte(r2, q.reponse2());

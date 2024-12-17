@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Menu/Chargement.cs" id="2_edy0i"]
 [ext_resource type="Texture2D" uid="uid://beb0desn7dqlq" path="res://fond_et_titre/titre_arrondi_vide_corriger.png" id="2_qrgjg"]
 [ext_resource type="FontFile" uid="uid://bqbvpxndw8l5h" path="res://police/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" id="4_iknn6"]
-[ext_resource type="StyleBox" path="res://texturetest.tres" id="5_08ons"]
+[ext_resource type="StyleBox" uid="uid://uo4hh8jvnilg" path="res://texturetest.tres" id="5_08ons"]
 
 [sub_resource type="Theme" id="Theme_bma6s"]
 
