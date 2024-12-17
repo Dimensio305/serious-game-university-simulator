@@ -245,10 +245,12 @@ drag_and_drop_selection_enabled = false
 wrap_mode = 1
 
 [node name="TextLabelordi" type="RichTextLabel" parent="."]
-offset_left = 122.0
-offset_top = 358.0
-offset_right = 470.0
-offset_bottom = 493.0
+visible = false
+offset_left = 138.0
+offset_top = 374.0
+offset_right = 498.0
+offset_bottom = 509.0
+rotation = -0.0917437
 
 [node name="panel" type="Panel" parent="."]
 visible = false

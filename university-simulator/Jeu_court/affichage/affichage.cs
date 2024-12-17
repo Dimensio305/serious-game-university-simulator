@@ -31,50 +31,54 @@ public static class affichage
     /// de la journée dans un texedit de maniere jolie </summary>
     /// <param name="rendezVousList"> Parametre 1 : La liste des rendez vous</param>
     /// <param name="textEdit"> Parametre 2 : La textedit visé</param>
-    public static void AfficherAgenda(List<Rendezvous> rendezVousList, RichTextLabel textEdit )
+   public static void AfficherAgenda(List<Rendezvous> rendezVousList, RichTextLabel textEdit)
+{
+    textEdit.Text = "";
+    textEdit.BbcodeEnabled = true; // Active le mode BBCode
+
+    string nomJour = Jour.Instance.GetNom();
+
+    textEdit.Text += $"[center][b][color=blue]Agenda de {nomJour}[/color][/b][/center]\n";
+    textEdit.Text += "[center]=====================[/center]\n\n";
+
+    TimeSpan[] debutCreneaux = {
+        new TimeSpan(8, 0, 0),  // 8h à 10h
+        new TimeSpan(10, 0, 0), // 10h à 12h
+        new TimeSpan(14, 0, 0), // 14h à 16h
+        new TimeSpan(16, 0, 0)  // 16h à 18h
+    };
+
+    TimeSpan dureeCreneau = new TimeSpan(2, 0, 0); // Chaque créneau dure 2 heures
+
+    // Afficher les rendez-vous pour chaque créneau
+    for (int i = 0; i < debutCreneaux.Length; i++)
     {
-    textEdit.Text = ""; 
-
-        
-        string nomJour = Jour.Instance.GetNom();
-
-        
-        textEdit.Text += $"Agenda de {nomJour}\n";
-        textEdit.Text += "=====================\n\n";
-
-        
-        TimeSpan[] debutCreneaux = {
-            new TimeSpan(8, 0, 0),  // 8h à 10h
-            new TimeSpan(10, 0, 0), // 10h à 12h
-            new TimeSpan(14, 0, 0), // 14h à 16h
-            new TimeSpan(16, 0, 0)  // 16h à 18h
-        };
-
-        TimeSpan dureeCreneau = new TimeSpan(2, 0, 0); // Chaque créneau dure 2 heures
-
-        // Afficher les rendez-vous pour chaque créneau
-        for (int i = 0; i < debutCreneaux.Length; i++)
+        if (i < rendezVousList.Count)
         {
-            if (i < rendezVousList.Count)
-            {
-                Rendezvous rdv = rendezVousList[i];
-                TimeSpan debut = debutCreneaux[i];
-                TimeSpan fin = debut + dureeCreneau;
+            Rendezvous rdv = rendezVousList[i];
+            TimeSpan debut = debutCreneaux[i];
+            TimeSpan fin = debut + dureeCreneau;
 
-                textEdit.Text += $"  - {debut:hh\\:mm} - {fin:hh\\:mm}: {rdv.Description}\n";
-            }
-            else // s'il n'y a pas de rdv
-            {
-                TimeSpan debut = debutCreneaux[i];
-                TimeSpan fin = debut + dureeCreneau;
-
-                
-                textEdit.Text += $"  - {debut:hh\\:mm} - {fin:hh\\:mm}: Aucun rendez-vous\n";
-            }
+            textEdit.Text += $"[color=blue][b]  - {debut:hh\\:mm} - {fin:hh\\:mm}:[/b][/color] {rdv.Description}\n";
         }
+        else // s'il n'y a pas de rdv
+        {
+            TimeSpan debut = debutCreneaux[i];
+            TimeSpan fin = debut + dureeCreneau;
 
-        textEdit.Visible = true;
+            textEdit.Text += $"[color=red][b]  - {debut:hh\\:mm} - {fin:hh\\:mm}:[/b][/color] Aucun rendez-vous\n";
+        }
     }
+
+    textEdit.Visible = true;
+}
+
+
+
+
+
+
+
 
 
 
@@ -242,11 +246,11 @@ public static class affichage
     // Trésorerie
     int jauge1 = JaugeManager.GetJaugeValue("Jauge1");
     message += "[b]Trésorerie :[/b] ";
-    if (jauge1 <= 80 && jauge1 >= 30)
+    if (jauge1 < 80 && jauge1 > 30)
     {
         message += "[color=green]correcte[/color]. Elle est actuellement à " + jauge1 + "%.\n";
     }
-    else if (jauge1 < 30)
+    else if (jauge1 <= 30)
     {
         message += "[color=red]mauvaise[/color]. Bientôt vous ne pourrez plus entretenir vos formations. Elle est actuellement à " + jauge1 + "%.\n";
     }
@@ -258,49 +262,49 @@ public static class affichage
     // Satisfaction des professeurs
     int jauge2 = JaugeManager.GetJaugeValue("Jauge2");
     message += "\n[b]Satisfaction des professeurs :[/b] ";
-    if (jauge2 <= 80 && jauge2 >= 30)
+    if (jauge2 < 80 && jauge2 > 30)
     {
         message += "[color=green]correcte[/color]. Elle est actuellement à " + jauge2 + "%.\n";
     }
-    else if (jauge2 < 30)
+    else if (jauge2 <= 30)
     {
         message += "[color=red]mauvaise[/color]. Bientôt ils décideront de faire grève. Elle est actuellement à " + jauge2 + "%.\n";
     }
     else
     {
-        message += "[color=blue]trop bonne[/color]. Ils seront trop heureux de venir travailler. Elle est actuellement à " + jauge2 + "%.\n";
+        message += "[color=red]trop bonne[/color]. Ils seront trop heureux de venir travailler. Elle est actuellement à " + jauge2 + "%.\n";
     }
 
     // Taux d'insertion professionnelle
     int jauge3 = JaugeManager.GetJaugeValue("Jauge3");
     message += "\n[b]Taux d'insertion professionnelle :[/b] ";
-    if (jauge3 <= 80 && jauge3 >= 30)
+    if (jauge3 < 80 && jauge3 > 30)
     {
         message += "[color=green]correcte[/color]. Il est actuellement à " + jauge3 + "%.\n";
     }
-    else if (jauge3 < 30)
+    else if (jauge3 <= 30)
     {
         message += "[color=red]mauvais[/color]. Ils finiront tous au chômage. Il est actuellement à " + jauge3 + "%.\n";
     }
     else
     {
-        message += "[color=blue]excellent[/color]. Il n'y aura plus de chômeurs. Il est actuellement à " + jauge3 + "%.\n";
+        message += "[color=red]excellent[/color]. Il n'y aura plus de chômeurs. Il est actuellement à " + jauge3 + "%.\n";
     }
 
     // Taux de réussite
     int jauge4 = JaugeManager.GetJaugeValue("Jauge4");
     message += "\n[b]Taux de réussite :[/b] ";
-    if (jauge4 <= 80 && jauge4 >= 30)
+    if (jauge4 < 80 && jauge4 > 30)
     {
         message += "[color=green]correcte[/color]. Il est actuellement à " + jauge4 + "%.\n";
     }
-    else if (jauge4 < 30)
+    else if (jauge4 <= 30)
     {
         message += "[color=red]mauvais[/color]. Ils vont tous redoubler, ce qui coûtera cher. Il est actuellement à " + jauge4 + "%.\n";
     }
     else
     {
-        message += "[color=blue]trop bon[/color]. Il faudrait quand même des élèves moyens. Il est actuellement à " + jauge4 + "%.\n";
+        message += "[color=red]trop bon[/color]. Il faudrait quand même des élèves moyens. Il est actuellement à " + jauge4 + "%.\n";
     }
 
     richTextLabel.Text = message; // Attribue le texte formaté
