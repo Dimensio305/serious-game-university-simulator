@@ -39,6 +39,7 @@ public partial class JeuCourt : Node2D
 	private List<Projet> projets;
 	private TextEdit proj;
 
+
 	//gestion de l'heure 
 
 	private TextEdit horloge ;
@@ -50,10 +51,12 @@ public partial class JeuCourt : Node2D
 	int nbquestion = 0;
 	
 	
-	// personnage 3d
+	// personnage
 	private TextureRect textureRectpersonnage;
 
-	private TextEdit temporaire;
+
+	// message
+	private RichTextLabel textLabelmessage;
 	private Jauge Jauge1 ; 
 	private Jauge Jauge2 ;
 	private Jauge Jauge3 ;
@@ -70,7 +73,7 @@ public partial class JeuCourt : Node2D
 		_textEdit.Visible = false;
 
 		panel = GetNode<Panel>("panel");
-		//texteditagenda = GetNode<TextEdit>("TextEdit2");
+		
 
 		texteditforma = GetNode<TextEdit>("panel/TextEdit3");
 		proj = GetNode<TextEdit>("proj");
@@ -87,7 +90,8 @@ public partial class JeuCourt : Node2D
 		// Gestion de l'heure
 		horloge = GetNode<TextEdit>("Horloge/horloge");
 
-		temporaire = GetNode<TextEdit>("temp");
+		
+		textLabelmessage =GetNode<RichTextLabel>("TextLabelmessage");
 
 		recQuestion=GetNodeOrNull<TextureRect>("rectquestion");
 		TextLabelordi = GetNode<RichTextLabel>("TextLabelordi");
@@ -127,6 +131,7 @@ public partial class JeuCourt : Node2D
 		{
 			GérerQuestionAsync();
 			gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 );
+			
 		}
 
 		if (Input.IsActionJustPressed("agenda"))
@@ -153,6 +158,8 @@ public partial class JeuCourt : Node2D
 		}
 		
 		affichage.FinDuJeu(Jauge1, Jauge2, Jauge3, Jauge4, Jour.Instance.GetJour(), this);
+		
+
 
 	}
 
@@ -175,6 +182,7 @@ public partial class JeuCourt : Node2D
 				affichage.EcrireTexte(r1, q.reponse1());
 				affichage.EcrireTexte(r2, q.reponse2());
 				textureRectpersonnage.Visible=true;
+				message();
 		}
 
 	// Sup fuckers <3
@@ -306,8 +314,8 @@ public partial class JeuCourt : Node2D
 		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !texteditforma.Visible  && !TextLabelordi.Visible &&_textEdit.Visible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges
-			inQuestion = false;
-			temporaire.Text="false";
+			inQuestion = false;	
+			message();
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
 			suiv();
 			faireavancerletemps();
@@ -319,7 +327,7 @@ public partial class JeuCourt : Node2D
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges
 			inQuestion = false;
-			temporaire.Text="false";
+			message();
 			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
 			suiv();
 			faireavancerletemps();
@@ -369,6 +377,7 @@ private async void AfficherQuestionSuivante()
 	gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 );
     r1.Visible = true;
     r2.Visible = true;
+	message();
 }
 
 private async Task AfficherMessageIntermediaire()
@@ -404,8 +413,29 @@ private async Task AfficherMessageIntermediaire()
 	private async void attente(){
 		await ToSignal(GetTree().CreateTimer(2),"timeout");
 		inQuestion=true;
-		temporaire.Text="true";
+		message();
 	}
+
+	private void message()
+{
+    if (inQuestion && !textureRectpersonnage.Visible && !TextLabelordi.Visible)
+    {
+        textLabelmessage.Clear();
+        textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
+		textLabelmessage.Text = "\n\n";
+        textLabelmessage.Text += $"[center][b][color=orange]Un rendez-vous vous attend avec ({agenda.GetRendezVous()[nbrdv].ToString()})[/color][/b][/center]";
+        textLabelmessage.Visible = true;
+
+    }
+    else
+    {
+        textLabelmessage.Clear();
+        textLabelmessage.Visible = false;
+    }
+}
+
+
+
 
 	
 

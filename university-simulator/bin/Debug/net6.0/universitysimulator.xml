@@ -344,6 +344,11 @@
             Cached name for the 'attente' method.
             </summary>
         </member>
+        <member name="F:JeuCourt.MethodName.message">
+            <summary>
+            Cached name for the 'message' method.
+            </summary>
+        </member>
         <member name="M:JeuCourt.GetGodotMethodList">
             <summary>
             Get the method information for all the methods declared in this class.
@@ -452,9 +457,9 @@
             Cached name for the 'textureRectpersonnage' field.
             </summary>
         </member>
-        <member name="F:JeuCourt.PropertyName.temporaire">
+        <member name="F:JeuCourt.PropertyName.textLabelmessage">
             <summary>
-            Cached name for the 'temporaire' field.
+            Cached name for the 'textLabelmessage' field.
             </summary>
         </member>
         <member name="F:JeuCourt.PropertyName.Jauge1">
@@ -1104,14 +1109,14 @@
             </summary>
             <param name="target">La cible à laquelle connecter les événements d'input.</param>
         </member>
-        <member name="M:Intermediaire.OnGuiInput(Godot.InputEvent,Godot.TextEdit)">
+        <member name="M:Intermediaire.OnGuiInput(Godot.InputEvent,Godot.RichTextLabel)">
             <summary>
             Gère l'événement d'input GUI pour déplacer un TextEdit entre les cibles.
             </summary>
             <param name="inputEvent">L'événement d'input reçu.</param>
             <param name="clickedTextEdit">Le TextEdit cliqué.</param>
         </member>
-        <member name="M:Intermediaire.MoveTextEditToTarget(Godot.TextEdit,Godot.TextureRect)">
+        <member name="M:Intermediaire.MoveTextEditToTarget(Godot.RichTextLabel,Godot.TextureRect)">
             <summary>
             Déplace un TextEdit d'une cible à l'autre et réorganise les enfants dans la colonne.
             </summary>

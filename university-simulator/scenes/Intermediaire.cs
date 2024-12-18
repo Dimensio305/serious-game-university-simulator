@@ -57,10 +57,18 @@ public partial class Intermediaire : Node2D
         int i = 0;
         foreach (Node child in _target1.GetChildren())
         {
-            if (child is TextEdit textEdit)
+            if (child is RichTextLabel textEdit)
             {
-                textEdit.Text = rdvdebut[i].ToString();
-                textEdit.Text +="\n" + affichage.creationlien(rdvdebut[i].getcomposante());
+                textEdit.BbcodeEnabled = true; // Active le mode BBCode
+
+                // Exemple de rendez-vous
+                string rdv = rdvdebut[i].ToString();
+                string lien = affichage.creationlien(rdvdebut[i].getcomposante());
+
+                // Ajouter des bordures et des styles
+                textEdit.Text = $"[color=black][b]{rdv}[/b][/color]\n";
+                textEdit.Text += $"[color=back]{lien}[/color]\n";
+
                 i++;
             }
         }
@@ -83,7 +91,7 @@ public partial class Intermediaire : Node2D
     {
         foreach (Node child in target.GetChildren())
         {
-            if (child is TextEdit textEdit)
+            if (child is RichTextLabel textEdit)
             {
                 textEdit.Connect("gui_input", Callable.From((InputEvent inputEvent) => OnGuiInput(inputEvent, textEdit)));
             }
@@ -95,7 +103,7 @@ public partial class Intermediaire : Node2D
     /// </summary>
     /// <param name="inputEvent">L'événement d'input reçu.</param>
     /// <param name="clickedTextEdit">Le TextEdit cliqué.</param>
-    private void OnGuiInput(InputEvent inputEvent, TextEdit clickedTextEdit)
+    private void OnGuiInput(InputEvent inputEvent, RichTextLabel clickedTextEdit)
     {
         // Si un clic gauche est effectué, déplace le TextEdit vers la cible opposée
         if (inputEvent is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
@@ -110,7 +118,7 @@ public partial class Intermediaire : Node2D
     /// </summary>
     /// <param name="textEdit">Le TextEdit à déplacer.</param>
     /// <param name="target">La cible où déplacer le TextEdit.</param>
-    private void MoveTextEditToTarget(TextEdit textEdit, TextureRect target)
+    private void MoveTextEditToTarget(RichTextLabel textEdit, TextureRect target)
     {
         List<Rendezvous> sourceList = textEdit.GetParent() == _target1 ? rdvdebut : rdvfin;
         List<Rendezvous> targetList = target == _target1 ? rdvdebut : rdvfin;
@@ -148,7 +156,7 @@ public partial class Intermediaire : Node2D
         {
             if (child is Control control)
             {
-                control.Position = new Vector2(80, currentY);
+                control.Position = new Vector2(55, currentY);
                 currentY += control.Size.Y + yOffset;
             }
         }
@@ -162,7 +170,7 @@ public partial class Intermediaire : Node2D
         int textEditCount = 0;
         foreach (Node child in _target2.GetChildren())
         {
-            if (child is TextEdit)
+            if (child is RichTextLabel)
             {
                 textEditCount++;
             }
@@ -192,7 +200,7 @@ public partial class Intermediaire : Node2D
     /// </summary>
     public void _on_reset_pressed()
     {
-        foreach (TextEdit textedit in _target2.GetChildren())
+        foreach (RichTextLabel textedit in _target2.GetChildren())
         {
             MoveTextEditToTarget(textedit, _target1);
         }

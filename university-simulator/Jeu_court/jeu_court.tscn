@@ -252,6 +252,14 @@ offset_right = 498.0
 offset_bottom = 509.0
 rotation = -0.0917437
 
+[node name="TextLabelmessage" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 138.0
+offset_top = 374.0
+offset_right = 498.0
+offset_bottom = 509.0
+rotation = -0.0917437
+
 [node name="panel" type="Panel" parent="."]
 visible = false
 offset_left = 397.0
@@ -330,10 +338,3 @@ offset_bottom = 515.0
 rotation = -0.000956774
 texture = ExtResource("10_71yln")
 expand_mode = 1
-
-[node name="temp" type="TextEdit" parent="."]
-offset_left = 891.0
-offset_top = 393.0
-offset_right = 1103.0
-offset_bottom = 507.0
-text = "false"
