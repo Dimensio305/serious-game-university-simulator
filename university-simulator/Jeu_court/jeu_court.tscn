@@ -349,3 +349,10 @@ offset_bottom = 515.0
 rotation = -0.000956774
 texture = ExtResource("10_71yln")
 expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 421.0
+offset_top = 76.0
+offset_right = 746.0
+offset_bottom = 531.0

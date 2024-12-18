@@ -51,30 +51,6 @@ public partial class Tuto : Node2D
 	public override void _Process(double delta)
 	{
 		
-		if (inQuestion)
-		{
-			
-			
-		}
-
-		if (Input.IsActionJustPressed("agenda"))
-		{
-			
-		}
-
-		if (Input.IsActionJustPressed("formation"))
-		{
-			
-		}
-		if (Input.IsActionJustPressed("Etat"))
-		{
-			
-		}
-
-		if (Input.IsActionPressed("fermer"))
-		{
-		
-		}
 	}
 
 	private async void messadedepart(){
@@ -95,7 +71,7 @@ public partial class Tuto : Node2D
 		if (etape1){
 			fonddirective.Visible=false;
 			string message = " Ici vont s'afficher les diffrente question des composante que vous aller rencontrer"; 
-			labeldirective.Text = $"[center][b][color = black]{message}[/color][/b][/center];
+			labeldirective.Text = $"[center][b][color = black]{message}[/color][/b][/center]";
 		}
 	}
 

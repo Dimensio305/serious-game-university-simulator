@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/css" href="style.css"?>
 <doc>
     <assembly>
         <name>university-simulator</name>
@@ -1255,6 +1254,11 @@
         <member name="F:Tuto.MethodName.messadedepart">
             <summary>
             Cached name for the 'messadedepart' method.
+            </summary>
+        </member>
+        <member name="F:Tuto.MethodName.afficherquestion">
+            <summary>
+            Cached name for the 'afficherquestion' method.
             </summary>
         </member>
         <member name="M:Tuto.GetGodotMethodList">
