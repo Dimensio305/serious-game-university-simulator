@@ -139,6 +139,19 @@
             Methode qui crée les tables et les remplits 
             </summary>
         </member>
+        <member name="T:FinduJeu">
+            <summary>
+            Script lié à la scène FinduJeu
+            Elle s'occupe de gérer les différentes fins possibles
+            </summary>
+        </member>
+        <member name="M:FinduJeu._Ready">
+            <summary>
+            Lors du premier chargement de la scène (et le seul) prends la valeur de chaques jauges
+            Si il l'une d'elle est à 0 le joueur a perdu et l'on charge l'écran de game over associé
+            Sinon c'est l'écran de victoire qui est affiché
+            </summary>
+        </member>
         <member name="T:FinduJeu.MethodName">
             <summary>
             Cached StringNames for the methods contained in this class, for fast lookup.
@@ -167,9 +180,9 @@
             Cached StringNames for the properties and fields contained in this class, for fast lookup.
             </summary>
         </member>
-        <member name="F:FinduJeu.PropertyName._textEdit">
+        <member name="F:FinduJeu.PropertyName._endMessage">
             <summary>
-            Cached name for the '_textEdit' field.
+            Cached name for the '_endMessage' field.
             </summary>
         </member>
         <member name="F:FinduJeu.PropertyName._fond">
@@ -547,6 +560,11 @@
         <member name="F:JeuCourt.PropertyName.img">
             <summary>
             Cached name for the 'img' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.messagefin">
+            <summary>
+            Cached name for the 'messagefin' field.
             </summary>
         </member>
         <member name="M:JeuCourt.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
