@@ -16,7 +16,7 @@ public partial class Jauge : TextureRect
 		BoiteBarre = GetNodeOrNull<BoxContainer>("ConteneurJauge");
 		// Récupère la barre de progression dans le conteneur
 		Barre = BoiteBarre.GetNodeOrNull<ProgressBar>("JaugeProg");
-		 UpdateJaugeColor();
+		
 		
 		
 	}
@@ -32,7 +32,7 @@ public partial class Jauge : TextureRect
 	{
 		// Modifie la valeur de la barre de progression
 		Barre.Value = Barre.Value + Changement;
-		 UpdateJaugeColor();
+		
 	}
 
 	public void SetValeur(int val)
@@ -44,22 +44,4 @@ public partial class Jauge : TextureRect
 		return Barre.Value;
 	}
 
-	private void UpdateJaugeColor()
-	{
-
-		// Si la valeur est inférieure à 20 ou supérieure à 80, on la met en rouge
-		if (Barre.Value < 40 || Barre.Value > 60)
-		{
-		   Barre.Modulate = new Color(1, 1, 0);
-		}
-
-		else if (Barre.Value <= 30 || Barre.Value > 80){
-			Barre.Modulate = new Color(1, 0, 0);
-		}
-		else
-		{
-			Barre.Modulate = new Color(0, 1, 0);
-		}
-
-	}
 }

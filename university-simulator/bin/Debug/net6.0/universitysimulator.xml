@@ -175,11 +175,6 @@
             Cached name for the 'GetValeur' method.
             </summary>
         </member>
-        <member name="F:Jauge.MethodName.UpdateJaugeColor">
-            <summary>
-            Cached name for the 'UpdateJaugeColor' method.
-            </summary>
-        </member>
         <member name="M:Jauge.GetGodotMethodList">
             <summary>
             Get the method information for all the methods declared in this class.
@@ -349,6 +344,11 @@
             Cached name for the 'message' method.
             </summary>
         </member>
+        <member name="F:JeuCourt.MethodName._on_button_pressed">
+            <summary>
+            Cached name for the '_on_button_pressed' method.
+            </summary>
+        </member>
         <member name="M:JeuCourt.GetGodotMethodList">
             <summary>
             Get the method information for all the methods declared in this class.
@@ -485,6 +485,11 @@
         <member name="F:JeuCourt.PropertyName.img">
             <summary>
             Cached name for the 'img' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.messagefin">
+            <summary>
+            Cached name for the 'messagefin' field.
             </summary>
         </member>
         <member name="M:JeuCourt.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">

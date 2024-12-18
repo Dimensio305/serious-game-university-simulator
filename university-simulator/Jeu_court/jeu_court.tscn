@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=23 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
 [ext_resource type="Texture2D" uid="uid://w53gy0k3hv5i" path="res://fond_et_titre/fond_bureau2.png" id="2_f3j7f"]
@@ -15,11 +15,17 @@
 [ext_resource type="FontFile" uid="uid://qv104t57hkkn" path="res://police/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" id="9_66sx3"]
 [ext_resource type="Texture2D" uid="uid://fd612r2sdb6y" path="res://asset/acteurs/t3_character1.png" id="10_71yln"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4ovt"]
+bg_color = Color(0.929412, 0, 0.231373, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0f1v"]
-bg_color = Color(0.929412, 0.388235, 0.0392157, 1)
+bg_color = Color(0.929412, 0, 0.231373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4hsc"]
-bg_color = Color(0.878431, 0.443137, 0.0313726, 1)
+bg_color = Color(0.929412, 0, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cw4sq"]
+bg_color = Color(0.929412, 0, 0.231373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5fxm"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -31,6 +37,9 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1eqhm"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kiws8"]
+bg_color = Color(0.988235, 0.12549, 0.92549, 0.913725)
 
 [node name="jeu_court" type="Node2D"]
 script = ExtResource("1_4h6lk")
@@ -79,6 +88,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_v4ovt")
 theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
@@ -198,6 +208,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_cw4sq")
 theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
@@ -352,7 +363,18 @@ expand_mode = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
-offset_left = 421.0
-offset_top = 76.0
-offset_right = 746.0
-offset_bottom = 531.0
+offset_left = 351.0
+offset_top = 30.0
+offset_right = 865.0
+offset_bottom = 595.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kiws8")
+
+[node name="Button" type="Button" parent="RichTextLabel"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 509.0
+offset_right = 513.0
+offset_bottom = 562.0
+text = "Jour suivant"
+
+[connection signal="pressed" from="RichTextLabel/Button" to="." method="_on_button_pressed"]

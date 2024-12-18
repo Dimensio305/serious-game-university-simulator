@@ -114,9 +114,10 @@ public partial class JeuCourt : Node2D
 		messagefin=GetNodeOrNull<RichTextLabel>("RichTextLabel");
 	
 		affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getcomposante()+".png",textureRectpersonnage);
+		JaugeManager.majjour();
+		
  
 
-		
 
 		attente();
 		
@@ -414,7 +415,7 @@ private async Task AfficherMessageIntermediaire()
 		if (heure >= 18 ){
 			await ToSignal(GetTree().CreateTimer(0.5), "timeout");
 			Jour.Instance.Joursuivant();
-			GetTree().ChangeSceneToFile("res://intermediaire/affichage_jour.tscn");
+			affichage.AffichageEtatJour(messagefin);
 		}
 	}
 
@@ -425,7 +426,7 @@ private async Task AfficherMessageIntermediaire()
 	}
 
 	private void message()
-{
+	{
 	if (inQuestion && !textureRectpersonnage.Visible && !TextLabelordi.Visible)
 	{
 		textLabelmessage.Clear();
@@ -448,11 +449,14 @@ private async Task AfficherMessageIntermediaire()
 		textLabelmessage.Clear();
 		textLabelmessage.Visible = false;
 	}
+	}
+
+	private void _on_button_pressed(){
+		GetTree().ChangeSceneToFile("res://intermediaire/affichage_jour.tscn");
+	}
 }
 
 
 
 
-	
 
-}

@@ -147,8 +147,7 @@ public static class affichage
 	/// <param name="jour"> Parametre 5 :Jour actuelle </param>
 	/// <param name="context">Parametre 6 :noed qui qui appel la fonction </param>
 	public static void FinDuJeu(Jauge j1 , Jauge j2 , Jauge j3 , Jauge j4 , int jour ,Node context){
-		if (j1.GetValeur() >=100 || j2.GetValeur() >= 100 || j3.GetValeur() >= 100 || j4.GetValeur() >= 100 
-			||j1.GetValeur() <=0 || j2.GetValeur() <=0 || j3.GetValeur() <=0 || j4.GetValeur() <=0 || jour ==5){
+		if (j1.GetValeur() ==0 || j2.GetValeur() ==0 || j3.GetValeur() ==0 || j4.GetValeur() ==0 || jour ==5){
 			context.GetTree().ChangeSceneToFile("res://Jeu_court/finduJeu.tscn");
 		}
 	}
@@ -312,6 +311,108 @@ public static class affichage
 	richTextLabel.Visible = true;
 }
 
+
+	public static void AffichageEtatJour(RichTextLabel richTextLabel)
+	{
 		
+		// Nettoyer et activer le BBCode
+		richTextLabel.Clear();
+		richTextLabel.BbcodeEnabled = true;
+
+		// Début du message
+		string message = "[center][b][color=orange]Récapitulatif de la journée[/color][/b][/center]\n";
+		message += "[center]=====================[/center]\n\n";
+
+		// Trésorerie
+		int jauge1debut = JaugeManager.GetJaugeValueMatin("Jauge1");
+		int jauge1 = JaugeManager.GetJaugeValue("Jauge1");
+		int difference1 = jauge1 - jauge1debut;
+		string variation1 = difference1 > 0 
+			? $"[color=green]+{difference1}%[/color]" 
+			: $"[color=red]{difference1}%[/color]";
+		message += "[b]Trésorerie :[/b] ";
+		if (jauge1 < 80 && jauge1 > 30)
+		{
+			message += "[color=green]correcte[/color].\n";
+		}
+		else if (jauge1 <= 30)
+		{
+			message += "[color=red]mauvaise[/color]. Bientôt vous ne pourrez plus entretenir vos formations.\n";
+		}
+		else
+		{
+			message += "[color=red]trop bonne[/color]. Vous devriez investir dans vos formations.\n";
+		}
+		message += $"[b]Valeur du matin :[/b] {jauge1debut}%, [b]Actuelle :[/b] {jauge1}%, [b]Variation :[/b] {variation1}\n\n";
+
+		// Satisfaction des professeurs
+		int jauge2debut = JaugeManager.GetJaugeValueMatin("Jauge2");
+		int jauge2 = JaugeManager.GetJaugeValue("Jauge2");
+		int difference2 = jauge2 - jauge2debut;
+		string variation2 = difference2 > 0 
+			? $"[color=green]+{difference2}%[/color]" 
+			: $"[color=red]{difference2}%[/color]";
+		message += "[b]Satisfaction des professeurs :[/b] ";
+		if (jauge2 < 80 && jauge2 > 30)
+		{
+			message += "[color=green]correcte[/color].\n";
+		}
+		else if (jauge2 <= 30)
+		{
+			message += "[color=red]mauvaise[/color]. Bientôt ils décideront de faire grève.\n";
+		}
+		else
+		{
+			message += "[color=red]trop bonne[/color]. Ils seront trop heureux de venir travailler.\n";
+		}
+		message += $"[b]Valeur du matin :[/b] {jauge2debut}%, [b]Actuelle :[/b] {jauge2}%, [b]Variation :[/b] {variation2}\n\n";
+
+		// Taux d'insertion professionnelle
+		int jauge3debut = JaugeManager.GetJaugeValueMatin("Jauge3");
+		int jauge3 = JaugeManager.GetJaugeValue("Jauge3");
+		int difference3 = jauge3 - jauge3debut;
+		string variation3 = difference3 > 0 
+			? $"[color=green]+{difference3}%[/color]" 
+			: $"[color=red]{difference3}%[/color]";
+		message += "[b]Taux d'insertion professionnelle :[/b] ";
+		if (jauge3 < 80 && jauge3 > 30)
+		{
+			message += "[color=green]correcte[/color].\n";
+		}
+		else if (jauge3 <= 30)
+		{
+			message += "[color=red]mauvais[/color]. Ils finiront tous au chômage.\n";
+		}
+		else
+		{
+			message += "[color=red]excellent[/color]. Il n'y aura plus de chômeurs.\n";
+		}
+		message += $"[b]Valeur du matin :[/b] {jauge3debut}%, [b]Actuelle :[/b] {jauge3}%, [b]Variation :[/b] {variation3}\n\n";
+
+		// Taux de réussite
+		int jauge4debut = JaugeManager.GetJaugeValueMatin("Jauge4");
+		int jauge4 = JaugeManager.GetJaugeValue("Jauge4");
+		int difference4 = jauge4 - jauge4debut;
+		string variation4 = difference4 > 0 
+			? $"[color=green]+{difference4}%[/color]" 
+			: $"[color=red]{difference4}%[/color]";
+		message += "[b]Taux de réussite :[/b] ";
+		if (jauge4 < 80 && jauge4 > 30)
+		{
+			message += "[color=green]correcte[/color].\n";
+		}
+		else if (jauge4 <= 30)
+		{
+			message += "[color=red]mauvais[/color]. Ils vont tous redoubler, ce qui coûtera cher.\n";
+		}
+		else
+		{
+			message += "[color=red]trop bon[/color]. Il faudrait quand même des élèves moyens.\n";
+		}
+		message += $"[b]Valeur du matin :[/b] {jauge4debut}%, [b]Actuelle :[/b] {jauge4}%, [b]Variation :[/b] {variation4}\n\n";
+
+		richTextLabel.Text = message; // Attribue le texte formaté
+		richTextLabel.Visible = true;
+	}
 
 }
