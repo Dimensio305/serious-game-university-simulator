@@ -113,7 +113,7 @@ public partial class JeuCourt : Node2D
 
 		messagefin=GetNodeOrNull<RichTextLabel>("RichTextLabel");
 	
-		affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getcomposante()+".png",textureRectpersonnage);
+		affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getComposante()+".png",textureRectpersonnage);
 		JaugeManager.majjour();
 		
  
@@ -185,7 +185,7 @@ public partial class JeuCourt : Node2D
 				textureRectpersonnage.Visible=true;
 				message();
 				await ToSignal(GetTree().CreateTimer(1f), "timeout");
-				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
+				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getComposante()));
 				affichage.EcrireTexte(r1, q.reponse1());
 				affichage.EcrireTexte(r2, q.reponse2());
 				message();
@@ -325,7 +325,7 @@ public partial class JeuCourt : Node2D
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges
 			inQuestion = false;	
 			message();
-			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
+			q.question_suivante(agenda.GetRendezVous()[nbrdv].getComposante()); // Passer à la question suivante
 			suiv();
 			faireavancerletemps();
 			attente();
@@ -337,7 +337,7 @@ public partial class JeuCourt : Node2D
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges
 			inQuestion = false;
 			message();
-			q.question_suivante(agenda.GetRendezVous()[nbrdv].getcomposante()); // Passer à la question suivante
+			q.question_suivante(agenda.GetRendezVous()[nbrdv].getComposante()); // Passer à la question suivante
 			suiv();
 			faireavancerletemps();
 			attente();
@@ -364,7 +364,7 @@ public partial class JeuCourt : Node2D
 			r1.Visible = false;
 			r2.Visible = false;
 			textureRectpersonnage.Visible = false; // Fin de l'animation uniquement ici
-			affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getcomposante()+".png",textureRectpersonnage);
+			affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getComposante()+".png",textureRectpersonnage);
 			await ToSignal(GetTree().CreateTimer(1f), "timeout");
 			CacherTousLesTextEdits();
 		}
@@ -380,7 +380,7 @@ public partial class JeuCourt : Node2D
 private async void AfficherQuestionSuivante()
 {
 	await ToSignal(GetTree().CreateTimer(1f), "timeout"); // Délai avant la prochaine question
-	affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
+	affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getComposante()));
 	affichage.EcrireTexte(r1, q.reponse1());
 	affichage.EcrireTexte(r2, q.reponse2());
 	gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 );
@@ -440,7 +440,7 @@ private async Task AfficherMessageIntermediaire()
 		textLabelmessage.Clear();
 		textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
 		textLabelmessage.Text = "\n\n";
-		textLabelmessage.Text += $"[center][b][color=orange]Vous etes en rendez-vous avec ({agenda.GetRendezVous()[nbrdv].ToString()}) \n Etat de la relation : {affichage.creationlien(agenda.GetRendezVous()[nbrdv].getcomposante())}[/color][/b][/center]";
+		textLabelmessage.Text += $"[center][b][color=orange]Vous etes en rendez-vous avec ({agenda.GetRendezVous()[nbrdv].ToString()}) \n Etat de la relation : {affichage.creationlien(agenda.GetRendezVous()[nbrdv].getComposante())}[/color][/b][/center]";
 
 
 	}

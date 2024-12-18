@@ -7,14 +7,14 @@ using System;
 /// </summary>
 public partial class coce_i_menu : Control
 {
-	// variable qui serve pour changer image music
+	
 	private Button button;
 	private Sprite2D sprite;
 	bool etat_son = true;
 	
 
 	/// <summary>
-	/// 
+	/// Methode Ready : Appelée une fois la scene chargée
 	/// </summary>
 	public override void _Ready()
 	{
@@ -26,21 +26,21 @@ public partial class coce_i_menu : Control
 	
 	
 	/// <summary>
-	/// Change la scene pour la version courte du jeu
+	///	Methode _on_b_court_pressed : Change la scene pour la version courte du jeu
 	/// </summary>
 	public void _on_b_court_pressed(){
 		
 		GetTree().ChangeSceneToFile("res://scenes/tuto.tscn");
 	}
 	/// <summary>
-	/// Change la scene pour la version longue du jeu
+	///_on_b_long_pressed: Change la scene pour la version longue du jeu
 	/// </summary>
 	public void _on_b_long_pressed(){
 		GetTree().ChangeSceneToFile("res://intermediaire/affichage_jour.tscn");
 	}
 	
 	/// <summary>
-	/// Bouton permettant de quitter le jeu 
+	///Methode _on_b_quittez_pressed Bouton permettant de quitter le jeu 
 	/// </summary>
 	public void _on_b_quittez_pressed(){
 		GestionDb.Instance.Supprimer();
@@ -49,7 +49,7 @@ public partial class coce_i_menu : Control
 	
 	
 		/// <summary>
-		/// cette fonction coupe/active le son du jeu.
+		/// Methode _on_b_son_pressed :cette fonction coupe/active le son du jeu.
 		/// En fonction de l'etat du son image change.
 		/// </summary>
 	public void _on_b_son_pressed()

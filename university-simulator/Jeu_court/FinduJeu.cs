@@ -19,7 +19,7 @@ public partial class FinduJeu : Node2D
 		};
 	
 	/// <summary>
-	/// Lors du premier chargement de la scène (et le seul) prends la valeur de chaques jauges
+	/// Methode Ready :Lors du premier chargement de la scène  prends la valeur de chaques jauges
 	/// Si il l'une d'elle est à 0 le joueur a perdu et l'on charge l'écran de game over associé
 	/// Sinon c'est l'écran de victoire qui est affiché
 	/// </summary>

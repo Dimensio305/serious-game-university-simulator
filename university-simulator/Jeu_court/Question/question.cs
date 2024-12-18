@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Godot;
 
 /// <summary>
-/// Représente un ensemble de questions associées à différentes composantes.
+/// Classe question représente un ensemble de questions associées à différentes composantes.
 /// Permet de récupérer les questions et leurs réponses associées à chaque composante.
 /// </summary>
 public class Question
@@ -18,7 +18,7 @@ public class Question
 	private int nbquestion = 0;
 
 	/// <summary>
-	/// Initialise une nouvelle instance de la classe <see cref="Question"/> avec les questions associées aux composantes.
+	///Constructeur de Question :  Initialise une nouvelle instance de la classe avec les questions associées aux composantes.
 	/// </summary>
 	public Question()
 	{
@@ -37,10 +37,10 @@ public class Question
 	}
 
 	/// <summary>
-	/// Récupère la question associée à une composante spécifique.
+	/// Methode getquestion :Récupère la question associée à une composante spécifique.
 	/// </summary>
-	/// <param name="composante">L'identifiant de la composante pour laquelle on veut obtenir la question.</param>
-	/// <returns>La question sous forme de chaîne de caractères.</returns>
+	/// <param name="composante">Parametre 1 : L'identifiant de la composante pour laquelle on veut obtenir la question.</param>
+	/// <returns>Retourne : La question sous forme de chaîne de caractères.</returns>
 	public string getquestion(int composante)
 	{
 		string requete = GestionDb.Instance.ExecuteRequete("select question from question where id =" + question[composante].ToString() + " and idcat = " + composante.ToString() + ";");
@@ -49,70 +49,74 @@ public class Question
 	}
 
 	/// <summary>
-	/// Obtient le nombre de questions.
+	/// LMethode getnbquestion :Obtient le nombre de questions.
 	/// </summary>
-	/// <returns>Le nombre de questions.</returns>
+	/// <returns>Retourne : Le nombre de questions.</returns>
 	public int getnbquestion()
 	{
 		return nbquestion;
 	}
 
 	/// <summary>
-	/// Passe à la question suivante pour une composante spécifique.
+	/// Methode question_suivante : Passe à la question suivante pour une composante spécifique.
 	/// </summary>
-	/// <param name="composante">L'identifiant de la composante pour laquelle on veut passer à la question suivante.</param>
+	/// <param name="composante">Parametre 1 :L'identifiant de la composante pour laquelle on veut passer à la question suivante.</param>
 	public void question_suivante(int composante)
 	{
 		question[composante] += 1;
 	}
 
 	/// <summary>
-	/// Récupère l'identifiant de la question actuelle.
+	/// Methode getnumquestion : Récupère l'identifiant de la question actuelle.
 	/// </summary>
-	/// <returns>L'identifiant de la question courante.</returns>
+	/// <returns>Retourne : L'identifiant de la question courante.</returns>
 	public int getnumquestion()
 	{
 		return idquestion;
 	}
 
 	/// <summary>
-	/// Récupère la valeur associée à la première réponse pour la question courante et un paramètre donné.
+	///	Methode  getvaleur1 : Récupère la valeur associée à la première réponse pour la question courante et une jauge.
 	/// </summary>
-	/// <param name="j">Le nom de la colonne à récupérer de la table <c>Reponse</c>.</param>
-	/// <returns>La valeur associée à la première réponse.</returns>
+	/// <param name="j">Parametre 1 : Le nom de la colonne à récupérer de la table <c>Reponse</c>.</param>
+	/// <returns>Retourne : La valeur associée à la première réponse.</returns>
 	public int getvaleur1(string j)
 	{
 		return Int32.Parse(GestionDb.Instance.ExecuteRequete("select " + j + " from Reponse where idquestion =" + idquestion.ToString() + " and idreponse=1;"));
 	}
 
 	/// <summary>
-	/// Récupère la valeur associée à la deuxième réponse pour la question courante et un paramètre donné.
+	/// Methode  getvaleur2 :Récupère la valeur associée à la deuxième réponse pour la question courante et une jauge.
 	/// </summary>
-	/// <param name="j">Le nom de la colonne à récupérer de la table <c>Reponse</c>.</param>
-	/// <returns>La valeur associée à la deuxième réponse.</returns>
+	/// <param name="j">Parametre 1 : Le nom de la colonne à récupérer de la table <c>Reponse</c>.</param>
+	/// <returns>Retourne : La valeur associée à la deuxième réponse.</returns>
 	public int getvaleur2(string j)
 	{
 		return Int32.Parse(GestionDb.Instance.ExecuteRequete("select " + j + " from Reponse where idquestion =" + idquestion.ToString() + " and idreponse=2;"));
 	}
 
 	/// <summary>
-	/// Récupère la première réponse associée à la question courante.
+	/// Methode reponse1 :Récupère la première réponse associée à la question courante.
 	/// </summary>
-	/// <returns>La première réponse sous forme de chaîne de caractères.</returns>
+	/// <returns>Retourne :La première réponse sous forme de chaîne de caractères.</returns>
 	public string reponse1()
 	{
 		return GestionDb.Instance.ExecuteRequete("select reponse from Reponse where idquestion =" + idquestion.ToString() + " and idreponse = 1 ;");
 	}
 
 	/// <summary>
-	/// Récupère la deuxième réponse associée à la question courante.
+	/// Mehode reponse2: Récupère la deuxième réponse associée à la question courante.
 	/// </summary>
-	/// <returns>La deuxième réponse sous forme de chaîne de caractères.</returns>
+	/// <returns>Retourne :La deuxième réponse sous forme de chaîne de caractères.</returns>
 	public string reponse2()
 	{
 		return GestionDb.Instance.ExecuteRequete("select reponse from Reponse where idquestion =" + idquestion.ToString() + " and idreponse = 2 ;");
 	}
 
+	/// <summary>
+	/// Methode GetRandomPhrase : renvoie une chaine de caractere pour les message intermediaire.
+	/// </summary>
+	/// <returns>Retourne : une chaine de caractere avec un message </returns>
 	public string GetRandomPhrase()
 	{
 		string[] phrases = new string[]
@@ -139,6 +143,10 @@ public class Question
 		return phrases[index];
 	}
 
+	/// <summary>
+	/// Methode GetRandomEndPhrase : renvoie une chaine de caractere pour les message de fin de Rendezvous.
+	/// </summary>
+	/// <returns>Retourne : une chaine de caractere avec un message </returns>
 	public string GetRandomEndPhrase()
 	{
 		string[] endPhrases = new string[]

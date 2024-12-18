@@ -6,7 +6,7 @@ using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
 
 /// <summary>
-/// Classe représentant un intermédiaire pour gérer les rendez-vous.
+/// Classe intermedaire : représentant un intermédiaire pour gérer les rendez-vous.
 /// Elle permet de déplacer des rendez-vous entre deux cibles et de vérifier si l'utilisateur a bien pris ses rendez-vous.
 /// </summary>
 public partial class Intermediaire : Node2D
@@ -24,7 +24,7 @@ public partial class Intermediaire : Node2D
 	private List<Rendezvous> vide = new List<Rendezvous>();
 		
 	/// <summary>
-	/// Méthode appelée lors de l'initialisation du nœud. 
+	/// Méthode ready : appelée lors de l'initialisation du nœud. 
 	/// Elle configure les cibles et les messages et génère les rendez-vous aléatoires.
 	/// </summary>
 	public override void _Ready()
@@ -63,7 +63,7 @@ public partial class Intermediaire : Node2D
 
 				// Exemple de rendez-vous
 				string rdv = rdvdebut[i].ToString();
-				string lien = affichage.creationlien(rdvdebut[i].getcomposante());
+				string lien = affichage.creationlien(rdvdebut[i].getComposante());
 
 				// Ajouter des bordures et des styles
 				textEdit.Text = $"[color=black][b]{rdv}[/b][/color]\n";
@@ -75,7 +75,7 @@ public partial class Intermediaire : Node2D
 	}
 
 	/// <summary>
-	/// Récupère la liste des rendez-vous finalisés.
+	/// Methode statique GetRdvFin : Récupère la liste des rendez-vous finalisés.
 	/// </summary>
 	/// <returns>Liste des rendez-vous finalisés.</returns>
 	public static List<Rendezvous> GetRdvFin()
@@ -84,9 +84,9 @@ public partial class Intermediaire : Node2D
 	}
 
 	/// <summary>
-	/// Connecte l'événement d'input GUI aux enfants de la cible donnée.
+	/// Methode ConnectGuiInputToChildren : Connecte l'événement d'input GUI aux enfants de la cible donnée.
 	/// </summary>
-	/// <param name="target">La cible à laquelle connecter les événements d'input.</param>
+	/// <param name="target">Retourne : La cible à laquelle connecter les événements d'input.</param>
 	private void ConnectGuiInputToChildren(TextureRect target)
 	{
 		foreach (Node child in target.GetChildren())
@@ -99,10 +99,10 @@ public partial class Intermediaire : Node2D
 	}
 
 	/// <summary>
-	/// Gère l'événement d'input GUI pour déplacer un TextEdit entre les cibles.
+	/// Methode OnGuiInput: Gère l'événement d'input GUI pour déplacer un TextEdit entre les cibles.
 	/// </summary>
-	/// <param name="inputEvent">L'événement d'input reçu.</param>
-	/// <param name="clickedTextEdit">Le TextEdit cliqué.</param>
+	/// <param name="inputEvent">Parametre 1:L'événement d'input reçu.</param>
+	/// <param name="clickedTextEdit">Parametre 2: Le TextEdit cliqué.</param>
 	private void OnGuiInput(InputEvent inputEvent, RichTextLabel clickedTextEdit)
 	{
 		
@@ -129,10 +129,10 @@ public partial class Intermediaire : Node2D
 	}
 
 	/// <summary>
-	/// Déplace un TextEdit d'une cible à l'autre et réorganise les enfants dans la colonne.
+	/// Methode MoveTextEditToTarget : Déplace un TextEdit d'une cible à l'autre et réorganise les enfants dans la colonne.
 	/// </summary>
-	/// <param name="textEdit">Le TextEdit à déplacer.</param>
-	/// <param name="target">La cible où déplacer le TextEdit.</param>
+	/// <param name="textEdit">Parametre 1 : Le TextEdit à déplacer.</param>
+	/// <param name="target">Parametre 2 : La cible où déplacer le TextEdit.</param>
 	private void MoveTextEditToTarget(RichTextLabel textEdit, TextureRect target)
 	{
 		List<Rendezvous> sourceList = textEdit.GetParent() == _target1 ? rdvdebut : rdvfin;
@@ -142,7 +142,7 @@ public partial class Intermediaire : Node2D
 		// Vérifie si l'ID du rendez-vous peut être extrait et récupère le rendez-vous correspondant
 		if (int.TryParse(textEdit.Name, out id))
 		{
-			Rendezvous rendezvous = sourceList.Find(rdv => rdv.getid() == id);
+			Rendezvous rendezvous = sourceList.Find(rdv => rdv.getId() == id);
 			if (rendezvous != null)
 			{
 				// Déplace le rendez-vous dans la liste cible
@@ -158,9 +158,9 @@ public partial class Intermediaire : Node2D
 	}
 
 	/// <summary>
-	/// Réorganise les enfants d'une cible en colonne pour un affichage ordonné.
+	/// Methode ReorganizeChildrenInColumn :Réorganise les enfants d'une cible en colonne pour un affichage ordonné.
 	/// </summary>
-	/// <param name="target">La cible à réorganiser.</param>
+	/// <param name="target">Parametre 1 : La cible à réorganiser.</param>
 	private void ReorganizeChildrenInColumn(TextureRect target)
 	{
 		float yOffset = 10;
@@ -178,7 +178,7 @@ public partial class Intermediaire : Node2D
 	}
 
 	/// <summary>
-	/// Gère l'action lorsque le bouton "Valider" est pressé. Vérifie si 4 rendez-vous ont été choisis.
+	/// Methode  _on_valider_pressed: ère l'action lorsque le bouton "Valider" est pressé. Vérifie si 4 rendez-vous ont été choisis.
 	/// </summary>
 	public async void _on_valider_pressed()
 	{
@@ -211,7 +211,7 @@ public partial class Intermediaire : Node2D
 	}
 
 	/// <summary>
-	/// Réinitialise l'état en déplaçant tous les TextEdit de la cible 2 vers la cible 1.
+	/// Methode _on_reset_pressed :Réinitialise l'état en déplaçant tous les TextEdit de la cible 2 vers la cible 1.
 	/// </summary>
 	public void _on_reset_pressed()
 	{

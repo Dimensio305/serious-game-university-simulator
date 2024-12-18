@@ -3,7 +3,7 @@ using Godot;
 using System.Collections.Generic;
 
 /// <summary>
-/// Classe représentant un agenda contenant une liste de rendez-vous.
+/// Classe Agenda: représentant un agenda contenant une liste de rendez-vous.
 /// </summary>
 public class Agenda
 {
@@ -22,8 +22,8 @@ public class Agenda
 	}
 
 	/// <summary>
-	/// Retourne la liste des rendez-vous de l'agenda.
+	/// Methode GetRendezVous : Retourne la liste des rendez-vous de l'agenda.
 	/// </summary>
-	/// <returns>Liste des Rendezvous présents dans l'agenda.</returns>
+	/// <returns>Retourne : Liste des Rendezvous présents dans l'agenda.</returns>
 	public List<Rendezvous> GetRendezVous() => rendezVousList;
 }

@@ -23,40 +23,6 @@ body {
     background-color: #e8f5e9; /* Fond clair pour chaque membre */
   }
   
-  /* Sélectionner chaque membre en fonction de son nom (classe, méthode, etc.) */
-  
-  /* Pour les classes (T:) */
-  member[name^="T:"] {
-    font-size: 20px;
-    font-weight: bold;
-    color: #0073e6;
-    border-bottom: 2px solid #0073e6;
-    margin-top: 25px; /* Marge avant chaque classe */
-  }
-  
-  /* Pour les méthodes (M:) */
-  member[name^="M:"] {
-    font-size: 18px;
-    font-weight: bold;
-    color: #009688;
-    margin-top: 10px;
-  }
-  
-  /* Pour les champs (F:) */
-  member[name^="F:"] {
-    font-size: 18px;
-    font-weight: bold;
-    color: #8e44ad;
-    margin-top: 10px;
-  }
-  
-  /* Pour les paramètres (P:) */
-  member[name^="P:"] {
-    font-size: 18px;
-    font-weight: bold;
-    color: #e74c3c;
-    margin-top: 10px;
-  }
   
   /* Style des résumés des classes, méthodes et champs */
   summary {
@@ -75,13 +41,6 @@ body {
     margin-left: 30px; /* Indentation pour les paramètres */
     display: block;
     margin-top: 5px;
-  }
-  
-  /* Appliquer une indentation pour les noms des paramètres pour qu'ils soient bien visibles */
-  param[name] {
-    font-style: italic;
-    color: #888;
-    margin-top: 3px;
   }
   
   /* Séparer chaque membre (classe, méthode, champ) avec un espacement suffisant */

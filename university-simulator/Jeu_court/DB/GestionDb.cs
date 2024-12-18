@@ -7,8 +7,7 @@ using System.IO;
 
 
 /// <summary>
-///  Cette class est utiliser pour cree une base de donnée , ajouter/ accéder/ supprimer le contenue de la base 
-///  de donnée 
+///  Classe GestionDb : utiliser pour cree une base de donnée , ajouter, accéder, supprimer le contenue de la base de donnée 
 /// </summary>
 public class GestionDb
 {
@@ -20,7 +19,7 @@ public class GestionDb
 
 
 	/// <summary>
-	/// Constructeur  privé pour empêcher la création d'instances directes
+	/// Constructeur privé GestionDb : pour empêcher la création d'instances directes
 	/// </summary>
 	private GestionDb()
 	{
@@ -28,7 +27,7 @@ public class GestionDb
 	}
 
 	/// <summary>
-	/// Methode statique pour obteneir l'instance unique
+	/// Methode statique Instance : pour obteneir l'instance unique
 	/// </summary>
 	public static GestionDb Instance
 	{
@@ -43,7 +42,7 @@ public class GestionDb
 	}
 
 	/// <summary>
-	/// Methode pour ouvrir la connection a la base de données
+	/// Methode Connect : Pour ouvrir la connection a la base de données
 	/// </summary>
 	private void Connect()
 	{
@@ -71,7 +70,7 @@ public class GestionDb
 
 
 	/// <summary>
-	/// Methode pour supprimer et vider les tables
+	/// Methode Supprimer : pour supprimer et vider les tables
 	/// </summary>
 	public void Supprimer()
 	{
@@ -104,10 +103,10 @@ public class GestionDb
 	
 
 	/// <summary>
-	/// Méthode pour exécuter une requête et retourner le résultat
+	/// Méthode ExecuteRequete : pour exécuter une requête dans la base de donée et retourner le résultat
 	/// </summary>
-	/// <param name="query"></param>
-	/// <returns> le resultat de la requete sous forme de string</returns>
+	/// <param name="query">Parametre 1 : Requête SQL à exécuter</param>
+	/// <returns>Retourne : le resultat de la requete sous forme de string</returns>
 	public string ExecuteRequete(string query)
 	{
 		if (_connection == null || _connection.State != System.Data.ConnectionState.Open)
@@ -157,7 +156,7 @@ public class GestionDb
 	} 
 
 	/// <summary>
-	/// Methode qui crée les tables et les remplits 
+	/// Methode Contenue : crée les tables et les remplits 
 	/// </summary>
 	public void Contenue()
 	{

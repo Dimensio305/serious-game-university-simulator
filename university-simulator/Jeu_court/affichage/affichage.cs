@@ -10,10 +10,10 @@ using System.Net.Http;
 public static class affichage
 {
 	/// <summary>
-	/// Methode EcrireTexte : statique elle permet d'écrire dans un texteedit et de la rendre visible en meme tempd
-	/// </summary>
-	/// <param name="textEdit"> parametre 1 :La textedit visé</param>
-	/// <param name="texte"> Prametre 2 : Le message a ecrire</param>
+    /// Méthode EcrireTexte : permet d'écrire un texte dans un TextEdit et de le rendre visible.
+    /// </summary>
+    /// <param name="textEdit">Paramètre 1 : Le TextEdit ciblé</param>
+    /// <param name="texte">Paramètre 2 : Le message à écrire</param>
 	public static void EcrireTexte(TextEdit textEdit, string texte)
 	{
 
@@ -137,20 +137,26 @@ public static class affichage
 	}
 
 	/// <summary>
-	/// Methode FinDuJeu : statique elle permet de changer vers la scene fin
-	/// quand une condition de fin de jeu est atteinte
+	/// Méthode FinDuJeu : Méthode statique qui permet de passer à la scène de fin
+	/// lorsqu'une condition de fin de jeu est atteinte.
 	/// </summary>
-	/// <param name="j1"> Parametre 1 : Jauge1 </param>
-	/// <param name="j2">Parametre 2 : Jauge2 </param>
-	/// <param name="j3">Parametre 3 :Jauge3 </param>
-	/// <param name="j4">Parametre 4 : Jauge4 </param>
-	/// <param name="jour"> Parametre 5 :Jour actuelle </param>
-	/// <param name="context">Parametre 6 :noed qui qui appel la fonction </param>
+	/// <param name="j1">Paramètre 1 : Première jauge à surveiller.</param>
+	/// <param name="j2">Paramètre 2 : Deuxième jauge à surveiller.</param>
+	/// <param name="j3">Paramètre 3 : Troisième jauge à surveiller.</param>
+	/// <param name="j4">Paramètre 4 : Quatrième jauge à surveiller.</param>
+	/// <param name="jour">Paramètre 5 : Numéro du jour actuel. Le jeu se termine au jour 5.</param>
+	/// <param name="context">Paramètre 6 : Nœud appelant la fonction, utilisé pour changer la scène.</param>
 	public static void FinDuJeu(Jauge j1 , Jauge j2 , Jauge j3 , Jauge j4 , int jour ,Node context){
 		if (j1.GetValeur() ==0 || j2.GetValeur() ==0 || j3.GetValeur() ==0 || j4.GetValeur() ==0 || jour ==5){
 			context.GetTree().ChangeSceneToFile("res://Jeu_court/finduJeu.tscn");
 		}
 	}
+
+	/// <summary>
+    /// Méthode statique ChangeImage : change l'image affichée dans un TextureRect.
+    /// </summary>
+    /// <param name="imagePath">Paramètre 1 : Le chemin de l'image à charger</param>
+    /// <param name="textureRect">Paramètre 2 : Le TextureRect dans lequel afficher l'image</param>
 
 	public static void ChangeImage(string imagePath , TextureRect textureRect)
 	{
@@ -169,6 +175,12 @@ public static class affichage
 		}
 	}
 
+	/// <summary>
+    /// Méthode creationlien : calcule une moyenne basée sur les valeurs des jauges 
+    /// et retourne un message en fonction de la valeur calculée.
+    /// </summary>
+    /// <param name="composante">Paramètre 1 : L'identifiant de la composante à traiter</param>
+    /// <returns> Retourne : Un message décrivant l'état de la relation basé sur la valeur calculée</returns>
 	public static string creationlien(int composante ){
 		int val=0;
 		string message ; 
@@ -235,8 +247,13 @@ public static class affichage
 
 	}
 
+	/// <summary>
+	/// Méthode AffichageEtat : Affiche les états des jauges sous forme de texte formaté
+	/// dans un label, avec un message adapté à la valeur de chaque jauge.
+	/// </summary>
+	/// <param name="richTextLabel">Paramètre 1 : Le label sur lequel le texte formaté sera affiché.</param>
 	public static void AffichageEtat(RichTextLabel richTextLabel)
-{
+	{
 	richTextLabel.Text=""; // Nettoie le contenu actuel
 	richTextLabel.BbcodeEnabled = true; // Active le mode BBCode
 
@@ -311,7 +328,11 @@ public static class affichage
 	richTextLabel.Visible = true;
 }
 
-
+	/// <summary>
+	/// Méthode AffichageEtatJour : Affiche un récapitulatif détaillé des jauges pour la journée,
+	/// avec les valeurs du matin, les valeurs actuelles, et les variations entre les deux.
+	/// </summary>
+	/// <param name="richTextLabel">Paramètre 1 : Le label sur lequel le texte formaté sera affiché.</param>
 	public static void AffichageEtatJour(RichTextLabel richTextLabel)
 	{
 		

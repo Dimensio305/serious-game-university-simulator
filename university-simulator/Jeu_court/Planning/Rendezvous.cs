@@ -8,52 +8,38 @@ using Godot;
 public class Rendezvous
 {
 	/// <summary>
-	/// Obtient ou définit la date et l'heure de début du rendez-vous.
+	///Attribut Date:  Obtient ou définit la date et l'heure de début du rendez-vous.
 	/// </summary>
 	public DateTime Date { get; set; }
 
 	/// <summary>
-	/// Obtient ou définit la durée du rendez-vous.
-		/// </summary>
+	/// Attribut Duree :Obtient ou définit la durée du rendez-vous.
+	/// </summary>
 		public TimeSpan Duree { get; set; }
 
 		/// <summary>
-		/// Obtient ou définit la description du rendez-vous.
+		///Attribut Description : Obtient ou définit la description du rendez-vous.
 		/// </summary>
 		public string Description { get; set; }
 
 		/// <summary>
-		/// Identifiant unique du rendez-vous.
+		///Attribut id : Identifiant unique du rendez-vous.
 		/// </summary>
 		public int id;
 
 		/// <summary>
-		/// Identifiant de la composante associée au rendez-vous.
+		///Attribut composante : Identifiant de la composante associée au rendez-vous.
 		/// </summary>
 		public int composante; 
 
+		
 		/// <summary>
-		/// Initialise une nouvelle instance de la classe <see cref="Rendezvous"/> avec la date, la durée, la description, et l'identifiant spécifiés.
-		/// </summary>
-		/// <param name="date">La date et heure de début du rendez-vous.</param>
-		/// <param name="duree">La durée du rendez-vous.</param>
-		/// <param name="description">La description du rendez-vous.</param>
-		/// <param name="id">L'identifiant unique du rendez-vous.</param>
-		public Rendezvous(DateTime date, TimeSpan duree, string description , int id)
-		{
-			this.id = id;
-			Date = date;
-			Duree = duree;
-			Description = description;
-		}
-
-		/// <summary>
-		/// Initialise une nouvelle instance de la classe <see cref="Rendezvous"/> avec la date et description spécifiées.
+		///Constructeur de RendezVous : Initialise une nouvelle instance de la classe <see cref="Rendezvous"/> avec la date et description spécifiées.
 		/// La durée est fixée à 1 heure et 59 minutes.
 		/// </summary>
-		/// <param name="date">La date et heure de début du rendez-vous.</param>
-		/// <param name="description">La description du rendez-vous.</param>
-		/// <param name="id">L'identifiant unique du rendez-vous.</param>
+		/// <param name="date">Parametre 1 : La date et heure de début du rendez-vous.</param>
+		/// <param name="description">Parametre 2 :La description du rendez-vous.</param>
+		/// <param name="id">Parametre 3 :L'identifiant unique du rendez-vous.</param>
 		public Rendezvous(DateTime date, string description, int id)
 		{
 			this.id = id;
@@ -104,37 +90,37 @@ public class Rendezvous
 		}
 
 		/// <summary>
-		/// Obtient l'identifiant unique du rendez-vous.
+		/// Methode getid :Obtient l'identifiant unique du rendez-vous.
 		/// </summary>
 		/// <returns>L'identifiant unique du rendez-vous.</returns>
-		public int getid()
+		public int getId()
 		{
 			return this.id;
 		}
 
 		/// <summary>
-		/// Calcule l'heure de fin du rendez-vous en fonction de sa durée.
+		/// Methode HeureFin : Calcule l'heure de fin du rendez-vous en fonction de sa durée.
 		/// </summary>
-		/// <returns>Un <see cref="DateTime"/> représentant l'heure de fin du rendez-vous.</returns>
+		/// <returns>Return :  l'heure de fin du rendez-vous.</returns>
 		public DateTime HeureFin()
 		{
 			return Date.Add(Duree);
 		}
 
 		/// <summary>
-		/// Retourne une chaîne de caractères représentant le rendez-vous avec son horaire et sa description.
+		///Methode ToString : Retourne une chaîne de caractères représentant le rendez-vous avec son horaire et sa description.
 		/// </summary>
-		/// <returns>Une chaîne de la description du rendez-vous.</returns>
+		/// <returns>Retourne : Une chaîne de la description du rendez-vous.</returns>
 		public override string ToString()
 		{
 			return this.Description;
 		}
 
 		/// <summary>
-		/// Génère un rendez-vous aléatoire pour un jour de la semaine spécifié.
+		///Methode statique GenererRendezVousAleatoire : Génère un rendez-vous aléatoire pour un jour de la semaine spécifié.
 		/// </summary>
-		/// <param name="id">L'identifiant unique du rendez-vous.</param>
-		/// <returns>Un objet <see cref="Rendezvous"/> aléatoire pour le jour spécifié.</returns>
+		/// <param name="id">Parametre 1 : L'identifiant unique du rendez-vous.</param>
+		/// <returns>Retourne : Un objet RendezVous aléatoire pour le jour spécifié.</returns>
 		public static Rendezvous GenererRendezVousAleatoire(int id)
 		{
 			Random rand = new Random();
@@ -163,10 +149,10 @@ public class Rendezvous
 		}
 
 		/// <summary>
-		/// Obtient l'identifiant de la composante associée au rendez-vous.
+		///Methode getComposante : Obtient l'identifiant de la composante associée au rendez-vous.
 		/// </summary>
-		/// <returns>L'identifiant de la composante.</returns>
-		public int getcomposante()
+		/// <returns>retourne :L'identifiant de la composante.</returns>
+		public int getComposante()
 		{
 			return this.composante;
 		}

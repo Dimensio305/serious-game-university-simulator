@@ -12,12 +12,12 @@ public class Jour
 	private static Jour _instance;
 
 	/// <summary>
-	/// Numéro du jour, initialisé à 0 (Lundi).
+	///Attribut nb: Numéro du jour, initialisé à 0 (Lundi).
 	/// </summary>
 	private int nb = 0;
 
 	/// <summary>
-	/// Nom du jour correspondant, initialisé à "Lundi".
+	///Attribut nom : Nom du jour correspondant, initialisé à "Lundi".
 	/// </summary>
 	private string nom = "Lundi";
 
@@ -43,9 +43,9 @@ public class Jour
 	}
 
 	/// <summary>
-	/// Définit le jour actuel en fonction de son numéro et met à jour le nom du jour.
+	/// Methode setJour :Définit le jour actuel en fonction de son numéro et met à jour le nom du jour.
 	/// </summary>
-	/// <param name="j">Numéro du jour (0 pour Lundi, 1 pour Mardi, etc.).</param>
+	/// <param name="j">Prametre 1 : Numéro du jour (0 pour Lundi, 1 pour Mardi, etc.).</param>
 	private void setjour(int j)
 	{
 		this.nb = j;
@@ -77,7 +77,7 @@ public class Jour
 	}
 
 	/// <summary>
-	/// Passe au jour suivant. Si le jour actuel est Vendredi (5), retourne à Lundi (0).
+	///Methode Joursuivant: Passe au jour suivant. Si le jour actuel est Vendredi (5), retourne à Lundi (0).
 	/// </summary>
 	public void Joursuivant()
 	{
@@ -92,18 +92,18 @@ public class Jour
 	}
 
 	/// <summary>
-	/// Retourne le numéro du jour actuel.
+	/// Methode GetJour : Retourne le numéro du jour actuel.
 	/// </summary>
-	/// <returns>Numéro du jour actuel.</returns>
+	/// <returns>Retourne : Numéro du jour actuel.</returns>
 	public int GetJour()
 	{
 		return this.nb;
 	}
 
 	/// <summary>
-	/// Retourne le nom du jour actuel.
+	///Methode GetNom : Retourne le nom du jour actuel.
 	/// </summary>
-	/// <returns>Nom du jour actuel.</returns>
+	/// <returns>Retourne :Nom du jour actuel.</returns>
 	public string GetNom()
 	{
 		return this.nom;
