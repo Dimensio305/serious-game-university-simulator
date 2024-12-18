@@ -114,7 +114,7 @@ public partial class JeuCourt : Node2D
 
 		
 
-        attente();
+		attente();
 		
 
 	}
@@ -343,53 +343,53 @@ public partial class JeuCourt : Node2D
 
 	private async void suiv()
 {
-    if (nbquestion == 2) // Fin des questions du rendez-vous
-    {
-        nbquestion = 0;
-        if (nbrdv == 3) // Tous les rendez-vous terminés
-        {
-            nbrdv = 0;
-        }
-        else
-        {
-            nbrdv++;
+	if (nbquestion == 2) // Fin des questions du rendez-vous
+	{
+		nbquestion = 0;
+		if (nbrdv == 3) // Tous les rendez-vous terminés
+		{
+			nbrdv = 0;
+		}
+		else
+		{
+			nbrdv++;
 
-            await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
-            affichage.EcrireTexte(_textEdit, q.GetRandomEndPhrase());
-            r1.Visible = false;
-            r2.Visible = false;
-            textureRectpersonnage.Visible = false; // Fin de l'animation uniquement ici
+			await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
+			affichage.EcrireTexte(_textEdit, q.GetRandomEndPhrase());
+			r1.Visible = false;
+			r2.Visible = false;
+			textureRectpersonnage.Visible = false; // Fin de l'animation uniquement ici
 			affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getcomposante()+".png",textureRectpersonnage);
-            await ToSignal(GetTree().CreateTimer(1f), "timeout");
-            CacherTousLesTextEdits();
-        }
-    }
-    else
-    {
-        nbquestion++;
-        await AfficherMessageIntermediaire(); // Affiche le message intermédiaire
-        AfficherQuestionSuivante();
-    }
+			await ToSignal(GetTree().CreateTimer(1f), "timeout");
+			CacherTousLesTextEdits();
+		}
+	}
+	else
+	{
+		nbquestion++;
+		await AfficherMessageIntermediaire(); // Affiche le message intermédiaire
+		AfficherQuestionSuivante();
+	}
 }
 
 private async void AfficherQuestionSuivante()
 {
-    await ToSignal(GetTree().CreateTimer(1f), "timeout"); // Délai avant la prochaine question
-    affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
+	await ToSignal(GetTree().CreateTimer(1f), "timeout"); // Délai avant la prochaine question
+	affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
 	affichage.EcrireTexte(r1, q.reponse1());
 	affichage.EcrireTexte(r2, q.reponse2());
 	gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 );
-    r1.Visible = true;
-    r2.Visible = true;
+	r1.Visible = true;
+	r2.Visible = true;
 	message();
 }
 
 private async Task AfficherMessageIntermediaire()
 {
-    affichage.EcrireTexte(_textEdit, q.GetRandomPhrase());
-    r1.Visible = false;
-    r2.Visible = false;
-    await ToSignal(GetTree().CreateTimer(1.5f), "timeout"); // Pause avant la question suivante
+	affichage.EcrireTexte(_textEdit, q.GetRandomPhrase());
+	r1.Visible = false;
+	r2.Visible = false;
+	await ToSignal(GetTree().CreateTimer(1.5f), "timeout"); // Pause avant la question suivante
 }
 
 
@@ -403,7 +403,7 @@ private async Task AfficherMessageIntermediaire()
 
 		if (heure == 12){
 			await ToSignal(GetTree().CreateTimer(1), "timeout"); // Pause d'une seconde
-        heure = 14;
+		heure = 14;
 		affichage.EcrireTexte(horloge , "   "+heure.ToString("D2")+":"+minute.ToString("D2"));
 		}
 
@@ -422,28 +422,28 @@ private async Task AfficherMessageIntermediaire()
 
 	private void message()
 {
-    if (inQuestion && !textureRectpersonnage.Visible && !TextLabelordi.Visible)
-    {
-        textLabelmessage.Clear();
-        textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
+	if (inQuestion && !textureRectpersonnage.Visible && !TextLabelordi.Visible)
+	{
+		textLabelmessage.Clear();
+		textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
 		textLabelmessage.Text = "\n\n";
-        textLabelmessage.Text += $"[center][b][color=orange]Un rendez-vous vous attend avec ({agenda.GetRendezVous()[nbrdv].ToString()})[/color][/b][/center]";
-        textLabelmessage.Visible = true;
+		textLabelmessage.Text += $"[center][b][color=orange]Un rendez-vous vous attend avec ({agenda.GetRendezVous()[nbrdv].ToString()})[/color][/b][/center]";
+		textLabelmessage.Visible = true;
 
-    }
+	}
 	else if (inQuestion && textureRectpersonnage.Visible && !TextLabelordi.Visible){
 		textLabelmessage.Clear();
-        textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
+		textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
 		textLabelmessage.Text = "\n\n";
-        textLabelmessage.Text += $"[center][b][color=orange]Vous etes en rendez-vous avec ({agenda.GetRendezVous()[nbrdv].ToString()}) \n Etat de la relation : {affichage.creationlien(agenda.GetRendezVous()[nbrdv].getcomposante())}[/color][/b][/center]";
+		textLabelmessage.Text += $"[center][b][color=orange]Vous etes en rendez-vous avec ({agenda.GetRendezVous()[nbrdv].ToString()}) \n Etat de la relation : {affichage.creationlien(agenda.GetRendezVous()[nbrdv].getcomposante())}[/color][/b][/center]";
 
 
 	}
-    else
-    {
-        textLabelmessage.Clear();
-        textLabelmessage.Visible = false;
-    }
+	else
+	{
+		textLabelmessage.Clear();
+		textLabelmessage.Visible = false;
+	}
 }
 
 
