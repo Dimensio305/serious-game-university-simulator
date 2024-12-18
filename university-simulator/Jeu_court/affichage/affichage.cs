@@ -38,7 +38,7 @@ public static class affichage
 
     string nomJour = Jour.Instance.GetNom();
 
-    textEdit.Text += $"[center][b][color=blue]Agenda de {nomJour}[/color][/b][/center]\n";
+    textEdit.Text += $"[center][b][color=orange]Agenda de {nomJour}[/color][/b][/center]\n";
     textEdit.Text += "[center]=====================[/center]\n\n";
 
     TimeSpan[] debutCreneaux = {
@@ -59,7 +59,7 @@ public static class affichage
             TimeSpan debut = debutCreneaux[i];
             TimeSpan fin = debut + dureeCreneau;
 
-            textEdit.Text += $"[color=blue][b]  - {debut:hh\\:mm} - {fin:hh\\:mm}:[/b][/color] {rdv.Description}\n";
+            textEdit.Text += $"[color=orange][b]  - {debut:hh\\:mm} - {fin:hh\\:mm}:[/b][/color] {rdv.Description}\n";
         }
         else // s'il n'y a pas de rdv
         {
@@ -241,7 +241,8 @@ public static class affichage
     richTextLabel.Clear(); // Nettoie le contenu actuel
     richTextLabel.BbcodeEnabled = true; // Active le mode BBCode
 
-    string message = "[center][b]État de la trésorerie de votre université[/b][/center]\n\n";
+    string message = "[center][b][color=orange]Statistiques des ressources[/color][/b][/center]\n";
+    message += "[center]=====================[/center]\n\n";
 
     // Trésorerie
     int jauge1 = JaugeManager.GetJaugeValue("Jauge1");
@@ -256,7 +257,7 @@ public static class affichage
     }
     else
     {
-        message += "[color=blue]trop bonne[/color]. Vous devriez investir dans vos formations. Elle est actuellement à " + jauge1 + "%.\n";
+        message += "[color=red]trop bonne[/color]. Vous devriez investir dans vos formations. Elle est actuellement à " + jauge1 + "%.\n";
     }
 
     // Satisfaction des professeurs

@@ -175,13 +175,14 @@ public partial class JeuCourt : Node2D
 
 		if (Input.IsActionJustPressed("Question") && !projetvisible && !texteditforma.Visible && !TextLabelordi.Visible)
 		{
-			
+				// on a message deux fois sinon on change le message que apres l'arriver de la question
+				//donc decalage entre le message et la question etrange sinon 
 				textureRectpersonnage.Visible=true;
+				message();
 				await ToSignal(GetTree().CreateTimer(1f), "timeout");
 				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getcomposante()));
 				affichage.EcrireTexte(r1, q.reponse1());
 				affichage.EcrireTexte(r2, q.reponse2());
-				textureRectpersonnage.Visible=true;
 				message();
 		}
 
@@ -244,6 +245,7 @@ public partial class JeuCourt : Node2D
 			projetvisible = false;
 			proj.Visible = false;
 		}
+		message();
 	}
 
 	private void rendrevisibleformation()
@@ -277,6 +279,7 @@ public partial class JeuCourt : Node2D
 			
 			affichage.AfficherAgenda(agenda.GetRendezVous(), TextLabelordi);
 			TextLabelordi.Visible = true; // Afficher l'agenda
+			message();
 		}
 	}
 
@@ -287,6 +290,7 @@ public partial class JeuCourt : Node2D
 			
 			affichage.AffichageEtat(TextLabelordi);
 			TextLabelordi.Visible = true; // Afficher l'agenda
+			message();
 		}
 	}
 
@@ -427,6 +431,14 @@ private async Task AfficherMessageIntermediaire()
         textLabelmessage.Visible = true;
 
     }
+	else if (inQuestion && textureRectpersonnage.Visible && !TextLabelordi.Visible){
+		textLabelmessage.Clear();
+        textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
+		textLabelmessage.Text = "\n\n";
+        textLabelmessage.Text += $"[center][b][color=orange]Vous etes en rendez-vous avec ({agenda.GetRendezVous()[nbrdv].ToString()}) \n Etat de la relation : {affichage.creationlien(agenda.GetRendezVous()[nbrdv].getcomposante())}[/color][/b][/center]";
+
+
+	}
     else
     {
         textLabelmessage.Clear();
