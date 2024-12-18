@@ -63,6 +63,8 @@ public partial class JeuCourt : Node2D
 	private Jauge Jauge4 ;   
 
 	private Image img;
+
+	private RichTextLabel messagefin; 
 	
 /// <summary>
 /// 
@@ -108,6 +110,8 @@ public partial class JeuCourt : Node2D
 		Jauge2.SetValeur(_Jauge2);
 		Jauge3.SetValeur(_Jauge3);
 		Jauge4.SetValeur(_Jauge4);
+
+		messagefin=GetNodeOrNull<RichTextLabel>("RichTextLabel");
 	
 		affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getcomposante()+".png",textureRectpersonnage);
  
@@ -343,7 +347,7 @@ public partial class JeuCourt : Node2D
 
 	private async void suiv()
 {
-	if (nbquestion == 2) // Fin des questions du rendez-vous
+	if (nbquestion == 1) // Fin des questions du rendez-vous
 	{
 		nbquestion = 0;
 		if (nbrdv == 3) // Tous les rendez-vous terminés
@@ -394,7 +398,7 @@ private async Task AfficherMessageIntermediaire()
 
 
 	private async void faireavancerletemps(){
-		minute += 40;
+		minute += 60;
 		if (minute >= 60){
 			minute -= 60;
 			heure+=1;

@@ -53,7 +53,7 @@ public partial class Jauge : TextureRect
 		   Barre.Modulate = new Color(1, 1, 0);
 		}
 
-		else if (Barre.Value < 20 || Barre.Value > 80){
+		else if (Barre.Value <= 30 || Barre.Value > 80){
 			Barre.Modulate = new Color(1, 0, 0);
 		}
 		else

@@ -51,30 +51,6 @@ public partial class Tuto : Node2D
 	public override void _Process(double delta)
 	{
 		
-		if (inQuestion)
-		{
-			
-			
-		}
-
-		if (Input.IsActionJustPressed("agenda"))
-		{
-			
-		}
-
-		if (Input.IsActionJustPressed("formation"))
-		{
-			
-		}
-		if (Input.IsActionJustPressed("Etat"))
-		{
-			
-		}
-
-		if (Input.IsActionPressed("fermer"))
-		{
-		
-		}
 	}
 
 	private async void messadedepart(){
