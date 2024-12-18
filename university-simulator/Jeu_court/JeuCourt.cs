@@ -13,8 +13,7 @@ public partial class JeuCourt : Node2D
 	// gestion des questions 
 	private TextEdit _textEdit;
 	private bool inQuestion = false;
-	private TextEdit r2;
-	private TextEdit r1;
+
 	private Question q = new Question();
 	private TextureRect recQuestion;
 
@@ -65,6 +64,9 @@ public partial class JeuCourt : Node2D
 	private Image img;
 
 	private RichTextLabel messagefin; 
+	private Button buttonLeft;
+    private Button buttonRight;
+
 	
 /// <summary>
 /// 
@@ -79,8 +81,7 @@ public partial class JeuCourt : Node2D
 
 		texteditforma = GetNode<TextEdit>("panel/TextEdit3");
 		proj = GetNode<TextEdit>("proj");
-		r1 = GetNode<TextEdit>("r1");
-		r2 = GetNode<TextEdit>("r2");
+		
 			
 		textureRectpersonnage = GetNode<TextureRect>("personnage");
 		// Générer des projets et rendez-vous aléatoires
@@ -97,6 +98,11 @@ public partial class JeuCourt : Node2D
 
 		recQuestion=GetNodeOrNull<TextureRect>("rectquestion");
 		TextLabelordi = GetNode<RichTextLabel>("TextLabelordi");
+		buttonLeft = GetNode<Button>("_b_reponse_gauche");
+        buttonRight = GetNode<Button>("_b_reponse_droite");
+
+        buttonLeft.Connect("pressed", Callable.From(OnButtonLeftPressed));
+        buttonRight.Connect("pressed", Callable.From(OnButtonRightPressed));
 
 		Jauge1 = GetNodeOrNull<Jauge>("Jauge1");
 		Jauge2 = GetNodeOrNull<Jauge>("Jauge2");
@@ -116,7 +122,7 @@ public partial class JeuCourt : Node2D
 		affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getComposante()+".png",textureRectpersonnage);
 		JaugeManager.majjour();
 		
- 
+
 
 
 		attente();
@@ -130,6 +136,8 @@ public partial class JeuCourt : Node2D
 /// <param name="delta"></param>
 	public override void _Process(double delta)
 	{
+		
+		
 		
 		recQuestion.Visible=_textEdit.Visible;
 		if (inQuestion)
@@ -186,8 +194,10 @@ public partial class JeuCourt : Node2D
 				message();
 				await ToSignal(GetTree().CreateTimer(1f), "timeout");
 				affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getComposante()));
-				affichage.EcrireTexte(r1, q.reponse1());
-				affichage.EcrireTexte(r2, q.reponse2());
+				buttonLeft.Text=q.reponse1();
+				buttonLeft.Visible=true;
+				buttonRight.Text= q.reponse2();
+				buttonRight.Visible=true;
 				message();
 		}
 
@@ -215,11 +225,12 @@ public partial class JeuCourt : Node2D
 	// Méthode pour cacher tous les TextEdit
 	private void CacherTousLesTextEdits()
 	{
+		
 		_textEdit.Visible = false;
 		TextLabelordi.Visible = false;
 		texteditforma.Visible = false;
-		r1.Visible = false;
-		r2.Visible = false;
+		buttonLeft.Visible = false;
+		buttonRight.Visible = false;
 		proj.Visible = false;
 		panel.Visible = false;
 		projetvisible = false;
@@ -231,9 +242,8 @@ public partial class JeuCourt : Node2D
 		if (_textEdit.Visible)
 		{
 			_textEdit.Visible = false;
-
-			r1.Visible = false;
-			r2.Visible = false;
+			buttonLeft.Visible=false;
+			buttonRight.Visible = false;
 						
 		}
 		if (texteditforma.Visible )
@@ -361,8 +371,8 @@ public partial class JeuCourt : Node2D
 
 			await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
 			affichage.EcrireTexte(_textEdit, q.GetRandomEndPhrase());
-			r1.Visible = false;
-			r2.Visible = false;
+			buttonLeft.Visible=false;
+			buttonRight.Visible = false;
 			textureRectpersonnage.Visible = false; // Fin de l'animation uniquement ici
 			affichage.ChangeImage("res://asset/acteurs/t3_character"+agenda.GetRendezVous()[nbrdv].getComposante()+".png",textureRectpersonnage);
 			await ToSignal(GetTree().CreateTimer(1f), "timeout");
@@ -381,19 +391,19 @@ private async void AfficherQuestionSuivante()
 {
 	await ToSignal(GetTree().CreateTimer(1f), "timeout"); // Délai avant la prochaine question
 	affichage.EcrireTexte(_textEdit, q.getquestion(agenda.GetRendezVous()[nbrdv].getComposante()));
-	affichage.EcrireTexte(r1, q.reponse1());
-	affichage.EcrireTexte(r2, q.reponse2());
+	buttonLeft.Text=q.reponse1();
+	buttonRight.Text= q.reponse2();
 	gerereponse(Jauge1, Jauge2, Jauge3, Jauge4 );
-	r1.Visible = true;
-	r2.Visible = true;
+	buttonLeft.Visible=true;
+	buttonRight.Visible = true;
 	message();
 }
 
 private async Task AfficherMessageIntermediaire()
 {
 	affichage.EcrireTexte(_textEdit, q.GetRandomPhrase());
-	r1.Visible = false;
-	r2.Visible = false;
+	buttonLeft.Visible=false;
+	buttonRight.Visible = false;
 	await ToSignal(GetTree().CreateTimer(1.5f), "timeout"); // Pause avant la question suivante
 }
 
@@ -415,6 +425,7 @@ private async Task AfficherMessageIntermediaire()
 		if (heure >= 18 ){
 			await ToSignal(GetTree().CreateTimer(0.5), "timeout");
 			Jour.Instance.Joursuivant();
+			CacherTousLesTextEdits();
 			affichage.AffichageEtatJour(messagefin);
 		}
 	}
@@ -454,6 +465,39 @@ private async Task AfficherMessageIntermediaire()
 	private void _on_button_pressed(){
 		GetTree().ChangeSceneToFile("res://intermediaire/affichage_jour.tscn");
 	}
+
+	private void OnButtonLeftPressed()
+    {
+        gerereponse(Jauge1, Jauge2, Jauge3, Jauge4, true); // true pour gauche
+    }
+
+    private void OnButtonRightPressed()
+    {
+        gerereponse(Jauge1, Jauge2, Jauge3, Jauge4, false); // false pour droite
+    }
+
+    public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4, bool isLeft)
+    {
+        if (isLeft)
+        {
+            MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges pour la réponse gauche
+        }
+        else
+        {
+            MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges pour la réponse droite
+        }
+
+        inQuestion = false;
+        message();
+        q.question_suivante(agenda.GetRendezVous()[nbrdv].getComposante()); // Passer à la question suivante
+        suiv();
+        faireavancerletemps();
+        attente();
+    }
+
+	
+
+
 }
 
 

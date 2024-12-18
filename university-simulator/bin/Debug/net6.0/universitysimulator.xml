@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/css" href="style.css"?>
 <doc>
     <assembly>
         <name>university-simulator</name>
@@ -502,6 +501,16 @@
             Cached name for the '_on_button_pressed' method.
             </summary>
         </member>
+        <member name="F:JeuCourt.MethodName.OnButtonLeftPressed">
+            <summary>
+            Cached name for the 'OnButtonLeftPressed' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.OnButtonRightPressed">
+            <summary>
+            Cached name for the 'OnButtonRightPressed' method.
+            </summary>
+        </member>
         <member name="M:JeuCourt.GetGodotMethodList">
             <summary>
             Get the method information for all the methods declared in this class.
@@ -528,16 +537,6 @@
         <member name="F:JeuCourt.PropertyName.inQuestion">
             <summary>
             Cached name for the 'inQuestion' field.
-            </summary>
-        </member>
-        <member name="F:JeuCourt.PropertyName.r2">
-            <summary>
-            Cached name for the 'r2' field.
-            </summary>
-        </member>
-        <member name="F:JeuCourt.PropertyName.r1">
-            <summary>
-            Cached name for the 'r1' field.
             </summary>
         </member>
         <member name="F:JeuCourt.PropertyName.recQuestion">
@@ -643,6 +642,16 @@
         <member name="F:JeuCourt.PropertyName.messagefin">
             <summary>
             Cached name for the 'messagefin' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.buttonLeft">
+            <summary>
+            Cached name for the 'buttonLeft' field.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.PropertyName.buttonRight">
+            <summary>
+            Cached name for the 'buttonRight' field.
             </summary>
         </member>
         <member name="M:JeuCourt.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">

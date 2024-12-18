@@ -338,9 +338,9 @@ public static class affichage
 		
 		// Nettoyer et activer le BBCode
 		richTextLabel.BbcodeEnabled = true;
-
+		string message = "\n\n\n";
 		// Début du message
-		string message = "[center][b][color=orange]Récapitulatif de la journée[/color][/b][/center]\n";
+		message += "[center][b][color=orange]Récapitulatif de la journée[/color][/b][/center]\n";
 		message += "[center]=====================[/center]\n\n";
 
 		// Trésorerie
@@ -430,7 +430,7 @@ public static class affichage
 			message += "[color=red]trop bon[/color]. Il faudrait quand même des élèves moyens.\n";
 		}
 		message += $"[b]Valeur du matin :[/b] {jauge4debut}%, [b]Actuelle :[/b] {jauge4}%, [b]Variation :[/b] {variation4}\n\n";
-
+		message = $"[center]{message}[/center]";
 		richTextLabel.Text = message; // Attribue le texte formaté
 		richTextLabel.Visible = true;
 	}

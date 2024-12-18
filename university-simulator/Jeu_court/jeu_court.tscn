@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=27 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
 [ext_resource type="Texture2D" uid="uid://w53gy0k3hv5i" path="res://fond_et_titre/fond_bureau2.png" id="2_f3j7f"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://btoj1osms6p2g" path="res://asset/autre/reussite.png" id="8_txma1"]
 [ext_resource type="FontFile" uid="uid://qv104t57hkkn" path="res://police/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" id="9_66sx3"]
 [ext_resource type="Texture2D" uid="uid://fd612r2sdb6y" path="res://asset/acteurs/t3_character1.png" id="10_71yln"]
+[ext_resource type="Texture2D" uid="uid://beixq2xha7sqs" path="res://asset/autre/blocnote4.png" id="15_lfwjt"]
+[ext_resource type="FontFile" uid="uid://c6ui7gvui4uqo" path="res://asset/pack2/Font/Kenney Future.ttf" id="16_fniwi"]
+[ext_resource type="Texture2D" uid="uid://nq4a0mshlpke" path="res://asset/brique/png/element_green_rectangle.png" id="17_m52hi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4ovt"]
 bg_color = Color(0.929412, 0, 0.231373, 1)
@@ -38,8 +41,11 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kiws8"]
-bg_color = Color(0.988235, 0.12549, 0.92549, 0.913725)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rvwp0"]
+texture = ExtResource("15_lfwjt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ifcw"]
+texture = ExtResource("17_m52hi")
 
 [node name="jeu_court" type="Node2D"]
 script = ExtResource("1_4h6lk")
@@ -243,28 +249,21 @@ selecting_enabled = false
 drag_and_drop_selection_enabled = false
 wrap_mode = 1
 
-[node name="r1" type="TextEdit" parent="."]
+[node name="_b_reponse_gauche" type="Button" parent="."]
 visible = false
 offset_left = 19.0
 offset_top = 192.0
-offset_right = 296.0
-offset_bottom = 316.0
-rotation = -0.00339314
-editable = false
-selecting_enabled = false
-drag_and_drop_selection_enabled = false
-wrap_mode = 1
+offset_right = 295.0
+offset_bottom = 313.0
+autowrap_mode = 3
 
-[node name="r2" type="TextEdit" parent="."]
+[node name="_b_reponse_droite" type="Button" parent="."]
 visible = false
-offset_left = 303.0
-offset_top = 192.0
-offset_right = 594.0
-offset_bottom = 315.0
-editable = false
-selecting_enabled = false
-drag_and_drop_selection_enabled = false
-wrap_mode = 1
+offset_left = 306.0
+offset_top = 189.0
+offset_right = 585.0
+offset_bottom = 311.0
+autowrap_mode = 3
 
 [node name="TextLabelordi" type="RichTextLabel" parent="."]
 visible = false
@@ -363,18 +362,24 @@ expand_mode = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
-offset_left = 351.0
+offset_left = 343.0
 offset_top = 30.0
-offset_right = 865.0
-offset_bottom = 595.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_kiws8")
+offset_right = 884.0
+offset_bottom = 603.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_rvwp0")
 
 [node name="Button" type="Button" parent="RichTextLabel"]
 layout_mode = 0
-offset_left = 337.0
-offset_top = 509.0
-offset_right = 513.0
-offset_bottom = 562.0
+offset_left = 324.0
+offset_top = 471.0
+offset_right = 514.0
+offset_bottom = 524.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_fniwi")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxTexture_8ifcw")
 text = "Jour suivant"
 
+[connection signal="pressed" from="_b_reponse_gauche" to="." method="_on__b_reponse_gauche_pressed"]
+[connection signal="pressed" from="_b_reponse_droite" to="." method="_on__b_reponse_droite_pressed"]
 [connection signal="pressed" from="RichTextLabel/Button" to="." method="_on_button_pressed"]
