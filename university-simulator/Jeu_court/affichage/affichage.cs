@@ -237,7 +237,7 @@ public static class affichage
 
 	public static void AffichageEtat(RichTextLabel richTextLabel)
 {
-	richTextLabel.Clear(); // Nettoie le contenu actuel
+	richTextLabel.Text=""; // Nettoie le contenu actuel
 	richTextLabel.BbcodeEnabled = true; // Active le mode BBCode
 
 	string message = "[center][b][color=orange]Statistiques des ressources[/color][/b][/center]\n";
@@ -316,7 +316,6 @@ public static class affichage
 	{
 		
 		// Nettoyer et activer le BBCode
-		richTextLabel.Clear();
 		richTextLabel.BbcodeEnabled = true;
 
 		// Début du message
