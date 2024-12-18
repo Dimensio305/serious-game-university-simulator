@@ -139,6 +139,81 @@
             Methode qui crée les tables et les remplits 
             </summary>
         </member>
+        <member name="T:FinduJeu">
+            <summary>
+            Script lié à la scène FinduJeu
+            Elle s'occupe de gérer les différentes fins possibles
+            </summary>
+        </member>
+        <member name="M:FinduJeu._Ready">
+            <summary>
+            Lors du premier chargement de la scène (et le seul) prends la valeur de chaques jauges
+            Si il l'une d'elle est à 0 le joueur a perdu et l'on charge l'écran de game over associé
+            Sinon c'est l'écran de victoire qui est affiché
+            </summary>
+        </member>
+        <member name="T:FinduJeu.MethodName">
+            <summary>
+            Cached StringNames for the methods contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:FinduJeu.MethodName._Ready">
+            <summary>
+            Cached name for the '_Ready' method.
+            </summary>
+        </member>
+        <member name="M:FinduJeu.GetGodotMethodList">
+            <summary>
+            Get the method information for all the methods declared in this class.
+            This method is used by Godot to register the available methods in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:FinduJeu.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FinduJeu.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:FinduJeu.PropertyName">
+            <summary>
+            Cached StringNames for the properties and fields contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:FinduJeu.PropertyName._endMessage">
+            <summary>
+            Cached name for the '_endMessage' field.
+            </summary>
+        </member>
+        <member name="F:FinduJeu.PropertyName._fond">
+            <summary>
+            Cached name for the '_fond' field.
+            </summary>
+        </member>
+        <member name="M:FinduJeu.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FinduJeu.GetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FinduJeu.GetGodotPropertyList">
+            <summary>
+            Get the property information for all the properties declared in this class.
+            This method is used by Godot to register the available properties in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:FinduJeu.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FinduJeu.RestoreGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:FinduJeu.SignalName">
+            <summary>
+            Cached StringNames for the signals contained in this class, for fast lookup.
+            </summary>
+        </member>
         <member name="T:Jauge">
             <summary>
             Classe représentant une jauge de progression dans l'interface utilisateur.
