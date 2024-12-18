@@ -380,6 +380,10 @@ theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxTexture_8ifcw")
 text = "Jour suivant"
 
+[node name="Blocnote4" type="Sprite2D" parent="RichTextLabel"]
+position = Vector2(-395, 388)
+texture = ExtResource("15_lfwjt")
+
 [connection signal="pressed" from="_b_reponse_gauche" to="." method="_on__b_reponse_gauche_pressed"]
 [connection signal="pressed" from="_b_reponse_droite" to="." method="_on__b_reponse_droite_pressed"]
 [connection signal="pressed" from="RichTextLabel/Button" to="." method="_on_button_pressed"]

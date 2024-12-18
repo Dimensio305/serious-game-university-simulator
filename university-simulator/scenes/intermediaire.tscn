@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://chd2rym4fs88p"]
+[gd_scene load_steps=22 format=3 uid="uid://chd2rym4fs88p"]
 
 [ext_resource type="Texture2D" uid="uid://bpinrfqnaihkd" path="res://fond_et_titre/fond_bureau.png" id="1_dhybc"]
 [ext_resource type="Script" path="res://scenes/Intermediaire.cs" id="1_tedlk"]
 [ext_resource type="Texture2D" uid="uid://beixq2xha7sqs" path="res://asset/autre/blocnote4.png" id="2_dlcj2"]
 [ext_resource type="Texture2D" uid="uid://ni6yoaen61lx" path="res://asset/brique/png/element_green_rectangle_glossy.png" id="4_3v0m5"]
+[ext_resource type="Texture2D" uid="uid://fqcr421gfdcw" path="res://asset/autre/bulle blocnote.png" id="4_odfgw"]
 [ext_resource type="Texture2D" uid="uid://cxsro11xbkyhr" path="res://asset/brique/png/element_yellow_rectangle_glossy_copy.png" id="5_ee253"]
 
 [sub_resource type="Animation" id="Animation_a8585"]
@@ -14,23 +15,29 @@ _data = {
 "MoveTextEdit": SubResource("Animation_a8585")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ga1n"]
-bg_color = Color(0.803922, 0.494118, 0.317647, 0.596078)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4naj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_174qe"]
-bg_color = Color(0.803922, 0.494118, 0.317647, 0.596078)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkt7j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi0am"]
-bg_color = Color(0.803922, 0.494118, 0.317647, 0.596078)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ndss0"]
+texture = ExtResource("4_odfgw")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovuaf"]
-bg_color = Color(0.803922, 0.494118, 0.317647, 0.596078)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qugba"]
+texture = ExtResource("4_odfgw")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlppb"]
-bg_color = Color(0.803922, 0.494118, 0.317647, 0.596078)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mayvo"]
+texture = ExtResource("4_odfgw")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bw4u6"]
-bg_color = Color(0.803922, 0.494118, 0.317647, 0.596078)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5qys"]
+texture = ExtResource("4_odfgw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afb8g"]
+texture = ExtResource("4_odfgw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4fssu"]
+texture = ExtResource("4_odfgw")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vdcma"]
 texture = ExtResource("4_3v0m5")
@@ -69,6 +76,30 @@ offset_bottom = 555.0
 texture = ExtResource("2_dlcj2")
 expand_mode = 1
 
+[node name="TextEdit" type="TextEdit" parent="case_droite"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 54.0
+offset_right = 485.0
+offset_bottom = 108.0
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_readonly_color = Color(0.454902, 0.254902, 0.0862745, 1)
+theme_override_colors/font_color = Color(0.454902, 0.254902, 0.0862745, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_m4naj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mkt7j")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_mkt7j")
+text = "Choisssiez vos quatres rendez-vous de la journée"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+
 [node name="case_gauche" type="TextureRect" parent="."]
 offset_left = 52.0
 offset_top = 8.0
@@ -83,7 +114,7 @@ offset_left = 50.0
 offset_top = 491.0
 offset_right = 479.0
 offset_bottom = 551.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_5ga1n")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ndss0")
 
 [node name="4" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
@@ -91,7 +122,7 @@ offset_left = 51.0
 offset_top = 406.0
 offset_right = 477.0
 offset_bottom = 470.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_174qe")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qugba")
 
 [node name="2" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
@@ -99,7 +130,7 @@ offset_left = 53.0
 offset_top = 241.0
 offset_right = 476.0
 offset_bottom = 304.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_gi0am")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mayvo")
 
 [node name="3" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
@@ -107,7 +138,7 @@ offset_left = 53.0
 offset_top = 323.0
 offset_right = 474.0
 offset_bottom = 388.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ovuaf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_i5qys")
 
 [node name="1" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
@@ -115,7 +146,7 @@ offset_left = 55.0
 offset_top = 148.0
 offset_right = 474.0
 offset_bottom = 215.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_dlppb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_afb8g")
 
 [node name="0" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
@@ -123,7 +154,7 @@ offset_left = 56.0
 offset_top = 67.0
 offset_right = 471.0
 offset_bottom = 131.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_bw4u6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4fssu")
 
 [node name="valider" type="Button" parent="."]
 offset_left = 908.0

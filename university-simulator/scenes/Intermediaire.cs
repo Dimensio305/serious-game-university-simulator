@@ -66,8 +66,10 @@ public partial class Intermediaire : Node2D
 				string lien = affichage.creationlien(rdvdebut[i].getComposante());
 
 				// Ajouter des bordures et des styles
-				textEdit.Text = $"[color=black][b]{rdv}[/b][/color]\n";
-				textEdit.Text += $"[color=back]{lien}[/color]\n";
+				textEdit.Text = $"[b]{rdv}[/b]\n";
+				textEdit.Text += $"{lien}\n";
+				textEdit.Text = $"[center]{textEdit.Text}[/center]";
+
 
 				i++;
 			}
@@ -164,7 +166,7 @@ public partial class Intermediaire : Node2D
 	private void ReorganizeChildrenInColumn(TextureRect target)
 	{
 		float yOffset = 10;
-		float currentY = 60;
+		float currentY = 80;
 
 		// Ajuste la position verticale de chaque enfant dans la cible
 		foreach (Node child in target.GetChildren())
