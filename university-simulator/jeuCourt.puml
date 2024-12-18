@@ -89,8 +89,27 @@ package Question {
         + reponse2(): String
     }
 }
+class FinDuJeu {
+    - _endMessage: RichTextLabel
+    - _fond: TextureRect
+    - _listeFond: String[]
+    + _Ready():
+}
 class Jauge {
+    - BoiteBarre: BoxContainer
+    - Barre: ProgressBar
+    + _Ready():
     + Modif(Changement: Integer):
+    + SetValeur(val: Integer):
+    + GetValeur(): double
+}
+class JaugeManager {
+    - {static} jauges: Integer[]
+    - {static} jaugesDebutJournee: Integer[]
+    + {static} GetJaugeValue(jaugeName: String): Integer
+    + {static} SetJaugeValue(jaugeName: String, newValue: Integer):
+    + {static} majjour():
+    + {static} GetJaugeValueMatin(jaugeName: String): Integer
 }
 class JeuCourt {
     - _textEdit: TextEdit
