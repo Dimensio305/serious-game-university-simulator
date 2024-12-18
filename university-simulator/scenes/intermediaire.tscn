@@ -110,49 +110,49 @@ expand_mode = 1
 
 [node name="5" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 43.0
 offset_top = 491.0
-offset_right = 479.0
+offset_right = 489.0
 offset_bottom = 551.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_ndss0")
 
 [node name="4" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
-offset_left = 51.0
+offset_left = 44.0
 offset_top = 406.0
-offset_right = 477.0
+offset_right = 487.0
 offset_bottom = 470.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_qugba")
 
 [node name="2" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
-offset_left = 53.0
+offset_left = 45.0
 offset_top = 241.0
-offset_right = 476.0
+offset_right = 480.0
 offset_bottom = 304.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_mayvo")
 
 [node name="3" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
-offset_left = 53.0
+offset_left = 46.0
 offset_top = 323.0
-offset_right = 474.0
+offset_right = 484.0
 offset_bottom = 388.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_i5qys")
 
 [node name="1" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
-offset_left = 55.0
+offset_left = 47.0
 offset_top = 148.0
-offset_right = 474.0
+offset_right = 484.0
 offset_bottom = 215.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_afb8g")
 
 [node name="0" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 45.0
 offset_top = 67.0
-offset_right = 471.0
+offset_right = 482.0
 offset_bottom = 131.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_4fssu")
 

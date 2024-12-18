@@ -357,11 +357,11 @@ public static class affichage
 		}
 		else if (jauge1 <= 30)
 		{
-			message += "[color=red]mauvaise[/color]. Bientôt vous ne pourrez plus entretenir vos formations.\n";
+			message += "[color=red]mauvaise[/color]. \nBientôt vous ne pourrez plus entretenir vos formations.\n";
 		}
 		else
 		{
-			message += "[color=red]trop bonne[/color]. Vous devriez investir dans vos formations.\n";
+			message += "[color=red]trop bonne[/color]. \nVous devriez investir dans vos formations.\n";
 		}
 		message += $"[b]Valeur du matin :[/b] {jauge1debut}%, [b]Actuelle :[/b] {jauge1}%, [b]Variation :[/b] {variation1}\n\n";
 
@@ -379,11 +379,11 @@ public static class affichage
 		}
 		else if (jauge2 <= 30)
 		{
-			message += "[color=red]mauvaise[/color]. Bientôt ils décideront de faire grève.\n";
+			message += "[color=red]mauvaise[/color]. \nBientôt ils décideront de faire grève.\n";
 		}
 		else
 		{
-			message += "[color=red]trop bonne[/color]. Ils seront trop heureux de venir travailler.\n";
+			message += "[color=red]trop bonne[/color]. \nIls seront trop heureux de venir travailler.\n";
 		}
 		message += $"[b]Valeur du matin :[/b] {jauge2debut}%, [b]Actuelle :[/b] {jauge2}%, [b]Variation :[/b] {variation2}\n\n";
 
@@ -401,11 +401,11 @@ public static class affichage
 		}
 		else if (jauge3 <= 30)
 		{
-			message += "[color=red]mauvais[/color]. Ils finiront tous au chômage.\n";
+			message += "[color=red]mauvais[/color]. \nIls finiront tous au chômage.\n";
 		}
 		else
 		{
-			message += "[color=red]excellent[/color]. Il n'y aura plus de chômeurs.\n";
+			message += "[color=red]excellent[/color]. \nIl n'y aura plus de chômeurs.\n";
 		}
 		message += $"[b]Valeur du matin :[/b] {jauge3debut}%, [b]Actuelle :[/b] {jauge3}%, [b]Variation :[/b] {variation3}\n\n";
 
@@ -423,11 +423,11 @@ public static class affichage
 		}
 		else if (jauge4 <= 30)
 		{
-			message += "[color=red]mauvais[/color]. Ils vont tous redoubler, ce qui coûtera cher.\n";
+			message += "[color=red]mauvais[/color]. \nIls vont tous redoubler, ce qui coûtera cher.\n";
 		}
 		else
 		{
-			message += "[color=red]trop bon[/color]. Il faudrait quand même des élèves moyens.\n";
+			message += "[color=red]trop bon[/color]. \nIl faudrait quand même des élèves moyens.\n";
 		}
 		message += $"[b]Valeur du matin :[/b] {jauge4debut}%, [b]Actuelle :[/b] {jauge4}%, [b]Variation :[/b] {variation4}\n\n";
 		message = $"[center]{message}[/center]";
