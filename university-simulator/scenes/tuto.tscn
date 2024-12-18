@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://il1rsjt5hge6"]
+[gd_scene load_steps=5 format=3 uid="uid://il1rsjt5hge6"]
 
 [ext_resource type="Texture2D" uid="uid://w53gy0k3hv5i" path="res://fond_et_titre/fond_bureau2.png" id="1_gm70d"]
 [ext_resource type="Script" path="res://scenes/Tuto.cs" id="1_y5nnr"]
 [ext_resource type="Texture2D" uid="uid://ofyc31kipc0q" path="res://asset/autre/bulle_question.png" id="2_e6ob5"]
-[ext_resource type="Texture2D" path="res://asset/autre/Designer (1).jpeg-1c2bf61f40165200b67b3b2431f1a3cd.ctex" id="4_4squq"]
 [ext_resource type="Texture2D" uid="uid://fd612r2sdb6y" path="res://asset/acteurs/t3_character1.png" id="5_l6g2h"]
 
 [node name="Node2D" type="Node2D"]
@@ -23,6 +22,8 @@ offset_bottom = 393.0
 expand_mode = 1
 
 [node name="textlabedirective" type="RichTextLabel" parent="imagedirective"]
+visible = false
+layout_mode = 0
 offset_left = 69.0
 offset_top = 19.0
 offset_right = 432.0
@@ -38,7 +39,6 @@ texture = ExtResource("2_e6ob5")
 expand_mode = 1
 
 [node name="textquestion" type="RichTextLabel" parent="fondquestion"]
-visible = false
 layout_mode = 0
 offset_left = 114.0
 offset_top = 56.0
@@ -51,11 +51,10 @@ offset_left = 141.0
 offset_top = 190.0
 offset_right = 349.0
 offset_bottom = 275.0
-texture = ExtResource("4_4squq")
 expand_mode = 1
 
 [node name="reponsegauche" type="RichTextLabel" parent="Imagerepgauche"]
-visible = false
+layout_mode = 0
 offset_left = 17.0
 offset_top = 24.0
 offset_right = 183.0
@@ -67,11 +66,10 @@ offset_left = 371.0
 offset_top = 192.0
 offset_right = 579.0
 offset_bottom = 274.0
-texture = ExtResource("4_4squq")
 expand_mode = 1
 
 [node name="reponsedroite" type="RichTextLabel" parent="Imagerepdroite"]
-visible = false
+layout_mode = 0
 offset_left = 17.0
 offset_top = 24.0
 offset_right = 183.0

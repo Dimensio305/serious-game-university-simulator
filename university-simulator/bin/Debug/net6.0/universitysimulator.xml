@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="style.css"?>
 <doc>
     <assembly>
         <name>university-simulator</name>
@@ -1232,6 +1233,168 @@
             <inheritdoc/>
         </member>
         <member name="T:Intermediaire.SignalName">
+            <summary>
+            Cached StringNames for the signals contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="T:Tuto.MethodName">
+            <summary>
+            Cached StringNames for the methods contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:Tuto.MethodName._Ready">
+            <summary>
+            Cached name for the '_Ready' method.
+            </summary>
+        </member>
+        <member name="F:Tuto.MethodName._Process">
+            <summary>
+            Cached name for the '_Process' method.
+            </summary>
+        </member>
+        <member name="F:Tuto.MethodName.messadedepart">
+            <summary>
+            Cached name for the 'messadedepart' method.
+            </summary>
+        </member>
+        <member name="M:Tuto.GetGodotMethodList">
+            <summary>
+            Get the method information for all the methods declared in this class.
+            This method is used by Godot to register the available methods in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:Tuto.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Tuto.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Tuto.PropertyName">
+            <summary>
+            Cached StringNames for the properties and fields contained in this class, for fast lookup.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.fonddirective">
+            <summary>
+            Cached name for the 'fonddirective' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.fondquestion">
+            <summary>
+            Cached name for the 'fondquestion' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.fondreponsegauche">
+            <summary>
+            Cached name for the 'fondreponsegauche' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.fondreponsedroite">
+            <summary>
+            Cached name for the 'fondreponsedroite' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.personnage">
+            <summary>
+            Cached name for the 'personnage' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.labelordi">
+            <summary>
+            Cached name for the 'labelordi' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.labelquestion">
+            <summary>
+            Cached name for the 'labelquestion' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.labelreponsegauche">
+            <summary>
+            Cached name for the 'labelreponsegauche' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.labelreponsedroite">
+            <summary>
+            Cached name for the 'labelreponsedroite' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.labeldirective">
+            <summary>
+            Cached name for the 'labeldirective' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.decouvrequestion">
+            <summary>
+            Cached name for the 'decouvrequestion' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.decouvreetat">
+            <summary>
+            Cached name for the 'decouvreetat' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.decouvreagenda">
+            <summary>
+            Cached name for the 'decouvreagenda' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.decouvrereponsegauche">
+            <summary>
+            Cached name for the 'decouvrereponsegauche' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.decouvrereponsedroite">
+            <summary>
+            Cached name for the 'decouvrereponsedroite' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.etape1">
+            <summary>
+            Cached name for the 'etape1' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.etape2">
+            <summary>
+            Cached name for the 'etape2' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.etape3">
+            <summary>
+            Cached name for the 'etape3' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.etape4">
+            <summary>
+            Cached name for the 'etape4' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.inQuestion">
+            <summary>
+            Cached name for the 'inQuestion' field.
+            </summary>
+        </member>
+        <member name="M:Tuto.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Tuto.GetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Tuto.GetGodotPropertyList">
+            <summary>
+            Get the property information for all the properties declared in this class.
+            This method is used by Godot to register the available properties in the editor.
+            Do not call this method.
+            </summary>
+        </member>
+        <member name="M:Tuto.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Tuto.RestoreGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Tuto.SignalName">
             <summary>
             Cached StringNames for the signals contained in this class, for fast lookup.
             </summary>

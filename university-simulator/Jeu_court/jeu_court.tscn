@@ -1,17 +1,25 @@
-[gd_scene load_steps=16 format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=20 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
-[ext_resource type="Texture2D" uid="uid://b5dpmgoms2ju" path="res://asset/icons/PNG/Black/2x/medal2.png" id="2_7cm1u"]
 [ext_resource type="Texture2D" uid="uid://w53gy0k3hv5i" path="res://fond_et_titre/fond_bureau2.png" id="2_f3j7f"]
-[ext_resource type="Texture2D" uid="uid://c6oqx07mcr8wj" path="res://asset/icons/PNG/Black/1x/sous2-removebg-preview.png" id="3_xuay6"]
+[ext_resource type="Texture2D" uid="uid://31iqeo665a68" path="res://asset/jauges/argent.png" id="3_pdm8h"]
 [ext_resource type="Script" path="res://Jeu_court/Jauge.cs" id="4_d56qo"]
 [ext_resource type="StyleBox" uid="uid://cqjo4tjxm1ace" path="res://texture_jauge.tres" id="5_qqfan"]
+[ext_resource type="Texture2D" uid="uid://jqsdpsn7g5mr" path="res://asset/jauges/profs.png" id="6_2qd8o"]
 [ext_resource type="Texture2D" uid="uid://bsixmhe06b8x0" path="res://asset/cahier-ouvert.png" id="6_q2npa"]
+[ext_resource type="Texture2D" uid="uid://dp0inod864iwe" path="res://asset/jauges/insertionPro.png" id="7_4shsu"]
 [ext_resource type="Texture2D" uid="uid://ofyc31kipc0q" path="res://asset/autre/bulle_question.png" id="7_wgo1c"]
 [ext_resource type="FontFile" uid="uid://d1w7hcd0v35vp" path="res://police/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" id="7_whcn6"]
 [ext_resource type="Texture2D" uid="uid://be2oxjowsnumh" path="res://asset/horloge.png" id="8_31e8y"]
+[ext_resource type="Texture2D" uid="uid://btoj1osms6p2g" path="res://asset/autre/reussite.png" id="8_txma1"]
 [ext_resource type="FontFile" uid="uid://qv104t57hkkn" path="res://police/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" id="9_66sx3"]
 [ext_resource type="Texture2D" uid="uid://fd612r2sdb6y" path="res://asset/acteurs/t3_character1.png" id="10_71yln"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0f1v"]
+bg_color = Color(0.929412, 0.388235, 0.0392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4hsc"]
+bg_color = Color(0.878431, 0.443137, 0.0313726, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5fxm"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -38,11 +46,11 @@ metadata/_edit_lock_ = true
 
 [node name="Jauge1" type="TextureRect" parent="."]
 clip_children = 1
-offset_left = 26.0
-offset_top = 517.0
-offset_right = 139.0
-offset_bottom = 638.0
-texture = ExtResource("3_xuay6")
+offset_left = 46.0
+offset_top = 544.0
+offset_right = 148.0
+offset_bottom = 649.0
+texture = ExtResource("3_pdm8h")
 expand_mode = 1
 script = ExtResource("4_d56qo")
 
@@ -60,10 +68,10 @@ anchor_left = 0.5
 anchor_top = 0.54
 anchor_right = 0.5
 anchor_bottom = 0.54
-offset_left = -65.0
-offset_top = -57.72
-offset_right = 58.0
-offset_bottom = 51.28
+offset_left = -64.5
+offset_top = -57.34
+offset_right = 53.5
+offset_bottom = 42.66
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -78,19 +86,19 @@ show_percentage = false
 
 [node name="Jauge2" type="TextureRect" parent="."]
 clip_children = 1
-offset_left = 171.0
-offset_top = 546.0
+offset_left = 164.0
+offset_top = 539.0
 offset_right = 271.0
 offset_bottom = 646.0
-texture = ExtResource("2_7cm1u")
+texture = ExtResource("6_2qd8o")
 script = ExtResource("4_d56qo")
 
 [node name="JaugeValeur" type="Label" parent="Jauge2"]
 layout_mode = 0
-offset_left = 31.0
+offset_left = 8.0
 offset_top = -1.0
-offset_right = 71.0
-offset_bottom = 22.0
+offset_right = 110.0
+offset_bottom = 122.0
 
 [node name="ConteneurJauge" type="BoxContainer" parent="Jauge2"]
 layout_mode = 1
@@ -99,10 +107,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -31.0
-offset_right = 33.0
-offset_bottom = 40.0
+offset_left = -58.0
+offset_top = -47.5
+offset_right = 55.0
+offset_bottom = 48.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -110,6 +118,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_v0f1v")
 theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
@@ -117,19 +126,19 @@ show_percentage = false
 
 [node name="Jauge3" type="TextureRect" parent="."]
 clip_children = 1
-offset_left = 944.0
-offset_top = 534.0
-offset_right = 1044.0
-offset_bottom = 634.0
-texture = ExtResource("2_7cm1u")
+offset_left = 940.0
+offset_top = 522.0
+offset_right = 1051.0
+offset_bottom = 640.0
+texture = ExtResource("7_4shsu")
 script = ExtResource("4_d56qo")
 
 [node name="JaugeValeur" type="Label" parent="Jauge3"]
 layout_mode = 0
-offset_left = 31.0
+offset_left = 13.0
 offset_top = -1.0
-offset_right = 71.0
-offset_bottom = 22.0
+offset_right = 103.0
+offset_bottom = 99.0
 
 [node name="ConteneurJauge" type="BoxContainer" parent="Jauge3"]
 layout_mode = 1
@@ -138,9 +147,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -31.0
-offset_right = 33.0
+offset_left = -49.5
+offset_top = -42.0
+offset_right = 49.5
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -149,6 +158,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_m4hsc")
 theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
@@ -157,18 +167,18 @@ show_percentage = false
 [node name="Jauge4" type="TextureRect" parent="."]
 clip_children = 1
 offset_left = 1034.0
-offset_top = 534.0
-offset_right = 1134.0
+offset_top = 522.0
+offset_right = 1140.0
 offset_bottom = 634.0
-texture = ExtResource("2_7cm1u")
+texture = ExtResource("8_txma1")
 script = ExtResource("4_d56qo")
 
 [node name="JaugeValeur" type="Label" parent="Jauge4"]
 layout_mode = 0
-offset_left = 32.0
+offset_left = 21.0
 offset_top = -1.0
-offset_right = 72.0
-offset_bottom = 22.0
+offset_right = 91.0
+offset_bottom = 105.0
 
 [node name="ConteneurJauge" type="BoxContainer" parent="Jauge4"]
 layout_mode = 1
@@ -177,8 +187,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -29.0
-offset_top = -31.0
+offset_left = -33.0
+offset_top = -43.0
 offset_right = 34.0
 offset_bottom = 40.0
 grow_horizontal = 2
