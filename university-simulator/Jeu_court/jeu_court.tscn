@@ -204,6 +204,7 @@ texture = ExtResource("7_wgo1c")
 
 [node name="TextEdit" type="TextEdit" parent="rectquestion"]
 visible = false
+layout_mode = 0
 offset_left = 138.0
 offset_top = 46.0
 offset_right = 512.0
