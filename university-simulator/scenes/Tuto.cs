@@ -95,7 +95,7 @@ public partial class Tuto : Node2D
 		if (etape1){
 			fonddirective.Visible=false;
 			string message = " Ici vont s'afficher les diffrente question des composante que vous aller rencontrer"; 
-			labeldirective.Text = $"[center][b][color = black]{message}[/color][/b][/center];
+			labeldirective.Text = $"[center][b][color = black]{message}[/color][/b][/center]";
 		}
 	}
 

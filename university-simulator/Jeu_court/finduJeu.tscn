@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://cd8ktlh5gmqlt"]
+[gd_scene load_steps=2 format=3 uid="uid://cd8ktlh5gmqlt"]
+
+[ext_resource type="Script" path="res://Jeu_court/FinduJeu.cs" id="1_aiyd7"]
 
 [node name="FinduJeu" type="Node2D"]
+script = ExtResource("1_aiyd7")
 
 [node name="Fond" type="TextureRect" parent="."]
 offset_right = 1150.0
@@ -10,6 +13,7 @@ expand_mode = 1
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_left = 352.0
 offset_top = 167.0
-offset_right = 516.0
-offset_bottom = 248.0
+offset_right = 688.0
+offset_bottom = 384.0
 text = "fin"
+editable = false
