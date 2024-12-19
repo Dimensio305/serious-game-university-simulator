@@ -53,7 +53,7 @@ Tout ce dont vous aurez besoin pourra être trouvé dans les [Release de ce git]
     - Depuis un terminal :
         - Déplacez vous dans le dossier qui contient le fichier ;
         - Exécutez la commande `chmod +x [nom du fichier].appimage` .
-- Plus qu'a lancer le fichier depuis votre terminal ou avec un double clic.
+- Plus qu'à lancer le fichier depuis votre terminal ou avec un double clic.
 
 ### Windows
 - Téléchargez l'installer .exe, et lancez le ;
