@@ -32,23 +32,24 @@ public partial class FinduJeu : Node2D
 			jauges.Add(JaugeManager.GetJaugeValue("Jauge2"));
 			jauges.Add(JaugeManager.GetJaugeValue("Jauge3"));
 			jauges.Add(JaugeManager.GetJaugeValue("Jauge4"));
-			int i = 1;
-			_endMessage.Text = "[center][color=orange][b]VOUS AVEZ GAGNEZ[/b]\n Vous avez su gérer et maintenir les formation d'une main de maître[/color][/center]";
+			JaugeManager.majjour();
+			_endMessage.Text = "[center][color=orange][b]VOUS AVEZ GAGNEZ[/b]\n Vous avez su gérer et maintenir les formation d'une main de maître\nScore finale : "+JaugeManager.GetScore() +"[/color][/center]";
 			_fond.Texture = GD.Load<Texture2D>(_listeFond[0]);
+			int i = 1;
 			foreach(int jauge in jauges){
 				if(jauge==0){
 					switch(i){
 					case 1 :
-						_endMessage.Text = "[center][color=orange][b]VOUS AVEZ PERDU[/b]\n Vous ne savez pas gérer vos finances[/color][/center]";
+						_endMessage.Text = "[center][color=orange][b]VOUS AVEZ PERDU[/b]\n Vous ne savez pas gérer vos finances\nScore finale : "+JaugeManager.GetScore() +"[/color][/center]";
 						break;
 					case 2 :
-						_endMessage.Text = "[center][color=orange][b]VOUS AVEZ PERDU[/b]\n Vous ne savez pas gérer la satisfaction de vos professeur[/color][/center]";
+						_endMessage.Text = "[center][color=orange][b]VOUS AVEZ PERDU[/b]\n Vous ne savez pas gérer la satisfaction de vos professeur\nScore finale : "+JaugeManager.GetScore() +"[/color][/center]";
 						break;
 					case 3 :
-						_endMessage.Text = "[center][color=orange][b]VOUS AVEZ PERDU[/b]\n Vous ne savez pas gérer le taux d'insertion de vos élèves[/color][/center]";
+						_endMessage.Text = "[center][color=orange][b]VOUS AVEZ PERDU[/b]\n Vous ne savez pas gérer le taux d'insertion de vos élèves\nScore finale : "+JaugeManager.GetScore() +"[/color][/center]";
 						break;
 					case 4: 
-						_endMessage.Text = "[center][color=orange][b]VOUS AVEZ PERDU[/b]\n Vous ne savez pas gérer le taux de réussite de vos élèves[/color][/center]";
+						_endMessage.Text = "[center][color=orange][b]VOUS AVEZ PERDU[/b]\n Vous ne savez pas gérer le taux de réussite de vos élèves\nScore finale : "+JaugeManager.GetScore() +"[/color][/center]";
 						break;
 					default : 
 						break;

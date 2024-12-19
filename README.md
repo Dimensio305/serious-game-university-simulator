@@ -1,29 +1,19 @@
 # University Simulator
 ## Partie 1 : Gestion des emplois du temps (in-game)
-- Emploi du temps pré-remplie
-- 8 rdv par jour max
-## Partie 2 : Création du bureau (jeu principal)
-- Réflchir à comment rendre l'affichage simple et intuitive sans bourrer l'écran d'informations
-- Implémenter le design de fond d'Océane
-## Partie 3 : Gestion de la création des questions
-- Vous pouvez voir le fonctionnement global des questions dans le Figma de Simon
-- Créateur de questions (lesquelles choisir)
-- Questions stockées dans un tableau
-## Partie 4 : Gestion des jauges
-- Comment les réponses aux questions influent sur les jauges
-- Quelles jauges ? (voir Figma)
-## Partie 5 : Gestion du temps
-- Gérer l'avancé du temps questions après questions
-- Gérer le temps existant dans une semaine
-## Partie 6 : Mise à jour du décor
-- Après chaque fin de journée, le décor change
-## Partie 7 : Gestion du score
-- Affichage du game over
-- Affichage du score si semaine finie
-
+- Emploi du temps à remplir
+- 4 rendez vous par jour
+![Image de l'agenda](/Screenshots/Agenda.png "L'agenda en jeu")
+## Partie 2 : Déroulement des rendez-vous (jeu principal)
+- L'acteur avec lequel vous avez rendez vous viens vous voir et vous pose 2 questions auquelle vous avez deux choix de réponses
+![Image du gameplay](/Screenshots/Gameplay.png "Un rendez vous avec l'administration")
+## Partie 3 : Récapitulatif de votre journée
+- Vous avez en fin de journée un Récapitulatif de votre performance
+![Image du Récapitulatif](/Screenshots/Récap.png "Le Récapitulatif en jeu")
+## Partie 4 : Condition de victoire
+- Ne laisser pas vos jauges tomber a zéro, elle représente toute un indice clé au bon fonctionnement l'université, elle représente le budget, la satisfaction des enseignants, le taux d'insertion et le taux de réussite
+- Compléter votre semaine pour gagner
 ## notes :
-- contraintes : pas tout mettre dans l'emploi du temps 1-2 rdv max par jour (ou semaine)
 - attention à l'aléatoire : sinon le jeu perd tout son sens
-- les acteurs qui peuvent poser des questions : enseignant propose des formations, directeur d'iut moderniser equipement, le service comptable, le RH,  la région, l'entreprise du coin, le ministère et HCERS évalue à la fin de la semaine
+- les acteurs qui peuvent poser des questions : enseignant propose des formations, directeur d'iut moderniser equipement, le service comptable, le RH,  la région, l'entreprise du coin, le ministère 
 - comment voir la demande pour pour le taux d'insertion ?
 - Quadran : taux de reussites et d'insertion professionnel. Afficher ça à chaque question
