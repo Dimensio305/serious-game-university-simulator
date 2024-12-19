@@ -65,7 +65,7 @@ public partial class JeuCourt : Node2D
 
 	private RichTextLabel messagefin; 
 	private Button buttonLeft;
-    private Button buttonRight;
+	private Button buttonRight;
 
 	
 /// <summary>
@@ -99,10 +99,10 @@ public partial class JeuCourt : Node2D
 		recQuestion=GetNodeOrNull<TextureRect>("rectquestion");
 		TextLabelordi = GetNode<RichTextLabel>("TextLabelordi");
 		buttonLeft = GetNode<Button>("_b_reponse_gauche");
-        buttonRight = GetNode<Button>("_b_reponse_droite");
+		buttonRight = GetNode<Button>("_b_reponse_droite");
 
-        buttonLeft.Connect("pressed", Callable.From(OnButtonLeftPressed));
-        buttonRight.Connect("pressed", Callable.From(OnButtonRightPressed));
+		buttonLeft.Connect("pressed", Callable.From(OnButtonLeftPressed));
+		buttonRight.Connect("pressed", Callable.From(OnButtonRightPressed));
 
 		Jauge1 = GetNodeOrNull<Jauge>("Jauge1");
 		Jauge2 = GetNodeOrNull<Jauge>("Jauge2");
@@ -463,7 +463,7 @@ private async Task AfficherMessageIntermediaire()
 	}
 
 	private void _on_button_pressed(){
-		if (Jour.Instance.GetJour()== 4){
+		if (Jour.Instance.GetJour()== 5){
 			GetTree().ChangeSceneToFile("res://Jeu_court/finduJeu.tscn");
 		}
 		else{
@@ -472,40 +472,35 @@ private async Task AfficherMessageIntermediaire()
 	}
 
 	private void OnButtonLeftPressed()
-    {
-        gerereponse(Jauge1, Jauge2, Jauge3, Jauge4, true); // true pour gauche
-    }
+	{
+		gerereponse(Jauge1, Jauge2, Jauge3, Jauge4, true); // true pour gauche
+	}
 
-    private void OnButtonRightPressed()
-    {
-        gerereponse(Jauge1, Jauge2, Jauge3, Jauge4, false); // false pour droite
-    }
+	private void OnButtonRightPressed()
+	{
+		gerereponse(Jauge1, Jauge2, Jauge3, Jauge4, false); // false pour droite
+	}
 
-    public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4, bool isLeft)
-    {
-        if (isLeft)
-        {
-            MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges pour la réponse gauche
-        }
-        else
-        {
-            MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges pour la réponse droite
-        }
+	public void gerereponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4, bool isLeft)
+	{
+		if (isLeft)
+		{
+			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges pour la réponse gauche
+		}
+		else
+		{
+			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges pour la réponse droite
+		}
 
-        inQuestion = false;
-        message();
-        q.question_suivante(agenda.GetRendezVous()[nbrdv].getComposante()); // Passer à la question suivante
-        suiv();
-        faireavancerletemps();
-        attente();
-    }
+		inQuestion = false;
+		message();
+		q.question_suivante(agenda.GetRendezVous()[nbrdv].getComposante()); // Passer à la question suivante
+		suiv();
+		faireavancerletemps();
+		attente();
+	}
 
 	
 
 
 }
-
-
-
-
-
