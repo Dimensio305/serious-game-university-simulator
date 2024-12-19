@@ -1263,7 +1263,7 @@
         </member>
         <member name="M:Intermediaire._Ready">
             <summary>
-            Méthode ready : appelée lors de l'initialisation du nœud. 
+            Méthode ready : appelée lors de l'initialisation du nœud.
             Elle configure les cibles et les messages et génère les rendez-vous aléatoires.
             </summary>
         </member>
@@ -1298,6 +1298,13 @@
             Methode ReorganizeChildrenInColumn :Réorganise les enfants d'une cible en colonne pour un affichage ordonné.
             </summary>
             <param name="target">Parametre 1 : La cible à réorganiser.</param>
+        </member>
+        <member name="M:Intermediaire.UpdateTargetTextEdits(Godot.TextureRect,System.Collections.Generic.List{Rendezvous})">
+            <summary>
+            Methode UpdateTargetTextEdits : Met à jour les TextEdit des cibles avec les rendez-vous.
+            </summary>
+            <param name="target">La cible à mettre à jour.</param>
+            <param name="rendezvousList">La liste des rendez-vous à afficher.</param>
         </member>
         <member name="M:Intermediaire._on_valider_pressed">
             <summary>

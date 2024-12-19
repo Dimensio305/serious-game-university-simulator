@@ -2,7 +2,6 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
 
 /// <summary>
@@ -22,9 +21,9 @@ public partial class Intermediaire : Node2D
 	private List<Rendezvous> rdvdebut = new List<Rendezvous>();
 
 	private List<Rendezvous> vide = new List<Rendezvous>();
-		
+
 	/// <summary>
-	/// Méthode ready : appelée lors de l'initialisation du nœud. 
+	/// Méthode ready : appelée lors de l'initialisation du nœud.
 	/// Elle configure les cibles et les messages et génère les rendez-vous aléatoires.
 	/// </summary>
 	public override void _Ready()
@@ -54,26 +53,11 @@ public partial class Intermediaire : Node2D
 		}
 
 		// Remplie les TextEdit des cibles avec les rendez-vous de début
-		int i = 0;
-		foreach (Node child in _target1.GetChildren())
-		{
-			if (child is RichTextLabel textEdit)
-			{
-				textEdit.BbcodeEnabled = true; // Active le mode BBCode
+		UpdateTargetTextEdits(_target1, rdvdebut);
+		ReorganizeChildrenInColumn(_target1);
+		UpdateTargetTextEdits(_target1, rdvdebut);
 
-				// Exemple de rendez-vous
-				string rdv = rdvdebut[i].ToString();
-				string lien = affichage.creationlien(rdvdebut[i].getComposante());
-
-				// Ajouter des bordures et des styles
-				textEdit.Text = $"[b]{rdv}[/b]\n";
-				textEdit.Text += $"{lien}\n";
-				textEdit.Text = $"[center]{textEdit.Text}[/center]";
-
-
-				i++;
-			}
-		}
+		
 	}
 
 	/// <summary>
@@ -107,7 +91,6 @@ public partial class Intermediaire : Node2D
 	/// <param name="clickedTextEdit">Parametre 2: Le TextEdit cliqué.</param>
 	private void OnGuiInput(InputEvent inputEvent, RichTextLabel clickedTextEdit)
 	{
-		
 		int textEditCount = 0;
 		foreach (Node child in _target2.GetChildren())
 		{
@@ -120,12 +103,15 @@ public partial class Intermediaire : Node2D
 		if (inputEvent is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
 		{
 			TextureRect destination = clickedTextEdit.GetParent() == _target1 ? _target2 : _target1;
-			if(destination ==_target2){
-				if(textEditCount<4){
+			if (destination == _target2)
+			{
+				if (textEditCount < 4)
+				{
 					MoveTextEditToTarget(clickedTextEdit, destination);
 				}
 			}
-			else{
+			else
+			{
 				MoveTextEditToTarget(clickedTextEdit, destination);
 			}
 		}
@@ -158,6 +144,10 @@ public partial class Intermediaire : Node2D
 		textEdit.GetParent().RemoveChild(textEdit);
 		target.AddChild(textEdit);
 		ReorganizeChildrenInColumn(target);
+
+		// Mettre à jour les TextEdit des cibles
+		UpdateTargetTextEdits(_target1, rdvdebut);
+		UpdateTargetTextEdits(_target2, rdvfin);
 	}
 
 	/// <summary>
@@ -176,6 +166,32 @@ public partial class Intermediaire : Node2D
 			{
 				control.Position = new Vector2(45, currentY);
 				currentY += control.Size.Y + yOffset;
+			}
+		}
+	}
+
+	/// <summary>
+	/// Methode UpdateTargetTextEdits : Met à jour les TextEdit des cibles avec les rendez-vous.
+	/// </summary>
+	/// <param name="target">La cible à mettre à jour.</param>
+	/// <param name="rendezvousList">La liste des rendez-vous à afficher.</param>
+	private void UpdateTargetTextEdits(TextureRect target, List<Rendezvous> rendezvousList)
+	{
+		int i = 0;
+		foreach (Node child in target.GetChildren())
+		{
+			if (child is RichTextLabel textEdit)
+			{
+				textEdit.BbcodeEnabled = true; // Active le mode BBCode
+
+				// Exemple de rendez-vous
+				string rdv = rendezvousList[i].ToString();
+				string lien = affichage.creationlien(rendezvousList[i].getComposante());
+
+				// Ajouter des bordures et des styles
+				textEdit.Text = $"[center][b]{rdv}[/b]\n{lien}\n[/center]";
+
+				i++;
 			}
 		}
 	}
@@ -218,7 +234,6 @@ public partial class Intermediaire : Node2D
 	/// </summary>
 	public void _on_reset_pressed()
 	{
-		
 		foreach (Node child in _target2.GetChildren())
 		{
 			if (child is RichTextLabel textedit)

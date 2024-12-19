@@ -21,10 +21,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkt7j"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ndss0"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4fssu"]
 texture = ExtResource("4_odfgw")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qugba"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afb8g"]
 texture = ExtResource("4_odfgw")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mayvo"]
@@ -33,10 +33,10 @@ texture = ExtResource("4_odfgw")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5qys"]
 texture = ExtResource("4_odfgw")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afb8g"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qugba"]
 texture = ExtResource("4_odfgw")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4fssu"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ndss0"]
 texture = ExtResource("4_odfgw")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vdcma"]
@@ -108,21 +108,21 @@ offset_bottom = 651.0
 texture = ExtResource("2_dlcj2")
 expand_mode = 1
 
-[node name="5" type="RichTextLabel" parent="case_gauche"]
+[node name="0" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 491.0
-offset_right = 489.0
-offset_bottom = 551.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_ndss0")
+offset_left = 45.0
+offset_top = 67.0
+offset_right = 482.0
+offset_bottom = 131.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4fssu")
 
-[node name="4" type="RichTextLabel" parent="case_gauche"]
+[node name="1" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
-offset_left = 44.0
-offset_top = 406.0
-offset_right = 487.0
-offset_bottom = 470.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_qugba")
+offset_left = 47.0
+offset_top = 148.0
+offset_right = 484.0
+offset_bottom = 215.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_afb8g")
 
 [node name="2" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
@@ -140,21 +140,21 @@ offset_right = 484.0
 offset_bottom = 388.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_i5qys")
 
-[node name="1" type="RichTextLabel" parent="case_gauche"]
+[node name="4" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 148.0
-offset_right = 484.0
-offset_bottom = 215.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_afb8g")
+offset_left = 44.0
+offset_top = 406.0
+offset_right = 487.0
+offset_bottom = 470.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_qugba")
 
-[node name="0" type="RichTextLabel" parent="case_gauche"]
+[node name="5" type="RichTextLabel" parent="case_gauche"]
 layout_mode = 0
-offset_left = 45.0
-offset_top = 67.0
-offset_right = 482.0
-offset_bottom = 131.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_4fssu")
+offset_left = 43.0
+offset_top = 491.0
+offset_right = 489.0
+offset_bottom = 551.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ndss0")
 
 [node name="valider" type="Button" parent="."]
 offset_left = 908.0
@@ -172,6 +172,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxTexture_vdcma")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_cn5so")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_75t0i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e86bs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_e86bs")
 text = "VALIDER"
 

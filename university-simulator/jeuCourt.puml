@@ -2,14 +2,20 @@
 package affichage {
     class Affichage {
         + {static} EcrireTexte(textEdit: TextEdit, texte: String):
-        + {static} AfficherAgenda(rendezVousList: RendezVous[], textEdit: TextEdit):
+        + {static} AfficherAgenda(rendezVousList: RendezVous[], textEdit: RichTextLabel):
         + {static} AfficherProjets(projets: Projet[], textEdit: TextEditProjets):
         + {static} AfficherFormations(formations: Formation[], textEdit: TextEditFormations, pan: Panel):
-
+        + {static} FinDuJeu(j1: Jauge, j2: Jauge, j3: Jauge, j4: Jauge, context: Node):
+        + {static} ChangeImage(imagePath: String, textureRect: TextureRect):
+        + {static} CreationLien(composante: Integer): String
+        + {static} AfficherEtat(richTextLabel: RichTextLabel):
+        + {static} AfficherEtatJour(richTextLabel: RichTextLabel):
     }
 }
 package DB {
     class GestionDb {
+        - {static} _instance: GestionDb
+        - _connexion: SQLiteConnection
         - GestionDb()
         + {static} Instance: GestionDb
         - Connect():
@@ -64,7 +70,6 @@ package Planning {
         + Description: String
         + id: Integer
         + composante: Integer
-        + <<create>> RendezVous(date: DateTime, duree: TimeSpan, description: String, id: Integer)
         + <<create>> RendezVous(date: DateTime, description: String, id: Integer)
         + getId(): Integer
         + HeureFin(): DateTime
@@ -87,6 +92,8 @@ package Question {
         + getvaleur2(j: String): Integer
         + reponse1(): String
         + reponse2(): String
+        + GetRandomPhrase(): String
+        + GetRandomEndPhrase(): String
     }
 }
 class FinDuJeu {
@@ -104,27 +111,28 @@ class Jauge {
     + GetValeur(): double
 }
 class JaugeManager {
+    - {static} _score: Integer
     - {static} jauges: Integer[]
     - {static} jaugesDebutJournee: Integer[]
     + {static} GetJaugeValue(jaugeName: String): Integer
     + {static} SetJaugeValue(jaugeName: String, newValue: Integer):
     + {static} majjour():
     + {static} GetJaugeValueMatin(jaugeName: String): Integer
+    + {static} GetScore(): Integer
 }
 class JeuCourt {
     - _textEdit: TextEdit
     - inQuestion: Boolean
-    - r2: TextEdit
-    - r1: TextEdit
     - q: Question
+    - recQuestion: TextureRect
     - forma: Formation[]
     - texteditforma: TextEdit
     - agenda: Agenda
-    - texteditagenda: TextEdit
+    - TextLabelordi: RichTextLabel
     - nbrdv: Integer
     - inrdv: Boolean
     - aquellequestion: Integer
-    - projetbisible: Boolean
+    - projetvisible: Boolean
     - projets: Projet[]
     - proj: TextEdit
     - horloges: TextEdit
@@ -132,30 +140,38 @@ class JeuCourt {
     - minute: Integer
     - panel: Panel
     - nbquestion: Integer
-    - subViewport: SubViewport
-    - animationPlayer: AnimationPlayer
     - textureRectpersonnage: TextureRect
-    - temporaire: TextEdit
+    - textLabelmessage: RichTextLabel
     - Jauge1: Jauge
     - Jauge2: Jauge
     - Jauge3: Jauge
     - Jauge4: Jauge
+    - img: imagePath
+    - messagefin: RichTextLabel
+    - buttonLeft: Button
+    - buttonRight: Button
     + _Ready():
     + _Process(delta: double):
     - GérerQuestionAsync():
-    - MettreAJourJauges(Jauge1: Jauge, Jauge2: Jauge, Jauge3: Jauge, Jauge4: Jauge, getValeur: Integer):
-    - CahcerTousLesTextEdits():
+    - MettreÀJourJauges(Jauge1: Jauge, Jauge2: Jauge, Jauge3: Jauge, Jauge4: Jauge, getValeur: Integer):
+    - CacherTousLesTextEdits():
     - verifieravantdefermer():
     - rendrevisibleformation():
     - rendrevisibleprojet():
     - rendrevisibleagenda():
+    - rendrevisibleetat():
     - GenererForma():
-    + generereponse(J1: Jauge, J2: Jauge, J3: Jauge, J4: Jauge):
+    + gerereponse(J1: Jauge, J2: Jauge, J3: Jauge, J4: Jauge):
     - suiv():
     - AfficherQuestionSuivante():
     - AfficherMessageIntermediaire(): Task
     - faireavancerletemps():
     - attente():
+    - message():
+    - _on_button_pressed():
+    - OnButtonLeftPressed():
+    - OnButtonRightPressed():
+    - gerereponse(J1: Jauge, J2: Jauge, J3: Jauge, J4: Jauge, isLeft: Boolean):
 }
 
 Affichage ..> RendezVous: <<uses>>
