@@ -217,9 +217,13 @@ public partial class Intermediaire : Node2D
 	/// </summary>
 	public void _on_reset_pressed()
 	{
-		foreach (RichTextLabel textedit in _target2.GetChildren())
+		
+		foreach (Node child in _target2.GetChildren())
 		{
-			MoveTextEditToTarget(textedit, _target1);
+			if (child is RichTextLabel textedit)
+			{
+				MoveTextEditToTarget(textedit, _target1);
+			}
 		}
 	}
 }
