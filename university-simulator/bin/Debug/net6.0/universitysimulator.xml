@@ -1428,14 +1428,29 @@
             Cached name for the '_Process' method.
             </summary>
         </member>
-        <member name="F:Tuto.MethodName.messadedepart">
-            <summary>
-            Cached name for the 'messadedepart' method.
-            </summary>
-        </member>
         <member name="F:Tuto.MethodName.afficherquestion">
             <summary>
             Cached name for the 'afficherquestion' method.
+            </summary>
+        </member>
+        <member name="F:Tuto.MethodName.messageUpdate">
+            <summary>
+            Cached name for the 'messageUpdate' method.
+            </summary>
+        </member>
+        <member name="F:Tuto.MethodName.boutonTuto">
+            <summary>
+            Cached name for the 'boutonTuto' method.
+            </summary>
+        </member>
+        <member name="F:Tuto.MethodName.pressEtatMessage">
+            <summary>
+            Cached name for the 'pressEtatMessage' method.
+            </summary>
+        </member>
+        <member name="F:Tuto.MethodName.pressAgendaMessage">
+            <summary>
+            Cached name for the 'pressAgendaMessage' method.
             </summary>
         </member>
         <member name="M:Tuto.GetGodotMethodList">
@@ -1506,6 +1521,16 @@
             Cached name for the 'labeldirective' field.
             </summary>
         </member>
+        <member name="F:Tuto.PropertyName.buttonRight">
+            <summary>
+            Cached name for the 'buttonRight' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.buttonLeft">
+            <summary>
+            Cached name for the 'buttonLeft' field.
+            </summary>
+        </member>
         <member name="F:Tuto.PropertyName.decouvrequestion">
             <summary>
             Cached name for the 'decouvrequestion' field.
@@ -1531,29 +1556,39 @@
             Cached name for the 'decouvrereponsedroite' field.
             </summary>
         </member>
-        <member name="F:Tuto.PropertyName.etape1">
-            <summary>
-            Cached name for the 'etape1' field.
-            </summary>
-        </member>
-        <member name="F:Tuto.PropertyName.etape2">
-            <summary>
-            Cached name for the 'etape2' field.
-            </summary>
-        </member>
-        <member name="F:Tuto.PropertyName.etape3">
-            <summary>
-            Cached name for the 'etape3' field.
-            </summary>
-        </member>
-        <member name="F:Tuto.PropertyName.etape4">
-            <summary>
-            Cached name for the 'etape4' field.
-            </summary>
-        </member>
         <member name="F:Tuto.PropertyName.inQuestion">
             <summary>
             Cached name for the 'inQuestion' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.idmessage">
+            <summary>
+            Cached name for the 'idmessage' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.waitAction">
+            <summary>
+            Cached name for the 'waitAction' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.j1">
+            <summary>
+            Cached name for the 'j1' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.j2">
+            <summary>
+            Cached name for the 'j2' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.j3">
+            <summary>
+            Cached name for the 'j3' field.
+            </summary>
+        </member>
+        <member name="F:Tuto.PropertyName.j4">
+            <summary>
+            Cached name for the 'j4' field.
             </summary>
         </member>
         <member name="M:Tuto.SetGodotClassPropertyValue(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.godot_variant@)">

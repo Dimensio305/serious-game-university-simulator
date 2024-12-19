@@ -1,9 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://il1rsjt5hge6"]
+[gd_scene load_steps=28 format=3 uid="uid://il1rsjt5hge6"]
 
 [ext_resource type="Texture2D" uid="uid://w53gy0k3hv5i" path="res://fond_et_titre/fond_bureau2.png" id="1_gm70d"]
 [ext_resource type="Script" path="res://scenes/Tuto.cs" id="1_y5nnr"]
 [ext_resource type="Texture2D" uid="uid://ofyc31kipc0q" path="res://asset/autre/bulle_question.png" id="2_e6ob5"]
+[ext_resource type="Texture2D" uid="uid://blfqcnl6fyxjl" path="res://asset/autre/quote.png" id="3_m8qeh"]
+[ext_resource type="FontFile" uid="uid://nwdj34lv3cpt" path="res://asset/pack1/Font/Kenney Future.ttf" id="4_4h5eo"]
+[ext_resource type="Texture2D" uid="uid://31iqeo665a68" path="res://asset/jauges/argent.png" id="5_d1vyx"]
 [ext_resource type="Texture2D" uid="uid://fd612r2sdb6y" path="res://asset/acteurs/t3_character1.png" id="5_l6g2h"]
+[ext_resource type="Texture2D" uid="uid://cytkkpsiuqu1p" path="res://asset/autre/bulle_reponse.png" id="5_rrsxm"]
+[ext_resource type="Script" path="res://Jeu_court/Jauge.cs" id="6_xxqlv"]
+[ext_resource type="StyleBox" uid="uid://cqjo4tjxm1ace" path="res://texture_jauge.tres" id="7_ssotb"]
+[ext_resource type="Texture2D" uid="uid://jqsdpsn7g5mr" path="res://asset/jauges/profs.png" id="8_ym6me"]
+[ext_resource type="Texture2D" uid="uid://dp0inod864iwe" path="res://asset/jauges/insertionPro.png" id="9_v6go3"]
+[ext_resource type="Texture2D" uid="uid://btoj1osms6p2g" path="res://asset/autre/reussite.png" id="10_atjad"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07jk1"]
+bg_color = Color(0.929412, 0, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr2xh"]
+bg_color = Color(0.929412, 0, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5twy"]
+bg_color = Color(0.929412, 0, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foktu"]
+bg_color = Color(0.929412, 0, 0.231373, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7c71e"]
+texture = ExtResource("5_rrsxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kafp3"]
+texture = ExtResource("5_rrsxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m2cxi"]
+texture = ExtResource("5_rrsxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4y6fb"]
+texture = ExtResource("5_rrsxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i68me"]
+texture = ExtResource("5_rrsxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b0hl7"]
+texture = ExtResource("5_rrsxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pnejq"]
+texture = ExtResource("5_rrsxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1wwqr"]
+texture = ExtResource("5_rrsxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1kdo"]
+texture = ExtResource("5_rrsxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jdr0v"]
+texture = ExtResource("5_rrsxm")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_y5nnr")
@@ -15,24 +66,26 @@ texture = ExtResource("1_gm70d")
 expand_mode = 1
 
 [node name="imagedirective" type="TextureRect" parent="."]
-offset_left = 459.0
-offset_top = 224.0
-offset_right = 861.0
-offset_bottom = 393.0
+offset_left = 49.0
+offset_top = 23.0
+offset_right = 451.0
+offset_bottom = 223.0
+texture = ExtResource("3_m8qeh")
 expand_mode = 1
 
 [node name="textlabedirective" type="RichTextLabel" parent="imagedirective"]
-visible = false
 layout_mode = 0
-offset_left = 69.0
-offset_top = 19.0
-offset_right = 432.0
-offset_bottom = 137.0
+offset_left = 32.0
+offset_top = 65.0
+offset_right = 366.0
+offset_bottom = 160.0
+theme_override_fonts/normal_font = ExtResource("4_4h5eo")
+bbcode_enabled = true
 
 [node name="fondquestion" type="TextureRect" parent="."]
 visible = false
-offset_left = 230.0
-offset_top = -5.0
+offset_left = 112.0
+offset_top = -15.0
 offset_right = 751.0
 offset_bottom = 230.0
 texture = ExtResource("2_e6ob5")
@@ -42,8 +95,11 @@ expand_mode = 1
 layout_mode = 0
 offset_left = 114.0
 offset_top = 56.0
-offset_right = 369.0
+offset_right = 443.0
 offset_bottom = 156.0
+theme_override_fonts/normal_font = ExtResource("4_4h5eo")
+theme_override_fonts/bold_font = ExtResource("4_4h5eo")
+bbcode_enabled = true
 
 [node name="Imagerepgauche" type="TextureRect" parent="."]
 visible = false
@@ -51,6 +107,7 @@ offset_left = 141.0
 offset_top = 190.0
 offset_right = 349.0
 offset_bottom = 275.0
+texture = ExtResource("5_rrsxm")
 expand_mode = 1
 
 [node name="reponsegauche" type="RichTextLabel" parent="Imagerepgauche"]
@@ -59,6 +116,8 @@ offset_left = 17.0
 offset_top = 24.0
 offset_right = 183.0
 offset_bottom = 64.0
+theme_override_fonts/normal_font = ExtResource("4_4h5eo")
+bbcode_enabled = true
 
 [node name="Imagerepdroite" type="TextureRect" parent="."]
 visible = false
@@ -66,6 +125,7 @@ offset_left = 371.0
 offset_top = 192.0
 offset_right = 579.0
 offset_bottom = 274.0
+texture = ExtResource("5_rrsxm")
 expand_mode = 1
 
 [node name="reponsedroite" type="RichTextLabel" parent="Imagerepdroite"]
@@ -74,6 +134,7 @@ offset_left = 17.0
 offset_top = 24.0
 offset_right = 183.0
 offset_bottom = 64.0
+bbcode_enabled = true
 
 [node name="textlabelordi" type="RichTextLabel" parent="."]
 visible = false
@@ -82,12 +143,236 @@ offset_top = 372.0
 offset_right = 498.0
 offset_bottom = 505.0
 rotation = -0.0845301
+bbcode_enabled = true
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="personnage" type="TextureRect" parent="."]
 visible = false
-offset_left = 663.0
-offset_top = 222.0
-offset_right = 824.0
-offset_bottom = 506.0
+offset_left = 660.0
+offset_top = 226.0
+offset_right = 821.0
+offset_bottom = 510.0
 texture = ExtResource("5_l6g2h")
 expand_mode = 1
+
+[node name="Jauge1" type="TextureRect" parent="."]
+visible = false
+clip_children = 1
+offset_left = 46.0
+offset_top = 544.0
+offset_right = 148.0
+offset_bottom = 649.0
+texture = ExtResource("5_d1vyx")
+expand_mode = 1
+script = ExtResource("6_xxqlv")
+
+[node name="JaugeValeur" type="Label" parent="Jauge1"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 111.0
+offset_bottom = 114.0
+
+[node name="ConteneurJauge" type="BoxContainer" parent="Jauge1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.54
+anchor_right = 0.5
+anchor_bottom = 0.54
+offset_left = -64.5
+offset_top = -57.34
+offset_right = 53.5
+offset_bottom = 42.66
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JaugeProg" type="ProgressBar" parent="Jauge1/ConteneurJauge"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_07jk1")
+theme_override_styles/fill = ExtResource("7_ssotb")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Jauge2" type="TextureRect" parent="."]
+visible = false
+clip_children = 1
+offset_left = 164.0
+offset_top = 539.0
+offset_right = 271.0
+offset_bottom = 646.0
+texture = ExtResource("8_ym6me")
+script = ExtResource("6_xxqlv")
+
+[node name="JaugeValeur" type="Label" parent="Jauge2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -1.0
+offset_right = 110.0
+offset_bottom = 122.0
+
+[node name="ConteneurJauge" type="BoxContainer" parent="Jauge2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -47.5
+offset_right = 55.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JaugeProg" type="ProgressBar" parent="Jauge2/ConteneurJauge"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_fr2xh")
+theme_override_styles/fill = ExtResource("7_ssotb")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Jauge3" type="TextureRect" parent="."]
+visible = false
+clip_children = 1
+offset_left = 940.0
+offset_top = 522.0
+offset_right = 1051.0
+offset_bottom = 640.0
+texture = ExtResource("9_v6go3")
+script = ExtResource("6_xxqlv")
+
+[node name="JaugeValeur" type="Label" parent="Jauge3"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -1.0
+offset_right = 103.0
+offset_bottom = 99.0
+
+[node name="ConteneurJauge" type="BoxContainer" parent="Jauge3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -42.0
+offset_right = 49.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JaugeProg" type="ProgressBar" parent="Jauge3/ConteneurJauge"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_g5twy")
+theme_override_styles/fill = ExtResource("7_ssotb")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Jauge4" type="TextureRect" parent="."]
+visible = false
+clip_children = 1
+offset_left = 1034.0
+offset_top = 522.0
+offset_right = 1140.0
+offset_bottom = 634.0
+texture = ExtResource("10_atjad")
+script = ExtResource("6_xxqlv")
+
+[node name="JaugeValeur" type="Label" parent="Jauge4"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -1.0
+offset_right = 91.0
+offset_bottom = 105.0
+
+[node name="ConteneurJauge" type="BoxContainer" parent="Jauge4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -43.0
+offset_right = 34.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JaugeProg" type="ProgressBar" parent="Jauge4/ConteneurJauge"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_foktu")
+theme_override_styles/fill = ExtResource("7_ssotb")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Button1" type="Button" parent="."]
+visible = false
+offset_left = 53.0
+offset_top = 201.0
+offset_right = 236.0
+offset_bottom = 309.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_4h5eo")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_7c71e")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_kafp3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m2cxi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4y6fb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_i68me")
+text = "Appuie ici pour montrer que tu a compris (ou appuie sur la flèche gauche)"
+autowrap_mode = 3
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+offset_left = 258.0
+offset_top = 201.0
+offset_right = 440.0
+offset_bottom = 309.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_4h5eo")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_b0hl7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pnejq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1wwqr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_c1kdo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jdr0v")
+text = "...Ou tu peut appuyer ici (la flèche de droite marche égalemment)"
+autowrap_mode = 3
+
+[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

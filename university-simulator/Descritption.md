@@ -29,3 +29,15 @@ Le jeu se déroule sur une semaine. Chaque jour, le joueur doit gérer un certai
 Si l'une des jauges (budget, satisfaction des enseignants, taux d'insertion, taux de réussite) est vide, le joueur perd la partie. Sinon, il doit atteindre la fin de la semaine.
 
 Pour entretenir une bonne relation avec les différents acteurs, il faudra bien choisir son planning de rendez-vous, et prendre des décisions équilibrées en fonction des priorités.
+
+## Vos actions
+
+Une fois le jeu lancer, il suffit d'appuyer sur la touche "Jeu Court" pour démarrer une partie. Vous devez ensuite choisir 4 rendez-vous pour la journée à partir des choix qui vous sont proposés.
+
+Une fois fait, vous atterirez dans votre bureau et plusieurs actions seront possibles grâce aux touches suivantes :
+
+- Consulter le planning de la journée avec `A` et le fermer avec `X`.
+- Consulter les indicateurs de performance avec `B` et les fermer avec `X`.
+- Consulter les formations avec `F` et les fermer avec `X`.
+- Faire venir votre rendez-vous avec `Q` et le mettre en attente avec `X`.
+  - Répondre à la question de la personne avec laquelle vous avez rendez-vous en `cliquant sur les choix proposés`.
