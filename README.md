@@ -7,14 +7,14 @@
 - Membres : Killian Sakhi, Simon Husser, Océane Bertin, Samuel Chanal
 
 ### Notre projet :
-La gestion d'une université et de ses formations est un sujet très vaste, rempli de contraintes et de décisions compliquées qui doivent faire l'objet de réunions interminables remplies de gens haut placés...
+La gestion d'une université et de ses formations est un sujet très vaste, jonché de contraintes et de décisions compliquées, qui doivent faire l'objet de réunions interminables remplies de gens haut placés...
 
-Mais imaginez un moment qu'à la place, on puisse simplement dire "oui" ou "non" à chaque problématique, afin d'observer les conséquences de nos décisions ?<br>
+Mais imaginez un moment qu'à la place, on puisse simplement dire "oui" ou "non" à chaque problématique, afin d'observer immédiatement les conséquences de nos décisions ?<br>
 N'imaginez plus, University Simulator est là pour ça !
 
 Dans la peau du Responsable de formation universitaire, la survie de cette université est maintenant entre vos mains, à une réponse de la catastrophe.
 
-Saurez vous gérer vos différentes ressources pour l'amener vers la prospérité ? Il est l'heure de le dévouvir.
+Saurez vous gérer vos différentes ressources pour l'amener vers la prospérité ? Il est l'heure de le découvrir.
 
 ## Déroulement de la partie
 
@@ -43,8 +43,8 @@ Un écran récapitulatif vous permettra de voir l'évolution de vos différentes
 Tout ce dont vous aurez besoin pourra être trouvé dans les [Release de ce git](https://gitlab.unistra.fr/projet-t31/university-simulator/-/releases).
 
 ### Linux
-- Télechargez le fichier .appimage ;
-- Ajoutez lui les permissions d'exécution :
+1. Télechargez le fichier .appimage ;
+2. Ajoutez lui les permissions d'exécution :
     - Depuis votre gestionnaire de fichier :
         - Clic droit sur le fichier ;
         - Propriétés ;
@@ -53,14 +53,14 @@ Tout ce dont vous aurez besoin pourra être trouvé dans les [Release de ce git]
     - Depuis un terminal :
         - Déplacez vous dans le dossier qui contient le fichier ;
         - Exécutez la commande `chmod +x [nom du fichier].appimage` .
-- Plus qu'à lancer le fichier depuis votre terminal ou avec un double clic.
+3. Plus qu'à lancer le fichier depuis votre terminal ou avec un double clic.
 
 ### Windows
-- Téléchargez l'installer .exe, et lancez le ;
-- Suivez les instructions à l'écran pour installer le jeu ;
-- Lancez le jeu avec l'icone ajoutée à votre bureau, si il n'est pas lancé automatiquement après installation.
+1. Téléchargez l'installer .exe, et lancez le ;
+2. Suivez les instructions à l'écran pour installer le jeu ;
+3. Lancez le jeu avec l'icone ajoutée à votre bureau, si il n'est pas lancé automatiquement après installation.
 
 ### MacOS
-- Reconsidérez vos choix de carrière ;
-- Téléchargez l'archive .zip, et décompressez le dans le dossier de votre choix (de préférence vide) ;
-- Ajoutez les permissions d'exécution à l'exécutable si nécessaire, et lancez le.
+1. Reconsidérez vos choix de carrière ;
+2. Téléchargez l'archive .zip, et décompressez le dans le dossier de votre choix (de préférence vide) ;
+3. Ajoutez les permissions d'exécution à l'exécutable si nécessaire, et lancez le.
