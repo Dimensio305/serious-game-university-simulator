@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=31 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
 [ext_resource type="Texture2D" uid="uid://w53gy0k3hv5i" path="res://fond_et_titre/fond_bureau2.png" id="2_f3j7f"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://btoj1osms6p2g" path="res://asset/autre/reussite.png" id="8_txma1"]
 [ext_resource type="FontFile" uid="uid://qv104t57hkkn" path="res://police/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" id="9_66sx3"]
 [ext_resource type="Texture2D" uid="uid://fd612r2sdb6y" path="res://asset/acteurs/t3_character1.png" id="10_71yln"]
+[ext_resource type="Texture2D" uid="uid://cytkkpsiuqu1p" path="res://asset/autre/bulle_reponse.png" id="10_ubu1l"]
+[ext_resource type="FontFile" uid="uid://nwdj34lv3cpt" path="res://asset/pack1/Font/Kenney Future.ttf" id="10_y4f12"]
 [ext_resource type="Texture2D" uid="uid://beixq2xha7sqs" path="res://asset/autre/blocnote4.png" id="15_lfwjt"]
 [ext_resource type="FontFile" uid="uid://c6ui7gvui4uqo" path="res://asset/pack2/Font/Kenney Future.ttf" id="16_fniwi"]
 [ext_resource type="Texture2D" uid="uid://nq4a0mshlpke" path="res://asset/brique/png/element_green_rectangle.png" id="17_m52hi"]
@@ -32,6 +34,12 @@ bg_color = Color(0.929412, 0, 0.231373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5fxm"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xxwq"]
+texture = ExtResource("10_ubu1l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0xcl0"]
+texture = ExtResource("10_ubu1l")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbf0m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -225,7 +233,7 @@ visible = false
 offset_left = 93.0
 offset_top = -18.0
 offset_right = 790.0
-offset_bottom = 251.0
+offset_bottom = 257.0
 rotation = -0.0151239
 texture = ExtResource("7_wgo1c")
 
@@ -235,10 +243,11 @@ layout_mode = 0
 offset_left = 138.0
 offset_top = 46.0
 offset_right = 512.0
-offset_bottom = 194.0
+offset_bottom = 200.0
 theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_y4f12")
 theme_override_styles/normal = SubResource("StyleBoxFlat_k5fxm")
 theme_override_styles/focus = SubResource("StyleBoxFlat_k5fxm")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_k5fxm")
@@ -251,18 +260,58 @@ wrap_mode = 1
 
 [node name="_b_reponse_gauche" type="Button" parent="."]
 visible = false
-offset_left = 19.0
-offset_top = 192.0
-offset_right = 295.0
-offset_bottom = 313.0
+offset_left = 29.0
+offset_top = 199.0
+offset_right = 310.0
+offset_bottom = 320.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_y4f12")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1xxwq")
 autowrap_mode = 3
 
 [node name="_b_reponse_droite" type="Button" parent="."]
 visible = false
-offset_left = 306.0
-offset_top = 189.0
-offset_right = 585.0
-offset_bottom = 311.0
+offset_left = 316.0
+offset_top = 200.0
+offset_right = 595.0
+offset_bottom = 322.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_y4f12")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_0xcl0")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0xcl0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_0xcl0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_0xcl0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_0xcl0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0xcl0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_0xcl0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0xcl0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_0xcl0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0xcl0")
 autowrap_mode = 3
 
 [node name="TextLabelordi" type="RichTextLabel" parent="."]
