@@ -52,7 +52,7 @@ Tout ce dont vous aurez besoin pourra être trouvé dans les [Release de ce git]
         - "Autoriser l'exécution du fichier comme un programme" (ou équivalent).
     - Depuis un terminal :
         - Déplacez vous dans le dossier qui contient le fichier ;
-        - `chmod +x [nom du fichier].appimage`.
+        - Exécutez la commande `chmod +x [nom du fichier].appimage` .
 - Plus qu'a lancer le fichier depuis votre terminal ou avec un double clic.
 
 ### Windows
