@@ -90,7 +90,7 @@
             <param name="pan"></param> Parametre 3 : panel contenant le textedit <summary>
             </summary>
         </member>
-        <member name="M:affichage.FinDuJeu(Jauge,Jauge,Jauge,Jauge,System.Int32,Godot.Node)">
+        <member name="M:affichage.FinDuJeu(Jauge,Jauge,Jauge,Jauge,Godot.Node)">
             <summary>
             Méthode FinDuJeu : Méthode statique qui permet de passer à la scène de fin
             lorsqu'une condition de fin de jeu est atteinte.

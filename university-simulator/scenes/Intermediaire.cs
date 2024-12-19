@@ -124,7 +124,8 @@ public partial class Intermediaire : Node2D
 				if(textEditCount<4){
 					MoveTextEditToTarget(clickedTextEdit, destination);
 				}
-			}else{
+			}
+			else{
 				MoveTextEditToTarget(clickedTextEdit, destination);
 			}
 		}
@@ -173,7 +174,7 @@ public partial class Intermediaire : Node2D
 		{
 			if (child is Control control)
 			{
-				control.Position = new Vector2(55, currentY);
+				control.Position = new Vector2(45, currentY);
 				currentY += control.Size.Y + yOffset;
 			}
 		}

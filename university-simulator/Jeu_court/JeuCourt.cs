@@ -170,7 +170,7 @@ public partial class JeuCourt : Node2D
 			verifieravantdefermer();
 		}
 		
-		affichage.FinDuJeu(Jauge1, Jauge2, Jauge3, Jauge4, Jour.Instance.GetJour(), this);
+		affichage.FinDuJeu(Jauge1, Jauge2, Jauge3, Jauge4, this);
 		
 
 
@@ -463,7 +463,12 @@ private async Task AfficherMessageIntermediaire()
 	}
 
 	private void _on_button_pressed(){
+		if (Jour.Instance.GetJour()== 4){
+			GetTree().ChangeSceneToFile("res://Jeu_court/finduJeu.tscn");
+		}
+		else{
 		GetTree().ChangeSceneToFile("res://intermediaire/affichage_jour.tscn");
+		}
 	}
 
 	private void OnButtonLeftPressed()

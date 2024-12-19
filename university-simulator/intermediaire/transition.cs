@@ -20,7 +20,7 @@ public partial class transition : Node2D
             "res://asset/jour/1.png",
             "res://asset/jour/2.png",
             "res://asset/jour/3.png",
-            "res://asset/jour/4.jpg",
+            "res://asset/jour/4.png",
             "res://asset/jour/5.png"
         };
 
