@@ -172,6 +172,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxTexture_vdcma")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_cn5so")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_75t0i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e86bs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_e86bs")
 text = "VALIDER"
 

@@ -15,9 +15,9 @@ expand_mode = 1
 
 [node name="EndMessage" type="RichTextLabel" parent="."]
 offset_left = 64.0
-offset_top = 322.0
+offset_top = 290.0
 offset_right = 1085.0
-offset_bottom = 479.0
+offset_bottom = 455.0
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_by6le")
