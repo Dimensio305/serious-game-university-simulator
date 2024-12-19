@@ -1,11 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://chd2rym4fs88p"]
+[gd_scene load_steps=30 format=3 uid="uid://chd2rym4fs88p"]
 
 [ext_resource type="Texture2D" uid="uid://bpinrfqnaihkd" path="res://fond_et_titre/fond_bureau.png" id="1_dhybc"]
 [ext_resource type="Script" path="res://scenes/Intermediaire.cs" id="1_tedlk"]
 [ext_resource type="Texture2D" uid="uid://beixq2xha7sqs" path="res://asset/autre/blocnote4.png" id="2_dlcj2"]
 [ext_resource type="Texture2D" uid="uid://ni6yoaen61lx" path="res://asset/brique/png/element_green_rectangle_glossy.png" id="4_3v0m5"]
 [ext_resource type="Texture2D" uid="uid://fqcr421gfdcw" path="res://asset/autre/bulle blocnote.png" id="4_odfgw"]
+[ext_resource type="FontFile" uid="uid://nwdj34lv3cpt" path="res://asset/pack1/Font/Kenney Future.ttf" id="4_yfsej"]
 [ext_resource type="Texture2D" uid="uid://cxsro11xbkyhr" path="res://asset/brique/png/element_yellow_rectangle_glossy_copy.png" id="5_ee253"]
+[ext_resource type="FontFile" uid="uid://d174y8k3umv1e" path="res://police/Kanit/Kanit-LightItalic.ttf" id="5_oub7t"]
+[ext_resource type="FontFile" uid="uid://chrombw085vp5" path="res://police/Kanit/Kanit-Italic.ttf" id="7_a5mnl"]
+[ext_resource type="Texture2D" uid="uid://blfqcnl6fyxjl" path="res://asset/autre/quote.png" id="7_k66wf"]
+[ext_resource type="FontFile" uid="uid://rva5ckpf4ygv" path="res://asset/pack1/Font/Kenney Future Narrow.ttf" id="8_54cio"]
 
 [sub_resource type="Animation" id="Animation_a8585"]
 resource_name = "MoveTextEdit"
@@ -54,6 +59,14 @@ texture = ExtResource("4_3v0m5")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvedq"]
 texture = ExtResource("5_ee253")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbw23"]
+texture = ExtResource("7_k66wf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjcjw"]
+texture = ExtResource("7_k66wf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hcx7u"]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_tedlk")
 
@@ -80,16 +93,17 @@ expand_mode = 1
 layout_mode = 0
 offset_left = 31.0
 offset_top = 54.0
-offset_right = 485.0
-offset_bottom = 108.0
+offset_right = 478.0
+offset_bottom = 114.0
 theme_override_colors/background_color = Color(0, 0, 0, 0)
 theme_override_colors/font_readonly_color = Color(0.454902, 0.254902, 0.0862745, 1)
 theme_override_colors/font_color = Color(0.454902, 0.254902, 0.0862745, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_fonts/font = ExtResource("4_yfsej")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_m4naj")
 theme_override_styles/focus = SubResource("StyleBoxFlat_mkt7j")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_mkt7j")
-text = "Choisssiez vos quatres rendez-vous de la journée"
+text = "Choisssiez vos quatre rendez-vous de la journée"
 editable = false
 context_menu_enabled = false
 shortcut_keys_enabled = false
@@ -114,6 +128,9 @@ offset_left = 45.0
 offset_top = 67.0
 offset_right = 482.0
 offset_bottom = 131.0
+theme_override_fonts/normal_font = ExtResource("5_oub7t")
+theme_override_fonts/mono_font = ExtResource("5_oub7t")
+theme_override_fonts/italics_font = ExtResource("5_oub7t")
 theme_override_styles/normal = SubResource("StyleBoxTexture_4fssu")
 
 [node name="1" type="RichTextLabel" parent="case_gauche"]
@@ -122,6 +139,9 @@ offset_left = 47.0
 offset_top = 148.0
 offset_right = 484.0
 offset_bottom = 215.0
+theme_override_fonts/normal_font = ExtResource("7_a5mnl")
+theme_override_fonts/mono_font = ExtResource("7_a5mnl")
+theme_override_fonts/italics_font = ExtResource("7_a5mnl")
 theme_override_styles/normal = SubResource("StyleBoxTexture_afb8g")
 
 [node name="2" type="RichTextLabel" parent="case_gauche"]
@@ -130,6 +150,9 @@ offset_left = 45.0
 offset_top = 241.0
 offset_right = 480.0
 offset_bottom = 304.0
+theme_override_fonts/normal_font = ExtResource("7_a5mnl")
+theme_override_fonts/mono_font = ExtResource("7_a5mnl")
+theme_override_fonts/italics_font = ExtResource("7_a5mnl")
 theme_override_styles/normal = SubResource("StyleBoxTexture_mayvo")
 
 [node name="3" type="RichTextLabel" parent="case_gauche"]
@@ -138,6 +161,9 @@ offset_left = 46.0
 offset_top = 323.0
 offset_right = 484.0
 offset_bottom = 388.0
+theme_override_fonts/normal_font = ExtResource("7_a5mnl")
+theme_override_fonts/mono_font = ExtResource("7_a5mnl")
+theme_override_fonts/italics_font = ExtResource("7_a5mnl")
 theme_override_styles/normal = SubResource("StyleBoxTexture_i5qys")
 
 [node name="4" type="RichTextLabel" parent="case_gauche"]
@@ -146,6 +172,9 @@ offset_left = 44.0
 offset_top = 406.0
 offset_right = 487.0
 offset_bottom = 470.0
+theme_override_fonts/normal_font = ExtResource("7_a5mnl")
+theme_override_fonts/mono_font = ExtResource("7_a5mnl")
+theme_override_fonts/italics_font = ExtResource("7_a5mnl")
 theme_override_styles/normal = SubResource("StyleBoxTexture_qugba")
 
 [node name="5" type="RichTextLabel" parent="case_gauche"]
@@ -154,6 +183,9 @@ offset_left = 43.0
 offset_top = 491.0
 offset_right = 489.0
 offset_bottom = 551.0
+theme_override_fonts/normal_font = ExtResource("7_a5mnl")
+theme_override_fonts/mono_font = ExtResource("7_a5mnl")
+theme_override_fonts/italics_font = ExtResource("7_a5mnl")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ndss0")
 
 [node name="valider" type="Button" parent="."]
@@ -197,11 +229,27 @@ text = "RESET"
 
 [node name="message" type="TextEdit" parent="."]
 visible = false
-offset_left = 378.0
-offset_top = 232.0
-offset_right = 787.0
-offset_bottom = 388.0
+offset_left = 303.0
+offset_top = 154.0
+offset_right = 855.0
+offset_bottom = 447.0
+theme_override_colors/font_readonly_color = Color(0.454902, 0.254902, 0.0862745, 1)
+theme_override_colors/font_color = Color(0.454902, 0.254902, 0.0862745, 1)
+theme_override_colors/selection_color = Color(0.996078, 0.580392, 0, 1)
+theme_override_colors/font_selected_color = Color(0.454902, 0.254902, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("8_54cio")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_kbw23")
+theme_override_styles/focus = SubResource("StyleBoxTexture_fjcjw")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_hcx7u")
 editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
 wrap_mode = 1
 
 [connection signal="pressed" from="valider" to="." method="_on_valider_pressed"]

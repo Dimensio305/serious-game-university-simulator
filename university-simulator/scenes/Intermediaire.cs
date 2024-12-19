@@ -189,7 +189,7 @@ public partial class Intermediaire : Node2D
 				string lien = affichage.creationlien(rendezvousList[i].getComposante());
 
 				// Ajouter des bordures et des styles
-				textEdit.Text = $"[center][b]{rdv}[/b]\n{lien}\n[/center]";
+				textEdit.Text = $"[center][color=#744116][b]{rdv}[/b]\n{lien}\n[/color][/center]";
 
 				i++;
 			}
@@ -213,7 +213,7 @@ public partial class Intermediaire : Node2D
 		// Si 4 rendez-vous ont été choisis, change de scène, sinon affiche un message d'erreur
 		if (textEditCount == 4)
 		{
-			message.Text = "Les rendez-vous sont bien pris en compte.";
+			message.Text = "\n\n\n        Les rendez-vous sont bien \n        pris en compte.";
 			message.Visible = true;
 
 			await Task.Delay(1500);
@@ -223,7 +223,7 @@ public partial class Intermediaire : Node2D
 		else
 		{
 			message.Visible = true;
-			message.Text = "Il faut choisir 4 rendez-vous.";
+			message.Text = "\n\n\n               Il faut choisir 4 \n               rendez-vous.";
 			await Task.Delay(1500);
 			message.Visible = false;
 		}

@@ -239,7 +239,7 @@ public static class affichage
 			message = "Vous devriez reprendre contact";
 		}
 		else{
-			message = "bonne relation";
+			message = "Bonne relation continuez ainsi";
 		}
 
 		return message;
