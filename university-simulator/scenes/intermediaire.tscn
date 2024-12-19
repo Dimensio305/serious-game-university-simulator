@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://nwdj34lv3cpt" path="res://asset/pack1/Font/Kenney Future.ttf" id="4_yfsej"]
 [ext_resource type="Texture2D" uid="uid://cxsro11xbkyhr" path="res://asset/brique/png/element_yellow_rectangle_glossy_copy.png" id="5_ee253"]
 [ext_resource type="FontFile" uid="uid://d174y8k3umv1e" path="res://police/Kanit/Kanit-LightItalic.ttf" id="5_oub7t"]
-[ext_resource type="FontFile" uid="uid://chrombw085vp5" path="res://police/Kanit/Kanit-Italic.ttf" id="7_a5mnl"]
+[ext_resource type="FontFile" uid="uid://cwa4inivfmp2j" path="res://police/Kanit/Kanit-ExtraLightItalic.ttf" id="7_77ahq"]
 [ext_resource type="Texture2D" uid="uid://blfqcnl6fyxjl" path="res://asset/autre/quote.png" id="7_k66wf"]
 [ext_resource type="FontFile" uid="uid://rva5ckpf4ygv" path="res://asset/pack1/Font/Kenney Future Narrow.ttf" id="8_54cio"]
 
@@ -139,9 +139,9 @@ offset_left = 47.0
 offset_top = 148.0
 offset_right = 484.0
 offset_bottom = 215.0
-theme_override_fonts/normal_font = ExtResource("7_a5mnl")
-theme_override_fonts/mono_font = ExtResource("7_a5mnl")
-theme_override_fonts/italics_font = ExtResource("7_a5mnl")
+theme_override_fonts/normal_font = ExtResource("7_77ahq")
+theme_override_fonts/mono_font = ExtResource("7_77ahq")
+theme_override_fonts/italics_font = ExtResource("7_77ahq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_afb8g")
 
 [node name="2" type="RichTextLabel" parent="case_gauche"]
@@ -150,9 +150,9 @@ offset_left = 45.0
 offset_top = 241.0
 offset_right = 480.0
 offset_bottom = 304.0
-theme_override_fonts/normal_font = ExtResource("7_a5mnl")
-theme_override_fonts/mono_font = ExtResource("7_a5mnl")
-theme_override_fonts/italics_font = ExtResource("7_a5mnl")
+theme_override_fonts/normal_font = ExtResource("7_77ahq")
+theme_override_fonts/mono_font = ExtResource("7_77ahq")
+theme_override_fonts/italics_font = ExtResource("7_77ahq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_mayvo")
 
 [node name="3" type="RichTextLabel" parent="case_gauche"]
@@ -161,9 +161,9 @@ offset_left = 46.0
 offset_top = 323.0
 offset_right = 484.0
 offset_bottom = 388.0
-theme_override_fonts/normal_font = ExtResource("7_a5mnl")
-theme_override_fonts/mono_font = ExtResource("7_a5mnl")
-theme_override_fonts/italics_font = ExtResource("7_a5mnl")
+theme_override_fonts/normal_font = ExtResource("7_77ahq")
+theme_override_fonts/mono_font = ExtResource("7_77ahq")
+theme_override_fonts/italics_font = ExtResource("7_77ahq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_i5qys")
 
 [node name="4" type="RichTextLabel" parent="case_gauche"]
@@ -172,9 +172,9 @@ offset_left = 44.0
 offset_top = 406.0
 offset_right = 487.0
 offset_bottom = 470.0
-theme_override_fonts/normal_font = ExtResource("7_a5mnl")
-theme_override_fonts/mono_font = ExtResource("7_a5mnl")
-theme_override_fonts/italics_font = ExtResource("7_a5mnl")
+theme_override_fonts/normal_font = ExtResource("7_77ahq")
+theme_override_fonts/mono_font = ExtResource("7_77ahq")
+theme_override_fonts/italics_font = ExtResource("7_77ahq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_qugba")
 
 [node name="5" type="RichTextLabel" parent="case_gauche"]
@@ -183,9 +183,9 @@ offset_left = 43.0
 offset_top = 491.0
 offset_right = 489.0
 offset_bottom = 551.0
-theme_override_fonts/normal_font = ExtResource("7_a5mnl")
-theme_override_fonts/mono_font = ExtResource("7_a5mnl")
-theme_override_fonts/italics_font = ExtResource("7_a5mnl")
+theme_override_fonts/normal_font = ExtResource("7_77ahq")
+theme_override_fonts/mono_font = ExtResource("7_77ahq")
+theme_override_fonts/italics_font = ExtResource("7_77ahq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ndss0")
 
 [node name="valider" type="Button" parent="."]
@@ -224,6 +224,13 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxTexture_wvedq")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_wvedq")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_wvedq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_wvedq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_wvedq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_wvedq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wvedq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_wvedq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wvedq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_wvedq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_wvedq")
 text = "RESET"
 
