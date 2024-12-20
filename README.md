@@ -4,7 +4,7 @@
 
 ### Notre groupe :
 - Nom : les KSOS
-- Membres : Killian Sakhi, Simon Husser, Océane Bertin, Samuel Chanal
+- Membres : Kilian Sakhi, Simon Husser, Océane Bertin, Samuel Chanal
 
 ### Notre projet :
 La gestion d'une université et de ses formations est un sujet très vaste, jonché de contraintes et de décisions compliquées, qui doivent faire l'objet de réunions interminables remplies de gens haut placés...
