@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://fd612r2sdb6y" path="res://asset/acteurs/t3_character1.png" id="5_l6g2h"]
 [ext_resource type="Texture2D" uid="uid://cytkkpsiuqu1p" path="res://asset/autre/bulle_reponse.png" id="5_rrsxm"]
 [ext_resource type="Script" path="res://Jeu_court/Jauge.cs" id="6_xxqlv"]
-[ext_resource type="StyleBox" path="res://texture_jauge.tres" id="7_ssotb"]
+[ext_resource type="StyleBox" uid="uid://cqjo4tjxm1ace" path="res://texture_jauge.tres" id="7_ssotb"]
 [ext_resource type="Texture2D" uid="uid://jqsdpsn7g5mr" path="res://asset/jauges/profs.png" id="8_ym6me"]
 [ext_resource type="Texture2D" uid="uid://dp0inod864iwe" path="res://asset/jauges/insertionPro.png" id="9_v6go3"]
 [ext_resource type="Texture2D" uid="uid://btoj1osms6p2g" path="res://asset/autre/reussite.png" id="10_atjad"]

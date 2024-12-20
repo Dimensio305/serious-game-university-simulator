@@ -134,23 +134,23 @@ public partial class Tuto : Node2D
 		switch (idmessage)
 		{
 			case 0:
-				labeldirective.Text = "[center][b][color=black]\nCoucou bienvenue dans university simulator[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]\nCoucou bienvenue dans [/color][color=orange]University Simulator[/color][/b][/center]";
 				break;
 			case 1:
 				labeldirective.Text = "[center][b][color=black]\nLa clé de la réussite est de conserver un équilibre entre tes differentes ressources[/color][/b][/center]";
 				break;
 			case 2:
-				labeldirective.Text = "[center][b][color=black]\nElles sont symbolysé par des jauges visible en bas de l'écran.[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]\nElles sont symbolysées par des jauges visibles en bas de l'écran.[/color][/b][/center]";
 				j1.Visible = true;
 				j2.Visible = true;
 				j3.Visible = true;
 				j4.Visible = true;
 				break;
 			case 3:
-				labeldirective.Text = "[center][b][color=black]Elles représentent dans l'ordre: Le budget, la Satisfaction du personnel, le taux d’insertion professionnel et le taux de réussite des étudiants[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]Elles représentent dans l'ordre: Le budget, la satisfaction du personnel, le taux d’insertion professionnel et le taux de réussite des étudiants[/color][/b][/center]";
 				break;
 			case 4:
-				labeldirective.Text = "[center][b][color=black]\nChaque jour tu pourras constitué ton emplois du temps avec divers rendez-vous[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]\nChaque jour vous pourrez constituer votre emplois du temps avec divers rendez-vous[/color][/b][/center]";
 				break;
 			case 5:
 				labeldirective.Text = "[center][b][color=black]\nVous pouvez voir le prochain sur l'ordinateur[/color][/b][/center]";
@@ -158,7 +158,7 @@ public partial class Tuto : Node2D
 				labelordi.Visible = true;
 				break;
 			case 6:
-				labeldirective.Text = "[center][b][color=black]\nPour faire entrer votre interlocuteur appuyez sur 'Q' ou faîte un clique droit[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]\nPour faire entrer votre interlocuteur appuyez sur [/color][color=orange]'Q'[/color][color=black] ou faîte un [/color][color=orange]clique droit[/color][/b][/center]";
 				waitAction = true;
 				break;
 			case 7:
@@ -172,7 +172,7 @@ public partial class Tuto : Node2D
 				fondquestion.Visible = true;
 				break;
 			case 9:
-				labelquestion.Text = "[center][b][color=black]Vous devrez alors répondre en cliquant sur la réponse souhaité (ou en utilisant les flèches droite et gauche du clavier)[/color][/b][/center]";
+				labelquestion.Text = "[center][b][color=black]Vous devrez alors répondre [/color][color=orange]en cliquant sur la réponse[/color][color=black] souhaité (ou en utilisant les [/color][color=orange]flèches droite et gauche[/color][color=black] du clavier)[/color][/b][/center]";
 				buttonLeft.Visible = true;
 				buttonRight.Visible = true;
 				waitAction = true;
@@ -183,13 +183,13 @@ public partial class Tuto : Node2D
 				break;
 			case 11:
 				fonddirective.Visible = true;
-				labeldirective.Text = "[center][b][color=black]\nPour plus de détails, appuyer sur 'E' pour voir l'état précis de vos jauges[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]\nPour plus de détails, appuyer sur [color=orange]'E'[/color] pour voir l'état précis de vos jauges[/color][/b][/center]";
 				waitAction = true;
 				break;
 			case 12:
 				labelordi.Text = pressEtatMessage();
 				labelordi.Visible = true;
-				labeldirective.Text = "[center][b][color=black]Parfait ! La dernière chose a savoir est qu'avec 'A' vous pouvez revoir votre agenda si vous l'avez oublié[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]Parfait ! La dernière chose a savoir est qu'avec [color=orange]'A'[/color] vous pouvez revoir votre agenda si vous l'avez oublié[/color][/b][/center]";
 				break;
 			case 13:
 				labelordi.Text = pressAgendaMessage();

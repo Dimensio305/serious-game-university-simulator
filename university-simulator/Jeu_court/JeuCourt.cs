@@ -266,7 +266,7 @@ public partial class JeuCourt : Node2D
 	{
 
 
-		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !TextLabelordi.Visible && _textEdit.Visible)
+		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && _textEdit.Visible)
 		{
 			UpdateJauges(J1, J2, J3, J4, question.getvaleur1); // Mettre à jour les jauges
 			inQuestion = false;
@@ -276,7 +276,7 @@ public partial class JeuCourt : Node2D
 			FaireAvancerTemps();
 			Attente();
 		}
-		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !TextLabelordi.Visible && _textEdit.Visible)
+		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && _textEdit.Visible)
 		{
 			UpdateJauges(J1, J2, J3, J4, question.getvaleur2); // Mettre à jour les jauges
 			inQuestion = false;
@@ -395,7 +395,7 @@ public partial class JeuCourt : Node2D
 			textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
 			textLabelmessage.Text = "\n\n";
 			textLabelmessage.Text += $"[center][b][color=orange]Vous êtes en rendez-vous avec ({agenda.GetRendezVous()[nbRdv].ToString()})[/color][/b][/center]";
-			textLabelmessage.Text += $"[center][color=orange]\nEtat de la relation : {Affichage.Creationlien(agenda.GetRendezVous()[nbRdv].GetHashCode())}[/color][/center]";
+			textLabelmessage.Text += $"[center][color=orange]\nEtat de la relation : {Affichage.Creationlien(agenda.GetRendezVous()[nbRdv].GetComposante())}[/color][/center]";
 		}
 		else
 		{
