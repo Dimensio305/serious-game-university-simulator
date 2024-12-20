@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddrq4pbm6xai5"]
+[gd_scene load_steps=18 format=3 uid="uid://ddrq4pbm6xai5"]
 
 [ext_resource type="Script" path="res://Menu/coce_i_menu.cs" id="1_w2ej2"]
 [ext_resource type="Texture2D" uid="uid://c615tmleap4vn" path="res://asset/brique/png/rectangle_glossy.png" id="2_7dxee"]
@@ -8,10 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cwaoob0wyc8w5" path="res://asset/button_square_border_orange.png" id="3_2qkek"]
 [ext_resource type="Texture2D" uid="uid://b5e1wadrhxcdb" path="res://asset/icons/PNG/White/1x/exitLeft.png" id="4_1q0mr"]
 [ext_resource type="Texture2D" uid="uid://nq4a0mshlpke" path="res://asset/brique/png/element_green_rectangle.png" id="5_xwri1"]
-[ext_resource type="Texture2D" uid="uid://biy8bu2agfshj" path="res://asset/brique/png/element_yellow_rectangle.png" id="7_oi2mu"]
 [ext_resource type="Texture2D" uid="uid://c4fegywx2jk0s" path="res://asset/brique/png/element_red_rectangle.png" id="12_1lj83"]
 [ext_resource type="Texture2D" uid="uid://bll7078dexpeo" path="res://asset/icons/PNG/White/1x/musicOn.png" id="13_ac8it"]
-[ext_resource type="Texture2D" uid="uid://rw8yujsfrxey" path="res://asset/icons/PNG/White/1x/gear.png" id="13_phial"]
 [ext_resource type="AudioStream" uid="uid://cy6pr4djr4h1p" path="res://musique/Musique_Gratuite_Libre_de_Droits_Calme_Entreprise_Corporate_Masteck_Media_-_Light_Corporate_[_YouConvert.net_].wav" id="15_5778w"]
 [ext_resource type="Texture2D" uid="uid://e25geuymftiy" path="res://fond_et_titre/titre_ville_corrige.png" id="18_6neh3"]
 [ext_resource type="Texture2D" uid="uid://cw5t2qykpd5lt" path="res://asset/element_yellow_orange.png" id="19_6q71m"]
@@ -24,9 +22,6 @@ texture = ExtResource("5_xwri1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lwtmi"]
 texture = ExtResource("2_7dxee")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hs8g"]
-texture = ExtResource("7_oi2mu")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6pda"]
 texture = ExtResource("12_1lj83")
@@ -50,8 +45,8 @@ scale = Vector2(1.12109, 0.635742)
 texture = ExtResource("2_a1b6w")
 
 [node name="fond_menu" type="Sprite2D" parent="."]
-position = Vector2(599, 401)
-scale = Vector2(4.46875, 3.71875)
+position = Vector2(598, 371.5)
+scale = Vector2(4.34375, 2.51563)
 texture = ExtResource("3_2qkek")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -59,35 +54,38 @@ layout_mode = 0
 offset_left = 497.0
 offset_top = 317.0
 offset_right = 698.0
-offset_bottom = 475.0
+offset_bottom = 434.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
 [node name="b_court" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.982343, 0.982342, 0.982342, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = -36
 theme_override_fonts/font = ExtResource("2_h10kc")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 26
 theme_override_styles/hover = SubResource("StyleBoxTexture_252t8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_rja02")
 theme_override_styles/normal = SubResource("StyleBoxTexture_lwtmi")
-text = "Court        "
+text = "Jouer       "
 icon = ExtResource("2_vs0rb")
-
-[node name="b_long" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_h10kc")
-theme_override_font_sizes/font_size = 22
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_7hs8g")
-theme_override_styles/hover = SubResource("StyleBoxTexture_7hs8g")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_7hs8g")
-theme_override_styles/normal = SubResource("StyleBoxTexture_7hs8g")
-text = "Réglage      "
-icon = ExtResource("13_phial")
 
 [node name="b_quittez" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.964742, 0.964742, 0.964742, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.960351, 0.960351, 0.960351, 1)
+theme_override_colors/font_hover_color = Color(0.99558, 0.99558, 0.99558, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.977937, 0.977937, 0.977937, 1)
 theme_override_fonts/font = ExtResource("2_h10kc")
 theme_override_font_sizes/font_size = 22
 theme_override_styles/hover = SubResource("StyleBoxTexture_r6pda")
@@ -128,6 +126,5 @@ offset_right = 1155.0
 offset_bottom = 651.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/b_court" to="." method="_on_b_court_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/b_long" to="." method="_on_b_long_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/b_quittez" to="." method="_on_b_quittez_pressed"]
 [connection signal="pressed" from="b_son" to="." method="_on_b_son_pressed"]

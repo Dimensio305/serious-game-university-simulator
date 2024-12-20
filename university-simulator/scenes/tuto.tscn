@@ -102,6 +102,7 @@ theme_override_fonts/bold_font = ExtResource("4_4h5eo")
 bbcode_enabled = true
 
 [node name="Imagerepgauche" type="TextureRect" parent="."]
+visible = false
 offset_left = 67.0
 offset_top = 200.0
 offset_right = 314.0

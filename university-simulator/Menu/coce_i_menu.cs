@@ -32,12 +32,6 @@ public partial class coce_i_menu : Control
 		
 		GetTree().ChangeSceneToFile("res://scenes/tuto.tscn");
 	}
-	/// <summary>
-	///_on_b_long_pressed: Change la scene pour la version longue du jeu
-	/// </summary>
-	public void _on_b_long_pressed(){
-		GetTree().ChangeSceneToFile("res://intermediaire/affichage_jour.tscn");
-	}
 	
 	/// <summary>
 	///Methode _on_b_quittez_pressed Bouton permettant de quitter le jeu 
