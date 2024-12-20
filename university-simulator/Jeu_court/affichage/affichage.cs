@@ -37,7 +37,7 @@ public static class Affichage
 		string nomJour = Jour.Instance.GetNom();
 
 		textEdit.Text += $"[center][b][color=orange]Agenda de {nomJour}[/color][/b][/center]\n";
-		textEdit.Text += "[center]=====================[/center]\n\n";
+		textEdit.Text += "[center][color=orange]=====================[/color][/center]\n\n";
 
 		TimeSpan[] debutCreneaux = {
 		new TimeSpan(8, 0, 0),  // 8h à 10h

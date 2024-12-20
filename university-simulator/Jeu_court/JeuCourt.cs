@@ -385,7 +385,7 @@ public partial class JeuCourt : Node2D
 			textLabelmessage.Clear();
 			textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
 			textLabelmessage.Text = "\n\n";
-			textLabelmessage.Text += $"[center][b][color=orange]Un rendez-vous vous attend avec ({agenda.GetRendezVous()[nbRdv].ToString()})[/color][/b][/center]";
+			textLabelmessage.Text += $"[center][b][color=orange]Un rendez-vous vous attend avec {agenda.GetRendezVous()[nbRdv].ToString()}[/color][/b][/center]";
 			textLabelmessage.Visible = true;
 
 		}
@@ -393,8 +393,8 @@ public partial class JeuCourt : Node2D
 		{
 			textLabelmessage.Clear();
 			textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
-			textLabelmessage.Text = "\n\n";
-			textLabelmessage.Text += $"[center][b][color=orange]Vous êtes en rendez-vous avec ({agenda.GetRendezVous()[nbRdv].ToString()})[/color][/b][/center]";
+			textLabelmessage.Text = "\n";
+			textLabelmessage.Text += $"[center][b][color=orange]Vous êtes en rendez-vous avec {agenda.GetRendezVous()[nbRdv].ToString()}[/color][/b][/center]";
 			textLabelmessage.Text += $"[center][color=orange]\nEtat de la relation : {Affichage.Creationlien(agenda.GetRendezVous()[nbRdv].GetComposante())}[/color][/center]";
 		}
 		else
