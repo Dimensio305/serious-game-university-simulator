@@ -38,16 +38,16 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xxwq"]
 texture = ExtResource("10_ubu1l")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwksr"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i8gt4"]
 texture = ExtResource("10_ubu1l")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1gseh"]
 texture = ExtResource("10_ubu1l")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_to7cl"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwksr"]
 texture = ExtResource("10_ubu1l")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i8gt4"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_to7cl"]
 texture = ExtResource("10_ubu1l")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0xcl0"]
@@ -313,10 +313,15 @@ theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_y4f12")
 theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxTexture_i8gt4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_1gseh")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_cwksr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_i8gt4")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_1gseh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_i8gt4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_to7cl")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_i8gt4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i8gt4")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_0xcl0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_0xcl0")
 autowrap_mode = 3
