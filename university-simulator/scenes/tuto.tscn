@@ -321,10 +321,10 @@ show_percentage = false
 
 [node name="Button1" type="Button" parent="."]
 visible = false
-offset_left = 53.0
-offset_top = 201.0
-offset_right = 236.0
-offset_bottom = 309.0
+offset_left = 10.0
+offset_top = 194.0
+offset_right = 289.0
+offset_bottom = 302.0
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -349,10 +349,10 @@ autowrap_mode = 3
 
 [node name="Button2" type="Button" parent="."]
 visible = false
-offset_left = 258.0
-offset_top = 201.0
-offset_right = 440.0
-offset_bottom = 309.0
+offset_left = 290.0
+offset_top = 192.0
+offset_right = 577.0
+offset_bottom = 300.0
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
