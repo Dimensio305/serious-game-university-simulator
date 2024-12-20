@@ -162,7 +162,7 @@ public partial class Tuto : Node2D
 				waitAction = true;
 				break;
 			case 7:
-				labeldirective.Text = "[center][b][color=black]\nL'autre acteur du rendez-vous viendras alors[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]\nL'autre acteur du rendez-vous viendra alors[/color][/b][/center]";
 				Affichage.ChangeImage("res://asset/acteurs/t3_character5.png", personnage);
 				personnage.Visible = true;
 				break;
@@ -179,21 +179,21 @@ public partial class Tuto : Node2D
 				break;
 			case 10:
 				fonddirective.Visible = true;
-				labeldirective.Text = "[center][b][color=black]\nComme vous pouvez le voir les jauges de budget et de satisfaction des professeurs[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]Comme vous pouvez le voir les jauges de budget et de satisfaction des professeurs ont varié, cependant ce n'est pas très précis[/color][/b][/center]";
 				break;
 			case 11:
 				fonddirective.Visible = true;
-				labeldirective.Text = "[center][b][color=black]\nPour plus de détails, appuyer sur [color=orange]'E'[/color] pour voir l'état précis de vos jauges[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]\nPour plus de détails, appuyez sur [color=orange]'E'[/color] pour voir l'état précis de vos jauges[/color][/b][/center]";
 				waitAction = true;
 				break;
 			case 12:
 				labelordi.Text = pressEtatMessage();
 				labelordi.Visible = true;
-				labeldirective.Text = "[center][b][color=black]Parfait ! La dernière chose a savoir est qu'avec [color=orange]'A'[/color] vous pouvez revoir votre agenda si vous l'avez oublié[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]Parfait ! La dernière chose à savoir est qu'avec [color=orange]'A'[/color], vous pouvez revoir votre agenda si vous l'avez oublié[/color][/b][/center]";
 				break;
 			case 13:
 				labelordi.Text = pressAgendaMessage();
-				labeldirective.Text = "[center][b][color=black]Vous avez désormais toute les connaissance pour vous débrouiller seul, vous aller pouvoir commencer votre semaine dans les meilleurs conditions[/color][/b][/center]";
+				labeldirective.Text = "[center][b][color=black]Vous avez désormais toutes les connaissances pour vous débrouiller seul, vous allez pouvoir commencer votre semaine dans les meilleures conditions.[/color][/b][/center]";
 				break;
 			case 14:
 				GetTree().ChangeSceneToFile("res://intermediaire/affichage_jour.tscn");
@@ -237,10 +237,10 @@ public partial class Tuto : Node2D
 		string message;
 		message = $"[center][b][color=orange]Agenda d'aujourd'hui[/color][/b][/center]\n";
 		message += "[center]=====================[/center]\n\n";
-		message += $"[color=orange][b]  - 08:00 - 10:00:[/b][/color] Présentation jauges\n";
-		message += $"[color=orange][b]  - 10:00 - 12:00:[/b][/color] Tutoriel question\n";
-		message += $"[color=orange][b]  - 14:00 - 16:00:[/b][/color] Tutoriel état\n";
-		message += $"[color=orange][b]  - 16:00 - 18:00:[/b][/color] Tutoriel agenda\n";
+		message += $"[color=orange][b]  - 08:00 - 10:00:[/b][/color] Présentation des jauges\n";
+		message += $"[color=orange][b]  - 10:00 - 12:00:[/b][/color] Tutoriel sur les questions\n";
+		message += $"[color=orange][b]  - 14:00 - 16:00:[/b][/color] Tutoriel sur l'état\n";
+		message += $"[color=orange][b]  - 16:00 - 18:00:[/b][/color] Tutoriel sur l'agenda\n";
 		return message;
 
 
