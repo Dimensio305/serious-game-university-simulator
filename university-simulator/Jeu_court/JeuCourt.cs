@@ -14,9 +14,7 @@ public partial class JeuCourt : Node2D
 	private Question question = new Question();
 	private TextureRect recQuestion;
 
-	//gestion des formation 
-	private List<Formation> formations;
-	private TextEdit textEditFormations;
+
 
 	// gestion des agenda
 	private Agenda agenda;
@@ -68,15 +66,13 @@ public partial class JeuCourt : Node2D
 
 		panel = GetNode<Panel>("panel");
 
-		textEditFormations = GetNode<TextEdit>("panel/TextEdit3");
 		proj = GetNode<TextEdit>("proj");
 
 		textureRectpersonnage = GetNode<TextureRect>("personnage");
 		// Générer des projets et rendez-vous aléatoires
 		projets = Projet.GenererProjetsAleatoires();
 		agenda = new Agenda();
-		formations = new List<Formation>();
-		GenererFormation();
+
 
 		// Gestion de l'heure
 		horloge = GetNode<TextEdit>("Horloge/horloge");
@@ -131,14 +127,6 @@ public partial class JeuCourt : Node2D
 			RendreVisibleAgenda();
 		}
 
-		if (Input.IsActionJustPressed("formation"))
-		{
-			RendreVisibleFormation();
-		}
-		//if (Input.IsActionJustPressed("projet"))
-		//{
-		//	rendrevisibleprojet();
-		//}
 		if (Input.IsActionJustPressed("Etat"))
 		{
 			RendreEtatVisible();
@@ -157,7 +145,11 @@ public partial class JeuCourt : Node2D
 	/// </summary>
 	private async void GereQuestionAsync()
 	{
-		if (Input.IsActionJustPressed("Question") && !projetvisible && !textEditFormations.Visible && !TextLabelordi.Visible)
+
+
+
+
+		if (Input.IsActionJustPressed("Question"))
 		{
 			// on a message deux fois sinon on change le message que apres l'arriver de la question
 			//donc decalage entre le message et la question etrange sinon 
@@ -201,7 +193,7 @@ public partial class JeuCourt : Node2D
 	{
 		_textEdit.Visible = false;
 		TextLabelordi.Visible = false;
-		textEditFormations.Visible = false;
+
 		buttonLeft.Visible = false;
 		buttonRight.Visible = false;
 		proj.Visible = false;
@@ -221,11 +213,6 @@ public partial class JeuCourt : Node2D
 			buttonRight.Visible = false;
 
 		}
-		if (textEditFormations.Visible)
-		{
-			panel.Visible = false;
-			textEditFormations.Visible = false;
-		}
 		if (TextLabelordi.Visible)
 		{
 			TextLabelordi.Visible = false;
@@ -239,68 +226,32 @@ public partial class JeuCourt : Node2D
 	}
 
 	/// <summary>
-	/// Rend visible les formations
-	/// </summary>
-	private void RendreVisibleFormation()
-	{
-		if (!_textEdit.Visible && !TextLabelordi.Visible && !projetvisible)
-		{
-			Affichage.AfficherFormations(formations, textEditFormations, panel);
-			panel.Visible = true;
-			textEditFormations.Visible = true; // Afficher les projets
-		}
-	}
-
-	/// <summary>
-	/// Rend visible les projets
-	/// </summary>
-	private void RendreVisibleProjet()
-	{
-		if (!_textEdit.Visible && !TextLabelordi.Visible && !textEditFormations.Visible)
-		{
-			Affichage.AfficherProjets(projets, proj);
-			proj.Visible = true; // Afficher les projets
-			projetvisible = true;
-		}
-	}
-
-	/// <summary>
 	/// Rend visible l'agenda
 	/// </summary>
 	private void RendreVisibleAgenda()
 	{
-		if (!_textEdit.Visible && !textEditFormations.Visible && !projetvisible)
-		{
-			Affichage.AfficherAgenda(agenda.GetRendezVous(), TextLabelordi);
-			TextLabelordi.Visible = true; // Afficher l'agenda
-			Message();
-		}
+
+
+
+		Affichage.AfficherAgenda(agenda.GetRendezVous(), TextLabelordi);
+		TextLabelordi.Visible = true; // Afficher l'agenda
+		Message();
 	}
+
 
 	/// <summary>
 	/// Rend visible l'état de la relation
 	/// </summary>
 	private void RendreEtatVisible()
 	{
-		if (!_textEdit.Visible && !textEditFormations.Visible && !projetvisible)
-		{
 
-			Affichage.AffichageEtat(TextLabelordi);
-			TextLabelordi.Visible = true; // Afficher l'agenda
-			Message();
-		}
+
+		Affichage.AffichageEtat(TextLabelordi);
+		TextLabelordi.Visible = true; // Afficher l'agenda
+		Message();
 	}
 
-	/// <summary>
-	/// Genère 5 formations
-	/// </summary>
-	private void GenererFormation()
-	{
-		for (int i = 0; i < 5; i++)
-		{
-			formations.Add(Formation.GenereFormation());
-		}
-	}
+
 
 	/// <summary>
 	/// Gère les réponses aux questions et met à jour les jauges en conséquence.
@@ -313,7 +264,9 @@ public partial class JeuCourt : Node2D
 	/// </summary>
 	public void GereReponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4)
 	{
-		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !textEditFormations.Visible && !TextLabelordi.Visible && _textEdit.Visible)
+
+
+		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !TextLabelordi.Visible && _textEdit.Visible)
 		{
 			UpdateJauges(J1, J2, J3, J4, question.getvaleur1); // Mettre à jour les jauges
 			inQuestion = false;
@@ -323,7 +276,7 @@ public partial class JeuCourt : Node2D
 			FaireAvancerTemps();
 			Attente();
 		}
-		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !textEditFormations.Visible && !TextLabelordi.Visible && _textEdit.Visible)
+		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !TextLabelordi.Visible && _textEdit.Visible)
 		{
 			UpdateJauges(J1, J2, J3, J4, question.getvaleur2); // Mettre à jour les jauges
 			inQuestion = false;
@@ -441,9 +394,8 @@ public partial class JeuCourt : Node2D
 			textLabelmessage.Clear();
 			textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
 			textLabelmessage.Text = "\n\n";
-			textLabelmessage.Text += $"[center][b][color=orange]Vous etes en rendez-vous avec ({agenda.GetRendezVous()[nbRdv].ToString()}) \n Etat de la relation : {Affichage.Creationlien(agenda.GetRendezVous()[nbRdv].GetComposante())}[/color][/b][/center]";
-
-
+			textLabelmessage.Text += $"[center][b][color=orange]Vous êtes en rendez-vous avec ({agenda.GetRendezVous()[nbRdv].ToString()})[/color][/b][/center]";
+			textLabelmessage.Text += $"[center][color=orange]\nEtat de la relation : {Affichage.Creationlien(agenda.GetRendezVous()[nbRdv].GetHashCode())}[/color][/center]";
 		}
 		else
 		{
@@ -487,10 +439,12 @@ public partial class JeuCourt : Node2D
 		if (isLeft)
 		{
 			UpdateJauges(J1, J2, J3, J4, question.getvaleur1); // Mettre à jour les jauges pour la réponse gauche
+			Message();
 		}
 		else
 		{
 			UpdateJauges(J1, J2, J3, J4, question.getvaleur2); // Mettre à jour les jauges pour la réponse droite
+			Message();
 		}
 
 		inQuestion = false;

@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/css" href="style.css"?>
 <doc>
     <assembly>
         <name>university-simulator</name>
@@ -426,16 +425,6 @@
             Vérifie si un TextEdit est visible avant de le fermer.
             </summary>
         </member>
-        <member name="M:JeuCourt.RendreVisibleFormation">
-            <summary>
-            Rend visible les formations
-            </summary>
-        </member>
-        <member name="M:JeuCourt.RendreVisibleProjet">
-            <summary>
-            Rend visible les projets
-            </summary>
-        </member>
         <member name="M:JeuCourt.RendreVisibleAgenda">
             <summary>
             Rend visible l'agenda
@@ -444,11 +433,6 @@
         <member name="M:JeuCourt.RendreEtatVisible">
             <summary>
             Rend visible l'état de la relation
-            </summary>
-        </member>
-        <member name="M:JeuCourt.GenererFormation">
-            <summary>
-            Genère 5 formations
             </summary>
         </member>
         <member name="M:JeuCourt.GereReponse(Jauge,Jauge,Jauge,Jauge)">
@@ -507,16 +491,6 @@
             Cached name for the 'CacherElements' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.RendreVisibleFormation">
-            <summary>
-            Cached name for the 'RendreVisibleFormation' method.
-            </summary>
-        </member>
-        <member name="F:JeuCourt.MethodName.RendreVisibleProjet">
-            <summary>
-            Cached name for the 'RendreVisibleProjet' method.
-            </summary>
-        </member>
         <member name="F:JeuCourt.MethodName.RendreVisibleAgenda">
             <summary>
             Cached name for the 'RendreVisibleAgenda' method.
@@ -525,11 +499,6 @@
         <member name="F:JeuCourt.MethodName.RendreEtatVisible">
             <summary>
             Cached name for the 'RendreEtatVisible' method.
-            </summary>
-        </member>
-        <member name="F:JeuCourt.MethodName.GenererFormation">
-            <summary>
-            Cached name for the 'GenererFormation' method.
             </summary>
         </member>
         <member name="F:JeuCourt.MethodName.GereReponse">
@@ -613,11 +582,6 @@
         <member name="F:JeuCourt.PropertyName.recQuestion">
             <summary>
             Cached name for the 'recQuestion' field.
-            </summary>
-        </member>
-        <member name="F:JeuCourt.PropertyName.textEditFormations">
-            <summary>
-            Cached name for the 'textEditFormations' field.
             </summary>
         </member>
         <member name="F:JeuCourt.PropertyName.TextLabelordi">

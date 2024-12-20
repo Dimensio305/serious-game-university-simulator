@@ -1,8 +1,6 @@
 using Godot;
-using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
-using System.Net.Http;
 
 /// <summary>
 /// Classe Affichage : elle gere l'affichage dans different element du jeu
@@ -249,14 +247,14 @@ public static class Affichage
 		richTextLabel.BbcodeEnabled = true; // Active le mode BBCode
 
 		string message = "[center][b][color=orange]Statistiques des ressources[/color][/b][/center]\n";
-		message += "[center]=====================[/center]\n\n";
+		message += "[center][color=orange]=====================[/color][/center]\n\n";
 
 		// Trésorerie
 		int jauge1 = JaugeManager.GetJaugeValue("Jauge1");
 		message += "[b]Trésorerie :[/b] ";
 		if (jauge1 < 80 && jauge1 > 30)
 		{
-			message += "[color=#1d7b16]correcte[/color]. Elle est actuellement à " + jauge1 + "%.\n";
+			message += "[color=green]correcte[/color]. Elle est actuellement à " + jauge1 + "%.\n";
 		}
 		else if (jauge1 <= 30)
 		{
@@ -272,7 +270,7 @@ public static class Affichage
 		message += "\n[b]Satisfaction des professeurs :[/b] ";
 		if (jauge2 < 80 && jauge2 > 30)
 		{
-			message += "[color=#1d7b16]correcte[/color]. Elle est actuellement à " + jauge2 + "%.\n";
+			message += "[color=green]correcte[/color]. Elle est actuellement à " + jauge2 + "%.\n";
 		}
 		else if (jauge2 <= 30)
 		{
@@ -288,7 +286,7 @@ public static class Affichage
 		message += "\n[b]Taux d'insertion professionnelle :[/b] ";
 		if (jauge3 < 80 && jauge3 > 30)
 		{
-			message += "[color=#1d7b16]correcte[/color]. Il est actuellement à " + jauge3 + "%.\n";
+			message += "[color=green]correcte[/color]. Il est actuellement à " + jauge3 + "%.\n";
 		}
 		else if (jauge3 <= 30)
 		{
@@ -304,7 +302,7 @@ public static class Affichage
 		message += "\n[b]Taux de réussite :[/b] ";
 		if (jauge4 < 80 && jauge4 > 30)
 		{
-			message += "[color=#1d7b16]correcte[/color]. Il est actuellement à " + jauge4 + "%.\n";
+			message += "[color=green]correcte[/color]. Il est actuellement à " + jauge4 + "%.\n";
 		}
 		else if (jauge4 <= 30)
 		{
@@ -318,6 +316,7 @@ public static class Affichage
 		richTextLabel.Text = message; // Attribue le texte formaté
 		richTextLabel.Visible = true;
 	}
+
 
 	/// <summary>
 	/// Méthode AffichageEtatJour : Affiche un récapitulatif détaillé des jauges pour la journée,
