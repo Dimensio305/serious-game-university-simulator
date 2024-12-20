@@ -16,7 +16,7 @@ public class GestionDb
 
 	// Connexion à la base de données
 	private SQLiteConnection _connection;
-
+	private string filePath = ProjectSettings.GlobalizePath("res://Jeu_court/DB/");
 	/// <summary>
 	/// Constructeur privé GestionDb : pour empêcher la création d'instances directes
 	/// </summary>
@@ -47,11 +47,8 @@ public class GestionDb
 	{
 		try
 		{
-			// Obtenir le chemin du dossier "user://", spécifique à Godot
-			string userPath = OS.GetUserDataDir();
 
-
-			string dbPath = Path.Combine(userPath, "basedonnee.db");
+			string dbPath = Path.Combine(filePath, "basedonnee.db");
 
 			GD.Print(dbPath);
 
@@ -80,7 +77,7 @@ public class GestionDb
 			try
 			{
 				// Construire le chemin vers le fichier SQL
-				string sqlFilePath = Path.Combine(OS.GetUserDataDir(), "supprimer.sql");
+				string sqlFilePath = Path.Combine(filePath, "supprimer.sql");
 
 				// Exécuter le script SQL pour supprimer les données
 				using (SQLiteCommand command = new(System.IO.File.ReadAllText(sqlFilePath), _connection))
@@ -165,7 +162,7 @@ public class GestionDb
 			try
 			{
 				// Construire le chemin vers le fichier SQL
-				string sqlFilePath1 = Path.Combine(OS.GetUserDataDir(), "table.sql");
+				string sqlFilePath1 = Path.Combine(filePath, "table.sql");
 
 				// Lire le contenu du fichier SQL
 				string sqlScript1 = System.IO.File.ReadAllText(sqlFilePath1);
@@ -192,7 +189,7 @@ public class GestionDb
 			try
 			{
 				// Construire le chemin vers le fichier SQL
-				string sqlFilePath1 = Path.Combine(OS.GetUserDataDir(), "contenue.sql");
+				string sqlFilePath1 = Path.Combine(filePath, "contenue.sql");
 
 				// Lire le contenu du fichier SQL
 				string sqlScript1 = File.ReadAllText(sqlFilePath1);
