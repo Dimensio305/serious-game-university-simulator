@@ -16,7 +16,7 @@ public class GestionDb
 
 	// Connexion à la base de données
 	private SQLiteConnection _connection;
-	private string filePath = ProjectSettings.GlobalizePath("res://Jeu_court/DB/");
+	private string filePath = OS.GetUserDataDir();
 	/// <summary>
 	/// Constructeur privé GestionDb : pour empêcher la création d'instances directes
 	/// </summary>

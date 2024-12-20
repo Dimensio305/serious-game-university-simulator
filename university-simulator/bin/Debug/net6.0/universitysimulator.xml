@@ -1152,14 +1152,6 @@
             Do not call this method.
             </summary>
         </member>
-        <member name="M:Chargement.GetGodotPropertyDefaultValues">
-            <summary>
-            Get the default values for all properties declared in this class.
-            This method is used by Godot to determine the value that will be
-            used by the inspector when resetting properties.
-            Do not call this method.
-            </summary>
-        </member>
         <member name="M:Chargement.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
             <inheritdoc/>
         </member>
