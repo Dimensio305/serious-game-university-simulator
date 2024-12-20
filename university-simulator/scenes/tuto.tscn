@@ -102,38 +102,37 @@ theme_override_fonts/bold_font = ExtResource("4_4h5eo")
 bbcode_enabled = true
 
 [node name="Imagerepgauche" type="TextureRect" parent="."]
-visible = false
-offset_left = 141.0
-offset_top = 190.0
-offset_right = 349.0
-offset_bottom = 275.0
+offset_left = 67.0
+offset_top = 200.0
+offset_right = 314.0
+offset_bottom = 298.0
 texture = ExtResource("5_rrsxm")
 expand_mode = 1
 
 [node name="reponsegauche" type="RichTextLabel" parent="Imagerepgauche"]
 layout_mode = 0
 offset_left = 17.0
-offset_top = 24.0
-offset_right = 183.0
-offset_bottom = 64.0
+offset_top = 12.0
+offset_right = 231.0
+offset_bottom = 79.0
 theme_override_fonts/normal_font = ExtResource("4_4h5eo")
 bbcode_enabled = true
 
 [node name="Imagerepdroite" type="TextureRect" parent="."]
 visible = false
-offset_left = 371.0
-offset_top = 192.0
-offset_right = 579.0
-offset_bottom = 274.0
+offset_left = 355.0
+offset_top = 198.0
+offset_right = 581.0
+offset_bottom = 292.0
 texture = ExtResource("5_rrsxm")
 expand_mode = 1
 
 [node name="reponsedroite" type="RichTextLabel" parent="Imagerepdroite"]
 layout_mode = 0
 offset_left = 17.0
-offset_top = 24.0
-offset_right = 183.0
-offset_bottom = 64.0
+offset_top = 9.0
+offset_right = 206.0
+offset_bottom = 83.0
 bbcode_enabled = true
 
 [node name="textlabelordi" type="RichTextLabel" parent="."]
