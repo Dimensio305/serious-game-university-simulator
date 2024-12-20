@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8b40fij0togx"]
+[gd_scene load_steps=8 format=3 uid="uid://b8b40fij0togx"]
 
 [ext_resource type="Texture2D" uid="uid://broomqjnpwirp" path="res://fond_et_titre/rsz_designer_8.jpg" id="1_5q37t"]
 [ext_resource type="Script" path="res://Menu/Chargement.cs" id="2_edy0i"]
 [ext_resource type="Texture2D" uid="uid://beb0desn7dqlq" path="res://fond_et_titre/titre_arrondi_vide_corriger.png" id="2_qrgjg"]
 [ext_resource type="FontFile" uid="uid://bqbvpxndw8l5h" path="res://police/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" id="4_iknn6"]
 [ext_resource type="StyleBox" uid="uid://uo4hh8jvnilg" path="res://texturetest.tres" id="5_08ons"]
+[ext_resource type="AudioStream" uid="uid://cy6pr4djr4h1p" path="res://musique/Musique_Gratuite_Libre_de_Droits_Calme_Entreprise_Corporate_Masteck_Media_-_Light_Corporate_[_YouConvert.net_].wav" id="6_cnrpe"]
 
 [sub_resource type="Theme" id="Theme_bma6s"]
 
@@ -66,4 +67,5 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/fill = ExtResource("5_08ons")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cnrpe")
 autoplay = true

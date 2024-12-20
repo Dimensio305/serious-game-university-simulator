@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddrq4pbm6xai5"]
+[gd_scene load_steps=21 format=3 uid="uid://ddrq4pbm6xai5"]
 
 [ext_resource type="Script" path="res://Menu/coce_i_menu.cs" id="1_w2ej2"]
 [ext_resource type="Texture2D" uid="uid://c615tmleap4vn" path="res://asset/brique/png/rectangle_glossy.png" id="2_7dxee"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c4fegywx2jk0s" path="res://asset/brique/png/element_red_rectangle.png" id="12_1lj83"]
 [ext_resource type="Texture2D" uid="uid://bll7078dexpeo" path="res://asset/icons/PNG/White/1x/musicOn.png" id="13_ac8it"]
 [ext_resource type="Texture2D" uid="uid://rw8yujsfrxey" path="res://asset/icons/PNG/White/1x/gear.png" id="13_phial"]
+[ext_resource type="AudioStream" uid="uid://cy6pr4djr4h1p" path="res://musique/Musique_Gratuite_Libre_de_Droits_Calme_Entreprise_Corporate_Masteck_Media_-_Light_Corporate_[_YouConvert.net_].wav" id="15_5778w"]
 [ext_resource type="Texture2D" uid="uid://e25geuymftiy" path="res://fond_et_titre/titre_ville_corrige.png" id="18_6neh3"]
 [ext_resource type="Texture2D" uid="uid://cw5t2qykpd5lt" path="res://asset/element_yellow_orange.png" id="19_6q71m"]
 
@@ -116,6 +117,7 @@ position = Vector2(26, 28)
 texture = ExtResource("13_ac8it")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_5778w")
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
