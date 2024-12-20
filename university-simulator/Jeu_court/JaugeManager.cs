@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public static class JaugeManager
 {
 	// Score du joueur, mis a jour chaque jour et visible a la fin du jeu
-	private static int _score =-200;
+	private static int _score = -200;
 	// Dictionnaire statique pour stocker les valeurs des jauges
 	private static Dictionary<string, int> jauges = new Dictionary<string, int>
 	{
@@ -29,14 +29,12 @@ public static class JaugeManager
 	/// </summary>
 	/// <param name="jaugeName">Parametre 1 : Le nom de la jauge</param>
 	/// <returns>Retourne :la valeur de la jauge</returns>
-
 	public static int GetJaugeValue(string jaugeName)
 	{
-		
 		return jauges.ContainsKey(jaugeName) ? jauges[jaugeName] : 0;
 	}
 
-	
+
 	/// <summary>
 	/// Methode SetJaugeValue : permet de sauvegarder la valeur d'une jauge
 	/// </summary>
@@ -53,12 +51,13 @@ public static class JaugeManager
 	/// <summary>
 	/// Methode majjour : Sauvegarde les valeur du debut de la journee 
 	/// </summary> 
-	public static void majjour(){
-		_score += JaugeManager.GetJaugeValue("Jauge1") +JaugeManager.GetJaugeValue("Jauge2") +JaugeManager.GetJaugeValue("Jauge3") +JaugeManager.GetJaugeValue("Jauge4");
-		jaugesDebutjournée["Jauge1"] = JaugeManager.GetJaugeValue("Jauge1");
-		jaugesDebutjournée["Jauge2"] = JaugeManager.GetJaugeValue("Jauge2");
-		jaugesDebutjournée["Jauge3"] = JaugeManager.GetJaugeValue("Jauge3");
-		jaugesDebutjournée["Jauge4"] = JaugeManager.GetJaugeValue("Jauge4");
+	public static void UpdateJour()
+	{
+		_score += GetJaugeValue("Jauge1") + GetJaugeValue("Jauge2") + GetJaugeValue("Jauge3") + GetJaugeValue("Jauge4");
+		jaugesDebutjournée["Jauge1"] = GetJaugeValue("Jauge1");
+		jaugesDebutjournée["Jauge2"] = GetJaugeValue("Jauge2");
+		jaugesDebutjournée["Jauge3"] = GetJaugeValue("Jauge3");
+		jaugesDebutjournée["Jauge4"] = GetJaugeValue("Jauge4");
 	}
 
 	/// <summary>
@@ -70,8 +69,13 @@ public static class JaugeManager
 	{
 		return jaugesDebutjournée.ContainsKey(jaugeName) ? jaugesDebutjournée[jaugeName] : 0;
 	}
-	
-	public static int GetScore(){
+
+	/// <summary>
+	/// Methode statique GetScore : permet de récupérer le score du joueur
+	/// </summary>
+	/// <returns> Retourne : le score du joueur</returns>
+	public static int GetScore()
+	{
 		return _score;
 	}
 }

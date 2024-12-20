@@ -44,7 +44,7 @@ public partial class Intermediaire : Node2D
 			Rendezvous nouveauRdv = Rendezvous.GenererRendezVousAleatoire(nbrdv);
 
 			// Vérifie si un rendez-vous similaire existe déjà, sinon l'ajoute à la liste
-			while (rdvdebut.Any(rdv => rdv.composante == nouveauRdv.composante))
+			while (rdvdebut.Any(rdv => rdv.GetComposante() == nouveauRdv.GetComposante()))
 			{
 				nouveauRdv = Rendezvous.GenererRendezVousAleatoire(nbrdv);
 			}
@@ -56,8 +56,6 @@ public partial class Intermediaire : Node2D
 		UpdateTargetTextEdits(_target1, rdvdebut);
 		ReorganizeChildrenInColumn(_target1);
 		UpdateTargetTextEdits(_target1, rdvdebut);
-
-		
 	}
 
 	/// <summary>
@@ -131,7 +129,7 @@ public partial class Intermediaire : Node2D
 		// Vérifie si l'ID du rendez-vous peut être extrait et récupère le rendez-vous correspondant
 		if (int.TryParse(textEdit.Name, out id))
 		{
-			Rendezvous rendezvous = sourceList.Find(rdv => rdv.getId() == id);
+			Rendezvous rendezvous = sourceList.Find(rdv => rdv.GetId() == id);
 			if (rendezvous != null)
 			{
 				// Déplace le rendez-vous dans la liste cible
@@ -151,10 +149,10 @@ public partial class Intermediaire : Node2D
 	}
 
 	/// <summary>
-	/// Methode ReorganizeChildrenInColumn :Réorganise les enfants d'une cible en colonne pour un affichage ordonné.
+	/// Methode ReorganizeChildrenInColumn :Réorganise les enfants d'une cible en colonne pour un Affichage ordonné.
 	/// </summary>
 	/// <param name="target">Parametre 1 : La cible à réorganiser.</param>
-	private void ReorganizeChildrenInColumn(TextureRect target)
+	private static void ReorganizeChildrenInColumn(TextureRect target)
 	{
 		float yOffset = 10;
 		float currentY = 80;
@@ -175,7 +173,7 @@ public partial class Intermediaire : Node2D
 	/// </summary>
 	/// <param name="target">La cible à mettre à jour.</param>
 	/// <param name="rendezvousList">La liste des rendez-vous à afficher.</param>
-	private void UpdateTargetTextEdits(TextureRect target, List<Rendezvous> rendezvousList)
+	private static void UpdateTargetTextEdits(TextureRect target, List<Rendezvous> rendezvousList)
 	{
 		int i = 0;
 		foreach (Node child in target.GetChildren())
@@ -186,7 +184,7 @@ public partial class Intermediaire : Node2D
 
 				// Exemple de rendez-vous
 				string rdv = rendezvousList[i].ToString();
-				string lien = affichage.creationlien(rendezvousList[i].getComposante());
+				string lien = Affichage.Creationlien(rendezvousList[i].GetComposante());
 
 				// Ajouter des bordures et des styles
 				textEdit.Text = $"[center][color=#744116][b]{rdv}[/b]\n{lien}\n[/color][/center]";
@@ -197,9 +195,9 @@ public partial class Intermediaire : Node2D
 	}
 
 	/// <summary>
-	/// Methode  _on_valider_pressed: ère l'action lorsque le bouton "Valider" est pressé. Vérifie si 4 rendez-vous ont été choisis.
+	/// ValiderRDV : Vérifie si 4 rendez-vous ont été choisis.
 	/// </summary>
-	public async void _on_valider_pressed()
+	public async void ValiderRDV()
 	{
 		int textEditCount = 0;
 		foreach (Node child in _target2.GetChildren())
@@ -230,9 +228,9 @@ public partial class Intermediaire : Node2D
 	}
 
 	/// <summary>
-	/// Methode _on_reset_pressed :Réinitialise l'état en déplaçant tous les TextEdit de la cible 2 vers la cible 1.
+	/// ResetRDV : Réinitialise l'état en déplaçant tous les TextEdit de la cible 2 vers la cible 1.
 	/// </summary>
-	public void _on_reset_pressed()
+	public void ResetRDV()
 	{
 		foreach (Node child in _target2.GetChildren())
 		{

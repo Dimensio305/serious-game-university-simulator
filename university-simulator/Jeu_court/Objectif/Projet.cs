@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Godot;
 
 /// <summary>
 /// Représente un projet avec un nom et une description.
@@ -133,7 +132,7 @@ public class Projet
 
 		HashSet<int> indicesUtilises = new HashSet<int>();
 		Random random = new Random();
-		int nombreProjets = random.Next(1, 5); 
+		int nombreProjets = random.Next(1, 5);
 
 		while (projets.Count < nombreProjets)
 		{

@@ -1,96 +1,97 @@
 <?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="style.css"?>
 <doc>
     <assembly>
         <name>university-simulator</name>
     </assembly>
     <members>
-        <member name="T:transition">
+        <member name="T:Transition">
             <summary>
             Classe transition : Gère le changement de scène en fonction du jour actuel.
             </summary>
         </member>
-        <member name="M:transition._Ready">
+        <member name="M:Transition._Ready">
             <summary>
             Méthode _Ready : Appelée lorsque le nœud est prêt.
             Elle charge les textures, gère la transition entre les scènes 
             et applique les actions en fonction du jour actuel.
             </summary>
         </member>
-        <member name="T:transition.MethodName">
+        <member name="T:Transition.MethodName">
             <summary>
             Cached StringNames for the methods contained in this class, for fast lookup.
             </summary>
         </member>
-        <member name="F:transition.MethodName._Ready">
+        <member name="F:Transition.MethodName._Ready">
             <summary>
             Cached name for the '_Ready' method.
             </summary>
         </member>
-        <member name="M:transition.GetGodotMethodList">
+        <member name="M:Transition.GetGodotMethodList">
             <summary>
             Get the method information for all the methods declared in this class.
             This method is used by Godot to register the available methods in the editor.
             Do not call this method.
             </summary>
         </member>
-        <member name="M:transition.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+        <member name="M:Transition.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
             <inheritdoc/>
         </member>
-        <member name="M:transition.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+        <member name="M:Transition.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
             <inheritdoc/>
         </member>
-        <member name="T:transition.PropertyName">
+        <member name="T:Transition.PropertyName">
             <summary>
             Cached StringNames for the properties and fields contained in this class, for fast lookup.
             </summary>
         </member>
-        <member name="M:transition.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+        <member name="M:Transition.SaveGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
             <inheritdoc/>
         </member>
-        <member name="M:transition.RestoreGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
+        <member name="M:Transition.RestoreGodotObjectData(Godot.Bridge.GodotSerializationInfo)">
             <inheritdoc/>
         </member>
-        <member name="T:transition.SignalName">
+        <member name="T:Transition.SignalName">
             <summary>
             Cached StringNames for the signals contained in this class, for fast lookup.
             </summary>
         </member>
-        <member name="T:affichage">
+        <member name="T:Affichage">
             <summary>
             Classe Affichage : elle gere l'affichage dans different element du jeu
             </summary>
         </member>
-        <member name="M:affichage.EcrireTexte(Godot.TextEdit,System.String)">
+        <member name="M:Affichage.EcrireTexte(Godot.TextEdit,System.String)">
             <summary>
             Méthode EcrireTexte : permet d'écrire un texte dans un TextEdit et de le rendre visible.
             </summary>
             <param name="textEdit">Paramètre 1 : Le TextEdit ciblé</param>
             <param name="texte">Paramètre 2 : Le message à écrire</param>
         </member>
-        <member name="M:affichage.AfficherAgenda(System.Collections.Generic.List{Rendezvous},Godot.RichTextLabel)">
+        <member name="M:Affichage.AfficherAgenda(System.Collections.Generic.List{Rendezvous},Godot.RichTextLabel)">
             <summary>
              Methode AfficherAgenda : statique elle permet d'afficher les rdv 
             de la journée dans un texedit de maniere jolie </summary>
             <param name="rendezVousList"> Parametre 1 : La liste des rendez vous</param>
             <param name="textEdit"> Parametre 2 : La textedit visé</param>
         </member>
-        <member name="M:affichage.AfficherProjets(System.Collections.Generic.List{Projet},Godot.TextEdit)">
+        <member name="M:Affichage.AfficherProjets(System.Collections.Generic.List{Projet},Godot.TextEdit)">
             <summary>
             Méthode AfficherProjets : statique elle permet d'afficher les projets dans un TextEdit
             </summary>
             <param name="projets"> Parametre 1: Liste de projets</param>
             <param name="textEditProjets"> Parametre 2 :TextEdit dans lequel afficher les projets</param>
         </member>
-        <member name="M:affichage.AfficherFormations(System.Collections.Generic.List{Formation},Godot.TextEdit,Godot.Panel)">
+        <member name="M:Affichage.AfficherFormations(System.Collections.Generic.List{Formation},Godot.TextEdit,Godot.Panel)">
             <summary>
              Méthode AfficherFormations : statique elle affiche les rendez-vous dans un TextEdit
             </summary>
             <param name="formations"> Parametre 1 : Liste de formations</param>
             <param name="textEditFormations"> Parametre 2 : TextEdit dans lequel afficher les formations</param>
-            <param name="pan"></param> Parametre 3 : panel contenant le textedit <summary>
+            <param name="panel"></param> Parametre 3 : panel contenant le textedit <summary>
             </summary>
         </member>
-        <member name="M:affichage.FinDuJeu(Jauge,Jauge,Jauge,Jauge,Godot.Node)">
+        <member name="M:Affichage.FinDuJeu(Jauge,Jauge,Jauge,Jauge,Godot.Node)">
             <summary>
             Méthode FinDuJeu : Méthode statique qui permet de passer à la scène de fin
             lorsqu'une condition de fin de jeu est atteinte.
@@ -99,32 +100,31 @@
             <param name="j2">Paramètre 2 : Deuxième jauge à surveiller.</param>
             <param name="j3">Paramètre 3 : Troisième jauge à surveiller.</param>
             <param name="j4">Paramètre 4 : Quatrième jauge à surveiller.</param>
-            <param name="jour">Paramètre 5 : Numéro du jour actuel. Le jeu se termine au jour 5.</param>
             <param name="context">Paramètre 6 : Nœud appelant la fonction, utilisé pour changer la scène.</param>
         </member>
-        <member name="M:affichage.ChangeImage(System.String,Godot.TextureRect)">
+        <member name="M:Affichage.ChangeImage(System.String,Godot.TextureRect)">
             <summary>
             Méthode statique ChangeImage : change l'image affichée dans un TextureRect.
             </summary>
             <param name="imagePath">Paramètre 1 : Le chemin de l'image à charger</param>
             <param name="textureRect">Paramètre 2 : Le TextureRect dans lequel afficher l'image</param>
         </member>
-        <member name="M:affichage.creationlien(System.Int32)">
+        <member name="M:Affichage.Creationlien(System.Int32)">
             <summary>
             Méthode creationlien : calcule une moyenne basée sur les valeurs des jauges 
             et retourne un message en fonction de la valeur calculée.
             </summary>
-            <param name="composante">Paramètre 1 : L'identifiant de la composante à traiter</param>
+            <param name="composanteID">Paramètre 1 : L'identifiant de la composante à traiter</param>
             <returns> Retourne : Un message décrivant l'état de la relation basé sur la valeur calculée</returns>
         </member>
-        <member name="M:affichage.AffichageEtat(Godot.RichTextLabel)">
+        <member name="M:Affichage.AffichageEtat(Godot.RichTextLabel)">
             <summary>
             Méthode AffichageEtat : Affiche les états des jauges sous forme de texte formaté
             dans un label, avec un message adapté à la valeur de chaque jauge.
             </summary>
             <param name="richTextLabel">Paramètre 1 : Le label sur lequel le texte formaté sera affiché.</param>
         </member>
-        <member name="M:affichage.AffichageEtatJour(Godot.RichTextLabel)">
+        <member name="M:Affichage.AffichageEtatJour(Godot.RichTextLabel)">
             <summary>
             Méthode AffichageEtatJour : Affiche un récapitulatif détaillé des jauges pour la journée,
             avec les valeurs du matin, les valeurs actuelles, et les variations entre les deux.
@@ -133,7 +133,7 @@
         </member>
         <member name="T:GestionDb">
             <summary>
-             Classe GestionDb : utiliser pour cree une base de donnée , ajouter, accéder, supprimer le contenue de la base de donnée 
+            Classe GestionDb : utiliser pour cree une base de donnée , ajouter, accéder, supprimer le contenue de la base de donnée 
             </summary>
         </member>
         <member name="M:GestionDb.#ctor">
@@ -160,7 +160,7 @@
             <summary>
             Méthode ExecuteRequete : pour exécuter une requête dans la base de donée et retourner le résultat
             </summary>
-            <param name="query">Parametre 1 : Requête SQL à exécuter</param>
+            <param name="requete">Parametre 1 : Requête SQL à exécuter</param>
             <returns>Retourne : le resultat de la requete sous forme de string</returns>
         </member>
         <member name="M:GestionDb.Contenue">
@@ -367,7 +367,7 @@
             <param name="jaugeName">Parametre 1 : le nom de la jauge</param>
             <param name="newValue">Parametre 2 : sauvegarde la valeur de la jauge</param> 
         </member>
-        <member name="M:JaugeManager.majjour">
+        <member name="M:JaugeManager.UpdateJour">
             <summary>
             Methode majjour : Sauvegarde les valeur du debut de la journee 
             </summary> 
@@ -379,30 +379,81 @@
             <param name="jaugeName">Parametre 1 : Le nom de la jauge</param>
             <returns>Retourne : la valeur de cette jauge au debut de la journee</returns>
         </member>
+        <member name="M:JaugeManager.GetScore">
+            <summary>
+            Methode statique GetScore : permet de récupérer le score du joueur
+            </summary>
+            <returns> Retourne : le score du joueur</returns>
+        </member>
         <member name="T:JeuCourt">
             <summary>
-            
+            Classe JeuCourt : Gère le déroulement du jeu court.
             </summary>
         </member>
         <member name="M:JeuCourt._Ready">
             <summary>
-            
+            Appelée lorsque le nœud est prêt.
             </summary>
         </member>
         <member name="M:JeuCourt._Process(System.Double)">
             <summary>
-            
+            Gerer les evenements
             </summary>
             <param name="delta"></param>
         </member>
-        <member name="M:JeuCourt.GérerQuestionAsync">
+        <member name="M:JeuCourt.GereQuestionAsync">
             <summary>
-            
+            Gère les questions de manière asynchrone.
             </summary>
         </member>
-        <member name="M:JeuCourt.gerereponse(Jauge,Jauge,Jauge,Jauge)">
+        <member name="M:JeuCourt.UpdateJauges(Jauge,Jauge,Jauge,Jauge,System.Func{System.String,System.Int32})">
             <summary>
-            
+            Met à jour les jauges en fonction des valeurs obtenues.
+            </summary>
+            <param name="Jauge1"></param>
+            <param name="Jauge2"></param>
+            <param name="Jauge3"></param>
+            <param name="Jauge4"></param>
+            <param name="getValeur"></param>
+        </member>
+        <member name="M:JeuCourt.CacherTousLesTextEdits">
+            <summary>
+            Cache tous les TextEdit.
+            </summary>
+        </member>
+        <member name="M:JeuCourt.CacherElements">
+            <summary>
+            Vérifie si un TextEdit est visible avant de le fermer.
+            </summary>
+        </member>
+        <member name="M:JeuCourt.RendreVisibleFormation">
+            <summary>
+            Rend visible les formations
+            </summary>
+        </member>
+        <member name="M:JeuCourt.RendreVisibleProjet">
+            <summary>
+            Rend visible les projets
+            </summary>
+        </member>
+        <member name="M:JeuCourt.RendreVisibleAgenda">
+            <summary>
+            Rend visible l'agenda
+            </summary>
+        </member>
+        <member name="M:JeuCourt.RendreEtatVisible">
+            <summary>
+            Rend visible l'état de la relation
+            </summary>
+        </member>
+        <member name="M:JeuCourt.GenererFormation">
+            <summary>
+            Genère 5 formations
+            </summary>
+        </member>
+        <member name="M:JeuCourt.GereReponse(Jauge,Jauge,Jauge,Jauge)">
+            <summary>
+            Gère les réponses aux questions et met à jour les jauges en conséquence.
             </summary>
             <param name="J1"></param>
             <param name="J2"></param>
@@ -410,6 +461,21 @@
             <param name="J4"></param> <summary>
             
             </summary>
+        </member>
+        <member name="M:JeuCourt.QuestionSuivante">
+            <summary>
+            Méthode pour passer à la question suivante.
+            </summary>
+        </member>
+        <member name="M:JeuCourt.HandleResponse(Jauge,Jauge,Jauge,Jauge,System.Boolean)">
+            <summary>
+            Met à jour les jauges en fonction de la réponse donnée.
+            </summary>
+            <param name="J1"></param>
+            <param name="J2"></param>
+            <param name="J3"></param>
+            <param name="J4"></param>
+            <param name="isLeft"></param>
         </member>
         <member name="T:JeuCourt.MethodName">
             <summary>
@@ -426,9 +492,9 @@
             Cached name for the '_Process' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.GérerQuestionAsync">
+        <member name="F:JeuCourt.MethodName.GereQuestionAsync">
             <summary>
-            Cached name for the 'GérerQuestionAsync' method.
+            Cached name for the 'GereQuestionAsync' method.
             </summary>
         </member>
         <member name="F:JeuCourt.MethodName.CacherTousLesTextEdits">
@@ -436,44 +502,44 @@
             Cached name for the 'CacherTousLesTextEdits' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.verifieravantdefermer">
+        <member name="F:JeuCourt.MethodName.CacherElements">
             <summary>
-            Cached name for the 'verifieravantdefermer' method.
+            Cached name for the 'CacherElements' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.rendrevisibleformation">
+        <member name="F:JeuCourt.MethodName.RendreVisibleFormation">
             <summary>
-            Cached name for the 'rendrevisibleformation' method.
+            Cached name for the 'RendreVisibleFormation' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.rendrevisibleprojet">
+        <member name="F:JeuCourt.MethodName.RendreVisibleProjet">
             <summary>
-            Cached name for the 'rendrevisibleprojet' method.
+            Cached name for the 'RendreVisibleProjet' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.rendrevisibleagenda">
+        <member name="F:JeuCourt.MethodName.RendreVisibleAgenda">
             <summary>
-            Cached name for the 'rendrevisibleagenda' method.
+            Cached name for the 'RendreVisibleAgenda' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.rendrevisibleetat">
+        <member name="F:JeuCourt.MethodName.RendreEtatVisible">
             <summary>
-            Cached name for the 'rendrevisibleetat' method.
+            Cached name for the 'RendreEtatVisible' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.GenererForma">
+        <member name="F:JeuCourt.MethodName.GenererFormation">
             <summary>
-            Cached name for the 'GenererForma' method.
+            Cached name for the 'GenererFormation' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.gerereponse">
+        <member name="F:JeuCourt.MethodName.GereReponse">
             <summary>
-            Cached name for the 'gerereponse' method.
+            Cached name for the 'GereReponse' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.suiv">
+        <member name="F:JeuCourt.MethodName.QuestionSuivante">
             <summary>
-            Cached name for the 'suiv' method.
+            Cached name for the 'QuestionSuivante' method.
             </summary>
         </member>
         <member name="F:JeuCourt.MethodName.AfficherQuestionSuivante">
@@ -481,24 +547,24 @@
             Cached name for the 'AfficherQuestionSuivante' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.faireavancerletemps">
+        <member name="F:JeuCourt.MethodName.FaireAvancerTemps">
             <summary>
-            Cached name for the 'faireavancerletemps' method.
+            Cached name for the 'FaireAvancerTemps' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.attente">
+        <member name="F:JeuCourt.MethodName.Attente">
             <summary>
-            Cached name for the 'attente' method.
+            Cached name for the 'Attente' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.message">
+        <member name="F:JeuCourt.MethodName.Message">
             <summary>
-            Cached name for the 'message' method.
+            Cached name for the 'Message' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName._on_button_pressed">
+        <member name="F:JeuCourt.MethodName.OnButtonPressed">
             <summary>
-            Cached name for the '_on_button_pressed' method.
+            Cached name for the 'OnButtonPressed' method.
             </summary>
         </member>
         <member name="F:JeuCourt.MethodName.OnButtonLeftPressed">
@@ -509,6 +575,11 @@
         <member name="F:JeuCourt.MethodName.OnButtonRightPressed">
             <summary>
             Cached name for the 'OnButtonRightPressed' method.
+            </summary>
+        </member>
+        <member name="F:JeuCourt.MethodName.HandleResponse">
+            <summary>
+            Cached name for the 'HandleResponse' method.
             </summary>
         </member>
         <member name="M:JeuCourt.GetGodotMethodList">
@@ -544,9 +615,9 @@
             Cached name for the 'recQuestion' field.
             </summary>
         </member>
-        <member name="F:JeuCourt.PropertyName.texteditforma">
+        <member name="F:JeuCourt.PropertyName.textEditFormations">
             <summary>
-            Cached name for the 'texteditforma' field.
+            Cached name for the 'textEditFormations' field.
             </summary>
         </member>
         <member name="F:JeuCourt.PropertyName.TextLabelordi">
@@ -554,9 +625,9 @@
             Cached name for the 'TextLabelordi' field.
             </summary>
         </member>
-        <member name="F:JeuCourt.PropertyName.nbrdv">
+        <member name="F:JeuCourt.PropertyName.nbRdv">
             <summary>
-            Cached name for the 'nbrdv' field.
+            Cached name for the 'nbRdv' field.
             </summary>
         </member>
         <member name="F:JeuCourt.PropertyName.inrdv">
@@ -722,35 +793,35 @@
             <summary>
             Constructeur de la classe Formation.
             </summary>
-            <param name="nom">Parametre 1:Nom de la formation.</param>
-            <param name="effectif">Parametre 2: Effectif total de la formation.</param>
-            <param name="eleve">Parametre 3: Nombre d'élèves inscrits dans la formation.</param>
-            <param name="budget">Parametre 4: Budget alloué à la formation.</param>
-            <param name="option">Parametre 5:Option associée à la formation.</param>
+            <param name="nom">Parametre 1 : Nom de la formation.</param>
+            <param name="effectif">Parametre 2 : Effectif total de la formation.</param>
+            <param name="eleve">Parametre 3 : Nombre d'élèves inscrits dans la formation.</param>
+            <param name="budget">Parametre 4 : Budget alloué à la formation.</param>
+            <param name="option">Parametre 5 : Option associée à la formation.</param>
         </member>
-        <member name="M:Formation.getindex">
+        <member name="M:Formation.getIndex">
             <summary>
             Methode statique getindex : Obtient l'indice actuel utilisé pour générer les formations.
             </summary>
             <returns>L'indice actuel.</returns>
         </member>
-        <member name="M:Formation.setindex(System.Int32)">
+        <member name="M:Formation.setIndex(System.Int32)">
             <summary>
             Methode statique setindex : Définit une nouvelle valeur pour l'indice utilisé dans la génération des formations.
             </summary>
             <param name="value">La nouvelle valeur de l'indice.</param>
         </member>
-        <member name="M:Formation.genereformation">
+        <member name="M:Formation.GenereFormation">
             <summary>
-            Methode statique genereFormation : Génère une nouvelle instance de Formation à partir de la base de données.
+            Methode GenereFormation : Génère une nouvelle formation à partir des données de la base de données.
             </summary>
-            <returns>Retourne :Une instance de la classe Formation remplie avec les données de la base de données.</returns>
+            <returns>Retourne : Une instance de la classe Formation remplie avec les données de la base de données.</returns>
         </member>
         <member name="M:Formation.ToString">
             <summary>
-            Methode ToString : chaîne représentant les informations de la formation.
+            Methode ToString : Retourne une chaîne de caractères représentant la formation.
             </summary>
-            <returns>Retourne :Les détails de la formation sous forme de chaîne.</returns>
+            <returns> Retourne : Une chaîne de caractères représentant la formation.</returns>
         </member>
         <member name="T:Projet">
             <summary>
@@ -848,13 +919,13 @@
             Si l'instance n'existe pas encore, elle est créée.
             </summary>
         </member>
-        <member name="M:Jour.setjour(System.Int32)">
+        <member name="M:Jour.SetJour(System.Int32)">
             <summary>
             Methode setJour :Définit le jour actuel en fonction de son numéro et met à jour le nom du jour.
             </summary>
             <param name="j">Prametre 1 : Numéro du jour (0 pour Lundi, 1 pour Mardi, etc.).</param>
         </member>
-        <member name="M:Jour.Joursuivant">
+        <member name="M:Jour.JourSuivant">
              <summary>
             Methode Joursuivant: Passe au jour suivant. Si le jour actuel est Vendredi (5), retourne à Lundi (0).
              </summary>
@@ -902,17 +973,17 @@
              </summary>
         </member>
         <member name="M:Rendezvous.#ctor(System.DateTime,System.String,System.Int32)">
-             <summary>
-            Constructeur de RendezVous : Initialise une nouvelle instance de la classe <see cref="T:Rendezvous"/> avec la date et description spécifiées.
-             La durée est fixée à 1 heure et 59 minutes.
-             </summary>
-             <param name="date">Parametre 1 : La date et heure de début du rendez-vous.</param>
-             <param name="description">Parametre 2 :La description du rendez-vous.</param>
-             <param name="id">Parametre 3 :L'identifiant unique du rendez-vous.</param>
-        </member>
-        <member name="M:Rendezvous.getId">
             <summary>
-            Methode getid :Obtient l'identifiant unique du rendez-vous.
+            Constructeur de RendezVous : Initialise une nouvelle instance de la classe <see cref="T:Rendezvous"/> avec la date et description spécifiées.
+            La durée est fixée à 1 heure et 59 minutes.
+            </summary>
+            <param name="date">Parametre 1 : La date et heure de début du rendez-vous.</param>
+            <param name="description">Parametre 2 :La description du rendez-vous.</param>
+            <param name="id">Parametre 3 :L'identifiant unique du rendez-vous.</param>
+        </member>
+        <member name="M:Rendezvous.GetId">
+            <summary>
+            Methode GetId : Obtient l'identifiant unique du rendez-vous.
             </summary>
             <returns>L'identifiant unique du rendez-vous.</returns>
         </member>
@@ -935,7 +1006,7 @@
              <param name="id">Parametre 1 : L'identifiant unique du rendez-vous.</param>
              <returns>Retourne : Un objet RendezVous aléatoire pour le jour spécifié.</returns>
         </member>
-        <member name="M:Rendezvous.getComposante">
+        <member name="M:Rendezvous.GetComposante">
              <summary>
             Methode getComposante : Obtient l'identifiant de la composante associée au rendez-vous.
              </summary>
@@ -1295,7 +1366,7 @@
         </member>
         <member name="M:Intermediaire.ReorganizeChildrenInColumn(Godot.TextureRect)">
             <summary>
-            Methode ReorganizeChildrenInColumn :Réorganise les enfants d'une cible en colonne pour un affichage ordonné.
+            Methode ReorganizeChildrenInColumn :Réorganise les enfants d'une cible en colonne pour un Affichage ordonné.
             </summary>
             <param name="target">Parametre 1 : La cible à réorganiser.</param>
         </member>
@@ -1306,14 +1377,14 @@
             <param name="target">La cible à mettre à jour.</param>
             <param name="rendezvousList">La liste des rendez-vous à afficher.</param>
         </member>
-        <member name="M:Intermediaire._on_valider_pressed">
+        <member name="M:Intermediaire.ValiderRDV">
             <summary>
-            Methode  _on_valider_pressed: ère l'action lorsque le bouton "Valider" est pressé. Vérifie si 4 rendez-vous ont été choisis.
+            ValiderRDV : Vérifie si 4 rendez-vous ont été choisis.
             </summary>
         </member>
-        <member name="M:Intermediaire._on_reset_pressed">
+        <member name="M:Intermediaire.ResetRDV">
             <summary>
-            Methode _on_reset_pressed :Réinitialise l'état en déplaçant tous les TextEdit de la cible 2 vers la cible 1.
+            ResetRDV : Réinitialise l'état en déplaçant tous les TextEdit de la cible 2 vers la cible 1.
             </summary>
         </member>
         <member name="T:Intermediaire.MethodName">
@@ -1346,14 +1417,14 @@
             Cached name for the 'ReorganizeChildrenInColumn' method.
             </summary>
         </member>
-        <member name="F:Intermediaire.MethodName._on_valider_pressed">
+        <member name="F:Intermediaire.MethodName.ValiderRDV">
             <summary>
-            Cached name for the '_on_valider_pressed' method.
+            Cached name for the 'ValiderRDV' method.
             </summary>
         </member>
-        <member name="F:Intermediaire.MethodName._on_reset_pressed">
+        <member name="F:Intermediaire.MethodName.ResetRDV">
             <summary>
-            Cached name for the '_on_reset_pressed' method.
+            Cached name for the 'ResetRDV' method.
             </summary>
         </member>
         <member name="M:Intermediaire.GetGodotMethodList">
@@ -1412,6 +1483,22 @@
             <summary>
             Cached StringNames for the signals contained in this class, for fast lookup.
             </summary>
+        </member>
+        <member name="T:Tuto">
+            <summary>
+            Classe Tuto : Gère le tutoriel du jeu.
+            </summary>
+        </member>
+        <member name="M:Tuto._Ready">
+            <summary>
+            Methode _Ready : Appelée lorsque le nœud est prêt.
+            </summary>
+        </member>
+        <member name="M:Tuto._Process(System.Double)">
+            <summary>
+            Methode _Process : Appelée à chaque frame. 'delta' est le temps écoulé depuis le dernier frame.
+            </summary>
+            <param name="delta"></param>
         </member>
         <member name="T:Tuto.MethodName">
             <summary>

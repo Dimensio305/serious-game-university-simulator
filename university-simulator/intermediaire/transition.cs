@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// <summary>
 /// Classe transition : Gère le changement de scène en fonction du jour actuel.
 /// </summary>
-public partial class transition : Node2D
+public partial class Transition : Node2D
 {
 	/// <summary>
 	/// Méthode _Ready : Appelée lorsque le nœud est prêt.
@@ -15,7 +15,7 @@ public partial class transition : Node2D
 	public override async void _Ready()
 	{
 		// Liste des chemins des textures pour chaque jour.
-		List<string> j = new List<string>
+		List<string> jours = new List<string>
 		{
 			"res://asset/jour/1.png",
 			"res://asset/jour/2.png",
@@ -26,9 +26,9 @@ public partial class transition : Node2D
 
 		// Récupère le jour actuel via une instance de la classe Jour.
 		int jourActuel = Jour.Instance.GetJour();
-		
+
 		// Vérifie si le jour actuel est valide et compris dans les limites de la liste.
-		if (jourActuel < 0 || jourActuel >= j.Count)
+		if (jourActuel < 0 || jourActuel >= jours.Count)
 		{
 			GD.PrintErr("Jour hors des limites ! Valeur : " + jourActuel);
 			return;
@@ -36,7 +36,7 @@ public partial class transition : Node2D
 
 		// Charge la texture correspondant au jour actuel et l'applique au nœud TextureRect.
 		TextureRect fond = GetNode<TextureRect>("TextureRect");
-		fond.Texture = GD.Load<Texture2D>(j[jourActuel]);
+		fond.Texture = GD.Load<Texture2D>(jours[jourActuel]);
 
 		// Attend une seconde avant de procéder à la transition vers la prochaine scène.
 		await ToSignal(GetTree().CreateTimer(1), "timeout");

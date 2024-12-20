@@ -7,7 +7,7 @@ using System.IO;
 
 
 /// <summary>
-///  Classe GestionDb : utiliser pour cree une base de donnée , ajouter, accéder, supprimer le contenue de la base de donnée 
+/// Classe GestionDb : utiliser pour cree une base de donnée , ajouter, accéder, supprimer le contenue de la base de donnée 
 /// </summary>
 public class GestionDb
 {
@@ -16,7 +16,6 @@ public class GestionDb
 
 	// Connexion à la base de données
 	private SQLiteConnection _connection;
-
 
 	/// <summary>
 	/// Constructeur privé GestionDb : pour empêcher la création d'instances directes
@@ -51,7 +50,7 @@ public class GestionDb
 			// Obtenir le chemin du dossier "user://", spécifique à Godot
 			string userPath = OS.GetUserDataDir();
 
-			
+
 			string dbPath = Path.Combine(userPath, "basedonnee.db");
 
 			// Créer la chaîne de connexion avec le chemin complet
@@ -78,10 +77,9 @@ public class GestionDb
 		{
 			try
 			{
-
 				// Construire le chemin vers le fichier SQL
 				string sqlFilePath = Path.Combine(OS.GetUserDataDir(), "supprimer.sql");
-				
+
 				// Exécuter le script SQL pour supprimer les données
 				using (SQLiteCommand command = new(System.IO.File.ReadAllText(sqlFilePath), _connection))
 				{
@@ -100,14 +98,14 @@ public class GestionDb
 		}
 	}
 
-	
+
 
 	/// <summary>
 	/// Méthode ExecuteRequete : pour exécuter une requête dans la base de donée et retourner le résultat
 	/// </summary>
-	/// <param name="query">Parametre 1 : Requête SQL à exécuter</param>
+	/// <param name="requete">Parametre 1 : Requête SQL à exécuter</param>
 	/// <returns>Retourne : le resultat de la requete sous forme de string</returns>
-	public string ExecuteRequete(string query)
+	public string ExecuteRequete(string requete)
 	{
 		if (_connection == null || _connection.State != System.Data.ConnectionState.Open)
 		{
@@ -119,7 +117,7 @@ public class GestionDb
 
 		try
 		{
-			using (SQLiteCommand command = new SQLiteCommand(query, _connection))
+			using (SQLiteCommand command = new SQLiteCommand(requete, _connection))
 			{
 				using (SQLiteDataReader reader = command.ExecuteReader())
 				{
@@ -127,7 +125,7 @@ public class GestionDb
 					if (!reader.HasRows)
 					{
 						GD.Print("Aucune valeur trouvée.");
-						GD.Print(query);
+						GD.Print(requete);
 						return "";
 					}
 
@@ -152,8 +150,8 @@ public class GestionDb
 			return $"Erreur : {e.Message}";
 		}
 
-		return result.ToString(); 
-	} 
+		return result.ToString();
+	}
 
 	/// <summary>
 	/// Methode Contenue : crée les tables et les remplits 
@@ -163,20 +161,20 @@ public class GestionDb
 		if (_connection != null && _connection.State == System.Data.ConnectionState.Open)
 		{
 			try
-		{
-			// Construire le chemin vers le fichier SQL
-			string sqlFilePath1 = Path.Combine(OS.GetUserDataDir(), "table.sql");
-			
-			// Lire le contenu du fichier SQL
-			string sqlScript1 = System.IO.File.ReadAllText(sqlFilePath1);
-
-			// Exécuter le script SQL pour charger le contenu
-			using (SQLiteCommand command = new SQLiteCommand(sqlScript1, _connection))
 			{
-				command.ExecuteNonQuery(); 
-				GD.Print("table crée dans la base de données.");
+				// Construire le chemin vers le fichier SQL
+				string sqlFilePath1 = Path.Combine(OS.GetUserDataDir(), "table.sql");
+
+				// Lire le contenu du fichier SQL
+				string sqlScript1 = System.IO.File.ReadAllText(sqlFilePath1);
+
+				// Exécuter le script SQL pour charger le contenu
+				using (SQLiteCommand command = new SQLiteCommand(sqlScript1, _connection))
+				{
+					command.ExecuteNonQuery();
+					GD.Print("table crée dans la base de données.");
+				}
 			}
-		}
 			catch (Exception e)
 			{
 				GD.Print($"Erreur lors de la création des tables : {e.Message}");
@@ -191,20 +189,20 @@ public class GestionDb
 		{
 			try
 			{
-			// Construire le chemin vers le fichier SQL
-			string sqlFilePath1 = Path.Combine(OS.GetUserDataDir(), "contenue.sql");
-			
-			// Lire le contenu du fichier SQL
-			string sqlScript1 = System.IO.File.ReadAllText(sqlFilePath1);
+				// Construire le chemin vers le fichier SQL
+				string sqlFilePath1 = Path.Combine(OS.GetUserDataDir(), "contenue.sql");
 
-			// Exécuter le script SQL pour charger le contenu
-			using (SQLiteCommand command = new SQLiteCommand(sqlScript1, _connection))
-			{
-				command.ExecuteNonQuery(); // Exécute le script
-				GD.Print("table remplis dans la base de données.");
+				// Lire le contenu du fichier SQL
+				string sqlScript1 = File.ReadAllText(sqlFilePath1);
+
+				// Exécuter le script SQL pour charger le contenu
+				using (SQLiteCommand command = new SQLiteCommand(sqlScript1, _connection))
+				{
+					command.ExecuteNonQuery(); // Exécute le script
+					GD.Print("table remplis dans la base de données.");
+				}
 			}
-			}
-		catch (Exception e)
+			catch (Exception e)
 			{
 				GD.Print($"Erreur lors du remplissage des tables : {e.Message}");
 			}
@@ -213,10 +211,5 @@ public class GestionDb
 		{
 			GD.Print("Les tables n'ont pas été remplis.");
 		}
-
 	}
-
-	
-	
-	
-}	
+}

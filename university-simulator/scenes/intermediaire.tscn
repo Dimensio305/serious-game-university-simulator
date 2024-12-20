@@ -259,5 +259,5 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 wrap_mode = 1
 
-[connection signal="pressed" from="valider" to="." method="_on_valider_pressed"]
-[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="valider" to="." method="ValiderRDV"]
+[connection signal="pressed" from="reset" to="." method="ResetRDV"]

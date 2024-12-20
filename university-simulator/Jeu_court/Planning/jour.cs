@@ -1,6 +1,3 @@
-using System;
-using Godot;
-
 /// <summary>
 /// Classe représentant un jour. Instance unique .
 /// </summary>
@@ -24,7 +21,7 @@ public class Jour
 	/// <summary>
 	/// Constructeur privé pour empêcher la création d'instances externes.
 	/// </summary>
-	private Jour() {}
+	private Jour() { }
 
 	/// <summary>
 	/// Propriété statique permettant d'accéder à l'instance unique de la classe Jour.
@@ -46,7 +43,7 @@ public class Jour
 	/// Methode setJour :Définit le jour actuel en fonction de son numéro et met à jour le nom du jour.
 	/// </summary>
 	/// <param name="j">Prametre 1 : Numéro du jour (0 pour Lundi, 1 pour Mardi, etc.).</param>
-	private void setjour(int j)
+	private void SetJour(int j)
 	{
 		this.nb = j;
 
@@ -79,15 +76,15 @@ public class Jour
 	/// <summary>
 	///Methode Joursuivant: Passe au jour suivant. Si le jour actuel est Vendredi (5), retourne à Lundi (0).
 	/// </summary>
-	public void Joursuivant()
+	public void JourSuivant()
 	{
 		if (nb == 5)
 		{
-			setjour(0);
+			SetJour(0);
 		}
 		else
 		{
-			setjour(nb + 1);
+			SetJour(nb + 1);
 		}
 	}
 

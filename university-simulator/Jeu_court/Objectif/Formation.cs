@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Godot;
 
 /// <summary>
@@ -40,16 +39,16 @@ public class Formation
 	/// <summary>
 	/// Indice static index : utilisé pour générer les formations séquentiellement.
 	/// </summary>
-	public static int index = 1;
+	private static int index = 1;
 
 	/// <summary>
 	/// Constructeur de la classe Formation.
 	/// </summary>
-	/// <param name="nom">Parametre 1:Nom de la formation.</param>
-	/// <param name="effectif">Parametre 2: Effectif total de la formation.</param>
-	/// <param name="eleve">Parametre 3: Nombre d'élèves inscrits dans la formation.</param>
-	/// <param name="budget">Parametre 4: Budget alloué à la formation.</param>
-	/// <param name="option">Parametre 5:Option associée à la formation.</param>
+	/// <param name="nom">Parametre 1 : Nom de la formation.</param>
+	/// <param name="effectif">Parametre 2 : Effectif total de la formation.</param>
+	/// <param name="eleve">Parametre 3 : Nombre d'élèves inscrits dans la formation.</param>
+	/// <param name="budget">Parametre 4 : Budget alloué à la formation.</param>
+	/// <param name="option">Parametre 5 : Option associée à la formation.</param>
 	public Formation(string nom, int effectif, int eleve, int budget, string option)
 	{
 		Nom = nom;
@@ -63,7 +62,7 @@ public class Formation
 	/// Methode statique getindex : Obtient l'indice actuel utilisé pour générer les formations.
 	/// </summary>
 	/// <returns>L'indice actuel.</returns>
-	private static int getindex()
+	private static int getIndex()
 	{
 		return index;
 	}
@@ -72,18 +71,18 @@ public class Formation
 	/// Methode statique setindex : Définit une nouvelle valeur pour l'indice utilisé dans la génération des formations.
 	/// </summary>
 	/// <param name="value">La nouvelle valeur de l'indice.</param>
-	private static void setindex(int value)
+	private static void setIndex(int value)
 	{
 		index = value;
 	}
 
 	/// <summary>
-	/// Methode statique genereFormation : Génère une nouvelle instance de Formation à partir de la base de données.
+	/// Methode GenereFormation : Génère une nouvelle formation à partir des données de la base de données.
 	/// </summary>
-	/// <returns>Retourne :Une instance de la classe Formation remplie avec les données de la base de données.</returns>
-	static public Formation genereformation()
+	/// <returns>Retourne : Une instance de la classe Formation remplie avec les données de la base de données.</returns>
+	static public Formation GenereFormation()
 	{
-		int index = getindex();
+		int index = getIndex();
 		GD.Print("Entrer dans genereformation");
 		string n = GestionDb.Instance.ExecuteRequete("select nom from Formation where idformation = " + index.ToString() + ";");
 		GD.Print(n);
@@ -95,14 +94,14 @@ public class Formation
 		GD.Print(b);
 		string o = GestionDb.Instance.ExecuteRequete("select Opt from Formation where idformation = " + index.ToString() + ";");
 		GD.Print(o);
-		setindex(index + 1);
+		setIndex(index + 1);
 		return new Formation(n, e, el, b, o);
 	}
 
 	/// <summary>
-	/// Methode ToString : chaîne représentant les informations de la formation.
+	/// Methode ToString : Retourne une chaîne de caractères représentant la formation.
 	/// </summary>
-	/// <returns>Retourne :Les détails de la formation sous forme de chaîne.</returns>
+	/// <returns> Retourne : Une chaîne de caractères représentant la formation.</returns>
 	public override string ToString()
 	{
 		return $"Formation : {Nom}\n" +

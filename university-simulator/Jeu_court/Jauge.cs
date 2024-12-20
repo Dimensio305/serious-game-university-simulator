@@ -1,12 +1,10 @@
 using Godot;
-using System;
 
 /// <summary>
 /// Classe représentant une jauge de progression dans l'interface utilisateur.
 /// </summary>
-public partial class Jauge : TextureRect 
+public partial class Jauge : TextureRect
 {
-
 	private BoxContainer BoiteBarre;
 	private ProgressBar Barre;
 
@@ -19,9 +17,6 @@ public partial class Jauge : TextureRect
 		BoiteBarre = GetNodeOrNull<BoxContainer>("ConteneurJauge");
 		// Récupère la barre de progression dans le conteneur
 		Barre = BoiteBarre.GetNodeOrNull<ProgressBar>("JaugeProg");
-		
-		
-		
 	}
 
 
@@ -33,9 +28,7 @@ public partial class Jauge : TextureRect
 	/// <param name="Changement">Parametre 1 : La valeur à ajouter à la jauge. Peut être positive ou négative.</param>
 	public void Modif(int Changement)
 	{
-		// Modifie la valeur de la barre de progression
-		Barre.Value = Barre.Value + Changement;
-		
+		Barre.Value += Changement;
 	}
 
 	/// <summary>
@@ -51,7 +44,8 @@ public partial class Jauge : TextureRect
 	/// Methode GetValeur : retourne la valeur de la jauge.
 	/// </summary>
 	/// <returns>Retourne : la valeur de la jauge</returns>
-	public double GetValeur(){
+	public double GetValeur()
+	{
 		return Barre.Value;
 	}
 
