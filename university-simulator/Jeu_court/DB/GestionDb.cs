@@ -53,6 +53,8 @@ public class GestionDb
 
 			string dbPath = Path.Combine(userPath, "basedonnee.db");
 
+			GD.Print(dbPath);
+
 			// Créer la chaîne de connexion avec le chemin complet
 			string connectionString = $"Data Source={dbPath};Version=3;";
 
