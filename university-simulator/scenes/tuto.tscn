@@ -371,7 +371,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pnejq")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1wwqr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_c1kdo")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jdr0v")
-text = "...Ou tu peux appuyer ici (la flèche de droite marche égalemment)"
+text = "...Ou tu peut appuyer ici (la flèche de droite marche égalemment)"
 autowrap_mode = 3
 
 [connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
