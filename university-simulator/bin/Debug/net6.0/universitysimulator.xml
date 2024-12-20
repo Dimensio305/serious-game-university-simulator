@@ -1187,11 +1187,6 @@
             Methode _on_b_court_pressed : Change la scene pour la version courte du jeu
             </summary>
         </member>
-        <member name="M:coce_i_menu._on_b_long_pressed">
-             <summary>
-            _on_b_long_pressed: Change la scene pour la version longue du jeu
-             </summary>
-        </member>
         <member name="M:coce_i_menu._on_b_quittez_pressed">
              <summary>
             Methode _on_b_quittez_pressed Bouton permettant de quitter le jeu 
@@ -1216,11 +1211,6 @@
         <member name="F:coce_i_menu.MethodName._on_b_court_pressed">
             <summary>
             Cached name for the '_on_b_court_pressed' method.
-            </summary>
-        </member>
-        <member name="F:coce_i_menu.MethodName._on_b_long_pressed">
-            <summary>
-            Cached name for the '_on_b_long_pressed' method.
             </summary>
         </member>
         <member name="F:coce_i_menu.MethodName._on_b_quittez_pressed">
