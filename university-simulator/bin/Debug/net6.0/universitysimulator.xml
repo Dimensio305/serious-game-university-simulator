@@ -441,16 +441,6 @@
             Cached name for the 'verifieravantdefermer' method.
             </summary>
         </member>
-        <member name="F:JeuCourt.MethodName.rendrevisibleformation">
-            <summary>
-            Cached name for the 'rendrevisibleformation' method.
-            </summary>
-        </member>
-        <member name="F:JeuCourt.MethodName.rendrevisibleprojet">
-            <summary>
-            Cached name for the 'rendrevisibleprojet' method.
-            </summary>
-        </member>
         <member name="F:JeuCourt.MethodName.rendrevisibleagenda">
             <summary>
             Cached name for the 'rendrevisibleagenda' method.
@@ -459,11 +449,6 @@
         <member name="F:JeuCourt.MethodName.rendrevisibleetat">
             <summary>
             Cached name for the 'rendrevisibleetat' method.
-            </summary>
-        </member>
-        <member name="F:JeuCourt.MethodName.GenererForma">
-            <summary>
-            Cached name for the 'GenererForma' method.
             </summary>
         </member>
         <member name="F:JeuCourt.MethodName.gerereponse">
@@ -542,11 +527,6 @@
         <member name="F:JeuCourt.PropertyName.recQuestion">
             <summary>
             Cached name for the 'recQuestion' field.
-            </summary>
-        </member>
-        <member name="F:JeuCourt.PropertyName.texteditforma">
-            <summary>
-            Cached name for the 'texteditforma' field.
             </summary>
         </member>
         <member name="F:JeuCourt.PropertyName.TextLabelordi">

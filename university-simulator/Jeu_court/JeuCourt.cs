@@ -17,9 +17,7 @@ public partial class JeuCourt : Node2D
 	private Question q = new Question();
 	private TextureRect recQuestion;
 
-	//gestion des formation 
-	private List<Formation> forma;
-	private TextEdit texteditforma;
+	
 
 	// gestion des agenda
 	private Agenda agenda;
@@ -77,9 +75,7 @@ public partial class JeuCourt : Node2D
 		_textEdit.Visible = false;
 
 		panel = GetNode<Panel>("panel");
-		
-
-		texteditforma = GetNode<TextEdit>("panel/TextEdit3");
+	
 		proj = GetNode<TextEdit>("proj");
 		
 			
@@ -87,8 +83,7 @@ public partial class JeuCourt : Node2D
 		// Générer des projets et rendez-vous aléatoires
 		projets = Projet.GenererProjetsAleatoires();
 		agenda = new Agenda();
-		forma = new List<Formation>();
-		GenererForma();
+		
 
 		// Gestion de l'heure
 		horloge = GetNode<TextEdit>("Horloge/horloge");
@@ -152,14 +147,6 @@ public partial class JeuCourt : Node2D
 			rendrevisibleagenda();
 		}
 
-		if (Input.IsActionJustPressed("formation"))
-		{
-			rendrevisibleformation();
-		}
-		//if (Input.IsActionJustPressed("projet"))
-		//{
-		//	rendrevisibleprojet();
-		//}
 		if (Input.IsActionJustPressed("Etat"))
 		{
 			rendrevisibleetat();
@@ -186,7 +173,7 @@ public partial class JeuCourt : Node2D
 		
 		
 
-		if (Input.IsActionJustPressed("Question") && !projetvisible && !texteditforma.Visible && !TextLabelordi.Visible)
+		if (Input.IsActionJustPressed("Question") )
 		{
 				// on a message deux fois sinon on change le message que apres l'arriver de la question
 				//donc decalage entre le message et la question etrange sinon 
@@ -228,7 +215,7 @@ public partial class JeuCourt : Node2D
 		
 		_textEdit.Visible = false;
 		TextLabelordi.Visible = false;
-		texteditforma.Visible = false;
+	
 		buttonLeft.Visible = false;
 		buttonRight.Visible = false;
 		proj.Visible = false;
@@ -246,11 +233,6 @@ public partial class JeuCourt : Node2D
 			buttonRight.Visible = false;
 						
 		}
-		if (texteditforma.Visible )
-		{
-			panel.Visible = false;
-			texteditforma.Visible = false;
-		}
 		if (TextLabelordi.Visible)
 		{
 			TextLabelordi.Visible = false;
@@ -263,59 +245,27 @@ public partial class JeuCourt : Node2D
 		message();
 	}
 
-	private void rendrevisibleformation()
-	{
-		if (!_textEdit.Visible && !TextLabelordi.Visible && !projetvisible)
-		{
-		   
-
-			affichage.AfficherFormations(forma, texteditforma, panel);
-			panel.Visible = true;
-			texteditforma.Visible = true; // Afficher les projets
-		}
-	}
-
-	private void rendrevisibleprojet()
-	{
-		if (!_textEdit.Visible && !TextLabelordi.Visible && !texteditforma.Visible)
-		{
-			
-
-			affichage.AfficherProjets(projets, proj);
-			proj.Visible = true; // Afficher les projets
-			projetvisible= true;
-		}
-	}
-
 	private void rendrevisibleagenda()
 	{
-		if (!_textEdit.Visible && !texteditforma.Visible  && !projetvisible)
-		{
+		
+		
 			
 			affichage.AfficherAgenda(agenda.GetRendezVous(), TextLabelordi);
 			TextLabelordi.Visible = true; // Afficher l'agenda
 			message();
-		}
+		
 	}
 
 	private void rendrevisibleetat()
 	{
-		if (!_textEdit.Visible && !texteditforma.Visible  && !projetvisible)
-		{
+		
 			
 			affichage.AffichageEtat(TextLabelordi);
 			TextLabelordi.Visible = true; // Afficher l'agenda
 			message();
-		}
+		
 	}
 
-	private void GenererForma()
-	{
-		for (int i = 0; i < 5; i++)
-		{
-			forma.Add(Formation.genereformation());
-		}
-	}
 
 /// <summary>
 /// 
@@ -330,7 +280,7 @@ public partial class JeuCourt : Node2D
 	{
 	
 	
-		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible && !texteditforma.Visible  && !TextLabelordi.Visible &&_textEdit.Visible)
+		if (Input.IsActionJustPressed("AnswerLeft") && !projetvisible  && !TextLabelordi.Visible &&_textEdit.Visible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges
 			inQuestion = false;	
@@ -342,7 +292,7 @@ public partial class JeuCourt : Node2D
 			
 			
 		}
-		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible && !texteditforma.Visible  && !TextLabelordi.Visible &&_textEdit.Visible)
+		else if (Input.IsActionJustPressed("AnswerRight") && !projetvisible  && !TextLabelordi.Visible &&_textEdit.Visible)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges
 			inQuestion = false;
@@ -451,9 +401,8 @@ private async Task AfficherMessageIntermediaire()
 		textLabelmessage.Clear();
 		textLabelmessage.BbcodeEnabled = true; // Active le mode BBCode
 		textLabelmessage.Text = "\n\n";
-		textLabelmessage.Text += $"[center][b][color=orange]Vous etes en rendez-vous avec ({agenda.GetRendezVous()[nbrdv].ToString()}) \n Etat de la relation : {affichage.creationlien(agenda.GetRendezVous()[nbrdv].getComposante())}[/color][/b][/center]";
-
-
+		textLabelmessage.Text += $"[center][b][color=orange]Vous etes en rendez-vous avec ({agenda.GetRendezVous()[nbrdv].ToString()})[/b][/color][/center]";
+		textLabelmessage.Text += $"[center][color=orange]\nEtat de la relation : {affichage.creationlien(agenda.GetRendezVous()[nbrdv].getComposante())}[/color][/center]";
 	}
 	else
 	{
@@ -486,10 +435,12 @@ private async Task AfficherMessageIntermediaire()
 		if (isLeft)
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur1); // Mettre à jour les jauges pour la réponse gauche
+			message();
 		}
 		else
 		{
 			MettreÀJourJauges(J1, J2, J3, J4, q.getvaleur2); // Mettre à jour les jauges pour la réponse droite
+			message();
 		}
 
 		inQuestion = false;
