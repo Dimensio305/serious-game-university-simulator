@@ -222,7 +222,7 @@ public static class Affichage
 
 		if (val >= 80)
 		{
-			message = "Vous etes un peu trop proche";
+			message = "Vous êtes un peu trop proche";
 		}
 		else if (val <= 30)
 		{

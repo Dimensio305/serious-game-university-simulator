@@ -62,7 +62,7 @@ public class Rendezvous
 			case "Enseignants":
 				composante = 4;
 				break;
-			case "Service d orientation et d insertion professionnelle":
+			case "Service d'orientation et d'insertion professionnelle":
 				composante = 5;
 				break;
 			case "Secrétariat pédagogique":
@@ -74,13 +74,13 @@ public class Rendezvous
 			case "Ministère":
 				composante = 8;
 				break;
-			case "Cellule de qualité et d évaluation":
+			case "Cellule de qualité et d'évaluation":
 				composante = 9;
 				break;
-			case "Ressources humaine":
+			case "Ressources humaines":
 				composante = 10;
 				break;
-			case "Etudiant":
+			case "Étudiants":
 				composante = 11;
 				break;
 			default:
@@ -129,13 +129,13 @@ public class Rendezvous
 				"Conseil pédagogique",
 				"Service financier",
 				"Enseignants",
-				"Service d orientation et d insertion professionnelle",
+				"Service d'orientation et d'insertion professionnelle",
 				"Secrétariat pédagogique",
 				"Partenaires professionnels",
 				"Ministère",
-				"Cellule de qualité et d évaluation",
-				"Ressources humaine",
-				"Etudiant"
+				"Cellule de qualité et d'évaluation",
+				"Ressources humaines",
+				"Étudiants"
 			};
 
 		// Calcul du jour de la semaine (lundi à vendredi)
