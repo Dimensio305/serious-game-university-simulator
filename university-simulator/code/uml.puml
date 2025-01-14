@@ -2,15 +2,15 @@
 
 Package affichage {
     class Affichage {
-        +EcrireTexte(textEdit : TextEdit ,texte : string )
-        +AfficherAgenda(rendezVousList : List<Rendezvous> ,textEdit : RichTextLabel )
-        +AfficherProjets(projets : RichTextLabel , textEditProjets : TextEdit)
-        +AfficherFormations(formations : List<Formation> ,textEditFormations : TextEdit, panel : Panel)
-        +FinDuJeu(Jauge j1, Jauge j2, Jauge j3, Jauge j4, Node context)
-        +ChangeImage(string imagePath, TextureRect textureRect)
-        +Creationlien(int composanteID) : string
-        +AffichageEtat(RichTextLabel richTextLabel)
-        +AffichageEtatJour(RichTextLabel richTextLabel)
+        +{static}EcrireTexte(textEdit : TextEdit, texte : String):
+        +{static}AfficherAgenda(rendezVousList : List<Rendezvous>, textEdit : RichTextLabel):
+        +{static}AfficherProjets(projets : RichTextLabel , textEditProjets : TextEdit):
+        +{static}AfficherFormations(formations : List<Formation> ,textEditFormations : TextEdit, panel : Panel):
+        +{static}FinDuJeu(j1 : Jauge, j2 : Jauge, j3 : Jauge, j4 : Jauge, context : Node):
+        +{static}ChangeImage(imagePath : String, textureRect : TextureRect):
+        +{static}Creationlien(composanteID : Integer) : String
+        +{static}AffichageEtat(richTextLabel : RichTextLabel):
+        +{static}AffichageEtatJour(richTextLabel : RichTextLabel):
     }
 
     class Transition {
@@ -20,153 +20,164 @@ Package affichage {
 
 Package DB {
     class GestionDb {
-        +Instance : GestionDb
-        +Connect()
-        +Supprimer()
-        +ExecuteRequete(string requete) : string
-        +Contenue()
+        +{static}Instance : GestionDb
+        -Connect():
+        +Supprimer():
+        +ExecuteRequete(requete : String) : String
+        +Contenue():
     }
 }
 
 Package jauge {
     class Jauge {
-        +_Ready()
-        +Modif(int Changement)
-        +SetValeur(int val)
-        +GetValeur() : double
+        +_Ready():
+        +Modif(changement : Integer):
+        +SetValeur(val : Integer):
+        +GetValeur() : Double
     }
 
     class JaugeManager {
-        +GetJaugeValue(string jaugeName) : int
-        +SetJaugeValue(string jaugeName, int newValue)
-        +UpdateJour()
-        +GetJaugeValueMatin(string jaugeName) : int
-        +GetScore() : int
+        +{static}GetJaugeValue(jaugeName : String) : Integer
+        +{static}SetJaugeValue(jaugeName : String, newValue : Integer):
+        +{static}UpdateJour():
+        +{static}GetJaugeValueMatin(jaugeName : String) : Integer
+        +{static}GetScore() : Integer
     }
 }
 
 Package jeu {
     class FinduJeu {
-        +_Ready()
+        +_Ready():
     }
 
     class Intermediaire {
-        +_Ready()
-        +GetRdvFin() : List<Rendezvous>
-        +ValiderRDV()
-        +ResetRDV()
+        +_Ready():
+        +{static}GetRdvFin() : List<Rendezvous>
+        -ConnectGuiInputToChildren(target : TextureRect):
+        -OnGuiInput(inputEvent : InputEvent, clickedTextEdit : RichTextLabel):
+        -MoveTextEditToTarget(textEdit : RichTextLabel, target : TextureRect):
+        -{static}ReorganizeChildrenInColumn(target : TextureRect):
+        -{static}UpdateTargetTextEdits(target : TextureRect, rendezvousList : List<Rendezvous>):
+        +ValiderRDV():
+        +ResetRDV():
     }
 
     class JeuCourt {
-        +_Ready()
-        +_Process(double delta)
-        +OnButtonLeftPressed()
-        +OnButtonRightPressed()
+        +_Ready():
+        +_Process(delta : Double):
+        -OnButtonLeftPressed():
+        -OnButtonRightPressed():
     }
 
     class JeuFacade {
-        +JeuFacade(...)
-        +AfficherQuestion(Question question)
-        +MettreAJourJauges(Jauge Jauge1, Jauge Jauge2, Jauge Jauge3, Jauge Jauge4, Func<string, int> getValeur)
-        +CacherTousLesTextEdits()
-        +CacherElements()
-        +RendreVisibleAgenda()
-        +RendreEtatVisible()
-        +GereReponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4)
-        +QuestionSuivante()
-        +AfficherQuestionSuivante()
-        +AfficherMessageIntermediaire()
-        +FaireAvancerTemps()
-        +Attente()
-        +Message()
-        +HandleResponse(Jauge J1, Jauge J2, Jauge J3, Jauge J4, bool isLeft)
+        +<<create>>JeuFacade(...)
+        +AfficherQuestion(question : Question):
+        +MettreAJourJauges(jauge1 : Jauge, jauge2 : Jauge, jauge3 : Jauge, jauge4 : Jauge, getValeur : Func<string, int>):
+        +CacherTousLesTextEdits():
+        +CacherElements():
+        +RendreVisibleAgenda():
+        +RendreEtatVisible():
+        +GereReponse(j1 : Jauge, j2 : Jauge, j3 : Jauge, j4 : Jauge):
+        +QuestionSuivante():
+        +AfficherQuestionSuivante():
+        +AfficherMessageIntermediaire(): Task
+        +FaireAvancerTemps():
+        +Attente():
+        +Message():
+        +HandleResponse(j1 : Jauge, j2 : Jauge, j3 : Jauge, j4 : Jauge, isLeft : Boolean):
     }
 
     class Tuto {
-        +_Ready()
-        +_Process(double delta)
+        +_Ready():
+        +_Process(delta : Double):
+        -afficherquestion():
+        -messageUpdate():
+        -boutonTuto():
+        -pressEtatMessage(): String
+        -pressAgendaMessage(): String
     }
 }
 
 Package menu {
     class Chargement {
-        +_Ready()
-        +OnStartTimerTimeout()
-        +_Process(double delta)
-        +GoToMenu()
+        +_Ready():
+        -OnStartTimerTimeout():
+        +_Process(delta : Double):
+        -GoToMenu():
     }
 
     class coce_i_menu {
-        +_Ready()
-        +_on_b_court_pressed()
-        +_on_b_quittez_pressed()
-        +_on_b_son_pressed()
+        +_Ready():
+        +_on_b_court_pressed():
+        +_on_b_quittez_pressed():
+        +_on_b_son_pressed():
     }
 }
 
 Package Planning {
     class Agenda {
-        +Agenda()
+        +<<create>>Agenda()
         +GetRendezVous() : List<Rendezvous>
     }
 
     class Jour {
         +Instance : Jour
-        +SetJour(int j)
-        +JourSuivant()
-        +GetJour() : int
-        +GetNom() : string
+        -SetJour(j : Integer):
+        +JourSuivant():
+        +GetJour() : Integer
+        +GetNom() : String
     }
 
     class Rendezvous {
         +Date : DateTime
         +Duree : TimeSpan
-        +Description : string
-        +GetId() : int
+        +Description : String
+        +<<create>>Rendezvous(date : DateTime, description : String, id : Integer)
+        +GetId() : Integer
         +HeureFin() : DateTime
-        +ToString() : string
-        +GenererRendezVousAleatoire(int id) : Rendezvous
-        +GetComposante() : int
+        +ToString() : String
+        +{static}GenererRendezVousAleatoire(id : Integer) : Rendezvous
+        +GetComposante() : Integer
     }
 }
 
 Package Question {
     class Question {
-        +getquestion(int composante) : string
-        +getnbquestion() : int
-        +question_suivante(int composante)
-        +getnumquestion() : int
-        +getvaleur1(string j) : int
-        +getvaleur2(string j) : int
-        +reponse1() : string
-        +reponse2() : string
-        +GetRandomPhrase() : string
-        +GetRandomEndPhrase() : string
+        +<<Create>>Question()
+        +getquestion(composante : Integer) : String
+        +getnbquestion() : Integer
+        +question_suivante(composante : Integer):
+        +getnumquestion() : Integer
+        +getvaleur1(j : String) : Integer
+        +getvaleur2(j : String) : Integer
+        +reponse1() : String
+        +reponse2() : String
+        +GetRandomPhrase() : String
+        +GetRandomEndPhrase() : String
     }
 }
 
-affichage.Affichage ..> Planning.Rendezvous : "affiche" : 0..*
-affichage.Affichage ..> jauge.Jauge : "utilise" : 1..*
-affichage.Affichage ..> jauge.JaugeManager : "gère" : 1
-affichage.Affichage ..> Planning.Jour : "affiche" : 1
-affichage.Transition ..> Planning.Jour : "transitionne" : 1
-DB.GestionDb ..> Question.Question : "contient" : 1
-jauge.JaugeManager o--> jauge.Jauge : "gère" : 1..*
-jeu.FinduJeu ..> jauge.JaugeManager : "utilise" : 1
-jeu.FinduJeu ..> jauge.Jauge : "utilise" : 1..*
-jeu.Intermediaire ..> Planning.Rendezvous : "contient" : 0..*
-jeu.Intermediaire ..> Planning.Jour : "utilise" : 1
-jeu.JeuCourt ..> jeu.JeuFacade : "utilise" : 1
-jeu.JeuFacade ..> Planning.Agenda : "utilise" : 1
-jeu.JeuFacade ..> jauge.Jauge : "utilise" : 1..*
-jeu.JeuFacade ..> Question.Question : "utilise" : 1
-jeu.Tuto ..> jauge.Jauge : "utilise" : 1..*
-menu.Chargement ..> DB.GestionDb : "utilise" : 1
-menu.coce_i_menu ..> DB.GestionDb : "utilise" : 1
-Planning.Agenda *-- Planning.Rendezvous : "contient" : 0..*
-Planning.Agenda ..> jeu.Intermediaire : "utilise" : 1
-Planning.Jour *-- Planning.Rendezvous : "contient" : 0..*
-Question.Question ..> DB.GestionDb : "utilise" : 1
+affichage.Affichage ..> Planning.Rendezvous : <<affiche>>
+affichage.Affichage ..> jauge.Jauge : <<utilise>>
+affichage.Affichage ..> jauge.JaugeManager : <<gère>>
+affichage.Affichage ..> Planning.Jour : <<affiche>>
+affichage.Transition ..> Planning.Jour : <<transitionne>>
+DB.GestionDb ..> Question.Question : <<contient>>
+jauge.JaugeManager *-->"-4\njauges"jauge.Jauge : <<gère>>
+jeu.FinduJeu ..> jauge.JaugeManager : <<utilise>>
+jeu.FinduJeu ..> jauge.Jauge : <<utilise>>
+jeu.Intermediaire ..> Planning.Rendezvous : <<contient>>
+jeu.Intermediaire ..> Planning.Jour : <<utilise>>
+jeu.JeuCourt ..> jeu.JeuFacade : <<utilise>>
+jeu.JeuFacade ..> Planning.Agenda : <<utilise>>
+jeu.JeuFacade ..> jauge.Jauge : <<utilise>>
+jeu.JeuFacade ..> Question.Question : <<utilise>>
+jeu.Tuto ..> jauge.Jauge : <<utilise>>
+menu.Chargement ..> DB.GestionDb : <<utilise>>
+menu.coce_i_menu ..> DB.GestionDb : <<utilise>>
+Planning.Agenda o-->"-n\nrendezVousList"Planning.Rendezvous : <<stocke>>
+Planning.Agenda ..> jeu.Intermediaire : <<utilise>>
+Question.Question ..> DB.GestionDb : <<utilise>>
 
 
 @enduml
