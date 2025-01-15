@@ -1,5 +1,80 @@
 @startuml uml
 
+
+Package Métier {
+Package jauge {
+    class Jauge {
+        +_Ready():
+        +Modif(changement : Integer):
+        +SetValeur(val : Integer):
+        +GetValeur() : Double
+    }
+
+    class JaugeManager {
+        +{static}GetJaugeValue(jaugeName : String) : Integer
+        +{static}SetJaugeValue(jaugeName : String, newValue : Integer):
+        +{static}UpdateJour():
+        +{static}GetJaugeValueMatin(jaugeName : String) : Integer
+        +{static}GetScore() : Integer
+    }
+}
+Package Planning {
+    class Agenda {
+        +<<create>>Agenda()
+        +GetRendezVous() : List<Rendezvous>
+    }
+
+    class Jour {
+        +Instance : Jour
+        -SetJour(j : Integer):
+        +JourSuivant():
+        +GetJour() : Integer
+        +GetNom() : String
+    }
+
+    class Rendezvous {
+        +Date : DateTime
+        +Duree : TimeSpan
+        +Description : String
+        +<<create>>Rendezvous(date : DateTime, description : String, id : Integer)
+        +GetId() : Integer
+        +HeureFin() : DateTime
+        +ToString() : String
+        +{static}GenererRendezVousAleatoire(id : Integer) : Rendezvous
+        +GetComposante() : Integer
+    }
+}
+
+Package Question {
+    class Question {
+        +<<Create>>Question()
+        +getquestion(composante : Integer) : String
+        +getnbquestion() : Integer
+        +question_suivante(composante : Integer):
+        +getnumquestion() : Integer
+        +getvaleur1(j : String) : Integer
+        +getvaleur2(j : String) : Integer
+        +reponse1() : String
+        +reponse2() : String
+        +GetRandomPhrase() : String
+        +GetRandomEndPhrase() : String
+    }
+}
+
+}
+Package DB {
+    class GestionDb {
+        +{static}Instance : GestionDb
+        -Connect():
+        +Supprimer():
+        +ExecuteRequete(requete : String) : String
+        +Contenue():
+    }
+}
+
+
+
+Package Controleur {
 Package affichage {
     class Affichage {
         +{static}EcrireTexte(textEdit : TextEdit, texte : String):
@@ -17,35 +92,21 @@ Package affichage {
         +_Ready()
     }
 }
-
-Package DB {
-    class GestionDb {
-        +{static}Instance : GestionDb
-        -Connect():
-        +Supprimer():
-        +ExecuteRequete(requete : String) : String
-        +Contenue():
-    }
-}
-
-Package jauge {
-    class Jauge {
+Package menu {
+    class Chargement {
         +_Ready():
-        +Modif(changement : Integer):
-        +SetValeur(val : Integer):
-        +GetValeur() : Double
+        -OnStartTimerTimeout():
+        +_Process(delta : Double):
+        -GoToMenu():
     }
 
-    class JaugeManager {
-        +{static}GetJaugeValue(jaugeName : String) : Integer
-        +{static}SetJaugeValue(jaugeName : String, newValue : Integer):
-        +{static}UpdateJour():
-        +{static}GetJaugeValueMatin(jaugeName : String) : Integer
-        +{static}GetScore() : Integer
+    class coce_i_menu {
+        +_Ready():
+        +_on_b_court_pressed():
+        +_on_b_quittez_pressed():
+        +_on_b_son_pressed():
     }
 }
-
-Package jeu {
     class FinduJeu {
         +_Ready():
     }
@@ -98,86 +159,30 @@ Package jeu {
     }
 }
 
-Package menu {
-    class Chargement {
-        +_Ready():
-        -OnStartTimerTimeout():
-        +_Process(delta : Double):
-        -GoToMenu():
-    }
 
-    class coce_i_menu {
-        +_Ready():
-        +_on_b_court_pressed():
-        +_on_b_quittez_pressed():
-        +_on_b_son_pressed():
-    }
-}
 
-Package Planning {
-    class Agenda {
-        +<<create>>Agenda()
-        +GetRendezVous() : List<Rendezvous>
-    }
 
-    class Jour {
-        +Instance : Jour
-        -SetJour(j : Integer):
-        +JourSuivant():
-        +GetJour() : Integer
-        +GetNom() : String
-    }
-
-    class Rendezvous {
-        +Date : DateTime
-        +Duree : TimeSpan
-        +Description : String
-        +<<create>>Rendezvous(date : DateTime, description : String, id : Integer)
-        +GetId() : Integer
-        +HeureFin() : DateTime
-        +ToString() : String
-        +{static}GenererRendezVousAleatoire(id : Integer) : Rendezvous
-        +GetComposante() : Integer
-    }
-}
-
-Package Question {
-    class Question {
-        +<<Create>>Question()
-        +getquestion(composante : Integer) : String
-        +getnbquestion() : Integer
-        +question_suivante(composante : Integer):
-        +getnumquestion() : Integer
-        +getvaleur1(j : String) : Integer
-        +getvaleur2(j : String) : Integer
-        +reponse1() : String
-        +reponse2() : String
-        +GetRandomPhrase() : String
-        +GetRandomEndPhrase() : String
-    }
-}
-
-affichage.Affichage ..> Planning.Rendezvous : <<affiche>>
-affichage.Affichage ..> jauge.Jauge : <<utilise>>
-affichage.Affichage ..> jauge.JaugeManager : <<gère>>
-affichage.Affichage ..> Planning.Jour : <<affiche>>
-affichage.Transition ..> Planning.Jour : <<transitionne>>
-DB.GestionDb ..> Question.Question : <<contient>>
-jauge.JaugeManager *-->"-4\njauges"jauge.Jauge : <<gère>>
-jeu.FinduJeu ..> jauge.JaugeManager : <<utilise>>
-jeu.FinduJeu ..> jauge.Jauge : <<utilise>>
-jeu.Intermediaire ..> Planning.Rendezvous : <<contient>>
-jeu.Intermediaire ..> Planning.Jour : <<utilise>>
-jeu.JeuCourt ..> jeu.JeuFacade : <<utilise>>
-jeu.JeuFacade ..> Planning.Agenda : <<utilise>>
-jeu.JeuFacade ..> jauge.Jauge : <<utilise>>
-jeu.JeuFacade ..> Question.Question : <<utilise>>
-jeu.Tuto ..> jauge.Jauge : <<utilise>>
-menu.Chargement ..> DB.GestionDb : <<utilise>>
-menu.coce_i_menu ..> DB.GestionDb : <<utilise>>
-Planning.Agenda o-->"-n\nrendezVousList"Planning.Rendezvous : <<stocke>>
-Planning.Agenda ..> jeu.Intermediaire : <<utilise>>
-Question.Question ..> DB.GestionDb : <<utilise>>
+Controleur.affichage.Affichage ..> Métier.Planning.Rendezvous : <<affiche>>
+Controleur.affichage.Affichage ..> Métier.jauge.Jauge : <<utilise>>
+Controleur.affichage.Affichage ..> Métier.jauge.JaugeManager : <<gère>>
+Controleur.affichage.Affichage ..> Métier.Planning.Jour : <<affiche>>
+Controleur.affichage.Transition ..> Métier.Planning.Jour : <<transitionne>>
+DB.GestionDb ..> Métier.Question.Question : <<contient>>
+Métier.jauge.JaugeManager *-->"-4\njauges"Métier.jauge.Jauge : <<gère>>
+Controleur.FinduJeu ..> Métier.jauge.JaugeManager : <<utilise>>
+Controleur.FinduJeu ..> Métier.jauge.Jauge : <<utilise>>
+Controleur.Intermediaire ..> Métier.Planning.Rendezvous : <<contient>>
+Controleur.Intermediaire ..> Métier.Planning.Jour : <<utilise>>
+Controleur.JeuCourt ..> Controleur.JeuFacade : <<utilise>>
+Controleur.JeuFacade ..> Métier.Planning.Agenda : <<utilise>>
+Controleur.JeuFacade ..> Métier.jauge.Jauge : <<utilise>>
+Controleur.JeuFacade ..> Métier.Question.Question : <<utilise>>
+Controleur.Tuto ..> Métier.jauge.Jauge : <<utilise>>
+Controleur.menu.Chargement ..> DB.GestionDb : <<utilise>>
+Controleur.menu.coce_i_menu ..> DB.GestionDb : <<utilise>>
+Métier.Planning.Agenda o-->"-n\nrendezVousList"Métier.Planning.Rendezvous : <<stocke>>
+Métier.Planning.Agenda ..> Controleur.Intermediaire : <<utilise>>
+Métier.Question.Question ..> DB.GestionDb : <<utilise>>
 
 
 @enduml
