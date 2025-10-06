@@ -1,51 +1,111 @@
-[gd_scene load_steps=7 format=3 uid="uid://beernvimp8h4f"]
+[gd_scene load_steps=35 format=3 uid="uid://beernvimp8h4f"]
 
 [ext_resource type="Script" path="res://Jeu_court/JeuCourt.cs" id="1_4h6lk"]
-[ext_resource type="Texture2D" uid="uid://b5dpmgoms2ju" path="res://asset/icons/PNG/Black/2x/medal2.png" id="2_7cm1u"]
-[ext_resource type="Texture2D" uid="uid://behm0mom57pth" path="res://asset/pack1/PNG/Yellow/Default/button_rectangle_depth_flat.png" id="2_m6l7w"]
+[ext_resource type="Texture2D" uid="uid://w53gy0k3hv5i" path="res://fond_et_titre/fond_bureau2.png" id="2_f3j7f"]
+[ext_resource type="Texture2D" uid="uid://31iqeo665a68" path="res://asset/jauges/argent.png" id="3_pdm8h"]
 [ext_resource type="Script" path="res://Jeu_court/Jauge.cs" id="4_d56qo"]
-[ext_resource type="Texture2D" uid="uid://cuhfoj8jfap5x" path="res://fond_et_titre/Designer (2).jpeg" id="4_rhb3s"]
+[ext_resource type="StyleBox" uid="uid://cqjo4tjxm1ace" path="res://texture_jauge.tres" id="5_qqfan"]
+[ext_resource type="Texture2D" uid="uid://jqsdpsn7g5mr" path="res://asset/jauges/profs.png" id="6_2qd8o"]
+[ext_resource type="Texture2D" uid="uid://bsixmhe06b8x0" path="res://asset/cahier-ouvert.png" id="6_q2npa"]
+[ext_resource type="Texture2D" uid="uid://dp0inod864iwe" path="res://asset/jauges/insertionPro.png" id="7_4shsu"]
+[ext_resource type="Texture2D" uid="uid://ofyc31kipc0q" path="res://asset/autre/bulle_question.png" id="7_wgo1c"]
+[ext_resource type="FontFile" uid="uid://d1w7hcd0v35vp" path="res://police/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" id="7_whcn6"]
+[ext_resource type="Texture2D" uid="uid://be2oxjowsnumh" path="res://asset/horloge.png" id="8_31e8y"]
+[ext_resource type="Texture2D" uid="uid://btoj1osms6p2g" path="res://asset/autre/reussite.png" id="8_txma1"]
+[ext_resource type="FontFile" uid="uid://qv104t57hkkn" path="res://police/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" id="9_66sx3"]
+[ext_resource type="Texture2D" uid="uid://fd612r2sdb6y" path="res://asset/acteurs/t3_character1.png" id="10_71yln"]
+[ext_resource type="Texture2D" uid="uid://cytkkpsiuqu1p" path="res://asset/autre/bulle_reponse.png" id="10_ubu1l"]
+[ext_resource type="FontFile" uid="uid://nwdj34lv3cpt" path="res://asset/pack1/Font/Kenney Future.ttf" id="10_y4f12"]
+[ext_resource type="Texture2D" uid="uid://beixq2xha7sqs" path="res://asset/autre/blocnote4.png" id="15_lfwjt"]
+[ext_resource type="FontFile" uid="uid://c6ui7gvui4uqo" path="res://asset/pack2/Font/Kenney Future.ttf" id="16_fniwi"]
+[ext_resource type="Texture2D" uid="uid://nq4a0mshlpke" path="res://asset/brique/png/element_green_rectangle.png" id="17_m52hi"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ldu4"]
-texture = ExtResource("2_m6l7w")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4ovt"]
+bg_color = Color(0.929412, 0, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0f1v"]
+bg_color = Color(0.929412, 0, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4hsc"]
+bg_color = Color(0.929412, 0, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cw4sq"]
+bg_color = Color(0.929412, 0, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5fxm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xxwq"]
+texture = ExtResource("10_ubu1l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i8gt4"]
+texture = ExtResource("10_ubu1l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1gseh"]
+texture = ExtResource("10_ubu1l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwksr"]
+texture = ExtResource("10_ubu1l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_to7cl"]
+texture = ExtResource("10_ubu1l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0xcl0"]
+texture = ExtResource("10_ubu1l")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbf0m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1eqhm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rvwp0"]
+texture = ExtResource("15_lfwjt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ifcw"]
+texture = ExtResource("17_m52hi")
 
 [node name="jeu_court" type="Node2D"]
 script = ExtResource("1_4h6lk")
 
 [node name="Background" type="TextureRect" parent="."]
-offset_right = 1152.0
+offset_left = 1.0
+offset_right = 1153.0
 offset_bottom = 648.0
 rotation = -6.28319
-texture = ExtResource("4_rhb3s")
+texture = ExtResource("2_f3j7f")
 expand_mode = 1
 
 [node name="Jauge1" type="TextureRect" parent="."]
 clip_children = 1
-offset_left = 307.0
-offset_top = 1.0
-offset_right = 407.0
-offset_bottom = 101.0
-texture = ExtResource("2_7cm1u")
+offset_left = 46.0
+offset_top = 544.0
+offset_right = 148.0
+offset_bottom = 649.0
+texture = ExtResource("3_pdm8h")
+expand_mode = 1
 script = ExtResource("4_d56qo")
 
 [node name="JaugeValeur" type="Label" parent="Jauge1"]
 layout_mode = 0
-offset_left = 31.0
+offset_left = 1.0
 offset_top = -1.0
-offset_right = 71.0
-offset_bottom = 22.0
+offset_right = 111.0
+offset_bottom = 114.0
 
 [node name="ConteneurJauge" type="BoxContainer" parent="Jauge1"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.54
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -31.0
-offset_right = 33.0
-offset_bottom = 40.0
+anchor_bottom = 0.54
+offset_left = -64.5
+offset_top = -57.34
+offset_right = 53.5
+offset_bottom = 42.66
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -53,26 +113,27 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
+theme_override_styles/background = SubResource("StyleBoxFlat_v4ovt")
+theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Jauge2" type="TextureRect" parent="."]
 clip_children = 1
-offset_left = 389.0
-offset_top = 4.0
-offset_right = 489.0
-offset_bottom = 104.0
-texture = ExtResource("2_7cm1u")
+offset_left = 164.0
+offset_top = 539.0
+offset_right = 271.0
+offset_bottom = 646.0
+texture = ExtResource("6_2qd8o")
 script = ExtResource("4_d56qo")
 
 [node name="JaugeValeur" type="Label" parent="Jauge2"]
 layout_mode = 0
-offset_left = 31.0
+offset_left = 8.0
 offset_top = -1.0
-offset_right = 71.0
-offset_bottom = 22.0
+offset_right = 110.0
+offset_bottom = 122.0
 
 [node name="ConteneurJauge" type="BoxContainer" parent="Jauge2"]
 layout_mode = 1
@@ -81,10 +142,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -31.0
-offset_right = 33.0
-offset_bottom = 40.0
+offset_left = -58.0
+offset_top = -47.5
+offset_right = 55.0
+offset_bottom = 48.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -92,26 +153,27 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
+theme_override_styles/background = SubResource("StyleBoxFlat_v0f1v")
+theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Jauge3" type="TextureRect" parent="."]
 clip_children = 1
-offset_left = 692.0
-offset_top = 1.0
-offset_right = 792.0
-offset_bottom = 101.0
-texture = ExtResource("2_7cm1u")
+offset_left = 940.0
+offset_top = 522.0
+offset_right = 1051.0
+offset_bottom = 640.0
+texture = ExtResource("7_4shsu")
 script = ExtResource("4_d56qo")
 
 [node name="JaugeValeur" type="Label" parent="Jauge3"]
 layout_mode = 0
-offset_left = 31.0
+offset_left = 13.0
 offset_top = -1.0
-offset_right = 71.0
-offset_bottom = 22.0
+offset_right = 103.0
+offset_bottom = 99.0
 
 [node name="ConteneurJauge" type="BoxContainer" parent="Jauge3"]
 layout_mode = 1
@@ -120,9 +182,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -31.0
-offset_right = 33.0
+offset_left = -49.5
+offset_top = -42.0
+offset_right = 49.5
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -131,26 +193,27 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
+theme_override_styles/background = SubResource("StyleBoxFlat_m4hsc")
+theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Jauge4" type="TextureRect" parent="."]
 clip_children = 1
-offset_left = 799.0
-offset_top = 1.0
-offset_right = 899.0
-offset_bottom = 101.0
-texture = ExtResource("2_7cm1u")
+offset_left = 1034.0
+offset_top = 522.0
+offset_right = 1140.0
+offset_bottom = 634.0
+texture = ExtResource("8_txma1")
 script = ExtResource("4_d56qo")
 
 [node name="JaugeValeur" type="Label" parent="Jauge4"]
 layout_mode = 0
-offset_left = 31.0
+offset_left = 21.0
 offset_top = -1.0
-offset_right = 71.0
-offset_bottom = 22.0
+offset_right = 91.0
+offset_bottom = 105.0
 
 [node name="ConteneurJauge" type="BoxContainer" parent="Jauge4"]
 layout_mode = 1
@@ -159,9 +222,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -31.0
-offset_right = 33.0
+offset_left = -33.0
+offset_top = -43.0
+offset_right = 34.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -170,7 +233,220 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/fill = SubResource("StyleBoxTexture_1ldu4")
+theme_override_styles/background = SubResource("StyleBoxFlat_cw4sq")
+theme_override_styles/fill = ExtResource("5_qqfan")
 value = 50.0
 fill_mode = 3
 show_percentage = false
+
+[node name="rectquestion" type="TextureRect" parent="."]
+visible = false
+offset_left = 24.0
+offset_top = -28.0
+offset_right = 843.0
+offset_bottom = 247.0
+rotation = 0.00998413
+texture = ExtResource("7_wgo1c")
+
+[node name="TextEdit" type="TextEdit" parent="rectquestion"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 45.0
+offset_right = 611.0
+offset_bottom = 204.0
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_y4f12")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k5fxm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k5fxm")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_k5fxm")
+text = "
+"
+editable = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="_b_reponse_gauche" type="Button" parent="."]
+visible = false
+offset_left = 8.0
+offset_top = 196.0
+offset_right = 300.0
+offset_bottom = 317.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_y4f12")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_1xxwq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1xxwq")
+autowrap_mode = 3
+
+[node name="_b_reponse_droite" type="Button" parent="."]
+visible = false
+offset_left = 303.0
+offset_top = 198.0
+offset_right = 599.0
+offset_bottom = 320.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_y4f12")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxTexture_i8gt4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_1gseh")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_cwksr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_i8gt4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_1gseh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_i8gt4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_to7cl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_i8gt4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i8gt4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_0xcl0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0xcl0")
+autowrap_mode = 3
+
+[node name="TextLabelordi" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 138.0
+offset_top = 374.0
+offset_right = 498.0
+offset_bottom = 509.0
+rotation = -0.0917437
+
+[node name="TextLabelmessage" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 138.0
+offset_top = 374.0
+offset_right = 498.0
+offset_bottom = 509.0
+rotation = -0.0917437
+
+[node name="panel" type="Panel" parent="."]
+visible = false
+offset_left = 397.0
+offset_top = 176.0
+offset_right = 874.0
+offset_bottom = 618.0
+
+[node name="TextureRect" type="TextureRect" parent="panel"]
+layout_mode = 0
+offset_left = -492.0
+offset_top = -185.0
+offset_right = 819.0
+offset_bottom = 621.0
+texture = ExtResource("6_q2npa")
+
+[node name="TextEdit3" type="TextEdit" parent="panel"]
+visible = false
+layout_mode = 0
+offset_left = 185.0
+offset_top = -25.0
+offset_right = 476.0
+offset_bottom = 444.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_whcn6")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbf0m")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_1eqhm")
+editable = false
+wrap_mode = 1
+
+[node name="Horloge" type="Sprite2D" parent="."]
+position = Vector2(1017, 91)
+scale = Vector2(0.413672, 0.426172)
+texture = ExtResource("8_31e8y")
+
+[node name="horloge" type="TextEdit" parent="Horloge"]
+offset_left = -254.0
+offset_top = -80.0
+offset_right = 261.0
+offset_bottom = 77.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_66sx3")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbf0m")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_1eqhm")
+text = "   08:00
+"
+editable = false
+wrap_mode = 1
+
+[node name="proj" type="TextEdit" parent="."]
+visible = false
+offset_left = 673.0
+offset_top = 152.0
+offset_right = 1010.0
+offset_bottom = 349.0
+editable = false
+wrap_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="personnage" type="TextureRect" parent="."]
+visible = false
+offset_left = 624.0
+offset_top = 182.0
+offset_right = 863.0
+offset_bottom = 515.0
+rotation = -0.000956774
+texture = ExtResource("10_71yln")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 319.0
+offset_top = 14.0
+offset_right = 894.0
+offset_bottom = 614.0
+theme_override_colors/font_selected_color = Color(0.454902, 0.254902, 0.0862745, 1)
+theme_override_colors/font_outline_color = Color(0.454902, 0.254902, 0.0862745, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_rvwp0")
+
+[node name="Button" type="Button" parent="RichTextLabel"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 503.0
+offset_right = 551.0
+offset_bottom = 556.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_fniwi")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxTexture_8ifcw")
+text = "Jour suivant"
+
+[node name="Blocnote4" type="Sprite2D" parent="RichTextLabel"]
+position = Vector2(-395, 388)
+texture = ExtResource("15_lfwjt")
+
+[connection signal="pressed" from="_b_reponse_gauche" to="." method="_on__b_reponse_gauche_pressed"]
+[connection signal="pressed" from="_b_reponse_droite" to="." method="_on__b_reponse_droite_pressed"]
+[connection signal="pressed" from="RichTextLabel/Button" to="." method="OnButtonPressed"]

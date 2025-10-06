@@ -1,0 +1,188 @@
+@startuml uml
+
+
+Package Métier {
+Package jauge {
+    class Jauge {
+        +_Ready():
+        +Modif(changement : Integer):
+        +SetValeur(val : Integer):
+        +GetValeur() : Double
+    }
+
+    class JaugeManager {
+        +{static}GetJaugeValue(jaugeName : String) : Integer
+        +{static}SetJaugeValue(jaugeName : String, newValue : Integer):
+        +{static}UpdateJour():
+        +{static}GetJaugeValueMatin(jaugeName : String) : Integer
+        +{static}GetScore() : Integer
+    }
+}
+Package Planning {
+    class Agenda {
+        +<<create>>Agenda()
+        +GetRendezVous() : List<Rendezvous>
+    }
+
+    class Jour {
+        +Instance : Jour
+        -SetJour(j : Integer):
+        +JourSuivant():
+        +GetJour() : Integer
+        +GetNom() : String
+    }
+
+    class Rendezvous {
+        +Date : DateTime
+        +Duree : TimeSpan
+        +Description : String
+        +<<create>>Rendezvous(date : DateTime, description : String, id : Integer)
+        +GetId() : Integer
+        +HeureFin() : DateTime
+        +ToString() : String
+        +{static}GenererRendezVousAleatoire(id : Integer) : Rendezvous
+        +GetComposante() : Integer
+    }
+}
+
+Package Question {
+    class Question {
+        +<<Create>>Question()
+        +getquestion(composante : Integer) : String
+        +getnbquestion() : Integer
+        +question_suivante(composante : Integer):
+        +getnumquestion() : Integer
+        +getvaleur1(j : String) : Integer
+        +getvaleur2(j : String) : Integer
+        +reponse1() : String
+        +reponse2() : String
+        +GetRandomPhrase() : String
+        +GetRandomEndPhrase() : String
+    }
+}
+
+}
+Package DB {
+    class GestionDb {
+        +{static}Instance : GestionDb
+        -Connect():
+        +Supprimer():
+        +ExecuteRequete(requete : String) : String
+        +Contenue():
+    }
+}
+
+
+
+Package Controleur {
+Package affichage {
+    class Affichage {
+        +{static}EcrireTexte(textEdit : TextEdit, texte : String):
+        +{static}AfficherAgenda(rendezVousList : List<Rendezvous>, textEdit : RichTextLabel):
+        +{static}AfficherProjets(projets : RichTextLabel , textEditProjets : TextEdit):
+        +{static}AfficherFormations(formations : List<Formation> ,textEditFormations : TextEdit, panel : Panel):
+        +{static}FinDuJeu(j1 : Jauge, j2 : Jauge, j3 : Jauge, j4 : Jauge, context : Node):
+        +{static}ChangeImage(imagePath : String, textureRect : TextureRect):
+        +{static}Creationlien(composanteID : Integer) : String
+        +{static}AffichageEtat(richTextLabel : RichTextLabel):
+        +{static}AffichageEtatJour(richTextLabel : RichTextLabel):
+    }
+
+    class Transition {
+        +_Ready()
+    }
+}
+Package menu {
+    class Chargement {
+        +_Ready():
+        -OnStartTimerTimeout():
+        +_Process(delta : Double):
+        -GoToMenu():
+    }
+
+    class coce_i_menu {
+        +_Ready():
+        +_on_b_court_pressed():
+        +_on_b_quittez_pressed():
+        +_on_b_son_pressed():
+    }
+}
+    class FinduJeu {
+        +_Ready():
+    }
+
+    class Intermediaire {
+        +_Ready():
+        +{static}GetRdvFin() : List<Rendezvous>
+        -ConnectGuiInputToChildren(target : TextureRect):
+        -OnGuiInput(inputEvent : InputEvent, clickedTextEdit : RichTextLabel):
+        -MoveTextEditToTarget(textEdit : RichTextLabel, target : TextureRect):
+        -{static}ReorganizeChildrenInColumn(target : TextureRect):
+        -{static}UpdateTargetTextEdits(target : TextureRect, rendezvousList : List<Rendezvous>):
+        +ValiderRDV():
+        +ResetRDV():
+    }
+
+    class JeuCourt {
+        +_Ready():
+        +_Process(delta : Double):
+        -OnButtonLeftPressed():
+        -OnButtonRightPressed():
+    }
+
+    class JeuFacade {
+        +<<create>>JeuFacade(...)
+        +AfficherQuestion(question : Question):
+        +MettreAJourJauges(jauge1 : Jauge, jauge2 : Jauge, jauge3 : Jauge, jauge4 : Jauge, getValeur : Func<string, int>):
+        +CacherTousLesTextEdits():
+        +CacherElements():
+        +RendreVisibleAgenda():
+        +RendreEtatVisible():
+        +GereReponse(j1 : Jauge, j2 : Jauge, j3 : Jauge, j4 : Jauge):
+        +QuestionSuivante():
+        +AfficherQuestionSuivante():
+        +AfficherMessageIntermediaire(): Task
+        +FaireAvancerTemps():
+        +Attente():
+        +Message():
+        +HandleResponse(j1 : Jauge, j2 : Jauge, j3 : Jauge, j4 : Jauge, isLeft : Boolean):
+    }
+
+    class Tuto {
+        +_Ready():
+        +_Process(delta : Double):
+        -afficherquestion():
+        -messageUpdate():
+        -boutonTuto():
+        -pressEtatMessage(): String
+        -pressAgendaMessage(): String
+    }
+}
+
+
+
+
+Controleur.affichage.Affichage ..> Métier.Planning.Rendezvous : <<affiche>>
+Controleur.affichage.Affichage ..> Métier.jauge.Jauge : <<utilise>>
+Controleur.affichage.Affichage ..> Métier.jauge.JaugeManager : <<gère>>
+Controleur.affichage.Affichage ..> Métier.Planning.Jour : <<affiche>>
+Controleur.affichage.Transition ..> Métier.Planning.Jour : <<transitionne>>
+DB.GestionDb ..> Métier.Question.Question : <<contient>>
+Métier.jauge.JaugeManager *-->"-4\njauges"Métier.jauge.Jauge : <<gère>>
+Controleur.FinduJeu ..> Métier.jauge.JaugeManager : <<utilise>>
+Controleur.FinduJeu ..> Métier.jauge.Jauge : <<utilise>>
+Controleur.Intermediaire ..> Métier.Planning.Rendezvous : <<contient>>
+Controleur.Intermediaire ..> Métier.Planning.Jour : <<utilise>>
+Controleur.JeuCourt ..> Controleur.JeuFacade : <<utilise>>
+Controleur.JeuFacade ..> Métier.Planning.Agenda : <<utilise>>
+Controleur.JeuFacade ..> Métier.jauge.Jauge : <<utilise>>
+Controleur.JeuFacade ..> Métier.Question.Question : <<utilise>>
+Controleur.Tuto ..> Métier.jauge.Jauge : <<utilise>>
+Controleur.menu.Chargement ..> DB.GestionDb : <<utilise>>
+Controleur.menu.coce_i_menu ..> DB.GestionDb : <<utilise>>
+Métier.Planning.Agenda o-->"-n\nrendezVousList"Métier.Planning.Rendezvous : <<stocke>>
+Métier.Planning.Agenda ..> Controleur.Intermediaire : <<utilise>>
+Métier.Question.Question ..> DB.GestionDb : <<utilise>>
+
+
+@enduml

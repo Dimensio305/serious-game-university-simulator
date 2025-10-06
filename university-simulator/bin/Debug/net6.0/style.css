@@ -1,0 +1,57 @@
+/* Appliquer une police lisible et une mise en page générale */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  /* Section principale avec un fond blanc, padding et bordure */
+  doc {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Appliquer un style de fond uniforme pour chaque membre avec un léger espacement */
+  member {
+    display: block;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e8f5e9; /* Fond clair pour chaque membre */
+  }
+  
+  
+  /* Style des résumés des classes, méthodes et champs */
+  summary {
+    font-size: 16px;
+    color: #333;
+    margin-top: 5px;
+    padding-left: 20px;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  /* Style pour les paramètres détaillés (avec une indentation supplémentaire) */
+  param {
+    font-size: 14px;
+    color: #555;
+    margin-left: 30px; /* Indentation pour les paramètres */
+    display: block;
+    margin-top: 5px;
+  }
+  
+  /* Séparer chaque membre (classe, méthode, champ) avec un espacement suffisant */
+  member + member {
+    margin-top: 30px;
+  }
+  
+  /* Ajouter des bordures légères et un fond pour chaque résumé ou paramètre pour un contraste plus doux */
+  summary, param {
+    background-color: #f1f1f1;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  
